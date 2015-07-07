@@ -6,20 +6,12 @@ Geopaparazzi User Guide
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    
    01_introduction/introduction
    01_introduction/installation
    02_dashboard/dashboard
 
-..   The Dashboard
-..     Notes
-..     Project Info
-..     Gps Logging
-..     Map View
-..     Import GIS data
-..     Export GIS data
-..   
 ..   The Map View
 ..   Map view tools	
 ..   	The Notes List	

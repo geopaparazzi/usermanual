@@ -28,11 +28,36 @@ The action bar, from right to left, presents the following functions:
 
 * the main menu
 * the info button
-* the gps status access button
+* the gps status application access button
+* the gps status icon 
 
 .. image:: 01_actionbar.png
    :align: center
    :width: 300px
+
+The info button shows information about the used maps folder,
+the current selected map and the status of the gps. If the
+gps has acquired a fix, information about the position is given: 
+
+.. image:: 10_info_button.png
+   :align: center
+   :width: 604px
+
+The gps status application button opens the 
+`GPS Status & Toolbox <https://play.google.com/store/apps/details?id=com.eclipsim.gpsstatus2&hl=en>`_
+app, which gives a lot of information about the gps and is useful 
+in cases in which one waits long for the gps to acquire the fix.
+
+.. image:: 11_gps_status_app.png
+   :align: center
+   :width: 300px
+
+Last but not least, the gps status icon, shows the current status:
+
+* RED: GPS is not switched on
+* ORANGE: GPS is on but no fix was acquired
+* GREEN: GPS is on, has fix, but no log is being recorded
+* BLUE: GPS is logging
 
 .. image:: 02_gps_states.png
    :align: center
@@ -108,8 +133,8 @@ The **example** button in particular shows all the possible form widgets availab
 
 The notes can be saved and modified in a second moment.
 
-To understand how to create forms, have a look at the section 
-dedicated to forms.
+To understand how to create forms, have a look at the 
+:ref:`section dedicated to forms <section-forms>`.
 
 Project Information
 -------------------------
@@ -163,10 +188,157 @@ to verify the action.
 Map View
 -------------------------
 
+The map view presents a map and a set of tools that can be used to navigate 
+the map, make measurements or edit datasets. The various tools are presented 
+in the :ref:`section dedicated to the Map View <section-mapview>`.
+
+ 
+.. figure:: 12_map_view.png
+   :align: center
+   :width: 300px
+
 Import
 -------------------------
 
+
+.. figure:: 13_import.png
+   :align: center
+   :width: 300px
+
+
+Geopaparazzi supports the import of:
+
+* mapurl configuration files for online tiles
+* gpx datasets
+* geopaparazzi cloud projects
+* bookmarks
+* default spatialite databases
+
+Mapurls
+++++++++++
+
+Since the creation of a mapurl configuration file for WMS services is complex,
+a small service has been created, that automatically generates mapurls for known services.
+
+Once chosen the services query view appears:
+
+.. figure:: 14_mapurls.png
+   :align: center
+   :width: 300px
+
+If wanted, the service will consider the device's position to gather 
+only dataset in that area. Also some minor text filters can be added.
+
+An example with the gps placed in Italy is the following:
+
+.. figure:: 15_mapurls.png
+   :align: center
+   :width: 300px
+
+
+The service can then simply be downloaded. It will install the mapurl 
+inside your system. The user is prompted for a custom name to name 
+the service after, else the original name will be used. Since the 
+original name could be duplicated in different services, the 
+prefix "tanto_" will be added in that case.
+
+This service is in an experimental state right now, but it works fairly well. 
+If you experience problems, please report them at 
+`the homepage of the service <http://tanto.github.io/geopapurls/>`_.
+
+The same link also contains instruction about how to suggest to suggest new WMS services.
+
+GPX
++++++
+
+By tabbing on the *GPX* icon, the user is taken to a simple file browser. 
+
+.. figure:: 16_import_gpx.png
+   :align: center
+   :width: 300px
+
+The browser only shows folders and files with gpx extensions. On selection, the 
+file is imported.
+
+Geopaparazzi cloud projects
+++++++++++++++++++++++++++++++
+
+Find more about geopaparazzi web project protocol in the
+:ref:`GeopapBrowser page <section-mcloud>`.
+
+Bookmarks
+++++++++++++
+
+Bookmarks can be imported from csv files that *must be placed in the root of the sdcard*
+and the name of which has to start with the part **bookmarks** and to end with the 
+extension **.csv**.
+
+Geopaparazzi will let the user select the files to import if more than one are available
+and load the bookmarks from there and import only those that do not exist already.
+
+The format of the csv is: **NAME, LATITUDE, LONGITUDE**
+as for example::
+
+    Uscita Vicenza Est, 45.514237, 11.593432
+    Le Bistrot, 46.070037, 11.220296
+    Ciolda, 46.024756, 11.230184
+    Hotel Trieste, 45.642043,13.780791
+    Grassday Trieste,45.65844,13.79320
+
+
+
 Export
--------------------------
+--------------
+
+Geopaparazzi supports the export to the following formats:
+
+* kmz
+* gpx
+* geopaparazzi cloud projects
+* bookmarks
+* images
+
+GPX
++++++
+
+The lines and notes data are exported to gpx, creating tracks and waypoints.
+
+KMZ
++++++
+
+It is possible to export all collected data to kmz format.
+KMZ is well known as it can be visualized in the 3D viewer `Google Earth <http://earth.google.com/>`_.
+
+In the export:
+
+* the notes are placed as red pins having the first letters of the text content as label
+* the images are placed as yellow pins
+* the gps logs are visualized as tracks
+
+Geopaparazzi cloud projects
+++++++++++++++++++++++++++++++++
+
+Find more about geopaparazzi web project protocol in the dedicated page. 
+
+Bookmarks
++++++++++++++++
+
+Bookmarks can be exported to a csv file that has to be called *bookmarks.csv* and 
+must be placed in the root of the sdcard.
+
+Geopaparazzi will write to the file only those bookmarks that do not exist already in the csv. 
+
+Images
++++++++++++
+
+Since images are kept inside the database, this export is handy if the user needs 
+to use the images inside a different software. In this case all the images of the project
+are exported inside a folder and a popup message shows the folder path.
+
+.. figure:: 17_export_img.png
+   :align: center
+   :width: 300px
+
+
 
 
