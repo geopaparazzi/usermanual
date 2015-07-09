@@ -53,7 +53,7 @@ gps has acquired a fix, information about the position is given:
    :align: center
    :width: 604px
 
-   Information shown when tapping the main button.
+   Information shown when tapping the info button.
 
 The gps status application button opens the 
 `GPS Status & Toolbox <https://play.google.com/store/apps/details?id=com.eclipsim.gpsstatus2&hl=en>`_
@@ -78,6 +78,40 @@ Last but not least, the gps status icon, shows the current status:
    :width: 300px
 
    The different gps states available.
+
+.. index:: panic button
+.. _panicbutton:
+
+The panic button
+--------------------
+
+At the opposite end of the actionbar the **Panic Bar** is visible.
+Il can be dragged up and presents 2 big buttons:
+
+* the *PANIC!* button
+* the *send position* button
+
+.. figure:: 02_dashboard/20_panic.png
+   :align: center
+   :width: 300px
+
+   The panic panel.
+
+The panic button sends a request for help sms with the last available GPS
+position to a phone number that can be configured in the :ref:`settings` of geopaparazzi.
+
+If no number is configured, the system sms dialog opens up with a precompiled message
+and the user will have to select the contact to which to send the message:
+
+.. figure:: 02_dashboard/21_panic_sms.png
+   :align: center
+   :width: 300px
+
+
+The send position button opens up the sms dialog directly filling in the position without 
+any request for help message. It is meant for quick sending the current position via sms
+so that it can be opened from Geopaparazzi.
+
 
 .. index:: notes
 .. _notes:
@@ -339,6 +373,37 @@ as for example::
     Ciolda, 46.024756, 11.230184
     Hotel Trieste, 45.642043,13.780791
     Grassday Trieste,45.65844,13.79320
+
+.. index:: default databases
+
+Default databases
++++++++++++++++++++
+
+When tapping the default database import button, the user is asked to name the new 
+database to create. Let's use testdb for the sake of this example:
+
+.. figure:: 02_dashboard/19_mapsforge.png
+   :align: center
+   :width: 300px
+
+Now you will have to restart geopap, sadly that is still required. 
+Once it is done, in the spatialite database view 3 new layer of the database 
+**testdb.sqlite** will be visible:
+
+.. figure:: 02_dashboard/19_mapsforge1.png
+   :align: center
+   :width: 300px
+
+While lines and points won't be of much use in geopap yet, you will find 
+the polygon layer interesting, since it is **editing ready**. Enable editing 
+and edit right away. Since it is a template db, the attributes table have
+been created as generic fields with names from **field1 to field10**. As 
+said, very simple, but still of use when you have to quickly collect some 
+polygon data with attributes.
+
+.. figure:: 02_dashboard/19_mapsforge2.png
+   :align: center
+   :width: 300px
 
 
 .. index:: export

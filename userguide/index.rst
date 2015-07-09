@@ -13,17 +13,6 @@ Contents:
    dashboard
    mapview
 
-..   The Map View
-..   Map view tools	
-..   	The Notes List	
-..   	Add Bookmark	
-..   	The Bookmarks List	
-..   	Measure tool	
-..   	Openstreetmaps tools
-..   The Map View Menu
-..   	Gps data list
-..   	Go to
-..   
 ..   The main menu
 ..   Background maps
 ..   	Vector maps
@@ -34,19 +23,6 @@ Contents:
 ..   Supported tags
 ..   Constrains
 ..   Style
-..   
-..   Import Data
-..   GPX
-..   Geopaparazzi cloud projects
-..   Bookmarks
-..   
-..   Export Data
-..   GPX
-..   KMZ
-..   Geopaparazzi cloud projects
-..   Bookmarks
-..   
-..   The Action Bar
 ..   
 ..   The panic bar
 ..   
