@@ -1,5 +1,10 @@
+.. index:: introduction
+.. _introduction:
+
 Introduction
 ============
+
+.. index:: what is geopaparazzi?
 
 What is Geopaparazzi?
 -------------------------
@@ -8,9 +13,11 @@ Geopaparazzi is a tool developed to do **very fast qualitative** engineering/geo
 Even if the main aim is in the field of surveying, it contains tools that can be 
 of great use also to `OpenStreetMappers`_ as well as tourists that want to keep a geo-diary. 
 
-.. image:: 01_nexus5.png
+.. image:: 01_introduction/01_nexus5.png
    :align: center
    :width: 300px
+
+   Geopaparazzi on the Nexus 5
 
 The main aim of Geopaparazzi is to have a tool that:
 
@@ -29,6 +36,8 @@ The main features available in Geopaparazzi are:
 * form-based data surveys
 * easy export of collected data
 * a map view for navigation with support for raster tiles and spatialite vector data
+
+.. index:: where do I get Geopaparazzi?
 
 Where do I get Geopaparazzi?
 -------------------------------

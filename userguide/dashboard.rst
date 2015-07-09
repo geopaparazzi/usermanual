@@ -1,3 +1,6 @@
+.. index:: dashboard
+.. _dashboard:
+
 The dashboard
 ==============
 
@@ -7,9 +10,11 @@ All the features that need to be quickly accessed, such as toggling GPS on and o
 creating a note or taking a picture, as well as visualizing the current position 
 on a map, are accessible from the dashboard.
 
-.. figure:: 00_dashboard.png
+.. figure:: 02_dashboard/00_dashboard.png
    :align: center
    :width: 300px
+
+   The dashboard of geopaparazzi.
 
 From the dashboard these primary functions can be accessed:
 
@@ -21,6 +26,9 @@ From the dashboard these primary functions can be accessed:
 * import Data
 * export Data
 
+.. index:: actionbar
+.. _actionbar:
+
 Action Bar
 -------------------------
 
@@ -31,26 +39,32 @@ The action bar, from right to left, presents the following functions:
 * the gps status application access button
 * the gps status icon 
 
-.. image:: 01_actionbar.png
+.. figure:: 02_dashboard/01_actionbar.png
    :align: center
    :width: 300px
+
+   The actionbar of the main view.
 
 The info button shows information about the used maps folder,
 the current selected map and the status of the gps. If the
 gps has acquired a fix, information about the position is given: 
 
-.. image:: 10_info_button.png
+.. figure:: 02_dashboard/10_info_button.png
    :align: center
    :width: 604px
+
+   Information shown when tapping the main button.
 
 The gps status application button opens the 
 `GPS Status & Toolbox <https://play.google.com/store/apps/details?id=com.eclipsim.gpsstatus2&hl=en>`_
 app, which gives a lot of information about the gps and is useful 
 in cases in which one waits long for the gps to acquire the fix.
 
-.. image:: 11_gps_status_app.png
+.. figure:: 02_dashboard/11_gps_status_app.png
    :align: center
    :width: 300px
+
+   The free (but not open source) Gps Status & Toolbox app.
 
 Last but not least, the gps status icon, shows the current status:
 
@@ -59,9 +73,14 @@ Last but not least, the gps status icon, shows the current status:
 * GREEN: GPS is on, has fix, but no log is being recorded
 * BLUE: GPS is logging
 
-.. image:: 02_gps_states.png
+.. figure:: 02_dashboard/02_gps_states.png
    :align: center
    :width: 300px
+
+   The different gps states available.
+
+.. index:: notes
+.. _notes:
 
 Notes
 -------------------------
@@ -77,9 +96,11 @@ To access them you can tap on the first icon of the dashboard,
 the *take notes* icon. Once you tap on it, the *take notes* dialog 
 appears:
 
-.. figure:: 03_notes.png
+.. figure:: 02_dashboard/03_notes.png
    :align: center
    :width: 300px
+
+   The view from which notes are taken.
 
 The uppermost button gives the possibility to choose if the note
 will be inserted in the **current gps position** (in case gps is on)
@@ -94,9 +115,11 @@ Below the button, three quick note buttons are presented:
   Remember that the position of the note is taken when the note view is 
   opened, not closed, so you have all the time you need to insert the text. 
 
-.. figure:: 04_textnotes.png
+.. figure:: 02_dashboard/04_textnotes.png
    :align: center
    :width: 300px
+
+   The simple text note view.
 
 * The Quick picture note button, which will launch the camera application 
   that comes with your android system. We decided to switch from our custom 
@@ -115,9 +138,11 @@ Below the button, three quick note buttons are presented:
   
   Once the note has been saved, it can't be changed.
 
-.. figure:: 05_sketchnotes.png
+.. figure:: 02_dashboard/05_sketchnotes.png
    :align: center
    :width: 300px
+
+   An example of taking sketch note.
 
 Form based notes
 +++++++++++++++++++++
@@ -127,14 +152,19 @@ Some examples are available in the base installation of geopaparazzi.
 
 The **example** button in particular shows all the possible form widgets available:
 
-.. figure:: 06_form_based_notes.png
+.. figure:: 02_dashboard/06_form_based_notes.png
    :align: center
    :height: 300px
+
+   An example of form based notes.
 
 The notes can be saved and modified in a second moment.
 
 To understand how to create forms, have a look at the 
 :ref:`section dedicated to forms <section-forms>`.
+
+.. index:: project information
+.. _projectinformation:
 
 Project Information
 -------------------------
@@ -154,9 +184,14 @@ It shows:
 Apart of the dates, that are set by the system, all data can be changed and 
 saved through the save button.
 
-.. figure:: 07_project_info.png
+.. figure:: 02_dashboard/07_project_info.png
    :align: center
    :width: 300px
+
+   The project metadata view.
+
+.. index:: gps logging
+.. _gpslogging:
 
 Gps Logging
 -------------------------
@@ -171,40 +206,49 @@ It is also possible to attach the new log to the last created log by
 checking the box: *Continue last log*. In that case the proposed name 
 of the log (or any user inserted) is ignored, since no new log it created. 
 
-.. figure:: 08_start_logging.png
+.. figure:: 02_dashboard/08_start_logging.png
    :align: center
    :width: 300px
+
+   The new log dialog. From here it is possible to continue the last log.
 
 Once the logging has started, the logging icon will change and present a
 red sign. Also, the gps status icon has turned blue.
  
-.. figure:: 09_logging_on.png
+.. figure:: 02_dashboard/09_logging_on.png
    :align: center
    :width: 300px
 
+   The stop logging button with its red sign.
+
 To stop logging, the same button is used. Once tapped, the user is prompted 
 to verify the action. 
+
 
 Map View
 -------------------------
 
 The map view presents a map and a set of tools that can be used to navigate 
 the map, make measurements or edit datasets. The various tools are presented 
-in the :ref:`section dedicated to the Map View <section-mapview>`.
-
+in the :ref:`section dedicated to the Map View <mapview>`.
  
-.. figure:: 12_map_view.png
+.. figure:: 02_dashboard/12_map_view.png
    :align: center
    :width: 300px
+
+   The map view.
+
+.. index:: import
+.. _import:
 
 Import
 -------------------------
 
-
-.. figure:: 13_import.png
+.. figure:: 02_dashboard/13_import.png
    :align: center
    :width: 300px
 
+   The import view.
 
 Geopaparazzi supports the import of:
 
@@ -214,6 +258,9 @@ Geopaparazzi supports the import of:
 * bookmarks
 * default spatialite databases
 
+.. index:: mapurls
+.. _mapurls:
+
 Mapurls
 ++++++++++
 
@@ -222,16 +269,16 @@ a small service has been created, that automatically generates mapurls for known
 
 Once chosen the services query view appears:
 
-.. figure:: 14_mapurls.png
+.. figure:: 02_dashboard/14_mapurls.png
    :align: center
-   :width: 300px
+   :width: 300px 
 
 If wanted, the service will consider the device's position to gather 
 only dataset in that area. Also some minor text filters can be added.
 
 An example with the gps placed in Italy is the following:
 
-.. figure:: 15_mapurls.png
+.. figure:: 02_dashboard/15_mapurls.png
    :align: center
    :width: 300px
 
@@ -248,12 +295,16 @@ If you experience problems, please report them at
 
 The same link also contains instruction about how to suggest to suggest new WMS services.
 
+
+.. index:: import gpx
+.. _importgpx:
+
 GPX
 +++++
 
 By tabbing on the *GPX* icon, the user is taken to a simple file browser. 
 
-.. figure:: 16_import_gpx.png
+.. figure:: 02_dashboard/16_import_gpx.png
    :align: center
    :width: 300px
 
@@ -265,6 +316,10 @@ Geopaparazzi cloud projects
 
 Find more about geopaparazzi web project protocol in the
 :ref:`GeopapBrowser page <section-mcloud>`.
+
+
+.. index:: import bookmarks
+.. _importbookmarks:
 
 Bookmarks
 ++++++++++++
@@ -286,9 +341,17 @@ as for example::
     Grassday Trieste,45.65844,13.79320
 
 
+.. index:: export
+.. _export:
 
 Export
 --------------
+
+.. figure:: 02_dashboard/18_export.png
+   :align: center
+   :width: 300px
+
+   The export view.
 
 Geopaparazzi supports the export to the following formats:
 
@@ -298,10 +361,18 @@ Geopaparazzi supports the export to the following formats:
 * bookmarks
 * images
 
+
+.. index:: export gpx
+.. _exportgpx:
+
 GPX
 +++++
 
 The lines and notes data are exported to gpx, creating tracks and waypoints.
+
+
+.. index:: kmz
+.. _kmz:
 
 KMZ
 +++++
@@ -320,6 +391,10 @@ Geopaparazzi cloud projects
 
 Find more about geopaparazzi web project protocol in the dedicated page. 
 
+
+.. index:: export bookmarks
+.. _exportbookmarks:
+
 Bookmarks
 +++++++++++++++
 
@@ -328,6 +403,10 @@ must be placed in the root of the sdcard.
 
 Geopaparazzi will write to the file only those bookmarks that do not exist already in the csv. 
 
+
+.. index:: export images
+.. _exportimages:
+
 Images
 +++++++++++
 
@@ -335,9 +414,10 @@ Since images are kept inside the database, this export is handy if the user need
 to use the images inside a different software. In this case all the images of the project
 are exported inside a folder and a popup message shows the folder path.
 
-.. figure:: 17_export_img.png
+.. figure:: 02_dashboard/17_export_img.png
    :align: center
    :width: 300px
+
 
 
 

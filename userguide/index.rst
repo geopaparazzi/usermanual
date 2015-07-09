@@ -8,9 +8,10 @@ Contents:
 .. toctree::
    :maxdepth: 3
    
-   01_introduction/introduction
-   01_introduction/installation
-   02_dashboard/dashboard
+   introduction
+   installation
+   dashboard
+   mapview
 
 ..   The Map View
 ..   Map view tools	
