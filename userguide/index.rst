@@ -10,23 +10,21 @@ Contents:
    
    introduction
    installation
-   dashboard
+   main_view
+   main_view_menu
    mapview
+   mapview_menu
+   settings
+   database
 
-..   The main menu
 ..   Background maps
 ..   	Vector maps
 ..   	Custom tiles based maps
-..   Preferences
 ..   
 ..   Form based notes
 ..   Supported tags
 ..   Constrains
 ..   Style
-..   
-..   The panic bar
-..   
-..   The main menu
 ..   
 ..   Tiles preparation
 ..   JGrasstools
@@ -37,10 +35,6 @@ Contents:
 ..   Spatialite Support
 ..   Data preparation
 ..   Style
-..   
-..   Database tables described
-..   Point
-..   GPS
 
 * :ref:`search`
 * :ref:`genindex`
