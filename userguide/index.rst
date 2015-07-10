@@ -3,10 +3,8 @@
 Geopaparazzi User Guide
 =======================
 
-Contents:
-
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    
    introduction
    installation
@@ -15,7 +13,10 @@ Contents:
    mapview
    mapview_menu
    settings
+   maps
+   maps_handling
    database
+
 
 ..   Background maps
 ..   	Vector maps

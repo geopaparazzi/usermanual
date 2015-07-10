@@ -99,6 +99,7 @@ This can be used for those devices that have more than one external storage reco
 Use it at your own risk. We use it regularly, but it needs to be done properly.
 
 .. index:: custom maps folder
+.. _custommapsfolder:
 
 Custom maps folder
 ++++++++++++++++++++++++++++

@@ -71,8 +71,30 @@ Available tools are:
 
    The map view with all map tools visible.
 
+Map navigation
+------------------
+
+The navigation of the map is probably the most basic and important part.
+
+* **pan**: panning of the map, i.e. moving the map around is simply done
+  by dragging the map with a finger. While panning, the current 
+  longitude and latitude of the map center are displayed.
+  
+.. figure:: 03_mapview/29_pan_coords.png
+   :align: center
+   :width: 300px
+
+
+* **zoom**: zoom in and out can be done in different ways. There are 
+  the zoom in/out buttons at the lower right part of the map. It is also
+  possible to zoom in by double-tapping on the map. Zoom in and out can
+  also be achived through `pinch-zoom gestures <https://en.wikipedia.org/wiki/Multi-touch>`_.
+* **center on gps**: through the lower center button it is possible 
+  to center the map on the gps position. The button also shows the status of the GPS
+  the same way as the icon :ref:`on the main view's action bar <actionbar>`.
+
 Add Notes
-+++++++++++++++++++
+------------------
 
 .. figure:: 02_dashboard/03_notes.png
    :align: center
@@ -95,7 +117,7 @@ For further information about taking notes, visit the :ref:`notes section<notes>
 .. _noteslist:
 
 The Notes List
-+++++++++++++++++++
+------------------
 
 The notes list shows all the available notes, both text and image notes.
 
@@ -154,7 +176,7 @@ From the all-notes submenu the user can:
 .. _addbookmarks:
 
 Add Bookmark
-+++++++++++++++++++
+------------------
 
 Bookmarks are in a layer on their own, that contains saved settings of the current map view.
 When a bookmark is added, the user is prompted to insert a name for the bookmark
@@ -190,7 +212,7 @@ It is possible to tap on the bookmark to read its label.
 .. _bookmarkslist:
 
 The Bookmarks List
-+++++++++++++++++++++++
+------------------
 
 The bookmarks list shows all the saved bookmarks.
 
@@ -214,7 +236,7 @@ The user has 4 options, as the icons on each bookmark entry shows:
 .. _measuretool:
 
 Measure tool
-+++++++++++++++++
+------------------
 
 Activating the measure tool puts the app in measure mode. This mode disables 
 the ability to pan the map while enabling
@@ -231,6 +253,38 @@ When active, the measure tool has a red colored icon, when inactive the icon is 
    :width: 300px
 
    An example of qualitative measurement on the map.
+
+.. index:: gps log analysis tool
+.. _gpsloganalysistool:
+
+Gps log analysis tool
+-------------------------
+
+Apart of charting the log it is possible to analyze the various positions of 
+a gps log. The tool to do so is hidden behind the editing tools button.
+
+If no editing layer is enabled, only two tools appear in the editing tools
+bar. The lower one is the one that can be used to analize the logs:
+
+.. figure:: 03_mapview/28_gps_log_analysis1.png
+   :align: center
+   :width: 300px
+
+Once enabled, one can simply touch the screen near a gps log and information about 
+the nearest log point will be shown. Also the color of the text will be the one of 
+the currently queried log:
+
+.. figure:: 03_mapview/28_gps_log_analysis.png
+   :align: center
+   :width: 300px
+
+
+
+
+
+
+
+
 
 
 
