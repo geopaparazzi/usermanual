@@ -123,7 +123,7 @@ html_theme_options = {
 #html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = "Geopaparazzi, because not all paparazzis are evil!"
+#html_short_title = "Geopaparazzi, because not all paparazzis are evil!"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -141,7 +141,7 @@ html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-#html_last_updated_fmt = '%b %d, %Y'
+html_last_updated_fmt = '%b %d, %Y'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -189,21 +189,21 @@ htmlhelp_basename = 'Geopaparazzidoc'
 # -- Options for LaTeX output --------------------------------------------------
 
 # The paper size ('letter' or 'a4').
-#latex_paper_size = 'letter'
+latex_paper_size = 'a4'
 
 # The font size ('10pt', '11pt' or '12pt').
-#latex_font_size = '10pt'
+latex_font_size = '10pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-#latex_documents = [
-#  ('index', 'Geopaparazzi.tex', u'Geopaparazzi Documentation',
-#   u'HydroloGIS', 'manual'),
-#]
+latex_documents = [
+  ('index', 'Geopaparazzi.tex', u'Geopaparazzi Documentation',
+   u'HydroloGIS', 'manual'),
+]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = None
+latex_logo = "./ic_launcher.png"
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
