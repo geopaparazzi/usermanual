@@ -15,26 +15,13 @@ Geopaparazzi User Guide
    settings
    maps
    maps_handling
+   forms
    database
+   use_case_egypt
 
-
-..   Background maps
-..   	Vector maps
-..   	Custom tiles based maps
-..   
-..   Form based notes
-..   Supported tags
-..   Constrains
-..   Style
-..   
-..   Tiles preparation
-..   JGrasstools
-..   GDAL
-..   
 ..   Cloud shared projects
 ..   POST and GET specs
 ..   Spatialite Support
-..   Data preparation
 ..   Style
 
 * :ref:`search`
