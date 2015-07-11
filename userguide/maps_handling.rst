@@ -35,9 +35,11 @@ STAGE can be `downloaded from the github releases page <http://git.io/stage_rele
 Steps:
 
 * copy the zip file in a folder:
+
  - stage_0.7_win64.zip for 64 bits windows operating systems
  - stage_0.7_win32.zip for 32 bits windows operating systems
  - stage_0.7_lin64.zip for 64 bits linux operating systems
+
 * unzip the file in a folder
 * enter the unzipped folder
 * run the Stage application (ex. stage.exe for windows)

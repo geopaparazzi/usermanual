@@ -195,7 +195,7 @@ The **example** button in particular shows all the possible form widgets availab
 The notes can be saved and modified in a second moment.
 
 To understand how to create forms, have a look at the 
-:ref:`section dedicated to forms <section-forms>`.
+:ref:`section dedicated to forms <forms>`.
 
 .. index:: project information
 .. _projectinformation:
@@ -250,6 +250,7 @@ of the log (or any user inserted) is ignored, since no new log it created.
    :width: 300px
 
    The panic panel.
+
 Once the logging has started, the logging icon will change and present a
 red sign. Also, the gps status icon has turned blue.
  
@@ -325,7 +326,7 @@ The service can then simply be downloaded. It will install the mapurl
 inside your system. The user is prompted for a custom name to name 
 the service after, else the original name will be used. Since the 
 original name could be duplicated in different services, the 
-prefix "tanto_" will be added in that case.
+prefix *tanto\_* will be added in that case.
 
 This service is in an experimental state right now, but it works fairly well. 
 If you experience problems, please report them at 
@@ -352,8 +353,7 @@ file is imported.
 Geopaparazzi cloud projects
 ++++++++++++++++++++++++++++++
 
-Find more about geopaparazzi web project protocol in the
-:ref:`GeopapBrowser page <section-mcloud>`.
+**This section needs to be done...**
 
 
 .. index:: import bookmarks
