@@ -10,36 +10,61 @@ with the extension **.gpap**.
 Database tables described
 ----------------------------
 
+Metadata
+++++++++++++
+
+============    ====================================
+key             key for the record
+value           value for the record
+============    ====================================
+
+
 Point
 ++++++
 
 notes
 ~~~~~~~~
 
-======   ====================================
- _id     unique id               
-lon      longitude of the note 
-lat      latitude of the note 
-altim    elevation 
-ts       timestamp 
-text     text of the note 
-cat      category of the note 
-type     type of the note (normal or OSM) 
-======   ====================================
+============    ====================================
+ _id            unique id               
+lon             longitude of the note 
+lat             latitude of the note 
+altim           elevation 
+ts              timestamp 
+description     description of the note 
+text            text of the note 
+form            the form data
+isdirty         is dirty field (0 = false, 1 = true)
+style           style of the note
+============    ====================================
+
+style and isdirty are currently unused.
 
 images
 ~~~~~~~~
 
-======   =================================================================
- _id     unique id               
-lon      longitude of the image 
-lat      latitude of the image 
-altim    elevation 
-azim     azimuth 
-path     the relative path of the image inside the application folder 
-ts       timestamp 
-text     text of the note 
-======   =================================================================
+============    =================================================================
+ _id            unique id               
+lon             longitude of the image 
+lat             latitude of the image 
+altim           elevation 
+ts              timestamp 
+azim            azimuth 
+text            text of the note 
+isdirty         is dirty field (0 = false, 1 = true)
+note_id         an optional note id, to which it is bound to
+imagedate_id    id of the connected image data  
+============    =================================================================
+
+imagedata
+~~~~~~~~~~
+
+============    =================================================================
+ _id            unique id               
+data            the image data
+thumbnail       the image thumbnail data
+============    =================================================================
+
 
 bookmarks
 ~~~~~~~~~~~~
@@ -66,6 +91,8 @@ gpslogs
  _id      unique id               
 startts   log start timestamp 
 endts     log end timestamp 
+lengthm   the length in meters
+isdirty   is dirty field (0 = false, 1 = true)
 text      name of the log 
 =======   =================================================================
 
@@ -88,7 +115,7 @@ gpslogsproperties
  _id      unique id               
 logid     id of the log the properties are part of 
 color     the color to use to draw the log  
- width    the width to use to draw the log 
+width     the width to use to draw the log 
 visible   flag that defines if the log is visible at the time given 
 =======   =================================================================
 

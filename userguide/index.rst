@@ -1,5 +1,3 @@
-.. Geopaparazzi user guide
-
 Geopaparazzi User Guide
 =======================
 
@@ -19,9 +17,7 @@ Geopaparazzi User Guide
    database
    use_case_egypt
 
-..   Cloud shared projects
-..   POST and GET specs
-..   Spatialite Support
+..   Spatialite
 ..   Style
 
 * :ref:`search`
