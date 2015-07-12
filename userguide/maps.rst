@@ -9,8 +9,8 @@ The maps supported can be of several types, vector or raster, editable or static
 There are two big categories of map types that need to be considered 
 in Geopaparazzi: 
 
- * basemaps: the background map in the map view
- * overlay maps: vector maps that can be shown on top of the basemaps
+ * **basemaps**: the background map in the map view
+ * **overlay maps**: vector maps that can be shown on top of the basemaps
 
 All the maps need to be placed in the maps folder, which resides in a 
 folder called *maps* in the **root of the sdcard**, if it is not changed 
@@ -22,10 +22,10 @@ For the preparation of datasets listed in the following sections, refer to the
 Basemaps
 -----------------
 
-Basemaps can be of 4 diffenrent types:
+Basemaps can be of 4 different types:
 
 * mapsforge maps
-* maprurls
+* mapurls
 * mbtiles
 * rasterlite2
 

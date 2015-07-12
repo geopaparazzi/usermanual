@@ -10,9 +10,9 @@ Introduction
 Have you ever tried to type in google: *sanitation maps, sanitation coverage, sanitation or inventory tracking*?
 
 It is interesting to note that the agencies managing the wastewater treatment plants in the United States 
-and Canada monitor and continuously update the inventory of small delocalized plants in order to optimize 
-their management, while the numerous development agencies that deal with *sanitation in developing countries*
-express and declare the state of inadequacy of the system of waste treatment but do not quantify the state of art. 
+and Canada **monitor and continuously update the inventory of small delocalized plants in order to optimize 
+their management**, while the numerous development agencies that deal with *sanitation in developing countries*
+express and declare the **state of inadequacy** of the system of waste treatment but **do not quantify the state of art**. 
 
 The management of small treatment plants of domestic sewage in decentralized communities is an
 issue with different perspectives. In any place on earth it involves many actors, linking **technical to cultural,
@@ -25,8 +25,8 @@ linked by a waterway that carries waste from upstream to valley, it is not immed
 that all these places (due to the presence of man and animal) are a source of biomass.
 They are a sources of waste and organic material that often brings a high and invisible pathogenic charge.
 
-Many projects related to developing countries today focus the attention on the proper disposal 
-of the waste prevention as fundamental for the health of the inhabitants. Numerous agencies and 
+**Many projects related to developing countries today focus the attention on the proper disposal 
+of the waste and on prevention as fundamental for the health of the inhabitants.** Numerous agencies and 
 associations dedicated to development cooperation have shown that untreated wastewater spilled 
 into the surrounding environment without any attention is the primary vector of diseases and 
 therefore often of epidemics in areas with deficits at levels of hygiene and public health
@@ -36,22 +36,24 @@ therefore often of epidemics in areas with deficits at levels of hygiene and pub
 The target C of the seventh Millennium Development Goal aimed to halve by 2015 the proportion 
 of people without sustainable access to safe water and basic health services. The assessment 
 tool implemented in recent years has been the count of the percentage of population using the 
-health service.::
+health service. 
 
-  But what is the scenario in terms of plants? 
-  Where are they? 
-  What do they produce? 
-  How much? 
-  What is the trend? 
-  What are the possible risk? 
-  What are the environmental characteristics of their location? 
-  And the social context? 
-  The cultural? 
-  How many and which animals contribute? 
-  What are the types of installations in operation?
+But:
 
-It is clear that to get a complete picture of this kind takes time, lots of data collection, 
-laboratory tests, and then hypothesis, correlations, ideas and possible strategies.
+* But what is the scenario in terms of plants? 
+* Where are they? 
+* What do they produce? 
+* How much? 
+* What is the trend? 
+* What are the possible risk factors? 
+* What are the environmental characteristics of their location? 
+* And the social context? 
+* The cultural? 
+* How many and which animals contribute? 
+* What are the types of installations in operation?
+
+It is clear that to get a **complete picture** of this kind takes **time**, lots of **data collection**, 
+**laboratory tests**, and then **hypothesis, correlations, ideas** and possible strategies.
 
 It is now well known that from a technical standpoint there are no prepackaged solutions 
 exportable in contexts with very different boundary conditions. Some causes may seem trivial, 
@@ -78,14 +80,14 @@ improvement of health services in developing contexts.
 Monitoring activities 
 ++++++++++++++++++++++++++
 
-During fall of 2010 Geopaparazzi has been used in the monitoring of small waste water treatment 
-plants in decentralized communities of the Nile Delta, in a thesis project in Environmental 
+During fall of 2010 Geopaparazzi has been used in the monitoring of **small waste water treatment 
+plants in decentralized communities** of the Nile Delta, in a thesis project in Environmental 
 Engineering within a larger project of technical development cooperation (`ESRISS project 
 <http://www.eawag.ch/forschung/sandec/gruppen/sesp/esriss/index_EN>`_). 
 
-The idea was to be able to do effective analysis and mapping of the plants in the area of 
-the Nile Delta to compare different types of treatment and analyze the parameters that contribute 
-to the success or failure of a solution. The result of this campaign suggested the usefulness 
+The idea was to be able to do an **effective analysis and mapping of the plants** in the area of 
+the Nile Delta to **compare different types of treatment and analyze the parameters that contribute 
+to the success or failure of a solution**. The result of this campaign suggested the usefulness 
 of this application and the need to widen its use to build the existing maps that consider 
 all the complexity of the factors involved in the search for solutions to improve the health 
 conditions of the contexts under analysis. Only in this way it is possible to build an updated database 
