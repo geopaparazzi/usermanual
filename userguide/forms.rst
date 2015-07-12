@@ -240,7 +240,7 @@ To peform a range check on a numeric field you can add something like::
 which would check that the inserted number is between 0 (inclusive) and 10 (exclusive).
 
 
-Create a simple for to map fountains
+Create a simple form to map fountains
 -------------------------------------------
 
 As an excercise we will now create a simple form to map fountains.
