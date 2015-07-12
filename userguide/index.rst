@@ -51,6 +51,7 @@ User manual
    forms
    database
    use_case_egypt
+   projects_using_it
 
 
 * :ref:`search`
