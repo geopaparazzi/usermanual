@@ -6,12 +6,12 @@ The Main View Menu
 
 The main presents the following options:
 
-* *Select tile source*: allows the selection of a map tile source to be used as base map
-* *Create new project*: this will create a new project on the sdcard. A timestamp based name is proposed to the user
-* *Load existing project*: gives the possibility to browse the filesystem to select an existing geopaparazzi project folder (the one with the database in it) to load it
-* *Settings*: accesses the settings page
-* *About*: visualises the about page, which contains infos, links and acknowledgements
-* *Exit*: shuts down geopaparazzi
+* **Select tile source**: allows the selection of a map tile source to be used as base map
+* **Create new project**: this will create a new project on the sdcard. A timestamp based name is proposed to the user
+* **Load existing project**: gives the possibility to browse the filesystem to select an existing geopaparazzi project folder (the one with the database in it) to load it
+* **Settings**: accesses the settings page
+* **About**: visualises the about page, which contains infos, links and acknowledgements
+* **Exit**: shuts down geopaparazzi
 
 .. figure:: 04_mapviewmenu/01_menu.png
    :align: center

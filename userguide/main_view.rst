@@ -238,18 +238,13 @@ log or to accept the one generated based on the current date and time
 
 It is also possible to attach the new log to the last created log by 
 checking the box: *Continue last log*. In that case the proposed name 
-of the log (or any user inserted) is ignored, since no new log it created. 
+of the log (or any user inserted) is ignored, since no new log is created. 
 
 .. figure:: 02_dashboard/08_start_logging.png
    :align: center
    :width: 300px
 
    The new log dialog. From here it is possible to continue the last log.
-.. figure:: 02_dashboard/20_panic.png
-   :align: center
-   :width: 300px
-
-   The panic panel.
 
 Once the logging has started, the logging icon will change and present a
 red sign. Also, the gps status icon has turned blue.
