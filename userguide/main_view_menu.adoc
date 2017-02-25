@@ -1,0 +1,73 @@
+== The Main View Menu
+
+The main presents the following options:
+
+* <<Select tile source>>: allows the selection of a map tile source to be used as base map
+* <<Create new project>>: this will create a new project on the sdcard. A timestamp based name is proposed to the user
+* <<Load existing project>>: gives the possibility to browse the filesystem to select an existing geopaparazzi project folder (the one with the database in it) to load it
+* <<GPS Status>>: opens a GPS status application to check on satellites visibility
+* Advanced: shows some advanced user options such as the application log or custom database queries
+* About: visualises the about page, which contains infos, links and acknowledgements
+* <<Exit>>: shuts down geopaparazzi properly. This is important, because geopaparazzi is meant to continue logging also in background. Therefore, if one uses the android home button to exit the app, it will continue to work in background, most probably draining your battery through GPS use.
+
+.The main view menu.
+image::04_mapviewmenu/01_menu.png[scaledwidth=30%]
+
+=== Select tile source
+
+From the main menu, when pushing the tile source button, the list of available tile sources are presented, divided by folder:
+
+.The basemaps view.
+image::04_mapviewmenu/02_select_tiles.png[scaledwidth=30%]
+
+Each map source has a name and a type description between brackets.
+
+At the current time 4 types are supported:
+
+* Map
+* Mapurl
+* MBTiles
+* RasterLite2
+
+The <<supported datasets>> section lists and describes all supported 
+map types.
+
+Through the button at the top of the view the user can filter the source 
+types to show.
+
+.The map type filter dialog, set to only show MBTiles sources.
+image::04_mapviewmenu/03_select_tiles.png[scaledwidth=30%]
+
+which makes searching simpler when a lot of sources are present on the device.
+
+image::04_mapviewmenu/04_select_tiles.png[scaledwidth=30%]
+
+Basemaps can be loaded from the device storage through the two buttons at the bottom of the view. The right one allows to pick a single file to add it as a basemap, while the left one allows to bulk load a complete folder of maps.
+
+
+=== Create a new project
+
+When a new project is created, the user is prompted to insert a name
+for the new project file. This is the name that will be given to the 
+database file that contains all data surveyed in Geopaparazzi.
+
+.The new project input dialog.
+image::04_mapviewmenu/05_new_project.png[scaledwidth=30%]
+
+Once the name is defined, an new empty database is created and Geopaparazzi is 
+restarted and opened loading the new created project.
+
+=== Load an existing project
+
+Existing projects can be loaded using a simple file browser from within Geoapaparazzi. The Geopaparazzi project files are visualized with a different icon to help the user to choose the proper files.
+
+
+=== Exit
+
+The exit button closes Geopaparazzi and stoppes any ongoing logging and 
+sensor activity.
+
+This might seem obvious, but it is important to note that this is the *only way to properly close Geopaparazzi*. Pushing the home button of the device will not close Geopaparazzi, which will continue any activity started. This is important, because it makes very long loggings possible even if interrupted by phone calls or other uses of the device.
+
+Often users that ignore this, after pushing the home screen and thinking that Geopaparazzi has been closed, experience a faster battery drop, because of the active application in the background.
+
