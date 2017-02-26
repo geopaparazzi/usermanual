@@ -1,12 +1,12 @@
 = Geopaparazzi Reference Manual
-Antonello Andrea
+HydroloGIS S.r.l. <feedback@geopaparazzi.eu>
+Geopaparazzi version 5.2.0, 2017-02-26
 :doctype: book
 :encoding: utf-8
 :lang: en
 :toc: left
-:toclevels: 2
+:toclevels: 3
 :numbered:
-
 
 <<<
 
@@ -47,8 +47,8 @@ NOTE: Geopaparazzi is available only for the Android Operating System.
 include::installation.adoc[]
 include::main_view.adoc[]
 include::main_view_menu.adoc[]
+include::mapview.adoc[]
 
-//include::mapview.adoc[]
 //include::mapview_menu.adoc[]
 //include::settings.adoc[]
 //include::maps.adoc[]

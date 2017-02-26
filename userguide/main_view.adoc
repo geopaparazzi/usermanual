@@ -20,6 +20,7 @@ From the dashboard the following primary functions can be accessed:
 * export Data
 
 === Action Bar
+anchor:action_bar[]
 
 The action bar, from right to left, presents the following functions:
 
@@ -105,14 +106,12 @@ image::02_dashboard/04_textnotes.png[scaledwidth=30%]
   and stay with the device in the same position of the snapshot until 
   you have closed the camera app.
 
-* The **Quick sketch note** button, which allows you to draw on a small panel and 
-  save your sketch. One can change stroke style, color, and width. 
-  Other buttons such as undo, clear, save, and share are also available.
+* The **Quick sketch note** button, which allows you to draw on a small panel and save your sketch. One can change stroke style, color, and width. The  sketch panel comes from the open source app https://github.com/valerio-bozzolan/AcrylicPaint[Acrylic Paint].
   
 .An example of taking sketch note.
 image::02_dashboard/05_sketchnotes.png[scaledwidth=30%]
 
-NOTE: Once a simple note has been saved, it can't be modified.
+WARNING: Once a simple note has been saved, it can't be modified.
 
 ===== Form based notes
 
@@ -259,7 +258,7 @@ The service can then simply be downloaded. It will install the mapurl
 inside your system. The user is prompted for a custom name to name 
 the service after, else the original name will be used. Since the 
 original name could be duplicated in different services, the 
-prefix *tanto\_* will be added in that case.
+prefix *tanto_* will be added in that case.
 
 This service is in an experimental state right now, but it works fairly well. 
 If you experience problems, please report them at 
