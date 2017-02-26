@@ -1,13 +1,26 @@
 = Geopaparazzi Reference Manual
 HydroloGIS S.r.l. <feedback@geopaparazzi.eu>
-Geopaparazzi version 5.2.0, 2017-02-26
+Geopaparazzi version 5.3.0, 2017-02-26
 :doctype: book
+:description: The Geopaparazzi manual, updated for version 5.3.0, 2017-02-26
 :encoding: utf-8
 :lang: en
 :toc: left
 :toclevels: 3
 :numbered:
-
+:experimental:
+:reproducible:
+:icons: font
+:listing-caption: Listing
+:sectnums:
+ifdef::backend-pdf[]
+:title-logo-image: image:huge_icon.png[pdfwidth=4.25in,align=center]
+:source-highlighter: rouge
+//:rouge-style: github
+//:source-highlighter: pygments
+//:pygments-style: tango
+endif::[]
+  
 <<<
 
 
@@ -49,19 +62,16 @@ include::main_view.adoc[]
 include::main_view_menu.adoc[]
 include::mapview.adoc[]
 include::mapview_menu.adoc[]
+include::vector_editing.adoc[]
 include::settings.adoc[]
 include::maps.adoc[]
+include::maps_handling.adoc[]
+include::gvsig.adoc[]
+include::forms.adoc[]
+include::database.adoc[]
+include::use_case_egypt.adoc[]
+include::projects_using_it.adoc[]
 
-//include::maps_handling.adoc[]
-//include::forms.adoc[]
-//include::database.adoc[]
-//include::use_case_egypt.adoc[]
-//include::projects_using_it.adoc[]
 
 
-//* :ref:`search`
-//* :ref:`genindex`
-//
-//..   Spatialite
-//..   Style
 

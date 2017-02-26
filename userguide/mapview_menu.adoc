@@ -53,6 +53,7 @@ image::03_mapview/17_chart_log.png[scaledwidth=30%]
 
 
 === Spatialite data list
+anchor:spatialitedatalist[]
 
 The spatialite data list view holds the list of loaded spatialite databases. For each database its spatial tables are shown and each table can be made visible or hidden through the checkbox on each entry. 
 

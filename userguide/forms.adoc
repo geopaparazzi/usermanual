@@ -1,0 +1,572 @@
+== Using form based notes
+
+Geopaparazzi supports complex notes called *form based notes*. To use them, a **tags.json** file needs to be created and placed inside the geopaparazzi folder inside the sdcard. In that file a http://en.wikipedia.org/wiki/JSON[json format] description of the wanted tags and forms needs to be placed. 
+
+By default, to help the user to start, a sample tags.json is created in the Geopaparazzi installation. It contains form samples and examples to show all supported form widgets.
+
+image::08_forms/01_tags.png[scaledwidth=30%]
+
+Currently no tool is available to create forms in an interactive way, they have to be created manually. 
+
+A good online tool to at least validate your json form is the http://www.jsonlint.com/[Json Lint Validator]. Make sure it passes that test before putting it on the device and test it in geopaparazzi.
+
+=== Supported tags (via the example form)
+
+The example form that is available by default shows all the possible options available.
+
+==== Text
+
+[source,json]
+----
+      "formname": "text",
+      "formitems": [
+          {
+              "key": "some text",
+              "value": "",
+              "type": "string"
+          }
+      ]
+----
+
+image::08_forms/02_text.png[scaledwidth=70%]
+
+==== Multiple Text
+
+
+[source,json]
+----
+      "formname": "multiple text",
+      "formitems": [
+          {
+              "key": "some text",
+              "value": "text1; text2; text3",
+              "type": "dynamicstring"
+          }
+      ]
+----
+
+image::08_forms/03_text_multi.png[scaledwidth=70%]
+
+
+==== Text with key and label
+
+In simple forms the key element is also used as label for the widget (ex. *some text* in the text note). Some charactersets are not suitable to be used as keys for a database, so in that cases the user should consider to define both the key (ex. in English) and the label (in the own language). Here an example:
+
+[source,json]
+----
+"formname": "text example with key and label",
+"formitems": [
+    {
+        "key": "the_key_used_to_index",
+        "label": "the label used to describe",
+        "value": "",
+        "type": "string"
+    }
+]
+----
+
+image::08_forms/03_text_key.png[scaledwidth=70%]
+
+
+==== Numbers
+
+[source,json]
+----
+"formname": "numeric text",
+"formitems": [
+    {
+        "key": "a number",
+        "value": "",
+        "type": "double"
+    },{
+        "key": "an integer number",
+        "value": "",
+        "type": "integer"
+    }
+]
+----
+
+image::08_forms/04_numeric.png[scaledwidth=70%]
+
+To use one of the values as label in the map view add the *islabel* tag:
+[source,java]
+----
+"formname": "numeric text used as label in map",
+"formitems": [
+    {
+        "key": "a number",
+        "value": "",
+        "islabel": "true",
+        "type": "double"
+    },{
+        "key": "an integer number",
+        "value": "",
+        "type": "integer"
+    }
+]
+----
+
+
+==== Date
+
+[source,json]
+----
+"formname": "date",
+"formitems": [
+    {
+        "key": "a date",
+        "value": "",
+        "type": "date"
+    }
+]
+----
+
+image::08_forms/05_date.png[scaledwidth=70%]
+
+==== Time
+
+[source,json]
+----
+"formname": "time",
+"formitems": [
+    {
+        "key": "a time",
+        "value": "",
+        "type": "time"
+    }
+]
+----
+
+image::08_forms/06_time.png[scaledwidth=70%]
+
+==== Labels
+
+[source,json]
+----
+"formname": "labels",
+"formitems": [
+    {
+        "value": "a simple label of size 20",
+        "size": "20",
+        "type": "label"
+    },{
+        "value": "a underlined label of size 24",
+        "size": "24",
+        "type": "labelwithline"
+    },{
+        "value": "a label with link to the geopaparazzi homepage",
+        "url": "http://www.geopaparazzi.eu",
+        "size": "20",
+        "type": "labelwithline"
+    }
+]
+----
+
+image::08_forms/07_labels.png[scaledwidth=70%]
+
+==== Checkbox
+
+[source,json]
+----
+"formname": "boolean",
+"formitems": [
+    {
+        "key": "a boolean choice",
+        "value": "",
+        "type": "boolean"
+    }
+]
+----
+
+image::08_forms/08_boolean.png[scaledwidth=70%]
+
+==== Combos
+
+[source,json]
+----
+"formname": "combos",
+"formitems": [
+    {
+        "key": "a single choice combo",
+        "values": {
+            "items": [
+                {"item": ""},
+                {"item": "choice 1"},
+                {"item": "choice 2"},
+                {"item": "choice 3"},
+                {"item": "choice 4"},
+                {"item": "choice 5"}
+            ]
+        },
+        "value": "",
+        "type": "stringcombo"
+    },{
+        "key": "a multiple choice combo",
+        "values": {
+            "items": [
+                {"item": ""},
+                {"item": "choice 1"},
+                {"item": "choice 2"},
+                {"item": "choice 3"},
+                {"item": "choice 4"},
+                {"item": "choice 5"}
+            ]
+        },
+        "value": "",
+        "type": "multistringcombo"
+    },{
+        "key": "two connected combos",
+        "values": {
+            "items 1": [
+                {"item": ""},
+                {"item": "choice 1 of 1"},
+                {"item": "choice 2 of 1"},
+                {"item": "choice 3 of 1"},
+                {"item": "choice 4 of 1"},
+                {"item": "choice 5 of 1"}
+            ],
+            "items 2": [
+                {"item": ""},
+                {"item": "choice 1 of 2"},
+                {"item": "choice 2 of 2"},
+                {"item": "choice 3 of 2"},
+                {"item": "choice 4 of 2"},
+                {"item": "choice 5 of 2"}
+            ]
+        },
+        "value": "",
+        "type": "connectedstringcombo"
+    },{
+        "key": "two connected combos, default selected",
+        "values": {
+            "items 1": [
+                {"item": ""},
+                {"item": "choice 1 of 1"},
+                {"item": "choice 2 of 1"},
+                {"item": "choice 3 of 1"},
+                {"item": "choice 4 of 1"},
+                {"item": "choice 5 of 1"}
+            ],
+            "items 2": [
+                {"item": ""},
+                {"item": "choice 1 of 2"},
+                {"item": "choice 2 of 2"},
+                {"item": "choice 3 of 2"},
+                {"item": "choice 4 of 2"},
+                {"item": "choice 5 of 2"}
+            ]
+        },
+        "value": "choice 4 of 2",
+        "type": "connectedstringcombo"
+    }
+]
+----
+
+image::08_forms/09_combos.png[scaledwidth=70%]
+
+
+==== Pictures
+
+[source,json]
+----
+"formname": "pictures",
+"formitems": [
+    {
+        "key": "a picture archive",
+        "value": "",
+        "type": "pictures"
+    }
+]
+----
+
+image::08_forms/10_pictures.png[scaledwidth=70%]
+
+==== Sketches
+
+[source,json]
+----
+"formname": "sketches",
+"formitems": [
+    {
+        "key": "a sketches archive",
+        "value": "",
+        "type": "sketch"
+    }
+]
+----
+
+image::08_forms/11_sketches.png[scaledwidth=70%]
+
+==== Map screenshot
+
+[source,json]
+----
+"formname": "map",
+"formitems": [
+    {
+        "key": "an image of the last seen map",
+        "value": "",
+        "type": "map"
+    }
+]
+----
+
+=== Other supported tags
+
+==== hidden 
+
+Not shown in the gui, but useful for the application to fill in infos like the GPS position:
+
+[source,json]
+----
+    {"key":"LONGITUDE", "value":"", "type":"hidden"}
+----
+
+==== primary_key 
+
+An item of particular importance, can be used by the application to link to particular infos:
+
+[source,json]
+----
+    {"key":"tourism", "value":"", "type":"primary_key"}
+----
+
+==== Constraints
+
+Constraints are conditions that are checked when the ok button of the form is pushed.
+
+===== mandatory
+
+To make an item mandatory, just add:
+
+[source,json]
+----
+    "mandatory": "yes"
+----
+
+===== range
+
+To peform a range check on a numeric field you can add something like:
+
+[source,json]
+----
+    "range":"[0,10)"
+----
+
+which would check that the inserted number is between 0 (inclusive) and 10 (exclusive).
+
+
+=== Create a simple form to map fountains
+
+As an excercise we will now create a simple form to map fountains.
+
+==== Sections
+
+Every form is composed of sections, each of which create a button in the add notes view.
+We want to create a form for a fountain, so one section is enough. The blueprint for such a form, i.e. the empty button shell starts with:
+
+[source,json]
+----
+[
+    {
+        "sectionname": "fountain",
+        "sectiondescription": "fountain",
+        "forms": [
+----
+
+and ends with:
+
+[source,json]
+----
+        ]
+    }
+]
+----
+
+==== Form subsections
+
+Each section can contain several sub-forms, that will create a tab each.
+
+A sub-form starts with:
+
+[source,json]
+----
+            {
+                "formname": "General data",
+                "formitems": [
+----
+
+and ends with:
+
+[source,json]
+----
+                ]
+            },
+----
+
+Note that the comma at the end is only needed if more than one sub-form
+is added.
+
+==== Form elements
+
+To add content to the sub-forms, any of the tags described <<tags,in the supported tags section>> can be used.
+
+For example lets add two textfields to prompt the user for a name and street. Also the name should then be the label rendered in the map view.
+
+[source,json]
+----
+                    {
+                        "key": "name",
+                        "value": "",
+                        "islabel": "true",
+                        "type": "string",
+                        "mandatory": "yes"
+                    },
+                    {
+                        "key": "street",
+                        "value": "",
+                        "type": "string",
+                        "mandatory": "no"
+                    }
+----
+
+==== Finalize the form
+
+This is everything that needs to be done. Let's also add some technical data in a dedicated tab and also a tab for media, inside which it is possible to take pictures.
+
+We leave the exercise to the reader.
+
+Here below the tags file of a possible implementation is presented:
+
+[source,json]
+----
+[
+    {
+        "sectionname": "fountain",
+        "sectiondescription": "fountain",
+        "forms": [
+            {
+                "formname": "General data",
+                "formitems": [
+                    {
+                        "key": "name",
+                        "value": "",
+                        "islabel": "true",
+                        "type": "string",
+                        "mandatory": "yes"
+                    },
+                    {
+                        "key": "street",
+                        "value": "",
+                        "type": "string",
+                        "mandatory": "no"
+                    }
+                ]
+            },
+            {
+                "formname": "Technical data",
+                "formitems": [
+                    {
+                        "key": "protected",
+                        "value": "true",
+                        "type": "boolean",
+                        "mandatory": "no"
+                    },
+                    {
+                        "key": "type",
+                        "values": {
+                            "items": [
+                                {
+                                    "item": ""
+                                },
+                                {
+                                    "item": "manual"
+                                },
+                                {
+                                    "item": "electrical"
+                                },
+                                {
+                                    "item": "gravity"
+                                }
+                            ]
+                        },
+                        "value": "manual",
+                        "type": "stringcombo",
+                        "mandatory": "no"
+                    },
+                    {
+                        "key": "PH",
+                        "values": {
+                            "items": [
+                                {
+                                    "item": ""
+                                },
+                                {
+                                    "item": "PH < 5"
+                                },
+                                {
+                                    "item": "5 < PH < 7"
+                                },
+                                {
+                                    "item": "PH > 7"
+                                }
+                            ]
+                        },
+                        "value": "PH < 5",
+                        "type": "stringcombo",
+                        "mandatory": "no"
+                    },
+                    {
+                        "key": "number of served people",
+                        "value": "",
+                        "type": "double",
+                        "mandatory": "no"
+                    },
+                    {
+                        "key": "is working",
+                        "value": "true",
+                        "type": "boolean",
+                        "mandatory": "no"
+                    },
+                    {
+                        "key": "needs",
+                        "values": {
+                            "items": [
+                                {
+                                    "item": ""
+                                },
+                                {
+                                    "item": "nothing"
+                                },
+                                {
+                                    "item": "maintainance"
+                                },
+                                {
+                                    "item": "rehabilitation"
+                                }
+                            ]
+                        },
+                        "value": "nothing",
+                        "type": "stringcombo",
+                        "mandatory": "no"
+                    }
+                ]
+            },
+            {
+                "formname": "Media",
+                "formitems": [
+                    {
+                        "key": "Images",
+                        "value": "",
+                        "type": "pictures",
+                        "mandatory": "no"
+                    }
+                ]
+            }
+        ]
+    }
+]
+----                                                               
+
+
+

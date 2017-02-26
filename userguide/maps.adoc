@@ -145,7 +145,7 @@ https://www.gaia-gis.it/fossil/librasterlite2/wiki?name=librasterlite2[RasterLit
 At the time of writing it is released as development version and supported in Geopaparazzi for testing.
 
 
-== Overlay maps
+=== Overlay maps
 
 The only datasets that can be overlayed on top of basemaps are vector maps
 coming from a https://www.gaia-gis.it/fossil/libspatialite/index[spatialite database].
