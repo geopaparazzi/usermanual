@@ -1,3 +1,6 @@
 == Geopaparazzi & gvSIG
 
-TODO
+to be done
+
+
+

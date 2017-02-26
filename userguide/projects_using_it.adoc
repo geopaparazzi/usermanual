@@ -1,6 +1,6 @@
 == Projects that base on Geopaparazzi
 
-== gvSIG Mobile
+=== gvSIG Mobile
 
 gvSIG Mobile is completely based on geopaparazzi and extends its capabilities with enterprise level functionalities to connect to the services of gvSIG Online to allow syncronization of data between teams of surveyers.
 
@@ -40,7 +40,7 @@ image::projects_using_it/trackoid_01.png[]
 
 **trackoid server**
 
-imaeg::projects_using_it/trackoid_02.png[]
+image::projects_using_it/trackoid_02.png[]
 
 ==== Your app here
 

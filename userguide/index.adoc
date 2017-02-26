@@ -71,6 +71,7 @@ include::forms.adoc[]
 include::database.adoc[]
 include::use_case_egypt.adoc[]
 include::projects_using_it.adoc[]
+include::appendix.adoc[]
 
 
 
