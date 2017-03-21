@@ -10,6 +10,7 @@ datasets for Geopaparazzi. The current ones known are:
 * STAGE
 * Spatialite GUI
 * GDAL
+* GDAL (OGR)
 * QGIS
 * GRASS
 
@@ -286,6 +287,21 @@ Creation of MBTiles databases
 ++++++++++++++++++++++++++++++++++
 
 This section is looking for an author.
+
+
+.. index:: GDAL (OGR)
+
+GDAL (OGR)
+----------
+
+Creation of Spatialite databases
+++++++++++++++++++++++++++++++++++
+
+OGR2OGR * can be used to create Spatialite databases that work in Geopaparazzi.  Use a command similar to::
+
+    ogr2ogr -f "SQLite" -t_srs "EPSG:3857" -dsco SPATIALITE=YES output_ortrans.sqlite ORTrans_public.gdb
+
+\* as of changeset `37715 <https://trac.osgeo.org/gdal/changeset/37715>`_ 
 
 .. index:: QGIS
 
