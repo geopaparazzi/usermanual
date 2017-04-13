@@ -9,13 +9,13 @@
 
 [[img-googleplay]]
 .Google Play Store presents 2 versions of Geopaparazzi.
-image::01_introduction/02_google_play.png[scaledwidth=30%]
+image::01_introduction/02_google_play.png[scaledwidth=30%, width=30%]
 
 * select the first app (*not* Geopaparazzi 3)
 
 [[img-googleplaygp4]]
 .The right choice: Geopaparazzi (not Geopaparazzi3)
-image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%]
+image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%, width=30%]
 
 * follow installation procedures
 
@@ -29,27 +29,27 @@ The following example explains how to install version 4.4.0. We suggest to *alwa
 * select the releases tab and pick the last available release:
 
 .Geopaparazzi github page.
-image::01_introduction/04_github.png[scaledwidth=30%]
+image::01_introduction/04_github.png[scaledwidth=30%, width=30%]
 
 * select the latest release apk download link:
 
 .The releases panel.
-image::01_introduction/05_github_releases.png[scaledwidth=30%]
+image::01_introduction/05_github_releases.png[scaledwidth=30%, width=30%]
 
 * the apk installation file will download on the device:
 
 .The download dialog.
-image::01_introduction/06_github_download.png[scaledwidth=30%]
+image::01_introduction/06_github_download.png[scaledwidth=30%, width=30%]
 
 * and the user will be prompted to open the file:
 
 .The download dialog.
-image::01_introduction/07_github_open.png[scaledwidth=30%]
+image::01_introduction/07_github_open.png[scaledwidth=30%, width=30%]
 
 * opening the file will propose the installation:
 
 .The download dialog.
-image::01_introduction/08_install.png[scaledwidth=30%]
+image::01_introduction/08_install.png[scaledwidth=30%, width=30%]
 
 * select install and follow the installation procedure.
 

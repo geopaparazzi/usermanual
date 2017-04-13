@@ -113,7 +113,7 @@ These are the standard maps generated, maintained and distributed by the https:/
 In their default style they kind of look like:
 
 .The standard mapsforge map.
-image::06_maps/01_mapsforge_maps.png[scaledwidth=30%]
+image::06_maps/01_mapsforge_maps.png[scaledwidth=30%, width=30%]
 
 ===== openandromaps
 
@@ -123,7 +123,7 @@ theme, with isolines and more hiking related stuff. The map files are larger but
 With the Oruxmaps theme that is available from the download area, the maps look like:
 
 .The openandro styled mapsforge map.
-image::06_maps/02_cycle_maps.png[scaledwidth=30%]
+image::06_maps/02_cycle_maps.png[scaledwidth=30%, width=30%]
 
 ===== Apply a render theme
 

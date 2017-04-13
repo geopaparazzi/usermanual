@@ -34,7 +34,7 @@ want to keep a geo-diary.
 
 [[img-nexus5]]
 .Geopaparazzi on a nexus 5
-image::01_introduction/01_nexus5.png[scaledwidth=40%]
+image::01_introduction/01_nexus5.png[scaledwidth=40%, width=40%]
 
 The main aim of Geopaparazzi is to have a tool that:                                         
 

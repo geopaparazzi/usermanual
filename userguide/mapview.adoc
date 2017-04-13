@@ -4,7 +4,7 @@ anchor:mapview[]
 The map view is the central view of the application. It can be used to view the current gps position overlayed on maps and vector datasets.
 
 .The map view.
-image::03_mapview/01_mapview.png[scaledwidth=30%]
+image::03_mapview/01_mapview.png[scaledwidth=30%, width=30%]
 
 The map engine comes from the http://code.google.com/p/mapsforge/[mapsforge] project.
 
@@ -23,7 +23,7 @@ The map view has a set of tools that can be exploited to interact with the map.
 When first launched, the tools are already visible on the map. To have a cleaner mapview, the user can long-tap on the upper right menu button to toggle the visibility of the tools.
 
 .The map view with disabled tools.
-image::03_mapview/02_mapview_tools_off.png[scaledwidth=30%]
+image::03_mapview/02_mapview_tools_off.png[scaledwidth=30%, width=30%]
    
 
 Available tools are:
@@ -47,7 +47,7 @@ Available tools are:
   - editing tools
 
 .The map view with all map tools visible.
-image::03_mapview/01_mapview.png[scaledwidth=30%]
+image::03_mapview/01_mapview.png[scaledwidth=30%, width=30%]
 
 === Map navigation
 
@@ -57,7 +57,7 @@ The navigation of the map is probably the most basic and important part.
   by dragging the map with a finger. While panning, the current 
   longitude and latitude of the map center are displayed.
   
-image::03_mapview/29_pan_coords.png[scaledwidth=30%]
+image::03_mapview/29_pan_coords.png[scaledwidth=30%, width=30%]
 
 * **zoom**: zoom in and out can be done in different ways. There are 
   the zoom in/out buttons at the lower right part of the map. It is also
@@ -69,7 +69,7 @@ image::03_mapview/29_pan_coords.png[scaledwidth=30%]
 === Add Notes
 
 .The view from which notes are taken.
-image::02_dashboard/03_notes.png[scaledwidth=30%]
+image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
 The add notes button opens the same notes view as the button on the dashboard. There is only once difference. Since notes can be added both in the gps position and in the middle of the map, to open the add note view from the dashboard, the GPS is required to have a fix.
 
@@ -82,7 +82,7 @@ For further information about taking notes, visit the <<notes,notes section>>.
 The notes list shows all the available notes, both text and image notes.
 
 .The notes list view.
-image::03_mapview/03_noteslist1.png[scaledwidth=30%]
+image::03_mapview/03_noteslist1.png[scaledwidth=30%, width=30%]
 
 The icon on the right side of the actionbar allows the user to sort the notes by different modes:
 
@@ -91,18 +91,18 @@ The icon on the right side of the actionbar allows the user to sort the notes by
 * *By Mapcenter distance* and inverse: sorts the notes by the distance from the current mapcenter position
 
 .The notes sort order dialog.
-image::03_mapview/04_noteslist_sortorder.png[scaledwidth=30%]
+image::03_mapview/04_noteslist_sortorder.png[scaledwidth=30%, width=30%]
 
 In the upper part of the view there is a textbox that helps to filter out a particular note based on its name.
 
 .Notes can be filtered by text.
-image::03_mapview/04_noteslist_filter.png[scaledwidth=30%]
+image::03_mapview/04_noteslist_filter.png[scaledwidth=30%, width=30%]
 
 
 At the right side of the list 2 icon are available. The left one positions the map on the selected note's position while the rigth one opens a menu:
 
 .The note menu.
-image::03_mapview/05_note_menu.png[scaledwidth=30%]
+image::03_mapview/05_note_menu.png[scaledwidth=30%, width=30%]
 
 From the note menu the user is able to:
 
@@ -113,7 +113,7 @@ From the note menu the user is able to:
 * access the submenu related to all notes
 
 .The submenu that considers all notes.
-image::03_mapview/07_notes_all_menu.png[scaledwidth=30%]
+image::03_mapview/07_notes_all_menu.png[scaledwidth=30%, width=30%]
 
 From the all-notes submenu the user can:
  
@@ -130,7 +130,7 @@ When a bookmark is added, the user is prompted to insert a name for the bookmark
 or leave the generated name based on the current time and date.
 
 .The add bookmark dialog.
-image::03_mapview/08_add_bookmark.png[scaledwidth=30%]
+image::03_mapview/08_add_bookmark.png[scaledwidth=30%, width=30%]
 
 When a bookmark is added, a small star is added on the map in the center of the screen.
 
@@ -140,7 +140,7 @@ that the bookmark represents in any moment.
 It is possible to tap on the bookmark to read its label.
 
 .A tapped bookmark.
-image::03_mapview/10_bookmark_open.png[scaledwidth=30%]
+image::03_mapview/10_bookmark_open.png[scaledwidth=30%, width=30%]
 
 === The Bookmarks List
 
@@ -155,7 +155,7 @@ The user has 4 options, as the icons on each bookmark entry shows:
 * delete the bookmark
 
 .The list of bookmarks.
-image::03_mapview/11_bookmarks_list.png[scaledwidth=30%]
+image::03_mapview/11_bookmarks_list.png[scaledwidth=30%, width=30%]
 
 === Gps log analysis tool
 
@@ -166,7 +166,7 @@ the nearest log point will be shown. Also the color of the text will be the one 
 the currently queried log:
 
 .The GPS log analysis tool.
-image::03_mapview/28_gps_log_analysis.png[scaledwidth=30%]
+image::03_mapview/28_gps_log_analysis.png[scaledwidth=30%, width=30%]
 
 === Measure tool
 
@@ -177,7 +177,7 @@ The *approximate* (the distance is calculated without considering elevation delt
 When active, the measure tool has a red colored icon, when inactive the icon is green instead.
 
 .An example of qualitative measurement on the map.
-image::03_mapview/12_measure_tool.png[scaledwidth=30%]
+image::03_mapview/12_measure_tool.png[scaledwidth=30%, width=30%]
 
 
 

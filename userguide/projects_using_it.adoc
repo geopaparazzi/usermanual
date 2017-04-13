@@ -4,7 +4,7 @@
 
 gvSIG Mobile is completely based on geopaparazzi and extends its capabilities with enterprise level functionalities to connect to the services of gvSIG Online to allow syncronization of data between teams of surveyers.
 
-image::projects_using_it/gvsig_mobile.png[scaledwidth=30%]
+image::projects_using_it/gvsig_mobile.png[scaledwidth=30%, width=30%]
 
 
 === Gasdroide - Natural Gas Emission Flux Measurements on Android platform

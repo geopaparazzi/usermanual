@@ -4,12 +4,12 @@ anchor:settings[]
 The preferences page is divided in main categories: 
 
 .The settings view.
-image::05_settings/01_settings.png[scaledwidth=30%]
+image::05_settings/01_settings.png[scaledwidth=30%, width=30%]
 
 === Gps Settings
 
 .The gps settings view.
-image::05_settings/02_gps.png[scaledwidth=30%]
+image::05_settings/02_gps.png[scaledwidth=30%, width=30%]
 
 In the gps preferences it is possible to 
 
@@ -23,7 +23,7 @@ In the gps preferences it is possible to
 === Sms Settings
 
 .The sms settings view.
-image::05_settings/03_sms.png[scaledwidth=30%]
+image::05_settings/03_sms.png[scaledwidth=30%, width=30%]
 
 It is possible to activate an SMS catcher. If activated, the phone listens
 to incoming short messages containing the word:
@@ -39,7 +39,7 @@ numbers to which a status update is sent when the panic button is pushed.
 === Screen Settings
 
 .The screen settings view.
-image::05_settings/04_screen.png[scaledwidth=30%]
+image::05_settings/04_screen.png[scaledwidth=30%, width=30%]
 
 In the screen preferences it is possible to 
 
@@ -52,7 +52,7 @@ In the screen preferences it is possible to
 === Spatialite Settings
 
 .The Spatialite settings view.
-image::05_settings/05_spl_recovery.png[scaledwidth=30%]
+image::05_settings/05_spl_recovery.png[scaledwidth=30%, width=30%]
 
 In the Spatialite preferences it is possible to enable the **Spatialite Recovery Mode**            
 
@@ -79,7 +79,7 @@ Android.
 This setting opens a menu in which a locale can be chosen between the available ones:
 
 .The force locale dialog.
-image::05_settings/06_locale.png[scaledwidth=30%]
+image::05_settings/06_locale.png[scaledwidth=30%, width=30%]
 
 After that, each newly loaded view will be in the new locale.
 

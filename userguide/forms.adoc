@@ -4,7 +4,7 @@ Geopaparazzi supports complex notes called *form based notes*. To use them, a **
 
 By default, to help the user to start, a sample tags.json is created in the Geopaparazzi installation. It contains form samples and examples to show all supported form widgets.
 
-image::08_forms/01_tags.png[scaledwidth=30%]
+image::08_forms/01_tags.png[scaledwidth=30%, width=30%]
 
 Currently no tool is available to create forms in an interactive way, they have to be created manually. 
 
@@ -28,7 +28,7 @@ The example form that is available by default shows all the possible options ava
       ]
 ----
 
-image::08_forms/02_text.png[scaledwidth=70%]
+image::08_forms/02_text.png[scaledwidth=70%, width=70%]
 
 ==== Multiple Text
 
@@ -45,7 +45,7 @@ image::08_forms/02_text.png[scaledwidth=70%]
       ]
 ----
 
-image::08_forms/03_text_multi.png[scaledwidth=70%]
+image::08_forms/03_text_multi.png[scaledwidth=70%, width=70%]
 
 
 ==== Text with key and label
@@ -65,7 +65,7 @@ In simple forms the key element is also used as label for the widget (ex. *some 
 ]
 ----
 
-image::08_forms/03_text_key.png[scaledwidth=70%]
+image::08_forms/03_text_key.png[scaledwidth=70%, width=70%]
 
 
 ==== Numbers
@@ -86,7 +86,7 @@ image::08_forms/03_text_key.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/04_numeric.png[scaledwidth=70%]
+image::08_forms/04_numeric.png[scaledwidth=70%, width=70%]
 
 To use one of the values as label in the map view add the *islabel* tag:
 [source,java]
@@ -121,7 +121,7 @@ To use one of the values as label in the map view add the *islabel* tag:
 ]
 ----
 
-image::08_forms/05_date.png[scaledwidth=70%]
+image::08_forms/05_date.png[scaledwidth=70%, width=70%]
 
 ==== Time
 
@@ -137,7 +137,7 @@ image::08_forms/05_date.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/06_time.png[scaledwidth=70%]
+image::08_forms/06_time.png[scaledwidth=70%, width=70%]
 
 ==== Labels
 
@@ -162,7 +162,7 @@ image::08_forms/06_time.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/07_labels.png[scaledwidth=70%]
+image::08_forms/07_labels.png[scaledwidth=70%, width=70%]
 
 ==== Checkbox
 
@@ -178,7 +178,7 @@ image::08_forms/07_labels.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/08_boolean.png[scaledwidth=70%]
+image::08_forms/08_boolean.png[scaledwidth=70%, width=70%]
 
 ==== Combos
 
@@ -262,7 +262,7 @@ image::08_forms/08_boolean.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/09_combos.png[scaledwidth=70%]
+image::08_forms/09_combos.png[scaledwidth=70%, width=70%]
 
 
 ==== Pictures
@@ -279,7 +279,7 @@ image::08_forms/09_combos.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/10_pictures.png[scaledwidth=70%]
+image::08_forms/10_pictures.png[scaledwidth=70%, width=70%]
 
 ==== Sketches
 
@@ -295,7 +295,7 @@ image::08_forms/10_pictures.png[scaledwidth=70%]
 ]
 ----
 
-image::08_forms/11_sketches.png[scaledwidth=70%]
+image::08_forms/11_sketches.png[scaledwidth=70%, width=70%]
 
 ==== Map screenshot
 
