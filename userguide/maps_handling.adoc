@@ -154,6 +154,21 @@ Once this result appears to you, you are good to go.
 Move the spatialite database to your device, fire up geopaparazzi and 
 go directly to the <<spatialitedatalist,spatialite data view>> and load the database.
 
+
+=== OGR 
+
+http://www.gdal.org/ogr2ogr.html[OGR2OGR] can be used to create Spatialite databases supported by geopaparazzi using different datasources.
+
+The command that can be used is similar to:
+
+[source,bash]
+----
+ogr2ogr -f "SQLite" -t_srs "EPSG:3857" -dsco SPATIALITE=YES output_ortrans.sqlite ORTrans_public.gdb
+----
+
+NOTE: More info available https://trac.osgeo.org/gdal/changeset/37715[here] 
+
+
 === GDAL
 
 Geopaparazzi does not support reprojecting raster data sources on-the-fly, so the file must be warped to the proper projection before using it. To do it you can use
