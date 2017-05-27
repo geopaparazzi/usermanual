@@ -256,7 +256,7 @@ image::08_forms/08_boolean.png[scaledwidth=70%, width=70%]
                 {"item": "choice 5 of 2"}
             ]
         },
-        "value": "choice 4 of 2",
+        "value": "items 2#choice 4 of 2",
         "type": "connectedstringcombo"
     }
 ]
