@@ -1,6 +1,6 @@
 = Geopaparazzi Reference Manual
 HydroloGIS S.r.l. <feedback@geopaparazzi.eu>
-Geopaparazzi version 5.3.0, 2017-02-26
+Geopaparazzi version 5.3.0, 2017-05-28
 :doctype: book
 :description: The Geopaparazzi manual, updated for version 5.3.0, 2017-02-26
 :encoding: utf-8
@@ -13,12 +13,10 @@ Geopaparazzi version 5.3.0, 2017-02-26
 :icons: font
 :listing-caption: Listing
 :sectnums:
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
 ifdef::backend-pdf[]
 :title-logo-image: image:huge_icon.png[pdfwidth=4.25in,align=center]
-:source-highlighter: rouge
-//:rouge-style: github
-//:source-highlighter: pygments
-//:pygments-style: tango
 endif::[]
   
 <<<
