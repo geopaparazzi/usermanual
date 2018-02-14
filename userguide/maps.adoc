@@ -1,7 +1,7 @@
 == Supported datasets
 anchor:supported_datasets[]
 
-Geopaparazzi's mapview supports several map-types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for offline operation. You can switch between these modes in settings.
+Geopaparazzi's mapview supports several map-types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for off-line operation. You can switch between these modes in settings.
 
 There are two types of maps in Geopaparazzi: 
 
@@ -23,11 +23,11 @@ Basemaps can be of 4 different types:
 
 ==== Mapurls: Custom tiles based maps
 
-Mapurl files are simple text files containing definitions of tile sources, either local or remote. A mapurl file must have the file extention/suffix *.mapurl* to be recognised by Geopaparazzi.
+Mapurl files are simple text files containing definitions of tile sources, either local or remote. A mapurl file must have the file extension/suffix *.mapurl* to be recognized by Geopaparazzi.
 
 ===== Remote Tile sources
 
-By default, Geopaparazzi is configured to load map mapnik rendered tiles live from the Internet, from OpenStreetMap's tile server. Compare the contents of the included mapnik.mapurl file for how this is done. You can exchange the OSM tile server with any other tile server as long as it adheres to the Mapurl URL conventions. The basics are:
+By default, Geopaparazzi is configured to load map Mapnik rendered tiles live from the Internet, from OpenStreetMap's tile server. Compare the contents of the included mapnik.mapurl file for how this is done. You can exchange the OSM tile server with any other tile server as long as it adheres to the Mapurl URL conventions. The basics are:
 
 ----
 url=http://tile.openstreetmap.org/ZZZ/XXX/YYY.png
@@ -63,7 +63,7 @@ TIP: This information can be tested also in a browser http://tile.openstreetmap.
 
 Also WMS works as remote source, as long as it can be accessed through an **EPSG:4326** projection. 
 
-An example for the url part is::
+An example for the URL part is::
 
 ----
 url=http://sdi.provincia.bz.it/geoserver/wms?LAYERS=inspire:OI.ORTHOIMAGECOVERAGE.2011&TRANSPARENT=true&FORMAT=image/png&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&EXCEPTIONS=application/vnd.ogc.se_inimage&SRS=EPSG:4326&BBOX=XXX,YYY,XXX,YYY&WIDTH=256&HEIGHT=256
@@ -74,11 +74,11 @@ Important here are:
 * SRS=EPSG:4326
 * BBOX=XXX,YYY,XXX,YYY
 
-Geopaparazzi will cache/store downloaded Mapurl tiles in a local MBTiles SQLite file, so pre-fetched tiles will remain viewable when Geopaparazzi is operated disconnected from a remote Mapurl source (in offline operation).
+Geopaparazzi will cache/store downloaded Mapurl tiles in a local MBTiles SQLite file, so pre-fetched tiles will remain viewable when Geopaparazzi is operated disconnected from a remote Mapurl source (in off-line operation).
 
 ===== Local Tile sources
 
-Just like your mapurl configuration may reference an online/remote tile sources, your mapurl setting may reference a local tile source for offline use. This way it's possible to load on any smarthphone complex maps as for example the following map that has a technical basemap with shapefiles overlayed in transparency
+Just like your mapurl configuration may reference an on-line/remote tile sources, your mapurl setting may reference a local tile source for off-line use. This way it's possible to load on any smart phone complex maps as for example the following map that has a technical basemap with shapefiles overlaid in transparency
 
 To be able to load such maps, one needs to prepare the tiles properly. This can be done via in several ways as explained in the <<datapreparation,data preparation section>>.
 
@@ -92,9 +92,9 @@ center=11.40553 46.39478
 type=tms
 ----
 
-Nothing changes against the description for the remote source apart of the url. The url in this case represents the relative path of the tiles folder.
+Nothing changes against the description for the remote source apart of the URL. The URL in this case represents the relative path of the tiles folder.
 
-WARNING: Filesystems are know to have problems in handling large amounts of very small files. This the exact case of local tile sources. If the dataset is large, it gets very hard to move the data from and to the device. Therefore this method, even if still supported, is flagged as deprecated. The *MBTiles* datasource, explained in the next section, should be used instead.
+WARNING: Filesystems are known to have problems in handling large amounts of very small files. This the exact case of local tile sources. If the dataset is large, it gets very hard to move the data from and to the device. Therefore this method, even if still supported, is flagged as deprecated. The *MBTiles* datasource, explained in the next section, should be used instead.
  
 ==== MBTiles
 
@@ -104,7 +104,7 @@ MBTiles is a file format for storing map tiles in a single file. It is, technica
 
 The mapsforge project provides free and open software for the rendering of maps based on OpenStreetMap. It developed an efficient binary format for storage of OSM map data (usually with file extension **.map**), and is offering country specific .map files for download. Geopaparazzi is able to render map tiles locally from .map files and will cache rendered tiles in a local MBTiles store.
 
-Apart from Mapsforge itself, openandmaps is also offering .map files but with a different data bias and different render theme.
+Apart from Mapsforge itself, openandromaps is also offering .map files but with a different data bias and different render theme.
 
 ===== mapsforge
 
@@ -127,7 +127,7 @@ image::06_maps/02_cycle_maps.png[scaledwidth=30%, width=30%]
 
 ===== Apply a render theme
 
-When rendereing mapforge tiles locally, Geopaparazzi applies render themes if they are found on the disk. In order to be found, the render theme xml file needs to have the same name as the map file. 
+When rendering mapsforge tiles locally, Geopaparazzi applies render themes if they are found on the disk. In order to be found, the render theme XML file needs to have the same name as the map file. 
 Ex, the above cycle map example has a:
     
     italy_cycle.map
@@ -147,7 +147,7 @@ At the time of writing it is released as development version and supported in Ge
 
 === Overlay maps
 
-The only datasets that can be overlayed on top of basemaps are vector maps
+The only datasets that can be overlaid on top of basemaps are vector maps
 coming from a https://www.gaia-gis.it/fossil/libspatialite/index[spatialite database].
 
 
