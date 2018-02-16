@@ -1,5 +1,5 @@
 # usermanual
 
-Usermaual Space.
+Usermanual Space.
 
 Create pull requests here to contribute.

@@ -1,7 +1,7 @@
 == Supported datasets
 anchor:supported_datasets[]
 
-Geopaparazzi's mapview supports several map-types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for off-line operation. You can switch between these modes in settings.
+Geopaparazzi's Map View supports several map types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for off-line operation. You can switch between these modes in settings.
 
 There are two types of maps in Geopaparazzi: 
 
@@ -17,7 +17,7 @@ Basemaps can be of 4 different types:
 
 * mapurls
 * mbtiles
-* mapsforge maps
+* Mapsforge maps
 * rasterlite2
 
 
@@ -54,7 +54,7 @@ TIP: This information can be tested also in a browser http://tile.openstreetmap.
 * the minimum zoom level that is supported
 * the maximum zoom level that is supported
 * the center of the tile source
-* the type fo tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and google based numbering of the tiles is supported by the line:
+* the type fo tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and Google Maps based numbering of the tiles is supported by the line:
   - type=tms
   - type=google
 

@@ -2,7 +2,7 @@
 
 === gvSIG Mobile
 
-gvSIG Mobile is completely based on geopaparazzi and extends its capabilities with enterprise level functionalities to connect to the services of gvSIG Online to allow syncronization of data between teams of surveyers.
+gvSIG Mobile is completely based on geopaparazzi and extends its capabilities with enterprise level functionalities to connect to the services of gvSIG Online to allow synchronization of data between teams of surveyors.
 
 image::projects_using_it/gvsig_mobile.png[scaledwidth=30%, width=30%]
 
@@ -44,6 +44,6 @@ image::projects_using_it/trackoid_02.png[]
 
 ==== Your app here
 
-If you are using Geopaparazzi in any flavour we would be happy to list 
+If you are using Geopaparazzi in any flavor we would be happy to list 
 it here with some screenshot. Just drop us a note!
 

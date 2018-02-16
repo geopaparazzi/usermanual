@@ -6,23 +6,23 @@ The preferences page is divided in main categories:
 .The settings view.
 image::05_settings/01_settings.png[scaledwidth=30%, width=30%]
 
-=== Gps Settings
+=== GPS Settings
 
-.The gps settings view.
+.The GPS settings view.
 image::05_settings/02_gps.png[scaledwidth=30%, width=30%]
 
-In the gps preferences it is possible to 
+In the GPS preferences it is possible to 
 
 * define the time interval for taking a point when in logging mode
-* define the minimum distance in meters, within the taken gps point is not added to the gps log. This is useful for example in the case in which the user stops during logging and the gps continues to supply points (due to the inaccuracy), while instead the user stands still in a point.
-* have the mapview recentered on the gps position when the position 
-  reaces the screen border (usefull while driving)
+* define the minimum distance in meters, within the taken GPS point is not added to the GPS log. This is useful for example in the case in which the user stops during logging and the GPS continues to supply points (due to the inaccuracy), while instead the user stands still in a point.
+* have the Map View re-centered on the GPS position when the position 
+  reaches the screen border (useful while driving)
 * use network based position instead of GPS position. This can be useful 
   for testing purposes. The network based position is by no means precise!
 
-=== Sms Settings
+=== SMS Settings
 
-.The sms settings view.
+.The SMS settings view.
 image::05_settings/03_sms.png[scaledwidth=30%, width=30%]
 
 It is possible to activate an SMS catcher. If activated, the phone listens
@@ -44,7 +44,7 @@ image::05_settings/04_screen.png[scaledwidth=30%, width=30%]
 In the screen preferences it is possible to 
 
 * change the map center cross properties (size, color, stroke width)
-* change the mapsforge map text size factor (normal is 1. To make text bigger, increase the value)
+* change the Mapsforge map text size factor (normal is 1. To make text bigger, increase the value)
 * enable the always screen on mode
 * toggle the use of metric/imperial units
 * enable settings to optimize rendering for high density displays
@@ -87,7 +87,7 @@ After that, each newly loaded view will be in the new locale.
 
 This setting allows the user to set a server with user and password, to which upload and from which download geopaparazzi projects.
 
-Known projects that allow for such aconnection are:
+Known projects that allow for such a connection are:
 
 * http://www.gvsig.org[gvSIG Desktop] with the hydrologis4gvsig plugins installed
 * gvSIG Online

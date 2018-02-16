@@ -2,11 +2,11 @@
 
 The map menu gives the possibility to access some additional map tools:
 
-* access the gps data list
-* access the spatialite data list. 
+* access the GPS data list
+* access the Spatialite data list. 
 * toggle the scalebar
 * open the compass
-* toggle automatic centering on the gps position
+* toggle automatic centering on the GPS position
 * center the view on the current base map (if possible)
 * go to a location
 * share the current position
@@ -16,25 +16,25 @@ The map menu gives the possibility to access some additional map tools:
 .The map menu.
 image::03_mapview/13_map_menu.png[scaledwidth=30%, width=30%]
 
-=== Gps data list
+=== GPS data list
 
-The gps data list shows the data surveyed, both points and tracks.
+The GPS data list shows the data surveyed, both points and tracks.
 
-.The gps data view.
+.The GPS data view.
 image::03_mapview/14_gpsdatalist.png[scaledwidth=30%, width=30%]
 
 In the actionbar there are possibilities to _select all_, _unselect all_ and _merge selected logs_. The first icon from left is the notes properties button. From there some properties of the notes can be set.
 
-Notes can be visualized as icons or as circular shapes. The size, color and opacity can be customized by the user. This can be usefull in those cases in which many notes have to coexist in a small space for better readability.
+Notes can be shown on the Map View as icons or as circular shapes. The size, color and opacity can be customized by the user. This can be useful in those cases in which many notes have to coexist in a small space for better readability.
 
 It is also possible to show the label for the note and customize its size and halo.
 
 .The notes properties view.
 image::03_mapview/15_notes_properties.png[scaledwidth=30%, width=30%]
 
-The **list of gps logs** gives the possibility to customize the logs. It is possible to change the visibility of the single track using the checkbox. The icon on the rigth side of each entry opens the gps log properties panel:
+The **list of GPS logs** gives the possibility to customize the logs. It is possible to change the visibility of the single track using the checkbox. The icon on the right side of each entry opens the GPS log properties panel:
 
-.The gps log properties panel.
+.The GPS log properties panel.
 image::03_mapview/16_log_properties.png[scaledwidth=30%, width=30%]
 
 From the properties panel it is possible to:
@@ -55,18 +55,18 @@ image::03_mapview/17_chart_log.png[scaledwidth=30%, width=30%]
 === Spatialite data list
 anchor:spatialitedatalist[]
 
-The spatialite data list view holds the list of loaded spatialite databases. For each database its spatial tables are shown and each table can be made visible or hidden through the checkbox on each entry. 
+The Spatialite data list view holds the list of loaded Spatialite databases. For each database its spatial tables are shown and each table can be made visible or hidden through the checkbox on each entry. 
 
 The rendering order can be changed through a combobox at the left side of each entry.
 
-New databases can be added throught the 2 buttons at the bottom of the view, by single file or folder.
+New databases can be added through the 2 buttons at the bottom of the view, by single file or folder.
 
 To remove a database longtap on its entry.
 
 .The list of spatialite based data.
 image::03_mapview/18_spatialite_data_list.png[scaledwidth=30%, width=30%]
    
-At the right part of each entry a menu is available, which allows the user to change the style and labelling of the features in the layer, as well as its stroke dash and zoomlevel visibility. It is also possible to zoom to a given layer extent.
+At the right part of each entry a menu is available, which allows the user to change the style and labeling of the features in the layer, as well as its stroke dash and zoom level visibility. It is also possible to zoom to a given layer extent.
 
 === Go to
 
@@ -81,7 +81,7 @@ In the **go to coordinate** panel it is possible to insert lat/long coordinates 
 
 image::03_mapview/20_goto_coord.png[scaledwidth=30%, width=30%]
 
-Through geocoding it is possible to insert some address and find its location (uses google maps geocoding).
+Through geocoding it is possible to insert some address and find its location (uses Google Maps geocoding service).
 
 image::03_mapview/21_goto_point.png[scaledwidth=30%, width=30%]
 
@@ -89,9 +89,9 @@ From the same panel it is possible to create a route from the current position t
 
 The routing service used is http://project-osrm.org/[OSRM].
 
-Once the OK button is tapped, the route is calculated by the service
+Once the Routing button is tapped, the route is calculated by the service
 starting from the current map center to the destination point.
-The route is then downloaded and placed in the gps logs tracks.
+The route is then downloaded and placed in the GPS logs tracks.
 
 .The fresh downloaded route from Bolzano to Rome.
 image::03_mapview/24_route_rome.png[scaledwidth=30%, width=30%]
@@ -111,7 +111,7 @@ The mapsforge tiles are generated on the device from a particular vector format.
 
 But still it is possible to extract almost everything we see, which is nice.
 
-Let's see how this works. **For this to work it is mandatory that the loaded background map is of type "map"**. Assume you have a job to do, are out in the field and want view information overlayed on the ortofoto pictures from the local WMS service.
+Let's see how this works. **For this to work it is mandatory that the loaded background map is of type "map"**. Assume you have a job to do, are out in the field and want view information overlaid on the orthophoto images from the local WMS service.
 
 Well, the map file you get from mapsforge looks like the following:
 
@@ -130,7 +130,7 @@ Since the points are often visible on a different zoomlevel then the current, al
 
 You can add a filter text to import only tags containing a given text or exclude all those containing the text.
 
-Points are imported in the current projectdatabase and saved as forms notes containing all the values Openstreetmap has. As such they can also be edited.
+Points are imported in the current project database and saved as forms notes containing all the values Openstreetmap has. As such they can also be edited.
 
 All imported notes have a (MF) in their name. That is done so one can quickly select and remove them. Believe us, that is a feature you want to have since such imports can generate very crowded notes lists.
 
@@ -147,7 +147,7 @@ The user can choose to import:
 * waterways: lines that represent water
 * contours: contour lines if they are available
 
-Since these data are heavy, the data are imported into a dedicated spatialite database. A database for mapsforge extracted data is automatically created if there is none present. You will find a database named **mapsforge_extracted.sqlite** always present in your maps folder. And you will find 3 layers always present in the spatialite data layers: **osm_waterlines, osm_roads and osm_contours**.
+Since these data are large, the data are imported into a dedicated Spatialite database. A database for mapsforge extracted data is automatically created if there is none present. You will find a database named **mapsforge_extracted.sqlite** always present in your maps folder. And you will find 3 layers always present in the Spatialite data layers: **osm_waterlines, osm_roads and osm_contours**.
 
 .The mapsforge database and layer that host imported data.
 image::03_mapview/27_mapsforge3.png[scaledwidth=30%, width=30%]
@@ -163,6 +163,6 @@ and then something like this:
 
 image::03_mapview/27_mapsforge5.png[scaledwidth=30%, width=30%]
 
-Depending on what has been imported first, the labels might not be coming from the right osm field. In that case it can be simply changed in the spatialite layer settings. Refer to the <<spatialitedatalist,spatialite data list section>>.
+Depending on what has been imported first, the labels might not be coming from the right field. In that case it can be simply changed in the spatialite layer settings. Refer to the <<spatialitedatalist,spatialite data list section>>.
 
 
