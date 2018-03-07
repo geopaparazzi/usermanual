@@ -3,7 +3,7 @@
 === From Google Play
 
 
-* connect your Android device to internet
+* connect your Android device to Internet
 * open the https://play.google.com/store[Play Store]
 * type *geopaparazzi* within the Search textbox
 

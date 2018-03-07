@@ -26,15 +26,15 @@ The action bar, from right to left, presents the following functions:
 
 * the main menu
 * the general settings button
-* the gps and map information button
+* the GPS and map information button
 
-The info button shows information about the current selected map and the status of the gps. If the gps has acquired a fix, information about the position is given: 
+The info button shows information about the current selected map and the status of the GPS. If the GPS has acquired a fix, information about the position is given: 
 
 .Information shown when tapping the info button.
 image::02_dashboard/10_info_button.png[scaledwidth=30%, width=30%]
 
 
-NOTE: The gps status icon can be of the following colors:
+NOTE: The GPS status icon can be of the following colors:
 RED if the GPS is not switched on, ORANGE if the GPS is on but no fix was acquired,
 GREEN if the GPS is on and has fix, but no log is being recorded and BLUE
 if the GPS is logging.
@@ -51,16 +51,16 @@ leads to the *panic!* view, which presents two buttons:
 .The panic panel.
 image::02_dashboard/20_panic.png[scaledwidth=30%, width=30%]
 
-The panic button sends a request for help sms with the last available GPS
+The panic button sends a request for help SMS with the last available GPS
 position to a phone number that can be configured in the <<settings>> of geopaparazzi.
 
-If no number is configured, the system sms dialog opens up with a precompiled message
+If no number is configured, the system SMS dialog opens up with a precompiled message
 and the user will have to select the contact to which to send the message:
 
-.The system sms dialog
+.The system SMS dialog
 image::02_dashboard/21_panic_sms.png[scaledwidth=30%, width=30%]
 
-The _just send position_ button opens up the sms dialog directly filling in the position without any request for help message. It is meant for quick sending the current position via sms so that it can be opened from Geopaparazzi.
+The _just send position_ button opens up the SMS dialog directly filling in the position without any request for help message. It is meant for quick sending the current position via SMS so that it can be opened from Geopaparazzi.
 
 === The dashboard buttons
 
@@ -81,8 +81,8 @@ appears:
 image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
 The switch button at the top of the view gives the possibility to
-choose whether the note will be inserted in the **current gps position** 
-(in case gps is on) or in the the **center of the map** (the crossfade).
+choose whether the note will be inserted in the **current GPS position** 
+(in case GPS is on) or in the the **center of the map** (the crossfade).
 
 
 At the right end of the actionbar the quick note buttons are placed. From left to right:
@@ -116,7 +116,7 @@ WARNING: Once a simple note has been saved, it can't be modified.
 ===== Form based notes
 
 Form based notes are complex notes that allow for better surveys.
-Some examples are available in the base installation of geopaparazzi.
+Some example forms are included in the base installation of geopaparazzi.
 
 The **example** button in particular shows all the possible form widgets available:
 
@@ -141,19 +141,19 @@ It shows:
 * the user that created the project
 * the user that last modified the project
 
-Apart of the dates, that are set by the system, all data can be changed and 
+Apart from the dates, that are set by the system, all data can be changed and 
 saved through the save button.
 
 .The project metadata view.
 image::02_dashboard/07_project_info.png[scaledwidth=30%, width=30%]
 
-It is also possible to add additional metadata to the project information. The plus button at the right side of the actionbar openes an input dialog that allows to define a key, a labell and a value for the new metadata entry:
+It is also possible to add additional metadata to the project information. The plus button at the right side of the actionbar opens an input dialog that allows the user to define a key, a label and a value for the new metadata entry:
 
 .The new metadata entry dialog.
 image::02_dashboard/07_project_info_plus.png[scaledwidth=30%, width=30%]
 
 
-==== Gps Logging
+==== GPS Logging
 
 To start logging, the user simply has to push the **logging** button.
 
@@ -168,7 +168,7 @@ of the log (or any user inserted) is ignored, since no new log is created.
 .The new log dialog. From here it is possible to continue the last log.
 image::02_dashboard/08_start_logging.png[scaledwidth=30%, width=30%]
 
-Once logging has started, the logging button will turn orange and the gps status icon blue.
+Once logging has started, the logging button will turn orange and the GPS status icon blue.
  
 .The stop logging button with its red sign.
 image::02_dashboard/09_logging_on.png[scaledwidth=30%, width=30%]
@@ -194,16 +194,16 @@ image::02_dashboard/13_import.png[scaledwidth=30%, width=30%]
 
 Geopaparazzi supports the import of:
 
-* gpx datasets
+* GPX datasets
 * bookmarks
 * WMS
 * mapurl configuration files for online tiles
-* default spatialite databases
+* default Spatialite databases
 * geopaparazzi cloud projects
 
 ===== GPX
 
-By tabbing on the *GPX* icon, the user is taken to a simple file browser. 
+By tapping on the *GPX* icon, the user is taken to a simple file browser. 
 
 .The simple geopaparazzi file browser.
 image::02_dashboard/16_import_gpx.png[scaledwidth=30%, width=30%]
@@ -240,17 +240,17 @@ Once the _getCapabilities_ URL is inserted and the refresh button is tapped, the
 ===== Mapurls
 
 Since the creation of a mapurl configuration file for WMS services is complex,
-a small service has been created, that automatically generates mapurls for known services.
+a small service has been created that automatically generates mapurls for known services.
 
 Once chosen the services query view appears:
 
 .The TANTO mapurl service view.
 image::02_dashboard/14_mapurls.png[scaledwidth=30%, width=30%]
 
-If requested, the service will consider the device's position to gather 
-only dataset in that area. Also some minor text filters can be added.
+If requested, the service will use the device's position to gather 
+only datasets in that area. Also some minor text filters can be added.
 
-An example with the gps placed in Italy is the following:
+An example with the GPS placed in Italy is the following:
 
 image::02_dashboard/15_mapurls.png[scaledwidth=30%, width=30%]
 
@@ -268,12 +268,12 @@ The same link also contains instruction about how to suggest to suggest new WMS 
 
 ===== Default databases
 
-When tapping the default database import button, the user is asked to name the new 
+When tapping the default database import button, the user is asked to name the new Spatialite 
 database to create. Let's use the default name proposed based on the current date and time:
 
 image::02_dashboard/19_mapsforge.png[scaledwidth=30%, width=30%]
 
-The newly created database is **editing ready** and contains a layer of each type. Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field10**. It is very generic and simple, but still of use when you have to quickly collect some data with attributes and have no database prepared..
+The newly created database is **editing ready** and contains a layer of each type geomotry type (points, lines, polygon). Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field20**. It is very generic and simple, but still of use when you have to quickly collect some data with attributes and have no database prepared..
 
 
 ==== Export
@@ -283,8 +283,8 @@ image::02_dashboard/18_export.png[scaledwidth=30%, width=30%]
 
 Geopaparazzi supports the export to the following formats:
 
-* kmz
-* gpx
+* KMZ
+* GPX
 * bookmarks
 * images
 * geopaparazzi cloud projects
@@ -292,7 +292,7 @@ Geopaparazzi supports the export to the following formats:
 
 ===== KMZ
 
-It is possible to export all collected data to kmz format. 
+It is possible to export all collected data to KMZ format. 
 
 KMZ is well known as it can be visualized in the 3D viewer http://earth.google.com/[Google Earth].
 
@@ -300,17 +300,17 @@ In the export:
 
 * the notes are placed as red pins having the first letters of the text content as label
 * the images are placed as yellow pins
-* the gps logs are visualized as tracks
+* the GPS logs are visualized as tracks
 
 ===== GPX
 
-The lines and notes data are exported to gpx, creating tracks and waypoints.
+The lines and notes data are exported to GPX, creating tracks and waypoints.
 
 
 ===== Bookmarks
 
 Bookmarks can be exported to a csv file that has to be called *bookmarks.csv* and 
-must be placed in the root of the sdcard.
+are placed in the root of the sdcard.
 
 Geopaparazzi will write to the file only those bookmarks that do not exist already in the csv. 
 
