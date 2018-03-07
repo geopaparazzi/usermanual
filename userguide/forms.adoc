@@ -50,7 +50,7 @@ image::08_forms/03_text_multi.png[scaledwidth=70%, width=70%]
 
 ==== Text with key and label
 
-In simple forms the key element is also used as label for the widget (ex. *some text* in the text note). Some charactersets are not suitable to be used as keys for a database, so in that cases the user should consider to define both the key (ex. in English) and the label (in the own language). Here an example:
+In simple forms the key element is also used as label for the widget (ex. *some text* in the text note). Some character sets are not suitable to be used as keys for a database, so in that cases the user should consider to define both the key (ex. in English) and the label (in the own language). Here an example:
 
 [source,json]
 ----
@@ -315,7 +315,7 @@ image::08_forms/11_sketches.png[scaledwidth=70%, width=70%]
 
 ==== hidden 
 
-Not shown in the gui, but useful for the application to fill in infos like the GPS position:
+Not shown in the gui, but useful for the application to fill in info like the GPS position:
 
 [source,json]
 ----
@@ -324,7 +324,7 @@ Not shown in the gui, but useful for the application to fill in infos like the G
 
 ==== primary_key 
 
-An item of particular importance, can be used by the application to link to particular infos:
+An item of particular importance, can be used by the application to link to particular info:
 
 [source,json]
 ----
@@ -333,7 +333,7 @@ An item of particular importance, can be used by the application to link to part
 
 ==== Constraints
 
-Constraints are conditions that are checked when the ok button of the form is pushed.
+Constraints are conditions that are checked when the OK button of the form is pushed.
 
 ===== mandatory
 
@@ -358,7 +358,7 @@ which would check that the inserted number is between 0 (inclusive) and 10 (excl
 
 === Create a simple form to map fountains
 
-As an excercise we will now create a simple form to map fountains.
+As an exercise we will now create a simple form to map fountains.
 
 ==== Sections
 
@@ -411,7 +411,7 @@ is added.
 
 To add content to the sub-forms, any of the tags described <<tags,in the supported tags section>> can be used.
 
-For example lets add two textfields to prompt the user for a name and street. Also the name should then be the label rendered in the map view.
+For example lets add two text fields to prompt the user for a name and street. Also the name should then be the label rendered in the map view.
 
 [source,json]
 ----

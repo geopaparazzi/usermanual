@@ -1,14 +1,14 @@
 == The Main View Menu
 
-The main presents the following options:
+The main view menu presents the following options:
 
-* <<select_tiles, Select tile source>>: allows the selection of a map tile source to be used as base map
-* <<create_new_project,Create new project>>: this will create a new project on the sdcard. A timestamp based name is proposed to the user
-* <<load_project,Load existing project>>: gives the possibility to browse the filesystem to select an existing geopaparazzi project folder (the one with the database in it) to load it
-* <<gps_status,GPS Status>>: opens a GPS status application to check on satellites visibility
+* <<select_tiles, Select tile source>>: allows the selection of a map tile source to be used as a basemap
+* <<create_new_project,Create new project>>: creates a new project on the sdcard. A timestamp based name is proposed to the user
+* <<load_project,Load existing project>>: allows the browsing of the filesystem to select an existing geopaparazzi project file to load it
+* <<gps_status,GPS Status>>: opens a GPS status application to check on satellite visibility
 * Advanced: shows some advanced user options such as the application log or custom database queries
-* About: visualises the about page, which contains infos, links and acknowledgements
-* <<exit,Exit>>: shuts down geopaparazzi properly. This is important, because geopaparazzi is meant to continue logging also in background. Therefore, if one uses the android home button to exit the app, it will continue to work in background, most probably draining your battery through GPS use.
+* About: shows the about page, which contains info, links and acknowledgements
+* <<exit,Exit>>: shuts down geopaparazzi properly. This is important, because geopaparazzi is meant to continue logging also in background. Therefore, if one uses the android home button to exit the app, it will continue to work in background, most probably draining the battery through GPS use.
 
 .The main view menu.
 image::04_mapviewmenu/01_menu.png[scaledwidth=30%, width=30%]
@@ -17,16 +17,16 @@ image::04_mapviewmenu/01_menu.png[scaledwidth=30%, width=30%]
 === Select tile source
 anchor:select_tiles[]
 
-From the main menu, when pushing the tile source button, the list of available tile sources are presented, divided by folder:
+From the main menu, when pushing the tile source button, the list of available tile sources are presented, organized by folder:
 
 .The basemaps view.
 image::04_mapviewmenu/02_select_tiles.png[scaledwidth=30%, width=30%]
 
 Each map source has a name and a type description between brackets.
 
-At the current time 4 types are supported:
+At the current time four types are supported:
 
-* Map
+* Mapsforge Map
 * Mapurl
 * MBTiles
 * RasterLite2
@@ -44,13 +44,13 @@ which makes searching simpler when a lot of sources are present on the device.
 
 image::04_mapviewmenu/04_select_tiles.png[scaledwidth=30%, width=30%]
 
-Basemaps can be loaded from the device storage through the two buttons at the bottom of the view. The right one allows to pick a single file to add it as a basemap, while the left one allows to bulk load a complete folder of maps.
+Basemaps can be added to the list from the device storage through the two buttons at the bottom of the view. The right one allows to pick a single file to add it as a basemap, while the left one allows to bulk load a complete folder of maps.  Once the basemap has been added to the list, tap the basemap on the list to use in the Map View.
 
 
 === Create a new project
 anchor:create_new_project[]
 
-When a new project is created, the user is prompted to insert a name
+When a new project is created, the user is prompted to give a file name
 for the new project file. This is the name that will be given to the 
 database file that contains all data surveyed in Geopaparazzi.
 
@@ -63,7 +63,7 @@ restarted and opened loading the new created project.
 === Load an existing project
 anchor:load_project[]
 
-Existing projects can be loaded using a simple file browser from within Geoapaparazzi. The Geopaparazzi project files are visualized with a different icon to help the user to choose the proper files.
+Existing projects can be loaded using a simple file browser from within Geoapaparazzi. The Geopaparazzi project files are shown with an icon to help the user to choose the proper files.
 
 === GPS Status
 anchor:gps_status[]
@@ -73,7 +73,7 @@ The GPS status entry launches the open source application https://play.google.co
 === Exit
 anchor:exit[]
 
-The exit button closes Geopaparazzi and stoppes any ongoing logging and 
+The exit button closes Geopaparazzi and stops any ongoing logging and 
 sensor activity.
 
 This might seem obvious, but it is important to note that this is the *only way to properly close Geopaparazzi*. Pushing the home button of the device will not close Geopaparazzi, which will continue any activity started. This is important, because it makes very long loggings possible even if interrupted by phone calls or other uses of the device.

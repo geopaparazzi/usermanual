@@ -1,7 +1,7 @@
 == The Map View
 anchor:mapview[]
 
-The map view is the central view of the application. It can be used to view the current gps position overlayed on maps and vector datasets.
+The map view is the central view of the application. It can be used to view the current GPS position overlaid on maps and vector datasets.
 
 .The map view.
 image::03_mapview/01_mapview.png[scaledwidth=30%, width=30%]
@@ -10,17 +10,17 @@ The map engine comes from the http://code.google.com/p/mapsforge/[mapsforge] pro
 
 The <<supported_datasets,supported datasets>> section lists and describes all supported map types. Just to cite a few, one can view:
 
-* http://www.openstreetmap.org/[OpenStreetMap] maps both when online (downloading new tiles) and offline (visualizing those that were cached during online mode)
+* http://www.openstreetmap.org/[OpenStreetMap] maps both when on-line (downloading new tiles) and off-line (visualizing those that were cached during online mode)
 * http://www.mapbox.com/developers/mbtiles/[mbtiles databases]
 * local and remote http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification[TMS] tiles
 * mapsforge vector files
 
 
-=== Map view tools
+=== Map View tools
 
-The map view has a set of tools that can be exploited to interact with the map. 
+The Map View has a set of tools that can be used to interact with the map. 
 
-When first launched, the tools are already visible on the map. To have a cleaner mapview, the user can long-tap on the upper right menu button to toggle the visibility of the tools.
+When first launched, the tools are already visible on the map. To have a cleaner Map View, the user can long-tap on the upper right menu button to toggle the visibility of the tools.
 
 .The map view with disabled tools.
 image::03_mapview/02_mapview_tools_off.png[scaledwidth=30%, width=30%]
@@ -32,7 +32,7 @@ Available tools are:
 
   - add note (the same that is accessed from the dashboard) and list notes (long tap)
   - add bookmark and list bookmarks (long tap)
-  - activate the gps log analizer
+  - activate the GPS log analyzer
   - activate the measure tool
 
 * Right screen side
@@ -63,17 +63,17 @@ image::03_mapview/29_pan_coords.png[scaledwidth=30%, width=30%]
   the zoom in/out buttons at the lower right part of the map. It is also
   possible to zoom in by double-tapping on the map. Zoom in and out can
   also be achived through https://en.wikipedia.org/wiki/Multi-touch[pinch-zoom gestures].
-* **center on gps**: through the lower center button it is possible 
-  to center the map on the gps position. The button also shows the status of the GPS the same way as the icon <<action_bar,on the main view's action bar>>.
+* **center on GPS**: through the lower center button it is possible 
+  to center the map on the GPS position. The button also shows the status of the GPS the same way as the icon <<action_bar,on the main view's action bar>>.
 
 === Add Notes
 
 .The view from which notes are taken.
 image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
-The add notes button opens the same notes view as the button on the dashboard. There is only once difference. Since notes can be added both in the gps position and in the middle of the map, to open the add note view from the dashboard, the GPS is required to have a fix.
+The add notes button opens the same notes view as the button on the dashboard. There is only once difference. Since notes can be added both in the GPS position and in the middle of the map, to open the add note view from the dashboard, the GPS is required to have a fix.
 
-Instead from the map view the user can open the add note view even without GPS signal, in which case he will be allowed to insert notes only in the map center position.
+From the map view the user can open the add note view even without GPS signal, in which case notes will only be inserted at the map center position.
 
 For further information about taking notes, visit the <<notes,notes section>>.
 
@@ -86,9 +86,9 @@ image::03_mapview/03_noteslist1.png[scaledwidth=30%, width=30%]
 
 The icon on the right side of the actionbar allows the user to sort the notes by different modes:
 
-* *None*: inertion order
+* *None*: insertion order
 * *By Name* and inverse: sorts the notes by their name
-* *By Mapcenter distance* and inverse: sorts the notes by the distance from the current mapcenter position
+* *By Map center distance* and inverse: sorts the notes by the distance from the current map center position
 
 .The notes sort order dialog.
 image::03_mapview/04_noteslist_sortorder.png[scaledwidth=30%, width=30%]
@@ -99,7 +99,7 @@ In the upper part of the view there is a textbox that helps to filter out a part
 image::03_mapview/04_noteslist_filter.png[scaledwidth=30%, width=30%]
 
 
-At the right side of the list 2 icon are available. The left one positions the map on the selected note's position while the rigth one opens a menu:
+At the right side of the list two icons are available. The left one positions the map on the selected note's position while the right one opens a menu:
 
 .The note menu.
 image::03_mapview/05_note_menu.png[scaledwidth=30%, width=30%]
@@ -157,11 +157,11 @@ The user has 4 options, as the icons on each bookmark entry shows:
 .The list of bookmarks.
 image::03_mapview/11_bookmarks_list.png[scaledwidth=30%, width=30%]
 
-=== Gps log analysis tool
+=== GPS log analysis tool
 
-The log analysis tool allows to analyze the various positions of a gps log.
+The log analysis tool allows to analyze the various positions of a GPS log.
 
-Once enabled, one can simply touch the screen near a gps log and information about 
+Once enabled, one can simply touch the screen near a GPS log and information about 
 the nearest log point will be shown. Also the color of the text will be the one of 
 the currently queried log:
 
@@ -170,7 +170,7 @@ image::03_mapview/28_gps_log_analysis.png[scaledwidth=30%, width=30%]
 
 === Measure tool
 
-Activating the measure tool puts the app in measure mode. This mode disables the ability to pan the map while enabling the possibility to draw a line on the map and measure the line drawn. 
+Activating the measure tool disables the ability to pan the map while enabling the possibility to draw a line on the map and measure the line drawn. 
 
 The *approximate* (the distance is calculated without considering elevation deltas and with the coordinate picking precision of a finger on a screen) distance is shown in the upper part of the map view.
 
