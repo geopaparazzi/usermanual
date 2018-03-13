@@ -24,8 +24,6 @@ endif::[]
 
 == Because not all paparazzis are evil!
 
-NOTE: This manual is available also as PDF https://github.com/geopaparazzi/usermanual/releases/download/version_5.3.0/usermanual_geopaparazzi_5.3.0.pdf[at this link].
-
 NOTE: If you are looking for the source code of this project, https://github.com/geopaparazzi/geopaparazzi[jump right to this link].
 
 Geopaparazzi is a tool developed to do **very fast qualitative** engineering/geologic surveys. 

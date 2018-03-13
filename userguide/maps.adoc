@@ -11,6 +11,23 @@ There are two types of maps in Geopaparazzi:
 
 The following sections will detail various map source types. In case you want to prepare tailored map datasets as map sources in one of below map formats, please refer to the <<datapreparation,data preparation section>>.
 
+=== A word about "external" storages
+
+From Android version 4.4 (codename KitKat) it is no longer allowed for applications to write to userinstalled MicroSD cards. Instead applications can still write to internal memory (often seen as sdcard also).
+
+An external user-installed sdcard appears to geopaparazzi as readonly. Datasets copied on the sdcard on a pc can therefore only be accessed in readonly mode and will create crashes if the user tries for example to modify a feature attribute.
+
+One less known thing is that if the data are kept inside the application's data folder, they can be accessed in read/write mode.
+
+So for example, if one puts the dataset in the folder:
+
+----
+/storage/YOUR-SDCARD/Android/data/eu.hydrologis.geopaparazzi/files
+----
+
+it will be handled as if it was in the internal memory.
+
+
 === Basemaps
 
 Basemaps can be of 4 different types:
