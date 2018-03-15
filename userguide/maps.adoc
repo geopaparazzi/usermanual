@@ -11,6 +11,24 @@ There are two types of maps in Geopaparazzi:
 
 The following sections will detail various map source types. In case you want to prepare tailored map datasets as map sources in one of below map formats, please refer to the <<datapreparation,data preparation section>>.
 
+=== A word about "external" storages
+anchor:external_writable_storages[]
+
+From Android version 4.4 (codename KitKat) it is no longer allowed for applications to write to userinstalled MicroSD cards. Instead applications can still write to internal memory (often seen as sdcard also).
+
+An external user-installed sdcard appears to geopaparazzi as readonly. Datasets copied on the sdcard on a pc can therefore only be accessed in readonly mode and will create crashes if the user tries for example to modify a feature attribute.
+
+One less known thing is that if the data are kept inside the application's data folder, they can be accessed in read/write mode.
+
+So for example, if one puts the dataset in the folder:
+
+----
+/storage/YOUR-SDCARD/Android/data/eu.hydrologis.geopaparazzi/files
+----
+
+it will be handled as if it was in the internal memory.
+
+
 === Basemaps
 
 Basemaps can be of 4 different types:
@@ -60,6 +78,8 @@ TIP: This information can be tested also in a browser http://tile.openstreetmap.
 
 * the backup mbtiles path. This one is used to save downloaded tiles in the
   local mbtiles database
+
+WARNING: The user needs to make sure that the backup mbtiles path is in a writable folder (see <<external_writable_storages, a word about "external" storages>>) or else crashes might occur.
 
 Also WMS works as remote source, as long as it can be accessed through an **EPSG:4326** projection. 
 

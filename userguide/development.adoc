@@ -1,0 +1,453 @@
+== A small handbook for developers
+
+=== Introduction
+
+==== Getting the code
+
+The whole source code of the Geopaparazzi project is available at https://github.com/geopaparazzi/geopaparazzi[its github site]. 
+
+It can be downloaded into a local git repository with the following command from commandline:
+
+[source,bash]
+----
+git clone --recursive https://github.com/geopaparazzi/geopaparazzi.git
+----
+
+==== Building and developing Geopaparazzi
+
+The authors suggest to use https://developer.android.com/studio/index.html[Android Studio] for the build and development of the application.
+
+Geopaparazzi is developed in pure java. The only native C libraries referenced in the project are th elibraries of spatialite. They are contained as libraries and therefore all development is done in pure java. Android currently supports all Java 7 language features and a subset of Java 8 language features that vary by platform version. At the time of writing the Geopaparazzi codebase only uses java 7 languagefeatures.
+
+The project uses https://gradle.org/[gradle] as its build tool. The commandline can be used to assemble an installation package:
+
+[source,bash]
+----
+./gradlew assemble
+----
+
+In the case of building from commandline, it is necessary to insert the keystore informations to sign the installation package in a file named:
+
+[source,bash]
+----
+geopaparazzi.app/ant.properties
+----
+
+The format is the one of a simple key-value properties file:
+
+[source,]
+----
+key.store=/path/to/the/keystore/file
+key.store.password=yourpassword
+key.alias=youralias
+key.alias.password=youraliaspassword
+----
+
+<<<
+
+=== Description of the Geopaparazzi Architecture
+
+The Geopaparazzi application has been split in different modules, that contain functionalities that have been isolated.
+
+The root source folder contains the main modules:
+
+tree::{user-home}/development/geopaparazzi-git/[maxdepth=1]
+.Contents of Geopaparazzi git root folder
+
+While the folders _extra_, _build_ and _gradle_ are accessory folders, the other folders are all part of the application.
+
+
+==== Modules dependencies diagram
+
+The diagram shows the dependencies of the various modules:
+
+.Diagram of the main modules dependencies.
+[plantuml, development/modules_diagram, png]     
+....
+
+class geopaparazzi_app << (A,#FF0000) Application >>
+class geopaparazzi_acrylicpaint  << (M,#5d9d76) Module >>
+class geopaparazzi_core  << (M,#5d9d76) Module >>
+class geopaparazzilibrary  << (M,#5d9d76) Module >>
+class geopaparazzimapsforge  << (M,#5d9d76) Module >>
+class geopaparazzispatialitelibrary  << (M,#5d9d76) Module >>
+class plugins  << (P,#FF7700) Plugins >>
+class wms_nww  << (M,#5d9d76) Module >>
+
+hide members
+
+geopaparazzi_app <-- geopaparazzi_core
+geopaparazzi_app <-- plugins
+geopaparazzi_core <-- geopaparazzilibrary
+geopaparazzi_core <-- geopaparazzispatialitelibrary
+geopaparazzi_core <-- geopaparazzimapsforge
+geopaparazzi_core <-- wms_nww
+geopaparazzi_core <-- geopaparazzi_acrylicpaint
+geopaparazzimapsforge <-- geopaparazzilibrary
+geopaparazzispatialitelibrary <-- geopaparazzilibrary
+geopaparazzi_acrylicpaint <-- geopaparazzilibrary
+....
+
+.The official Geopaparazzi plugins
+[plantuml, development/plugins_diagram, png]     
+....
+class plugins << (P,#FF7700) Plugins >>
+class geopaparazzi_default_export_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_default_import_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_projects_export_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_projects_import_plugins << (M,#5d9d76) Module >>
+
+hide members
+
+plugins <-- geopaparazzi_default_export_plugins
+plugins <-- geopaparazzi_default_import_plugins
+plugins <-- geopaparazzi_projects_export_plugins
+plugins <-- geopaparazzi_projects_import_plugins
+....
+
+==== geopaparazzilibrary
+
+The Geopaparazzi Library module contains all the code that can be reused across applications. The different packages contained have been named to explain their content. 
+
+Many of the packages are not used in the geopaparazzi application, but have been contributed during several customizations that have been done during the years. 
+
+Below a short description of the most important packages:
+
+* **bluetooth**: bluetooth pairing and data transfer classes
+* **camera**: classes for taking pictures
+* **chart**: charting utilities
+* **core**: main activities and fragments that can be reused in different contexts
+* **database**: database helper classes
+* **features**: classes related to the vector editing engine
+* **forms**: package containing the form based notes classes
+* **gps**: the gps service package
+* **gps**: conversion from and to gpx
+* **images**: image utilities
+* **kml**: conversion from and to kml/kmz
+* **locale**: utilities to handle locale switch
+* **network**: network related utilities
+* **nfc**: near field communication package
+* **permissions**: classes to help with the android >6 permission system
+* **plugin**: package that contains the plugin engine classes
+* **routing**: classes that connect to online routing engines
+* **sensors**: utilities related to motion sensors
+* **share**: sharing utilities for social network or similar
+* **sketch**: outdated sketch support. Substituted by acrylicpaint
+* **sms**: utilities to send or intercept sms
+* **style**: style support classes
+* **util**: many utilities classes related to projection, debug, data types and similar
+* **webproject**: classes that support up/downloading geopaparazzi projects from and to a server
+
+==== geopaparazzi_core
+
+The core module contains all that is visible in Geopaparazzi. All the activities, views and fragments and all logic behind the user interaction.
+
+This module is very specific to Geopaparazzi and us such contains the structure of the application, its preferences, the map view and database related code.
+
+The main packages are:
+
+* **database**: database management classes
+* **maptools**: tools to work with vector editing
+* **mapview**: the map view and all its functionalities and overlayes
+* **preferences**: the preferences system
+* **ui**: all the core activities and fragments
+
+This module is the visible heart of geopaparazzi. It makes large use of the geopaparazzi libraries as well as the other modules.
+
+==== geopaparazzi.app
+
+The geopaparazzi.app module has been created to create easily branded versions of Geopaparazzi. It is a thin wrapper around the Geopaparazzi Core module.
+
+In fact it simply extends the core module by defining an empty main activity in its release package (the one then used in google play for example):
+
+[source,java]
+----
+public class GeopaparazziActivity extends GeopaparazziCoreActivity {
+}
+----
+
+By doing this it is simple to change the style (speak color and appearence) and the name of the application by just changing/extending the xml files in the resources folder.
+
+
+==== geopaparazzimapsforge
+
+https://github.com/mapsforge/mapsforge[Mapsforge] is the mapping engine used in Geopaparazzi. While the project is going towards the release of version 0.8.0 at the current time, Geopaparazzi still bases on a customized version of the 0.3.1 version of mapsforge. The reasons for the lack of update is both technical and due to missing resources dedicated to this activity. The upgrade to version 0.8.0 would take a significand amount of time and huge code refactoring.
+
+The module contains also the original mapsforge code on which several bug fixes have been backported and some customizations have been applied by HydroloGIS. As such this module is mandatory to allow Geopaparazzi to work with a map view.
+
+The module also contains:
+
+* the classes to handle tiles. This means reading and writing of mbtiles, online TMS services through mapurl files.
+* the user interface classes to load mapsforge, mbtile, rasterlite2 and mapurl datasets. These are basically activities to browse the filesystem and load data and keep them ordered in a simple catalog.
+
+
+==== geopaparazzispatialitelibrary
+
+The Spatialite Library module contains several important pieces necessary to the main application.
+
+As the name already describes, the spatialite vector part is handled in this module. It contains all the classes that define spatial tables and its geometries and attributes.
+
+Data Access Objects are present for the different tabel types, as normal spatialite vector tables but also rasterlite2 and geopackage tables.
+
+The same package also contains activities to browse and select spatialite databases and load them into the map view. Views are also available to change the order of the database layers visualized and change their properties in terms of style and labeling.
+
+The spatialite module contains also 2 very important projects: jsqlite and jts
+
+===== android-spatialite (jsqlite)
+
+The package jsqlite contains the https://github.com/atd-schubert/android-spatialite[android-spatialite] project, which exposes a simple API to load spatialite extensions and query a spatialite database using spatial queries.
+
+This API is used in geopaparazzi to access any spatialite/rasterlite2 database.
+
+===== JTS
+
+The Java Topology Suite is a geometric java library very well known in the geospatial world. It could be said, that it is the first and only one used in the open source geospatial business, since the counterpart GEOS, which is used in most of the geospatial applications (gdal, postgis, spatialite), is an almost straight port from the java to the C++ language.
+
+The JTS package in this module has been adapted by HydroloGIS in order to be usable in android. In particular all the AWT related classes have been replaced or removed, depending on the needs.
+
+==== geopaparazzi_acrylicpaint
+
+Acrylic Paint is the new choice for the drawing of sketches in Geopaparazzi. It is a very nifty and tiny project, well written and maintained in few classes. It makes the perfect fit to be used in Geopaparazzi.
+
+This module contains the original classes of the https://github.com/valerio-bozzolan/AcrylicPaint[Acrylic Paint] project. They have been customized by HydroloGIS only to answer properly to the intent launched by Geopaparazzi and return the image drawn by the user the way Geopaparazzi needs it. Also teh style has been adapted to be aligned with the one of Geopaparazzi.
+
+==== wms_nww
+
+The https://en.wikipedia.org/wiki/Web_Map_Service[WMS] is a standard mapping service and is supported in Geopaparazzi using this module. The module is an adapted code from an older version of the https://github.com/NASAWorldWind/WorldWindAndroid[Nasa World Wind Android] application. It allows to query the **getCapabilities** of the Service and list the available layers, which allows th user to easily select a layer to visualize in Geopaparazzi.
+
+Since the original code is releasesd under the Apache License, this module has been kept outside of the Geopaparazzi codebase. That is also the reason the **git clone --recursive** is necessary when checking out the project's source code.
+
+==== plugins
+
+It is now possible to use plugins with Geopaparazzi. They ar enot dynamic plugins that can be installed aside of Geopaparazzi and then loaded into it. But it is possible to compile an custom version of Geopaparazzi with certain plugins enabled.
+
+The official codebase of Geopaparazzi currently uses the plugins for all its import and export options.
+
+Inside the plugins folder, at the time of writing 4 plugins are available:
+
+tree::{user-home}/development/geopaparazzi-git/plugins/[maxdepth=1]
+.Contents of plugins folder
+
+* *geopaparazzi_default_export_plugins*: Contains the export actions (and menu entries of the export view) that take care of bookmarks, gps, images and kmz
+* *geopaparazzi_default_import_plugins*: Contains the import actions (and menu entries in the import view) that take care of bookmarks, default databases, gps, wms and mapurls
+* *geopaparazzi_projects_export_plugins*: Contains the export action that allows to upload the current geopaparazzi project to a serverside application
+* *geopaparazzi_projects_import_plugins*: Contains the import action that allows to list geopaparazzi projects available on a server and then download a selected project to the device
+
+The plugin system is very handy if, for example, it comes to data synchronization. A developer could implement his/her own version of data synchronization with an own servide application and create a set of plugins that take care of it inside geopaparazzi. 
+
+That developer could then create a custom build of Geopaparazzi (or whatever the name would be), remove the projects import/export plugins and add instead his/her own. The custom version would then present in the import/export views the new actions to synchronize with the selected server application. This brings to a very smooth integration.
+
+<<<
+
+=== The Project Database
+
+The Geopaparazzi project database is a plain sqlite database with the extension **.gpap**.
+
+All data are saved in http://gisgeography.com/wgs84-world-geodetic-system/[WGS84].
+
+==== Database tables described
+
+.Overview diagram of database tables
+[plantuml, development/database_diagram, png]     
+....
+class metadata << (T,#5d9d76) Table >>{
+    key: TEXT NOT NULL
+    label: TEXT
+    value: TEXT NOT NULL
+}
+class notes << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    ts: DATE NOT NULL
+    description: TEXT
+    text: TEXT NOT NULL
+    form: CLOB
+    style: TEXT
+    isdirty: INTEGER
+}
+class images << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    azim: REAL NOT NULL
+    imagedata_id: INTEGER NOT NULL
+    ts: DATE NOT NULL
+    text: TEXT NOT NULL
+    note_id: INTEGER
+    isdirty: INTEGER NOT NULL
+}
+class imagedata << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    data: BLOB NOT NULL
+    thumbnail: BLOB NOT NULL
+}
+class gpslogs << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    startts: LONG NOT NULL
+    endts: LONG NOT NULL
+    lengthm: REAL NOT NULL
+    isdirty: INTEGER NOT NULL
+    text: TEXT NOT NULL
+}
+class gpslogsdata << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    ts: DATE NOT NULL
+    logid: INTEGER NOT NULL
+}
+class gpslogsproperties << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    logid: INTEGER NOT NULL
+    color: TEXT NOT NULL
+    width: REAL NOT NULL
+    visible: INTEGER NOT NULL
+}
+class bookmarks << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    zoom: REAL NOT NULL
+    bnorth: REAL NOT NULL
+    bsouth: REAL NOT NULL
+    bwest: REAL NOT NULL
+    beast: REAL NOT NULL
+    text: TEXT NOT NULL
+}
+
+gpslogs <-- gpslogsdata
+gpslogs <-- gpslogsproperties
+images <-- imagedata
+notes <-- images
+....
+
+
+
+
+===== The Metadata Table
+
+[width="100%",options="header"]
+|====================
+| Column name | Description
+| key |   key for the record
+| value |  value for the record
+|====================
+
+
+===== The Notes Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id           | unique id               
+|lon            | longitude of the note 
+|lat            | latitude of the note 
+|altim          | elevation 
+|ts             | timestamp 
+|description    | description of the note 
+|text           | text of the note 
+|form           | the form data
+|isdirty        | is dirty field (0 = false, 1 = true)
+|style          | style of the note
+|====
+
+NOTE: Style and isdirty are currently unused.
+
+===== The Images Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id            |unique id               
+|lon             |longitude of the image 
+|lat             |latitude of the image 
+|altim           |elevation 
+|ts              |timestamp 
+|azim            |azimuth 
+|text            |text of the note 
+|isdirty         |is dirty field (0 = false, 1 = true)
+|note_id         |an optional note id, to which it is bound to
+|imagedate_id    |id of the connected image data  
+|====
+
+===== The Imagedata Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id            |unique id               
+|data            |the image data
+|thumbnail       |the image thumbnail data
+|====
+
+
+===== The Bookmarks Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id      |unique id               
+|lon      |longitude of the bookmark
+|lat      |latitude of the bookmark
+|zoom     |the zoom of the bookmark 
+|north    |the north bound of the bookmark 
+|south    |the south bound of the bookmark 
+|west     |the west bound of the bookmark 
+|east     |the east bound of the bookmark 
+|text     |the name of the bookmark 
+|====
+
+
+===== The GPS logs Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id     | unique id               
+|startts   |log start timestamp 
+|endts     |log end timestamp 
+|lengthm   |the length in meters
+|isdirty   |is dirty field (0 = false, 1 = true)
+|text      |name of the log 
+|====
+
+===== The GPS logs data Table
+
+[width="100%", options="header"]
+|====
+| Column name | Description
+| _id     |unique id               
+|lon      |longitude of the log point 
+|lat      |latitude of the log point 
+|altim    |elevation of the log point 
+|ts       |timestamp of the log point 
+|logid    |id of the log of which the point is part 
+|====
+
+===== The GPS logs properties Table
+
+[width="100%",options="header"]
+|====
+| Column name | Description
+| _id      |unique id               
+|logid     |id of the log the properties are part of 
+|color     |the color to use to draw the log  
+|width     |the width to use to draw the log 
+|visible   |flag that defines if the log is visible at the time given 
+|====
+
+
+
+
+
+
+
+
+
+
+
+
