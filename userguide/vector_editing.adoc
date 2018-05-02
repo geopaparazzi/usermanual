@@ -24,12 +24,3 @@ To edit, attach a Spatialite database in the Map View and turn on the layer for 
 
 Back on the Map View press the edit tool button.  Depending on the geometry type of the editing layer various editing buttons will appear.
 
-
-
-adding a feature
-adding values
-
-Disable editing to leave Map View
-
-
-
