@@ -254,6 +254,7 @@ Once the _getCapabilities_ URL is inserted and the refresh button is tapped, the
 When tapping the default database import button, the user is asked to name the new Spatialite 
 database to create. Let's use the default name proposed based on the current date and time:
 
+.Creating A Default Spatialite Database
 image::02_dashboard/19_mapsforge.png[scaledwidth=30%, width=30%]
 
 The newly created database is **editing ready** and contains a layer of each type geomotry type (points, lines, polygon). Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field20**. It is very generic and simple, but still of use when you have to quickly collect some data with attributes and have no database prepared..
@@ -264,8 +265,18 @@ Geopaparazzi Project files can be downloaded from a Geopaparazzi Project server.
 
 
 ===== Cloud Profiles
-Profiles are a convienient way to group basemaps, overlays, note forms, and a project file 
-Geopaparazzi Profiles can be downloaded from a Geopaparazzi Profile server.  To enable the import of profiles from the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
+Profiles are a convenient way to group basemaps, overlays, note forms, and a project file.  Geopaparazzi Cloud Profiles must be downloaded from a Geopaparazzi Profile server (standard <<Profiles, Profiles>> can be created on your device).  To enable the import of Profiles from the Cloud, make sure you enter the settings in the <<Cloud server Settings, Cloud server Settings>>.  
+
+Once your Cloud server Settings are set, and you press the Cloud Profiles button on the Import view, the server will send a list of Profiles available for download.
+
+.Cloud Profiles List
+image::02_dashboard/22_import_profiles1.png[scaledwidth=30%, width=30%]
+
+image::02_dashboard/package_download.png[float="left"]
+Select a Profile for download by pressing on the icon of the Profile.  This will start the download of the Profile and the files associated with the Profile.  The download may take some time depening on the size of the files.
+
+When the download is completed, you can activate the Profile by using the Profile view from the Main View menu, selecting the <<Adding data to a Profile, Profile Info>> tab, and sliding the Activate profile switch.
+
 
 
 ==== Export

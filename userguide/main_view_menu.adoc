@@ -43,6 +43,7 @@ image::04_mapviewmenu/03_select_tiles.png[scaledwidth=30%, width=30%]
 
 which makes searching simpler when a lot of sources are present on the device.
 
+.List of Available Basemaps
 image::04_mapviewmenu/04_select_tiles.png[scaledwidth=30%, width=30%]
 
 Basemaps can be added to the list from the device storage through the two buttons at the bottom of the view. The right one allows to pick a single file to add it as a basemap, while the left one allows to bulk load a complete folder of maps.  Once the basemap has been added to the list, tap the basemap on the list to use in the Map View.
@@ -80,14 +81,17 @@ Profiles enable you to configure the Geopaparazzi environment by grouping specif
 ==== Creating a Profile
 To create a new profile simply push the orange button on the lower right of the view.
 
+.An Empty Profile List
 image::04_mapviewmenu/08_profiles.png[scaledwidth=30%, width=30%]
 
 Once pushed, the main profile info dialog will pop-up. There you can insert a profile name and some description about the profile:
 
+.Creating a Profile
 image::04_mapviewmenu/09_profiles_new.png[scaledwidth=30%, width=30%]
 
 Once OK is pressed, an empty profile is created:
 
+.Profile List
 image::04_mapviewmenu/09_profiles_new2.png[scaledwidth=30%, width=30%]
 
 The profile's cardview gives information about its content, listing the number of basemaps, spatialite database overlays, Note forms, and project file.
@@ -95,20 +99,24 @@ The profile's cardview gives information about its content, listing the number o
 ==== Deleting a Profile
 Pressing the Profile's Trashcan icon will delete the Profile.  You will be prompted to make sure the Profile is not deleted by error:
 
+.Deleting a Profile
 image::04_mapviewmenu/10_profiles_delete.png[scaledwidth=30%, width=30%]
 
 ==== Styling a Profile
 It is possible to apply a color to the Profile cardview.  Setting a color uniquely identifies a Profile  while running Geopaparazzi.  You will know a particular Profile is active because it uses the color to set the background color in the Main View.
 
+.Profile Style
 image::04_mapviewmenu/11_profiles_color.png[scaledwidth=30%, width=30%]
 
 Once you press the OK button, the profile cardview will appear colored with the color you selected:
 
+.Profile List
 image::04_mapviewmenu/12_profiles_new.png[scaledwidth=30%, width=30%]
 
 ==== Adding data to a Profile
 To add data to a profile, press the settings icon (gear-like icon in the upper right of the Profile's cardview).
 
+.Profile Settings
 image::04_mapviewmenu/13_profiles_info.png[scaledwidth=30%, width=30%]
 
 The view the opens is divided in different tabs, namely:
@@ -121,19 +129,23 @@ The view the opens is divided in different tabs, namely:
 
 ===== Profile Info
 The Profile Info tab shows the main information about the Profile:
+
 * Profile Name
 * Profile Description
 * Creation Date
+* Activate Profile
 
+.A Profile's Information
 image::04_mapviewmenu/13_profiles_info2.png[scaledwidth=60%, width=60%]
 
 Name and description can be modified from this view, while the creation date is read-only.
 
 From this view it is also possible to activate the profile through the switch at the bottom of the view.  Activating the Profile means the various files will be automatically attached to Geopaparazzi.  Since only one Profile can be active at a time, the activation of a Profile automatically disables the previously active Profile, if there had been one.
 
-Once a Profile is active, in the Profiles view it is marked with two red lines in the top and bottom part:
+Once a Profile is active, in the Profiles view it is marked with two red lines in the top and bottom part of the Profile's card:
 
-image::04_mapviewmenu/21_profiles_export.png[scaledwidth=30%, width=30%]
+.An Active Profile
+image::04_mapviewmenu/13_profiles_active.png[scaledwidth=30%, width=30%]
 
 ===== Basemaps
 
@@ -146,6 +158,7 @@ The Basemaps tab allows you to add background basemaps to the Profile configurat
 
 Press the orange plus button on the top right part of the view to browse the device's filesystem and select the basemap files to add.
 
+.Adding A Basemap
 image::04_mapviewmenu/14_profiles_base1.png[scaledwidth=60%, width=60%]
 
 ====== Importing Basemaps from WMS
@@ -153,18 +166,22 @@ image::04_mapviewmenu/14_profiles_base1.png[scaledwidth=60%, width=60%]
 It is possible to import mapurl definitions directly from WMS GetCapabilities URL.  When the Basemaps tab is selected, "ADD WMS" text appears on the right side of the Profiles Settings action bar.
 
 Then:
+
 * copy your WMS URL to your device clipboard
 * press the ADD WMS button on the right side of the action bar
 * a dialog will open. Paste the URL into the text field
 
+.Adding a Basemap from a WMS Server
 image::04_mapviewmenu/15_profiles_base_wms2.png[scaledwidth=60%, width=60%]
 
 * push the refresh button at the left of the text field to retrieve the available layers
 
+.Selecting Layers from a WMS Server
 image::04_mapviewmenu/15_profiles_base_wms3.png[scaledwidth=60%, width=60%]
 
 * select the desired layer and press OK. The mapurl file will be created and added directly to the list of basemaps
 
+.A Basemap Added to a Profile
 image::04_mapviewmenu/16_profiles_base.png[scaledwidth=60%, width=60%]
 
 ===== Spatialite Databases
@@ -175,8 +192,10 @@ The database has to be a valid spatialite database with the extension sqlite.
 
 Press the orange plus button on the top right part of the view to browse the device's filesystem and select the Spatialite databases to add.
 
+.Adding a Spatialite Database
 image::04_mapviewmenu/17_profiles_spatial1.png[scaledwidth=60%, width=60%]
 
+.A Spatialite Database Added to a Profile
 image::04_mapviewmenu/17_profiles_spatial2.png[scaledwidth=60%, width=60%]
 
 
@@ -186,21 +205,25 @@ The Forms tab allows you to add a JSON file of forms definitions to use in the P
 
 Once the file is added (through the upper right plus button), basic information and the names of the forms contained in the file are shown:
 
+.A Form Added to a Profile
 image::04_mapviewmenu/18_profiles_forms.png[scaledwidth=30%, width=30%]
 
 ===== Project
 
 It is also possible to bind a single Geopaparazzi project file to a Profile. In that case, from within geopaparazzi it will no longer be possible to open an existing project or create a new one.
 
+.A Project Added to a Profile
 image::04_mapviewmenu/19_profiles_project.png[scaledwidth=30%, width=30%]
 
 ==== Importing, Exporting and Deleting Profiles
 
 It is possible to import, export, and delete all Profiles. The menu in the main Profiles view allows access to:
+
 * Import Profiles
 * Export Profiles
 * Delete all Profiles
 
+.The Profile Menu
 image::04_mapviewmenu/20_profiles_menu.png[scaledwidth=30%, width=30%]
 
 ===== Export
@@ -209,6 +232,7 @@ When you press the Export Profiles menu entry, the Profile definitions are expor
 
 /SDCARD_PATH/geopaparazzi/profiles_config.json
 
+.Exporting A Profile List
 image::04_mapviewmenu/21_profiles_export.png[scaledwidth=30%, width=30%]
 
 ===== Import
@@ -219,9 +243,14 @@ When you press the Import Profiles menu entry, the Profile definitions are impor
 
 The imported profiles are added to the profiles already present in Geopaparazzi.
 
+.Importing A Profile List
 image::04_mapviewmenu/22_profiles_import.png[scaledwidth=30%, width=30%]
 
 In order to support sharing of data and profile configurations, the path of the data contained in the imported files are adapted to the sdcard path of the current device. This way relative paths in the sdcard are maintained and datasets can be loaded.  In that case you download and import data that someone else prepared, but they will work in your device, even if the paths of the data refer to a different sdcard path.
+
+==== Importing Cloud Profiles
+
+
 
 === Exit
 anchor:exit[]
