@@ -81,8 +81,8 @@ appears:
 image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
 The switch button at the top of the view gives the possibility to
-choose whether the note will be inserted in the **current GPS position** 
-(in case GPS is on) or in the the **center of the map** (the crossfade).
+choose whether the note will be recorded with the **current GPS position** 
+(in case GPS is on) or at the **current center of the Map View** (the crosshair).
 
 
 At the right end of the actionbar the quick note buttons are placed. From left to right:
@@ -106,12 +106,23 @@ image::02_dashboard/04_textnotes.png[scaledwidth=30%, width=30%]
   and stay with the device in the same position of the snapshot until 
   you have closed the camera app.
 
-* The **Quick sketch note** button, which allows you to draw on a small panel and save your sketch. One can change stroke style, color, and width. The  sketch panel comes from the open source app https://github.com/valerio-bozzolan/AcrylicPaint[Acrylic Paint].
+* The **Menu** button, which allows you to select **Simple Sketch** to draw on a small panel or select **Layout Settings** to change the Notes button layout and text size.
+
+.The simple text note dialog.
+image::02_dashboard/05_note_menu.png[scaledwidth=30%, width=30%]
+
+Selecting **Simple Sketch**, you can change stroke style, color, and width. The  sketch panel comes from the open source app https://github.com/valerio-bozzolan/AcrylicPaint[Acrylic Paint].
   
 .An example of taking sketch note.
 image::02_dashboard/05_sketchnotes.png[scaledwidth=30%, width=30%]
 
 WARNING: Once a simple note has been saved, it can't be modified.
+
+Selecting **Layout Settings** allows you to change the text size on the Note buttons and the number of columns.  This can be useful to make the dialog easy to read while in the field.
+
+.The Notes List with one column and large text.
+image::02_dashboard/05_note_large.png[scaledwidth=30%, width=30%]
+
 
 ===== Form based notes
 
@@ -170,7 +181,7 @@ image::02_dashboard/08_start_logging.png[scaledwidth=30%, width=30%]
 
 Once logging has started, the logging button will turn orange and the GPS status icon blue.
  
-.The stop logging button with its red sign.
+.The stop logging button with its orange color.
 image::02_dashboard/09_logging_on.png[scaledwidth=30%, width=30%]
 
 To stop logging, the same button is used. Once tapped, the user is prompted 
@@ -197,9 +208,10 @@ Geopaparazzi supports the import of:
 * GPX datasets
 * bookmarks
 * WMS
-* mapurl configuration files for online tiles
 * default Spatialite databases
 * geopaparazzi cloud projects
+* geopaparazzi Cloud Profiles
+
 
 ===== GPX
 
@@ -237,35 +249,6 @@ image::02_dashboard/16_import_wms.png[scaledwidth=30%, width=30%]
 Once the _getCapabilities_ URL is inserted and the refresh button is tapped, the list of available layers is presented. The selected layer is then imported in the list of available tile sources.
 
 
-===== Mapurls
-
-Since the creation of a mapurl configuration file for WMS services is complex,
-a small service has been created that automatically generates mapurls for known services.
-
-Once chosen the services query view appears:
-
-.The TANTO mapurl service view.
-image::02_dashboard/14_mapurls.png[scaledwidth=30%, width=30%]
-
-If requested, the service will use the device's position to gather 
-only datasets in that area. Also some minor text filters can be added.
-
-An example with the GPS placed in Italy is the following:
-
-image::02_dashboard/15_mapurls.png[scaledwidth=30%, width=30%]
-
-The service can then simply be downloaded. It will install the mapurl 
-inside your system. The user is prompted for a custom name to name 
-the service after, else the original name will be used. Since the 
-original name could be duplicated in different services, the 
-prefix *tanto_* will be added in that case.
-
-This service is in an experimental state right now, but it works fairly well. 
-If you experience problems, please report them at 
-http://tanto.github.io/geopapurls/[the homepage of the service].
-
-The same link also contains instruction about how to suggest to suggest new WMS services.
-
 ===== Default databases
 
 When tapping the default database import button, the user is asked to name the new Spatialite 
@@ -274,6 +257,15 @@ database to create. Let's use the default name proposed based on the current dat
 image::02_dashboard/19_mapsforge.png[scaledwidth=30%, width=30%]
 
 The newly created database is **editing ready** and contains a layer of each type geomotry type (points, lines, polygon). Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field20**. It is very generic and simple, but still of use when you have to quickly collect some data with attributes and have no database prepared..
+
+
+===== Cloud Projects
+Geopaparazzi Project files can be downloaded from a Geopaparazzi Project server.  To enable the import of projects from the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>
+
+
+===== Cloud Profiles
+Profiles are a convienient way to group basemaps, overlays, note forms, and a project file 
+Geopaparazzi Profiles can be downloaded from a Geopaparazzi Profile server.  To enable the import of profiles from the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
 
 
 ==== Export
@@ -319,8 +311,8 @@ Geopaparazzi will write to the file only those bookmarks that do not exist alrea
 Since images are kept inside the database, this export is handy if the user needs 
 to use the images inside a different software. In this case all the images of the project are exported inside a folder and a popup message shows the folder path.
 
-
-
+===== Cloud Projects
+Geopaparazzi Project files can be uploaded to a Geopaparazzi Project server.  To enable the upload of projects to the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
 
 
 

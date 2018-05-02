@@ -7,7 +7,8 @@ The main view menu presents the following options:
 * <<load_project,Load existing project>>: allows the browsing of the filesystem to select an existing geopaparazzi project file to load it
 * <<gps_status,GPS Status>>: opens a GPS status application to check on satellite visibility
 * Advanced: shows some advanced user options such as the application log or custom database queries
-* About: shows the about page, which contains info, links and acknowledgements
+* <<Profiles, Profiles>>: allow creation and editing of Profiles.
+* About: shows the about page, which contains info, links and acknowledgments
 * <<exit,Exit>>: shuts down geopaparazzi properly. This is important, because geopaparazzi is meant to continue logging also in background. Therefore, if one uses the android home button to exit the app, it will continue to work in background, most probably draining the battery through GPS use.
 
 .The main view menu.
@@ -17,7 +18,7 @@ image::04_mapviewmenu/01_menu.png[scaledwidth=30%, width=30%]
 === Select tile source
 anchor:select_tiles[]
 
-From the main menu, when pushing the tile source button, the list of available tile sources are presented, organized by folder:
+From the main menu, when pushing the tile source button, the list of available tile sources (and other types of Basemaps) are presented, organized by folder:
 
 .The basemaps view.
 image::04_mapviewmenu/02_select_tiles.png[scaledwidth=30%, width=30%]
@@ -52,7 +53,7 @@ anchor:create_new_project[]
 
 When a new project is created, the user is prompted to give a file name
 for the new project file. This is the name that will be given to the 
-database file that contains all data surveyed in Geopaparazzi.
+database file that contains all data collected in Geopaparazzi.
 
 .The new project input dialog.
 image::04_mapviewmenu/05_new_project.png[scaledwidth=30%, width=30%]
@@ -63,12 +64,164 @@ restarted and opened loading the new created project.
 === Load an existing project
 anchor:load_project[]
 
-Existing projects can be loaded using a simple file browser from within Geoapaparazzi. The Geopaparazzi project files are shown with an icon to help the user to choose the proper files.
+Existing projects can be loaded using a simple file browser from within Geopaparazzi. The Geopaparazzi project files are shown with an icon to help the user to choose the proper files.
 
 === GPS Status
 anchor:gps_status[]
 
 The GPS status entry launches the open source application https://play.google.com/store/apps/details?id=com.android.gpstest[GPS test]. The app shows the current status of the satellites fix and a skymap. This often helps to understand why the GPS is not working.
+
+=== Advanced
+(ToDo)
+
+=== Profiles
+Profiles enable you to configure the Geopaparazzi environment by grouping specific basemaps, overlays, a notes form, and a project file into a Profile.  You can configure many different profiles and easily switch between them in Geopaparazzi.
+
+==== Creating a Profile
+To create a new profile simply push the orange button on the lower right of the view.
+
+image::04_mapviewmenu/08_profiles.png[scaledwidth=30%, width=30%]
+
+Once pushed, the main profile info dialog will pop-up. There you can insert a profile name and some description about the profile:
+
+image::04_mapviewmenu/09_profiles_new.png[scaledwidth=30%, width=30%]
+
+Once OK is pressed, an empty profile is created:
+
+image::04_mapviewmenu/09_profiles_new2.png[scaledwidth=30%, width=30%]
+
+The profile's cardview gives information about its content, listing the number of basemaps, spatialite database overlays, Note forms, and project file.
+
+==== Deleting a Profile
+Pressing the Profile's Trashcan icon will delete the Profile.  You will be prompted to make sure the Profile is not deleted by error:
+
+image::04_mapviewmenu/10_profiles_delete.png[scaledwidth=30%, width=30%]
+
+==== Styling a Profile
+It is possible to apply a color to the Profile cardview.  Setting a color uniquely identifies a Profile  while running Geopaparazzi.  You will know a particular Profile is active because it uses the color to set the background color in the Main View.
+
+image::04_mapviewmenu/11_profiles_color.png[scaledwidth=30%, width=30%]
+
+Once you press the OK button, the profile cardview will appear colored with the color you selected:
+
+image::04_mapviewmenu/12_profiles_new.png[scaledwidth=30%, width=30%]
+
+==== Adding data to a Profile
+To add data to a profile, press the settings icon (gear-like icon in the upper right of the Profile's cardview).
+
+image::04_mapviewmenu/13_profiles_info.png[scaledwidth=30%, width=30%]
+
+The view the opens is divided in different tabs, namely:
+
+* PROFILE INFO
+* BASEMAPS
+* SPATIALITE DATABASES
+* FORMS
+* PROJECT
+
+===== Profile Info
+The Profile Info tab shows the main information about the Profile:
+* Profile Name
+* Profile Description
+* Creation Date
+
+image::04_mapviewmenu/13_profiles_info2.png[scaledwidth=60%, width=60%]
+
+Name and description can be modified from this view, while the creation date is read-only.
+
+From this view it is also possible to activate the profile through the switch at the bottom of the view.  Activating the Profile means the various files will be automatically attached to Geopaparazzi.  Since only one Profile can be active at a time, the activation of a Profile automatically disables the previously active Profile, if there had been one.
+
+Once a Profile is active, in the Profiles view it is marked with two red lines in the top and bottom part:
+
+image::04_mapviewmenu/21_profiles_export.png[scaledwidth=30%, width=30%]
+
+===== Basemaps
+
+The Basemaps tab allows you to add background basemaps to the Profile configuration. Currently supported extensions are:
+
+* map: mapsforge maps
+* mbtiles
+* sqlite: sqlite databases containing rasterlite2 data
+* mapurl: mapurl files that can contain configurations for local or on-line (TMS or WMS) mapping services.
+
+Press the orange plus button on the top right part of the view to browse the device's filesystem and select the basemap files to add.
+
+image::04_mapviewmenu/14_profiles_base1.png[scaledwidth=60%, width=60%]
+
+====== Importing Basemaps from WMS
+
+It is possible to import mapurl definitions directly from WMS GetCapabilities URL.  When the Basemaps tab is selected, "ADD WMS" text appears on the right side of the Profiles Settings action bar.
+
+Then:
+* copy your WMS URL to your device clipboard
+* press the ADD WMS button on the right side of the action bar
+* a dialog will open. Paste the URL into the text field
+
+image::04_mapviewmenu/15_profiles_base_wms2.png[scaledwidth=60%, width=60%]
+
+* push the refresh button at the left of the text field to retrieve the available layers
+
+image::04_mapviewmenu/15_profiles_base_wms3.png[scaledwidth=60%, width=60%]
+
+* select the desired layer and press OK. The mapurl file will be created and added directly to the list of basemaps
+
+image::04_mapviewmenu/16_profiles_base.png[scaledwidth=60%, width=60%]
+
+===== Spatialite Databases
+
+The Spatialite Databases tab allows you to add Spatialite vector databases to the Profile configuration.
+
+The database has to be a valid spatialite database with the extension sqlite.
+
+Press the orange plus button on the top right part of the view to browse the device's filesystem and select the Spatialite databases to add.
+
+image::04_mapviewmenu/17_profiles_spatial1.png[scaledwidth=60%, width=60%]
+
+image::04_mapviewmenu/17_profiles_spatial2.png[scaledwidth=60%, width=60%]
+
+
+===== Forms
+
+The Forms tab allows you to add a JSON file of forms definitions to use in the Profile.
+
+Once the file is added (through the upper right plus button), basic information and the names of the forms contained in the file are shown:
+
+image::04_mapviewmenu/18_profiles_forms.png[scaledwidth=30%, width=30%]
+
+===== Project
+
+It is also possible to bind a single Geopaparazzi project file to a Profile. In that case, from within geopaparazzi it will no longer be possible to open an existing project or create a new one.
+
+image::04_mapviewmenu/19_profiles_project.png[scaledwidth=30%, width=30%]
+
+==== Importing, Exporting and Deleting Profiles
+
+It is possible to import, export, and delete all Profiles. The menu in the main Profiles view allows access to:
+* Import Profiles
+* Export Profiles
+* Delete all Profiles
+
+image::04_mapviewmenu/20_profiles_menu.png[scaledwidth=30%, width=30%]
+
+===== Export
+
+When you press the Export Profiles menu entry, the Profile definitions are exported into a file in the path:
+
+/SDCARD_PATH/geopaparazzi/profiles_config.json
+
+image::04_mapviewmenu/21_profiles_export.png[scaledwidth=30%, width=30%]
+
+===== Import
+
+When you press the Import Profiles menu entry, the Profile definitions are imported from the fixed file in the path:
+
+/SDCARD_PATH/geopaparazzi/profiles_config.json
+
+The imported profiles are added to the profiles already present in Geopaparazzi.
+
+image::04_mapviewmenu/22_profiles_import.png[scaledwidth=30%, width=30%]
+
+In order to support sharing of data and profile configurations, the path of the data contained in the imported files are adapted to the sdcard path of the current device. This way relative paths in the sdcard are maintained and datasets can be loaded.  In that case you download and import data that someone else prepared, but they will work in your device, even if the paths of the data refer to a different sdcard path.
 
 === Exit
 anchor:exit[]
