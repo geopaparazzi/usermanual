@@ -77,14 +77,16 @@ image::05_settings/06_locale.png[scaledwidth=30%, width=30%]
 
 After that, each newly loaded view will be in the new locale.
 
-=== Cloud Projects Sync Settings
+=== Cloud server Settings
 
-This setting allows the user to set a server with user and password, to which upload and from which download geopaparazzi projects.
+These settings allows you to set a Geopaparazzi Cloud Project server URL, Cloud Profile server URL, and optionally add a username and password.  A Geopaparazzi Cloud Project server allows you to download and upload Geopaparazzi projects.  A Geopaparazzi Cloud *Profile* server allows you to download Profiles along with the file they reference such as basemaps, Spatialite overlays, and project files.
 
-Known projects that allow for such a connection are:
+Known Geopaparazzi Cloud Project servers are:
 
 * http://www.gvsig.org[gvSIG Desktop] with the hydrologis4gvsig plugins installed
 * gvSIG Online
 
+Known Geopaparazzi Cloud Profile servers are:
 
+* https://github.com/geoanalytic/cookiecutter-geopaparazzi-server[Geopaparazzi Server]
 

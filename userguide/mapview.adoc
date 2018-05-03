@@ -10,7 +10,7 @@ The map engine comes from the http://code.google.com/p/mapsforge/[mapsforge] pro
 
 The <<supported_datasets,supported datasets>> section lists and describes all supported map types. Just to cite a few, one can view:
 
-* http://www.openstreetmap.org/[OpenStreetMap] maps both when on-line (downloading new tiles) and off-line (visualizing those that were cached during online mode)
+* http://www.openstreetmap.org/[OpenStreetMap] raster tile maps both when on-line (downloading new tiles) and off-line (visualizing those that were cached during online mode)
 * http://www.mapbox.com/developers/mbtiles/[mbtiles databases]
 * local and remote http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification[TMS] tiles
 * mapsforge vector files
@@ -75,11 +75,11 @@ The add notes button opens the same notes view as the button on the dashboard. T
 
 From the map view the user can open the add note view even without GPS signal, in which case notes will only be inserted at the map center position.
 
-For further information about taking notes, visit the <<notes,notes section>>.
+For further information about taking notes, visit the <<Notes, notes section>>.
 
 === The Notes List
 
-The notes list shows all the available notes, both text and image notes.
+A long press on the Notes icon will show the Notes List.  The notes list shows all the available notes, both text and image notes.
 
 .The notes list view.
 image::03_mapview/03_noteslist1.png[scaledwidth=30%, width=30%]
@@ -121,6 +121,10 @@ From the all-notes submenu the user can:
   - invert the current selection
   - delete the selected notes
 
+The pallet icon on the Notes List view allows you to change the graphic properties of the notes.
+
+.The Notes Properties.
+image::03_mapview/07_notes_properties.png[scaledwidth=30%, width=30%]
 
 
 === Add Bookmark

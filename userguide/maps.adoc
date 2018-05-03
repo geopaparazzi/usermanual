@@ -72,7 +72,7 @@ TIP: This information can be tested also in a browser http://tile.openstreetmap.
 * the minimum zoom level that is supported
 * the maximum zoom level that is supported
 * the center of the tile source
-* the type fo tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and Google Maps based numbering of the tiles is supported by the line:
+* the type of tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and Google Maps based numbering of the tiles is supported by the line:
   - type=tms
   - type=google
 

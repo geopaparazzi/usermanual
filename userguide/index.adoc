@@ -26,9 +26,9 @@ endif::[]
 
 NOTE: If you are looking for the source code of this project, https://github.com/geopaparazzi/geopaparazzi[jump right to this link].
 
-Geopaparazzi is a tool developed to do **very fast qualitative** engineering/geologic surveys. 
+Geopaparazzi is a tool developed to do **very fast qualitative** engineering/geologic surveys and GIS data collection. 
 
-Even if the main aim is in the field of surveying, it contains tools that can be 
+Even if the main aim is in the field of GIS data collection, it contains tools that can be 
 of great use also to http://www.osm.org[OpenStreetMappers] as well as tourists that
 want to keep a geo-diary.
 
@@ -43,7 +43,7 @@ The main aim of Geopaparazzi is to have a tool that:
   during a survey, with further possibility to import them into
   GIS applications like http://www.gvsig.org[gvSIG] 
 * is able to easily exploit an Internet connection, if available 
-* is extremely easy to use and intuitive, providing just few important functionalities
+* is extremely easy to use and intuitive, providing just few important functions
 
 
 The main features available in Geopaparazzi are:
