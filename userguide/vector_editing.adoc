@@ -11,6 +11,8 @@ You can use your existing Spatialite databases by attaching them to the Map View
 
 After attaching a Spatialite database in the Map View, turn on the viewing of layers by checking the box next to the layer name.  Back on the Map View, you will see the features (you may need to pan and zoom to them).  To view the attribute values of features, press the Edit Tool button (it looks like a pencil) on the lower right of the Map View.  That will cause the Select button to appear on the lower left.  Press the Select button then press and drag on the Map View to make a box surrounding the features you are interested in.  
 
+WARNING: To exit the Map View the Edit Tool button must be un-selected.
+
 If there are any features in the box a Features dialog will appear showing the attribute names and values.  If you've selected more than one feature, you can show their attributes by swiping on the Features dialog.
 
 

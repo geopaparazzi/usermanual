@@ -79,7 +79,7 @@ For further information about taking notes, visit the <<Notes, notes section>>.
 
 === The Notes List
 
-The notes list shows all the available notes, both text and image notes.
+A long press on the Notes icon will show the Notes List.  The notes list shows all the available notes, both text and image notes.
 
 .The notes list view.
 image::03_mapview/03_noteslist1.png[scaledwidth=30%, width=30%]
@@ -121,6 +121,10 @@ From the all-notes submenu the user can:
   - invert the current selection
   - delete the selected notes
 
+The pallet icon on the Notes List view allows you to change the graphic properties of the notes.
+
+.The Notes Properties.
+image::03_mapview/07_notes_properties.png[scaledwidth=30%, width=30%]
 
 
 === Add Bookmark
