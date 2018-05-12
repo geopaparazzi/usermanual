@@ -103,7 +103,7 @@ Pressing the Profile's Trashcan icon will delete the Profile.  You will be promp
 image::04_mapviewmenu/10_profiles_delete.png[scaledwidth=30%, width=30%]
 
 ==== Styling a Profile
-It is possible to apply a color to the Profile cardview.  Setting a color uniquely identifies a Profile  while running Geopaparazzi.  You will know a particular Profile is active because it uses the color to set the background color in the Main View.
+It is possible to apply a color to the Profile cardview.  Setting a color uniquely identifies a Profile  while running Geopaparazzi.  If a Profile has  aproject attached, you will know a particular Profile is active because it uses the color to set the background color in the Main View.
 
 .Profile Style
 image::04_mapviewmenu/11_profiles_color.png[scaledwidth=30%, width=30%]
