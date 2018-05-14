@@ -1,6 +1,8 @@
 == Geopaparazzi & gvSIG
 
-Todo
+The most updated tools for geopaparazzi inside a GIS are the ones that are found in http://www.gvsig.org[the open source GIS gvSIG], since they are maintained by the same team that develops geopaparazzi.
+
+A quickstartguide about teh installation of the right plugins and the available functionalities can be found http://www.hortonmachine.org/hydrologis4gvsig_quickstart/hydrologis4gvsig_quickstart.html#_the_geopaparazzi_plugins[on the plugin's website].
 
 
 
