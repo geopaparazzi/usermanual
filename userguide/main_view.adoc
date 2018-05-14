@@ -290,6 +290,7 @@ Geopaparazzi supports the export to the following formats:
 * GPX
 * bookmarks
 * images
+* Project Forms to PDF
 * geopaparazzi cloud projects
 
 
@@ -321,6 +322,11 @@ Geopaparazzi will write to the file only those bookmarks that do not exist alrea
 
 Since images are kept inside the database, this export is handy if the user needs 
 to use the images inside a different software. In this case all the images of the project are exported inside a folder and a popup message shows the folder path.
+
+===== Project Forms to PDF
+
+You can export your notes to a simple PDF document.  After pressing the "Project Forms to PDF" button you can select which notes you would like to include in the PDF file.  The PDF file created will be a the root of the device's file system and named "geopaparazzi_projectexport_" with a timestamp and a .pdf extension in the file name.
+
 
 ===== Cloud Projects
 Geopaparazzi Project files can be uploaded to a Geopaparazzi Project server.  To enable the upload of projects to the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
