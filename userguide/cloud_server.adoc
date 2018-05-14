@@ -1,0 +1,113 @@
+== Geopaparazzi Cloud Server
+
+=== Cloud Profiles
+
+Cloud Profiles are a great way of easing Geopaparazzi's data handling tasks.  When a web server is configured to serve Cloud Profiles, Geopaparazzi can automatically download Projects, Basemaps, Spatialite Overlays, forms for Notes, and other files.  When a user activates a downloaded Profile, Basemaps are made available, Overlays are attached to the Map View and layers are set to display.
+
+The Geopaparazzi workflow is:
+
+* <<Cloud server Settings, Configure the Cloud server Settings>>
+* <<Cloud Profiles, Import a Cloud Profile>>
+* <<Profile Info, Activate a Cloud Profile>>
+* Restart Geopaparazzi
+* Start using Notes and the Map View!
+
+
+
+==== Cloud Profile JSON
+
+Shown below is a sample Cloud Profile JSON file containing two Profiles: Vienna and Bolzano.
+
+----
+{"formatVersion": 1.1,
+  "profiles": [
+    {
+      "name": "Vienna",
+      "description": "Map Demo",
+      "creationdate": "2017-07-24 14:16:28",
+      "modifieddate": "2018-04-09 13:00:00",
+      "color": "#FBC02D",
+      "active": true,
+      "sdcardPath": "MAINSTORAGE",
+      "mapView": "48.2129,16.3663,15.0",
+      "project": {
+        "path": "/geopaparazzi/data/demo/vienna/geopaparazzi_trip_vienna.gpap",
+        "modifieddate": "2018-01-24 13:00:00",
+        "url":       "http://MyServer/download/geopaparazzi/data/demo/vienna/geopaparazzi_trip_vienna.gpap",
+      },
+      "basemaps": [
+        {
+          "path": "/geopaparazzi/data/demo/vienna/orthofoto_vienna.mapurl",
+          "modifieddate": "2018-01-24 13:00:00",
+          "size": "267"
+        }
+      ],
+      "spatialitedbs": [
+        {
+          "path": "/geopaparazzi/data/demo/vienna/wfs_vienna_db_3857.sqlite",
+          "modifieddate": "2018-04-09 13:00:00",
+          "url":       "http://MyServer/download/geopaparazzi/data/demo/vienna/wfs_vienna_db_3857.sqlite",
+          "size": "9797632",
+          "visible": ["monumfountain"]
+        }
+      ],
+      "otherfiles": [
+        {
+          "path": "/geopaparazzi/data/demo/vienna/Josefstadt_isis_brunnen.JPG",
+          "modifieddate": "2018-01-24 13:00:00",
+          "url": "http://MyServer/download/geopaparazzi/data/demo/vienna/Josefstadt_isis_brunnen.JPG"
+        }
+      ]
+    },
+    {
+      "name": "Bolzano",
+      "description": "Notes Demo",
+      "creationdate": "2017-07-24 14:16:28",
+      "modifieddate": "2018-04-09 13:00:00",
+      "color": "#296139",
+      "active": false,
+      "sdcardPath": "MAINSTORAGE",
+      "mapView": "46.661,11.437,9.0",
+      "project": {
+        "path": "/geopaparazzi/data/demo/bolzano/geopaparazzi_trip_bolzano.gpap",
+        "modifieddate": "2018-01-24 13:00:00",
+        "url":       "http://MyServer/download/geopaparazzi/data/demo/bolzano/geopaparazzi_trip_bolzano.gpap",
+      },
+      "tags": {
+        "path": "/geopaparazzi/data/demo/bolzano/bolzano_field_survey_en.json",
+        "modifieddate": "2018-01-24 13:00:00",
+        "url": "http://MyServer/download/geopaparazzi/data/demo/bolzano/bolzano_field_survey_en.json"
+      },
+      "basemaps": [
+        {
+          "path": "/geopaparazzi/data/demo/bolzano/mapnik.mapurl",
+          "modifieddate": "2018-01-24 13:00:00",
+          "url": "http://MyServer/download/geopaparazzi/data/demo/bolzano/mapnik.mapurl"
+        }
+      ],
+      "spatialitedbs": [
+        {
+          "path": "/geopaparazzi/data/demo/bolzano/wfs_bz_db.sqlite",
+          "modifieddate": "2018-01-24 13:00:00",
+          "url": "http://MyServer/download/geopaparazzi/data/demo/bolzano/wfs_bz_db.sqlite",
+          "visible": ["administrativeunit"]		  
+        }
+      ]
+    }
+  ]
+}
+----
+
+==== Cloud Profile Server
+
+If you look at the sample Cloud Profiles in the previous section, you will see that the URLs for the files are fairly simple.  This allow the Cloud Profile server to a generic files server or your own web server with more sophisticated features such as username/pasword access, URL re-writing, spatial database creation and more.
+
+===== Using Generic Cloud Servers
+
+You can set up your own Cloud Profile server by putting your files on a generic cloud file server like Dropbox or Google Drive, and editing a Cloud Profiles list like the one above and putting it on the cloud file server as well.
+
+===== Geopaparazzi Cloud Server
+
+A pre-configured Open Source Geopaparazzi Cloud Server is available.  Have a look at https://geoanalytic.github.io/a-reference-server-for-geopaparazzi-cloud-profiles/[A reference server for geopaparazzi cloud profiles]  
+
+
