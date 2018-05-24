@@ -134,7 +134,7 @@ anchor:appendix[]
 ----                                                               
 
 
-=== Complete tag.json for the Egypt usecase
+=== Complete tag.json for the Egypt use case
 
 [source,json]
 ----
