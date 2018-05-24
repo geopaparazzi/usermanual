@@ -350,7 +350,7 @@ To peform a range check on a numeric field you can add something like:
 
 [source,json]
 ----
-    "range":"[0,10)"
+    "range":"[0,10]"
 ----
 
 which would check that the inserted number is between 0 (inclusive) and 10 (exclusive).
