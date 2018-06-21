@@ -1,6 +1,6 @@
 == The Map View Menu
 
-The map menu gives the possibility to access some additional map tools:
+The map menu provides access to some additional map tools:
 
 * access the GPS data list
 * access the Spatialite data list. 
