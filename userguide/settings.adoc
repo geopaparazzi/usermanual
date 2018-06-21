@@ -1,7 +1,7 @@
 == Settings & Preferences
 anchor:settings[]
 
-The preferences page is divided in main categories: 
+The preferences page is divided into main categories: 
 
 .The settings view.
 image::05_settings/01_settings.png[scaledwidth=30%, width=30%]
