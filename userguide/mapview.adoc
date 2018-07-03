@@ -63,6 +63,9 @@ image::03_mapview/29_pan_coords.png[scaledwidth=30%, width=30%]
   the zoom in/out buttons at the lower right part of the map. It is also
   possible to zoom in by double-tapping on the map. Zoom in and out can
   also be achived through https://en.wikipedia.org/wiki/Multi-touch[pinch-zoom gestures].
+  
+NOTE: If you have trouble reading small text on some basemaps, you can "magnify" the map display by doing a long press on the "zoom in" button.  You can magnify multiple times if needed.  Don't forget to demagnify (long press on the "zoom out" button) before you do other Map View operations such as measure or feature ID.
+
 * **center on GPS**: through the lower center button it is possible 
   to center the map on the GPS position. The button also shows the status of the GPS the same way as the icon <<action_bar,on the main view's action bar>>.
 
