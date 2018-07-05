@@ -1,107 +1,260 @@
-== The Geopaparazzi Database
-
-The Geopaparazzi project database is a plain sqlite database with the extension **.gpap**.
-
-All data are saved in http://gisgeography.com/wgs84-world-geodetic-system/[WGS84].
-
-=== Database tables described
+== Geopaparazzi Tables
 
 
-.The Metadata Table
-[width="50%"]
+=== Geopaparazzi Project Database Tables
+
+The Geopaparazzi Project Database is a plain SQLite v3 database with the extension **.gpap**.  It contains all the data collected during a Geopaparazzi session, such as GPS tracks, notes (including images), and bookmarks.
+
+All coordinate data are saved in http://gisgeography.com/wgs84-world-geodetic-system/[WGS84] horizontal spatial reference system.  The elevation data saved by Geopaparazzi is as reported by the GPS library for the device and is likely height relative to the WGS84 ellipsoid and not a vertical datum or some other spatially varying surface like Mean Sea Level.
+
+.Overview diagram of database tables
+[plantuml, 10_database/database_diagram, png]     
+....
+class metadata << (T,#5d9d76) Table >>{
+    key: TEXT NOT NULL
+    label: TEXT
+    value: TEXT NOT NULL
+}
+class notes << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    ts: DATE NOT NULL
+    description: TEXT
+    text: TEXT NOT NULL
+    form: CLOB
+    style: TEXT
+    isdirty: INTEGER
+}
+class images << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    azim: REAL NOT NULL
+    imagedata_id: INTEGER NOT NULL
+    ts: DATE NOT NULL
+    text: TEXT NOT NULL
+    note_id: INTEGER
+    isdirty: INTEGER NOT NULL
+}
+class imagedata << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    data: BLOB NOT NULL
+    thumbnail: BLOB NOT NULL
+}
+class gpslogs << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    startts: LONG NOT NULL
+    endts: LONG NOT NULL
+    lengthm: REAL NOT NULL
+    isdirty: INTEGER NOT NULL
+    text: TEXT NOT NULL
+}
+class gpslogsdata << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    altim: REAL NOT NULL
+    ts: DATE NOT NULL
+    logid: INTEGER NOT NULL
+}
+class gpslogsproperties << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    logid: INTEGER NOT NULL
+    color: TEXT NOT NULL
+    width: REAL NOT NULL
+    visible: INTEGER NOT NULL
+}
+class bookmarks << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    lon: REAL NOT NULL
+    lat: REAL NOT NULL
+    zoom: REAL NOT NULL
+    bnorth: REAL NOT NULL
+    bsouth: REAL NOT NULL
+    bwest: REAL NOT NULL
+    beast: REAL NOT NULL
+    text: TEXT NOT NULL
+}
+class log << (T,#5d9d76) Table >>{
+    _id: INTEGER PRIMARY KEY
+    dataora: INTEGER NOT NULL
+    logmsg: TEXT
+}
+
+gpslogs <-- gpslogsdata
+gpslogs <-- gpslogsproperties
+images <-- imagedata
+notes <-- images
+....
+
+Timestamps ("ts" columns) in the tables below can be decoded in SQLite like so:
+
+----------------------------------------------
+  SELECT datetime("ts"/1000, "unixepoch") timestamp, * FROM notes
+----------------------------------------------
+
+
+.The metadata Table
+[width="100%",cols="2,10"]
 |====================
-| key |   key for the record
-| value |  value for the record
+| key   | key for the record  
+| label | text for dialog label
+| value | value for the record
 |====================
+This table holds 7 standard rows of the various Project information such as the Project name.  You can add your own metadata rows using the Project Info dialog in Geopaparazzi or using SQL.
 
-
-.The Notes Table
-[width="50%"]
+.The notes Table
+[width="100%",cols="2,10"]
 |====
-| _id           | unique id               
-|lon            | longitude of the note 
-|lat            | latitude of the note 
-|altim          | elevation 
-|ts             | timestamp 
+| _id           | unique id                            
+|lon            | longitude of the note, decimal degrees
+|lat            | latitude of the note, decimal degrees
+|altim          | elevation, meters 
+|ts             | timestamp, "unixepoch" in milliseconds
 |description    | description of the note 
-|text           | text of the note 
-|form           | the form data
-|isdirty        | is dirty field (0 = false, 1 = true)
-|style          | style of the note
+|text           | text/type of the note 
+|form           | the form data, JSON
+|isdirty        | is dirty field (0 = false, 1 = true) (not used)
+|style          | style of the note (not used)
 |====
 
 NOTE: Style and isdirty are currently unused.
 
-.The Images Table
-[width="50%"]
+.The images Table
+[width="100%",cols="2,10"]
 |====
 | _id            |unique id               
-|lon             |longitude of the image 
-|lat             |latitude of the image 
-|altim           |elevation 
-|ts              |timestamp 
-|azim            |azimuth 
-|text            |text of the note 
+|lon             |longitude of the image, decimal degrees
+|lat             |latitude of the image, decimal degrees
+|altim           |elevation, meters 
+|azim            |azimuth, decimal degrees
+|imagedata_id    |foreign key to _id of the imagedata table
+|ts              |timestamp, "unixepoch" in milliseconds
+|text            |file name of the image
+|note_id         |optional foreign key to _id of the notes table
 |isdirty         |is dirty field (0 = false, 1 = true)
-|note_id         |an optional note id, to which it is bound to
-|imagedate_id    |id of the connected image data  
 |====
 
-.The Imagedata Table
-[width="50%"]
+.The imagedata Table
+[width="100%",cols="2,10"]
 |====
 | _id            |unique id               
-|data            |the image data
-|thumbnail       |the image thumbnail data
+|data            |the image data as a BLOB containing an JPEG image
+|thumbnail       |the image thumbnail data as a BLOB containing an JPEG image
 |====
 
 
-.The Bookmarks Table
-[width="50%"]
+.The bookmarks Table
+[width="100%",cols="2,10"]
 |====
 | _id      |unique id               
-|lon      |longitude of the bookmark
-|lat      |latitude of the bookmark
-|zoom     |the zoom of the bookmark 
-|north    |the north bound of the bookmark 
-|south    |the south bound of the bookmark 
-|west     |the west bound of the bookmark 
-|east     |the east bound of the bookmark 
+|lon      |longitude of the bookmark, decimal degrees
+|lat      |latitude of the bookmark, decimal degrees
+|zoom     |the zoom of the bookmark, https://wiki.openstreetmap.org/wiki/Zoom_levels[Tile zoom levels]
+
+|north    |the north bound of the bookmark, decimal degrees
+|south    |the south bound of the bookmark, decimal degrees
+|west     |the west bound of the bookmark, decimal degrees
+|east     |the east bound of the bookmark, decimal degrees
 |text     |the name of the bookmark 
 |====
 
 
-.The GPS logs Table
-[width="50%"]
+.The gpslogs Table
+[width="100%",cols="2,10"]
 |====
 | _id     | unique id               
-|startts   |log start timestamp 
-|endts     |log end timestamp 
+|startts   |log start timestamp, "unixepoch" in milliseconds
+|endts     |log end timestamp , "unixepoch" in milliseconds
 |lengthm   |the length in meters
 |isdirty   |is dirty field (0 = false, 1 = true)
-|text      |name of the log 
+|text      |name of the log
 |====
 
-.The GPS logs data Table
-[width="50%"]
+.The gpslogsdata Table
+[width="100%",cols="2,10"]
 |====
 | _id     |unique id               
-|lon      |longitude of the log point 
-|lat      |latitude of the log point 
-|altim    |elevation of the log point 
-|ts       |timestamp of the log point 
-|logid    |id of the log of which the point is part 
+|lon      |longitude of the log point, decimal degrees
+|lat      |latitude of the log point, decimal degrees
+|altim    |elevation of the log point, meters
+|ts       |timestamp of the log point, "unixepoch" in milliseconds
+|logid    |foreign key to _id of the gpslogs table 
 |====
 
-.The GPS logs properties Table
-[width="50%"]
+.The gpslogsproperties Table
+[width="100%",cols="2,10"]
 |====
 | _id      |unique id               
-|logid     |id of the log the properties are part of 
-|color     |the color to use to draw the log  
-|width     |the width to use to draw the log 
+|logid     |foreign key to _id of the gpslogs table 
+|color     |the color to use to draw the log, text like "red", etc
+|width     |the width to use to draw the log, in pixels
 |visible   |flag that defines if the log is visible at the time given 
 |====
+
+.The log Table
+[width="100%",cols="2,10"]
+|====
+| _id      |unique id               
+|dataora   |row timestamp in milliseconds
+|logmsg    |log message 
+|====
+
+
+=== Additional Geopaparazzi tables in Spatialite Databases
+
+If these tables are present in a Spatialite database used as a map overlay, they can supply additional properties to the Spatialite data.
+
+.The dataproperties Table
+[width="100%",cols="2,10"]
+|====
+| _id            |unique id
+|name            |source of the geometry, format: database_path#table#column
+|size            |
+|fillcolor       |fill color in HTML-friendly form: e.g. red, #FBC02D, etc
+|strokecolor     |outline color
+|fillalpha       |0.0 to 1.0 value of opacity (0=fully transparent, 1=not transparent)
+|strokealpha     |0.0 to 1.0 value of opacity (0=fully transparent, 1=not transparent)
+|shape           |allowed values: "square","cross",triangle","circle","star","X"
+|width           |width of line
+|labelsize       |size of label in scaled pixels
+|labelfield      |field in feature table to get label text
+|labelvisible    |is the label shown? 0=no, 1=yes
+|enabled         |
+|layerorder      |
+|dashpattern     |dashWidth, dashGap, dashWidth2, dashGap2, ... in scaled pixels, e.g. ``10,20``
+|minzoom         |don't show if current zoom level is less than this (see  https://wiki.openstreetmap.org/wiki/Zoom_levels[Tile zoom levels] for values)
+|maxzoom         |don't show if current zoom level is greater than this
+|decimationfactor|
+|theme           |
+|====
+
+The ``dataproperties`` table is useful for providing persistent styling of features stored in the Spatialite database.
+
+An example of a "name" value is
+
+----------------------------------------
+/storage/emulated/0/rigstreet_v1.sqlite#sites_gate#geometry
+----------------------------------------
+
+
+.The geopap_resource Table
+[width="100%",cols="2,10"]
+|====
+| id      |unique id
+| restable|feature table name containing the feature
+| rowidfk |foreign key value of the row in the feature table
+| type    |Geopaparazzi data type of resource (e.g. BLOB_IMAGE, EXTERNAL_IMAGE, BLOB_PDF, EXTERNAL_PDF)
+| resname |file name of resource.  For labeling if resource is "BLOB_*"
+| respath |path of resource file
+| resblob |if resource is "BLOB_*", contains the resource data as binary
+| resthumb|contains a BLOB of a thumbnail of the resource to use as an icon
+|====
+
+The ``geopap_resource`` table is used to relate resources like images, PDFs, etc to records in the Spatialite tables.
 
 
 
