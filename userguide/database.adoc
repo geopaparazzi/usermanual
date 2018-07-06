@@ -5,7 +5,7 @@
 
 The Geopaparazzi Project Database is a plain SQLite v3 database with the extension **.gpap**.  It contains all the data collected during a Geopaparazzi session, such as GPS tracks, notes (including images), and bookmarks.
 
-All coordinate data are saved in http://gisgeography.com/wgs84-world-geodetic-system/[WGS84] horizontal spatial reference system.  The elevation data saved by Geopaparazzi is as reported by the GPS library for the device and is likely height relative to the WGS84 ellipsoid and not a vertical datum or some other spatially varying surface like Mean Sea Level.
+All coordinate data are saved in http://gisgeography.com/wgs84-world-geodetic-system/[WGS84] horizontal spatial reference system.  The elevation data saved by Geopaparazzi is as reported by the GPS library for the device and is likely the height relative to the WGS84 ellipsoid and not a vertical datum or some other spatially varying surface like Mean Sea Level.
 
 .Overview diagram of database tables
 [plantuml, 10_database/database_diagram, png]     
@@ -241,6 +241,7 @@ NOTE: Style and isdirty are currently unused.
 |logmsg    |log message 
 |====
 
+The ``log`` table contains rows created by Geopaparazzi as you use its various functions, primarily for troubleshooting any problems.  You can view the log table in Geopaparazzi by selecting the menu in the main dashboard view and selecting Advanced, the select "Analyze log".  By default it shows the "Error" class messages.
 
 === Additional Geopaparazzi tables in Spatialite Databases
 
