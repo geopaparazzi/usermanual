@@ -212,7 +212,7 @@ If these tables are present in a Spatialite database used as a map overlay, they
 [width="100%",cols="2,10"]
 |====
 | _id            |unique id
-|name            |source of the geometry, format: database_path#table#column
+|name            |source of the geometry, format: ``database_path#table#column``
 |size            |
 |fillcolor       |fill color in HTML-friendly form: e.g. red, #FBC02D, etc
 |strokecolor     |outline color
@@ -234,7 +234,7 @@ If these tables are present in a Spatialite database used as a map overlay, they
 
 The ``dataproperties`` table is useful for providing persistent styling of features stored in the Spatialite database.
 
-An example of a "name" value is
+An example of a "name" value in the ``dataproperties`` table:
 
 ----------------------------------------
 /storage/emulated/0/rigstreet_v1.sqlite#sites_gate#geometry
@@ -254,7 +254,7 @@ An example of a "name" value is
 | resthumb|contains a BLOB of a thumbnail of the resource to use as an icon
 |====
 
-The ``geopap_resource`` table is used to relate resources like images, PDFs, etc to records in the Spatialite tables.
+The ``geopap_resource`` table is used to relate resources like images, PDFs, etc to records in the Spatialite tables.  See <<Feature_Resources, Viewing Feature Attributes>>
 
 
 
