@@ -90,12 +90,50 @@ images <-- imagedata
 notes <-- images
 ....
 
-Timestamps ("ts" columns) in the tables below can be decoded in SQLite like so:
+
+====  Using Geopaparazzi Timestamps
+
+Geopaparazzi stores timestamps (e.g. columns named "ts" in the tables below) as long integers and represent https://en.wikipedia.org/wiki/Unix_time[Unix Epoch], but instead of seconds the value is in milliseconds.
+
+To make the values more readable, they can be decoded in SQLite like so (note the dividing by 1000 to change the milliseconds into seconds):
 
 ----------------------------------------------
-  SELECT datetime("ts"/1000, "unixepoch") timestamp, * FROM notes
+  SELECT _id, ts, datetime("ts"/1000, "unixepoch") timestamp FROM notes;
 ----------------------------------------------
 
+results in:
+
+[width="75%",cols="2,6,10",options=""header]
+|====================
+| _id |       ts      |    timestamp
+|  1  | 1419293026593 | 2014-12-23 00:03:46 
+|====================
+
+Typically the values must be decoded into a standard format like https://en.wikipedia.org/wiki/ISO_8601[ISO 8601] to be used in other applications.  The values can be decoded in SQLite like so (note the dividing by 1000 to change the milliseconds into seconds):
+
+----------------------------------------------
+SELECT ROWID, ts, strftime( '%Y-%m-%dT%H:%M:%SZ',datetime("ts"/1000, 'unixepoch')) timestamp FROM notes;
+----------------------------------------------
+
+results in:
+
+[width="75%",cols="2,6,10",options=""header]
+|====================
+| _id |       ts      |    timestamp
+|  1  | 1419293026593 | 2014-12-23T00:03:46Z
+|====================
+
+You can also create https://www.w3resource.com/sqlite/sqlite-create-drop-views.php[SQL Views] to persist the above query in the database.
+
+----------------------------------------------
+CREATE VIEW v_notes AS 
+  SELECT *, strftime( '%Y-%m-%dT%H:%M:%SZ',datetime("ts"/1000, 'unixepoch')) timestamp FROM notes;
+  
+SELECT * FROM v_notes;
+----------------------------------------------
+
+
+==== Geopaparazzi Table Descriptions
 
 .The metadata Table
 [width="100%",cols="2,10"]
