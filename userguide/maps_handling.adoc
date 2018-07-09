@@ -5,6 +5,7 @@ Several applications can be used to prepare and evaluate datasets for Geopaparaz
 
 * gvSIG
 * STAGE
+* QGIS
 * Spatialite GUI
 * GDAL
 
@@ -92,6 +93,36 @@ The following is created:
 - line and points shapefiles for log lines and points
 - profile charts and csv of log data
 - a simple text project metadata file
+
+=== QGIS
+
+Using plugins, QGIS can import Geopaparazzi databases and create mbtile base maps.  At the time of writing (July 2018), QGIS 3 is newly released and most of the plugins that work with Geopaparazzi files have not been ported over from QGIS 2. 
+
+==== Importing Data with QGIS 2
+
+===== ExportGeopaparazzi Plugin
+
+Install the ExportGeopaparazzi plugin from the QGIS repository. As this plugin is experimental, go to **Settings** in the **Manage and Install Plugins** dialog and check the **Show also experimental plugins** checkbox, or the plugin will not be displayed in the list of available plugins. The plugin actually mainly imports data from gpap files and displays the data in memory layers.  Separate layers are created for bookmarks, gpslogs, image positions and notes. Memory layers are not saved by default when the project closes so important data will need to be saved as another format. Additionally the notes layer includes all types of note. A single SVG symbol is used for all types of note. To generate different symbols for different types of note, the symbol type will need to be changed as the SVG symbol used comes in only one color. As all types of note are listed in the same layer, the attribute table does not have separate columns for each form field. All form data is presented in the style column in JSON format. Information imported this was is only useful for viewing.
+
+===== GPAP to Vector Files Process
+Algorithms for importing or export to Geopaparazzi can be added to the processing toolbox. The **GPAP to Vector Files** algorithm creates separate layers for each type of note, and creates layers for bookmarks, image positions and tracklogs. The algorith also saves images embedded in the gpap file to disk. Attribute tables for each type of note have columns for each data field collected by the note. If these layers are persisted, by saving them or dragging into a database (or saving as a shapefile), they can be used for GIS mapping and analysis. **Geopackages** are the current standard data format for QGIS and have the advantage of not truncating the names of forms or form fields, so save in this format if possible. The algorithms are installed with the **ExportGeopaparazzi plugin**, however the algorithms are not made visible by default. To make the tools visible, open the **Procession\Options** menu, click **providers** option and then open the **Import/Export to/from Geopaparazzi** option and activate the algorithms.
+
+image::07_maps_handling/01_QGIS.png[]
+
+==== Viewing Data in QGIS 3
+QGIS 3 does not at the time of writing (July 2018) have any gpap file importers. A workaround is to change the extension of the gpap file to **sqlite3**. The sqlite file can then be dragged and dropped onto the map window. The ‘Select Vector Layers to Add’ dialog will appear and all of the data tables will be displayed, including tables that are irrelevant from a GIS perspective such as the raw photo data table. Only the bookmarks, gpslogsdata, images and notes table contain data with coordinates. Select these tables and **OK** the dialog to add them to the Layers pane as non-spatial tables. Non-spatial tables can only be viewed as attribute tables and cannot be used as map layers. 
+
+To convert non-spatial tables to GIS layers, use the **Create Points Layer from Table** tool in the **processing toolbox**. Even the gpslogsdata must first be converted to points. To create a gps trail, the point layer created from the gpslogsdata can be processed with the **Points to Paths** algorithm. Currently, there are no tools for creating separate layers for each form type. Form data, is encoded in json format in the Forms field and there is no way to format the data to make it easily readable. However the various types of form can be symbolised differently using the form name, which is stored in the ‘text’ field. This method is useful for seeing gps trails and where various form notes were created.
+
+image::07_maps_handling/02_qgis.png[]
+
+QGIS 3 can also be used as viewer for kmz files produced by Geopaparazzi although is it not quite as good as GoogleEarth. Add the kmz file to QGIS 3 and use **map tips** to display the data associated with each point in a popup. If the map tips are based on the **description** field, which contains html, then the map tips will render the html and present a formatted report for the current data point.
+
+==== Other Alternative Import Methods
+QGIS users can also install GV-SIG and use the Horton Machine spatial toolbox to convert gpap files to shapefiles which can be used in QGIS.
+
+==== Making Base Maps in QGIS
+The **QTiles** plugin in QGIS 2 can be used to create base maps in mbtiles format. Base maps with as many as 30 000 tiles (~3 GB file size) work well in Geopaparazzi. 
 
 === Spatialite GUI
 
