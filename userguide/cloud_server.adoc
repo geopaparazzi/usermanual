@@ -1,4 +1,11 @@
-== Geopaparazzi Cloud Server
+== Synchronization of Geopaparazzi datasets in the cloud
+
+This section is dedicated to workflows/methodologies and applications that allow to synchronize geopaparazzi data in the cloud. 
+
+Only free and open source applications are listed here with a description on how to install and configure them.
+
+If you know of any applications that is not yet listed, please let us know.
+
 
 === Cloud Profiles
 
@@ -109,5 +116,13 @@ You can set up your own Cloud Profile server by putting your files on a generic 
 ===== Geopaparazzi Cloud Server
 
 A pre-configured Open Source Geopaparazzi Cloud Server is available.  Have a look at https://geoanalytic.github.io/a-reference-server-for-geopaparazzi-cloud-profiles/[A reference server for geopaparazzi cloud profiles]  
+
+
+=== The Geopaparazzi Survey Server
+
+The Geopaparazzi Survey Server (GSS) is a web application with a companion Android/Desktop utility application that allows users to synchronize 
+geopaparazzi survey projects. Notes, GPS Logs and Media are sent to a central server using the ID of the device.
+
+Read more about GSS in link:gss/geopaparazzi_survey_server.html[this section of the documentation].
 
 
