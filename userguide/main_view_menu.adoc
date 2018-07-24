@@ -248,8 +248,6 @@ image::04_mapviewmenu/22_profiles_import.png[scaledwidth=30%, width=30%]
 
 In order to support sharing of data and profile configurations, the path of the data contained in the imported files are adapted to the sdcard path of the current device. This way relative paths in the sdcard are maintained and datasets can be loaded.  In that case you download and import data that someone else prepared, but they will work in your device, even if the paths of the data refer to a different sdcard path.
 
-==== Importing Cloud Profiles
-
 
 
 === Exit
