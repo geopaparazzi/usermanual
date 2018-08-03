@@ -57,6 +57,20 @@ The main features available in Geopaparazzi are:
 
 NOTE: Geopaparazzi is available only for the Android Operating System.
 
+=== License
+
+Geopaparazzi source code is licensed under the https://raw.githubusercontent.com/geopaparazzi/geopaparazzi/master/LICENSE[GNU General Public License, Version 3]
+
+=== Community
+
+Find out the http://jgrasstechtips.blogspot.com/search/label/geopaparazzi[latest Geopaparazzi news.]
+
+Join the https://groups.google.com/forum/#!forum/geopaparazzi-users[Geopaparazzi user's discussion!]
+
+And there's a group for https://groups.google.com/forum/#!forum/geopaparazzi-devel[Geopaparazzi developers too.]
+
+You can even contribute to this https://github.com/geopaparazzi/usermanual[Geopaparazzi manual!]
+
 include::installation.adoc[]
 include::main_view.adoc[]
 include::main_view_menu.adoc[]
