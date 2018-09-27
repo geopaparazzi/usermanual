@@ -32,16 +32,16 @@ It is also possible to show the label for the note and customize its size and ha
 .The notes properties view.
 image::03_mapview/15_notes_properties.png[scaledwidth=30%, width=30%]
 
-The **list of GPS logs** gives the possibility to customize the logs. It is possible to change the visibility of the single track using the checkbox. The icon on the right side of each entry opens the GPS log properties panel:
+The **list of GPS logs** gives the possibility to customize the logs. It is possible to change the visibility of the log using the checkbox. The icon on the right side of each entry opens the GPS log properties panel:
 
 .The GPS log properties panel.
 image::03_mapview/16_log_properties.png[scaledwidth=30%, width=30%]
 
 From the properties panel it is possible to:
 
-* change the name of the track
+* change the name of the GPS log
 * check the start and end date and time
-* update and read the track length
+* update and read the log length
 * enter the track style panel to change stroke and fill
 * zoom to the first or last point of the track in the map view
 * chart the track. The chart has two axes, speed [km/h] on the left and elevation [m.s.l.] on the right.

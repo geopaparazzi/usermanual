@@ -168,7 +168,7 @@ image::03_mapview/11_bookmarks_list.png[scaledwidth=30%, width=30%]
 
 The log analysis tool allows to analyze the various positions of a GPS log.
 
-Once enabled, one can simply touch the screen near a GPS log and information about 
+Once enabled, you can simply touch (and hold) the screen near a GPS log and information about 
 the nearest log point will be shown. Also the color of the text will be the one of 
 the currently queried log:
 
@@ -177,11 +177,11 @@ image::03_mapview/28_gps_log_analysis.png[scaledwidth=30%, width=30%]
 
 === Measure tool
 
-Activating the measure tool disables the ability to pan the map while enabling the possibility to draw a line on the map and measure the line drawn. 
+Activating the measure tool disables the ability to pan the map while enabling the possibility to draw a path on the map and measure the path drawn. 
 
 The *approximate* (the distance is calculated without considering elevation deltas and with the coordinate picking precision of a finger on a screen) distance is shown in the upper part of the map view.
 
-When active, the measure tool has a red colored icon, when inactive the icon is green instead.
+When active, the measure tool has a orange colored icon, when inactive the icon is green instead.
 
 .An example of qualitative measurement on the map.
 image::03_mapview/12_measure_tool.png[scaledwidth=30%, width=30%]
