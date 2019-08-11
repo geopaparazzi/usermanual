@@ -1,76 +1,32 @@
-== The Map View Menu
+== The Map Menu
+anchor:mapview_menu[] 
 
-The map menu provides access to some additional map tools:
+The Map Menu button in the upper right of the Map View provides access to some additional map functions:
 
-* access the GPS data list
-* access the Spatialite data list. 
-* toggle the scalebar
-* open the compass
-* toggle automatic centering on the GPS position
-* center the view on the current base map (if possible)
+* open compass app
 * go to a location
 * share the current position
-* view the data visible in the viewport in http://www.mixare.org/[Mixare]
-* import data from the underlying mapsforge map 
 
 .The map menu.
 image::03_mapview/13_map_menu.png[scaledwidth=30%, width=30%]
 
-=== GPS data list
-
-The GPS data list shows the data surveyed, both points and tracks.
-
-.The GPS data view.
-image::03_mapview/14_gpsdatalist.png[scaledwidth=30%, width=30%]
-
-In the actionbar there are possibilities to _select all_, _unselect all_ and _merge selected logs_. The first icon from left is the notes properties button. From there some properties of the notes can be set.
-
-Notes can be shown on the Map View as icons or as circular shapes. The size, color and opacity can be customized by the user. This can be useful in those cases in which many notes have to coexist in a small space for better readability.
-
-It is also possible to show the label for the note and customize its size and halo.
-
-.The notes properties view.
-image::03_mapview/15_notes_properties.png[scaledwidth=30%, width=30%]
-
-The **list of GPS logs** gives the possibility to customize the logs. It is possible to change the visibility of the log using the checkbox. The icon on the right side of each entry opens the GPS log properties panel:
-
-.The GPS log properties panel.
-image::03_mapview/16_log_properties.png[scaledwidth=30%, width=30%]
-
-From the properties panel it is possible to:
-
-* change the name of the GPS log
-* check the start and end date and time
-* update and read the log length
-* enter the track style panel to change stroke and fill
-* zoom to the first or last point of the track in the map view
-* chart the track. The chart has two axes, speed [km/h] on the left and elevation [m.s.l.] on the right.
-
-.The GPS log chart.
-image::03_mapview/17_chart_log.png[scaledwidth=30%, width=30%]
-
-* remove the track
+A long press on the Map Menu button will hide the tool buttons in the lower part of the Map View.
 
 
-=== Spatialite data list
-anchor:spatialitedatalist[]
+=== Open Compass
 
-The Spatialite data list view holds the list of loaded Spatialite databases. For each database its spatial tables are shown and each table can be made visible or hidden through the checkbox on each entry. 
+This function will open the external https://play.google.com/store/apps/details?id=com.android.gpstest[GPSTest] app
 
-The rendering order can be changed through a combobox at the left side of each entry.
+image::03_mapview/31_gps_compass.png[scaledwidth=30%, width=30%]
 
-New databases can be added through the 2 buttons at the bottom of the view, by single file or folder.
+If is not installed on your device, you will be prompted to install.
 
-To remove a database longtap on its entry.
+image::03_mapview/30_install_gps.png[scaledwidth=30%, width=30%]
 
-.The list of spatialite based data.
-image::03_mapview/18_spatialite_data_list.png[scaledwidth=30%, width=30%]
-   
-At the right part of each entry a menu is available, which allows the user to change the style and labeling of the features in the layer, as well as its stroke dash and zoom level visibility. It is also possible to zoom to a given layer extent.
 
 === Go to
 
-The go to function has two possibilities:
+The go to function has two possibilities for moving the current map view:
 
  * go to coordinate
  * use geocoding and/or routing
@@ -81,7 +37,7 @@ In the **go to coordinate** panel it is possible to insert lat/long coordinates 
 
 image::03_mapview/20_goto_coord.png[scaledwidth=30%, width=30%]
 
-Through geocoding it is possible to insert some address and find its location (uses Google Maps geocoding service).
+Through geocoding it is possible to insert some address and find its location (uses Google Maps geocoding service) when your device has an active network connection.
 
 image::03_mapview/21_goto_point.png[scaledwidth=30%, width=30%]
 
@@ -91,78 +47,20 @@ The routing service used is http://project-osrm.org/[OSRM].
 
 Once the Routing button is tapped, the route is calculated by the service
 starting from the current map center to the destination point.
-The route is then downloaded and placed in the GPS logs tracks.
+The route is then downloaded, inserted into the project as a new GPS log, and shown as a GPS log track.
 
-.The fresh downloaded route from Bolzano to Rome.
-image::03_mapview/24_route_rome.png[scaledwidth=30%, width=30%]
+.The freshly downloaded route from a remote location to Sundre, Canada.
+image::03_mapview/24_route_map.png[scaledwidth=30%, width=30%]
+
 
 === Share position
 
-The *share position* entry opens the usual sharing dialog of Android:
+The *share position* entry opens the standard sharing dialog of Android with all the apps available for handling sharing of information:
 
-If for example https://telegram.org/[telegram] is chosen, the sent link will 
+image::03_mapview/25_share1.png[scaledwidth=30%, width=30%]
+
+If for example https://telegram.org/[telegram] app is chosen, the sent link will 
 look like:
 
 image::03_mapview/26_telegram.png[scaledwidth=30%, width=30%]
-
-=== Import mapsforge data
-
-The mapsforge tiles are generated on the device from a particular vector format. This means that there are information available in the database. Problem is that, very very simply put, the information contained is extracted differently at different zoom levels, because in fact the library and the format have been done that way to allow best rendering performance.
-
-But still it is possible to extract almost everything we see, which is nice.
-
-Let's see how this works. **For this to work it is mandatory that the loaded background map is of type "map"**. Assume you have a job to do, are out in the field and want view information overlaid on the orthophoto images from the local WMS service.
-
-Well, the map file you get from mapsforge looks like the following:
-
-image::03_mapview/27_mapsforge1.png[scaledwidth=30%, width=30%]
-
-
-Once the *import mapsforge data* has been chosen, its panel appears:
-
-image::03_mapview/27_mapsforge2.png[scaledwidth=30%, width=30%]
-
-From the view you can see that 2 types of data can be imported: points and ways.
-
-==== Points
-
-Since the points are often visible on a different zoomlevel then the current, also 3 zoomlevels below the current are investigated to extract data and double points are not considered. So if you start this at zoomlevel 16, you will also get 17, 18, 19. Since the same are at a different zoomlevel will have many more tiles, about 10000 tiles are read to import the data.
-
-You can add a filter text to import only tags containing a given text or exclude all those containing the text.
-
-Points are imported in the current project database and saved as forms notes containing all the values Openstreetmap has. As such they can also be edited.
-
-All imported notes have a (MF) in their name. That is done so one can quickly select and remove them. Believe us, that is a feature you want to have since such imports can generate very crowded notes lists.
-
-.The notes list after a mapsforge import.
-image::03_mapview/27_mapsforge10.png[scaledwidth=30%, width=30%]
-
-==== Ways
-
-Many types of ways are stored in the mapsforge map files and many of them are actually related to areas. 
-
-The user can choose to import:
-
-* ways: roads, railways, cableways and similar
-* waterways: lines that represent water
-* contours: contour lines if they are available
-
-Since these data are large, the data are imported into a dedicated Spatialite database. A database for mapsforge extracted data is automatically created if there is none present. You will find a database named **mapsforge_extracted.sqlite** always present in your maps folder. And you will find 3 layers always present in the Spatialite data layers: **osm_waterlines, osm_roads and osm_contours**.
-
-.The mapsforge database and layer that host imported data.
-image::03_mapview/27_mapsforge3.png[scaledwidth=30%, width=30%]
-
-Just select the data you want to import and push the start button. 
-In the case you selected all data types, you should see first an 
-import dialog like this:
-
-.The mapsforge import dialog.
-image::03_mapview/27_mapsforge4.png[scaledwidth=30%, width=30%]
-
-and then something like this:
-
-image::03_mapview/27_mapsforge5.png[scaledwidth=30%, width=30%]
-
-Depending on what has been imported first, the labels might not be coming from the right field. In that case it can be simply changed in the spatialite layer settings. Refer to the <<spatialitedatalist,spatialite data list section>>.
-
 

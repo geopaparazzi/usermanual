@@ -6,12 +6,10 @@ The map view is the central view of the application. It can be used to view the 
 .The map view.
 image::03_mapview/01_mapview.png[scaledwidth=30%, width=30%]
 
-The map engine comes from the http://code.google.com/p/mapsforge/[mapsforge] project.
-
-The <<supported_datasets,supported datasets>> section lists and describes all supported map types. Just to cite a few, one can view:
+The <<supported_datasets,supported datasets>> section lists and describes all supported map types. Just to cite a few, you can view:
 
 * http://www.openstreetmap.org/[OpenStreetMap] raster tile maps both when on-line (downloading new tiles) and off-line (visualizing those that were cached during online mode)
-* http://www.mapbox.com/developers/mbtiles/[mbtiles databases]
+* http://www.mapbox.com/developers/mbtiles/[raster mbtiles databases]
 * local and remote http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification[TMS] tiles
 * mapsforge vector files
 
@@ -20,7 +18,7 @@ The <<supported_datasets,supported datasets>> section lists and describes all su
 
 The Map View has a set of tools that can be used to interact with the map. 
 
-When first launched, the tools are already visible on the map. To have a cleaner Map View, the user can long-tap on the upper right menu button to toggle the visibility of the tools.
+When first launched, the tools are already visible on the map. To have a cleaner Map View, you can long press on the upper right menu button to toggle the visibility of the tools.
 
 .The map view with disabled tools.
 image::03_mapview/02_mapview_tools_off.png[scaledwidth=30%, width=30%]
@@ -30,21 +28,22 @@ Available tools are:
 
 * Left screen side
 
-  - add note (the same that is accessed from the dashboard) and list notes (long tap)
-  - add bookmark and list bookmarks (long tap)
-  - activate the GPS log analyzer
-  - activate the measure tool
+  - <<mapview_layers, Layers List Dialog>> (orange button in the upper left)
+  - Add Note (the same that is accessed from the dashboard), and view the Notes List using a long press on the icon
+  - Add Bookmark and view the Bookmarks List using a long press on the icon
+  - GPS Log Analyzer, and view the GPS Data list using a long press on the icon
+  - Measure Tool
 
 * Right screen side
 
-  - the context menu button
+  - <<mapview_menu, Map Menu>> button (orange button in the upper right)
   - the zoom in and out buttons
 
 * Lower center
 
-  - battery status
-  - center screen on GPS position and GPS status button
-  - editing tools
+  - battery status indicator
+  - GPS Position button, and GPS Options using a long press on the icon
+  - View Feature Info/Edit Layer button
 
 .The map view with all map tools visible.
 image::03_mapview/01_mapview.png[scaledwidth=30%, width=30%]
@@ -71,14 +70,10 @@ NOTE: If you have trouble reading small text on some basemaps, you can "magnify"
 
 === Add Notes
 
-.The view from which notes are taken.
+.Add notes.
 image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
-The add notes button opens the same notes view as the button on the dashboard. There is only once difference. Since notes can be added both in the GPS position and in the middle of the map, to open the add note view from the dashboard, the GPS is required to have a fix.
-
-From the map view the user can open the add note view even without GPS signal, in which case notes will only be inserted at the map center position.
-
-For further information about taking notes, visit the <<Notes, notes section>>.
+The Add Notes button opens the same notes view as the button on the dashboard.  For further information about taking notes, visit the <<Notes, notes section>>.
 
 === The Notes List
 
@@ -96,7 +91,7 @@ The icon on the right side of the actionbar allows the user to sort the notes by
 .The notes sort order dialog.
 image::03_mapview/04_noteslist_sortorder.png[scaledwidth=30%, width=30%]
 
-In the upper part of the view there is a textbox that helps to filter out a particular note based on its name.
+In the upper part of the view there is a textbox that helps to filter particular notes based on  name.
 
 .Notes can be filtered by text.
 image::03_mapview/04_noteslist_filter.png[scaledwidth=30%, width=30%]
@@ -109,7 +104,7 @@ image::03_mapview/05_note_menu.png[scaledwidth=30%, width=30%]
 
 From the note menu the user is able to:
 
-* edit form based notes or view simple notes
+* edit notes
 * share the note through social networks
 * delete the note
 * use the current note as a filter. All notes with the same name will be visible.
@@ -132,7 +127,7 @@ image::03_mapview/07_notes_properties.png[scaledwidth=30%, width=30%]
 
 === Add Bookmark
 
-Bookmarks are in a layer on their own, that contains saved settings of the current map view.
+Bookmarks are in a layer on their own. They contain saved extent settings of the current map view.
 When a bookmark is added, the user is prompted to insert a name for the bookmark
 or leave the generated name based on the current time and date.
 
@@ -141,7 +136,7 @@ image::03_mapview/08_add_bookmark.png[scaledwidth=30%, width=30%]
 
 When a bookmark is added, a small star is added on the map in the center of the screen.
 
-Also the map bounds and zoom are saved. That way one can return to the scenario 
+Since the map bounds and zoom are saved, you can return to the view 
 that the bookmark represents in any moment.
 
 It is possible to tap on the bookmark to read its label.
@@ -151,11 +146,11 @@ image::03_mapview/10_bookmark_open.png[scaledwidth=30%, width=30%]
 
 === The Bookmarks List
 
-The bookmarks list shows all the saved bookmarks.
+The bookmarks list shows all the saved bookmarks in the project.
 
-In the upper part there is a textbox that helps to filter out a particular bookmark based on its name.
+In the upper part there is a textbox that helps to filter particular bookmarks based on name.
 
-The user has 4 options, as the icons on each bookmark entry shows:
+Other operations on individual bookmarks are access by pressing bookmark's icons:
 
 * go to the bookmark location (left icon)
 * edit the bookmark
@@ -175,6 +170,34 @@ the currently queried log:
 .The GPS log analysis tool.
 image::03_mapview/28_gps_log_analysis.png[scaledwidth=30%, width=30%]
 
+=== GPS Data List
+
+The GPS Data list is accessed by using a long press on the GPS Log button.  The list shows the data surveyed, both points and tracks.
+
+.The GPS data view.
+image::03_mapview/14_gpsdatalist.png[scaledwidth=30%, width=30%]
+
+In the action bar there are possibilities to _select all_, _unselect all_ and _merge selected logs_. 
+
+The **list of GPS logs** gives the possibility to customize the display of the logs. It is possible to change the visibility of the log using the checkbox. The icon on the right side of each entry opens the GPS log properties panel:
+
+.The GPS log properties panel.
+image::03_mapview/16_log_properties.png[scaledwidth=30%, width=30%]
+
+From the properties panel it is possible to:
+
+* change the name of the GPS log
+* check the start and end date and time
+* update and read the log track length
+* enter the log track style panel to change stroke and fill
+* zoom to the first or last point of the log track in the map view
+* chart the log track. The chart has two axes, speed [km/h] on the left and elevation [m.s.l.] on the right.
+
+.The GPS log track chart.
+image::03_mapview/17_chart_log.png[scaledwidth=30%, width=30%]
+
+* remove the track
+
 === Measure tool
 
 Activating the measure tool disables the ability to pan the map while enabling the possibility to draw a path on the map and measure the path drawn. 
@@ -183,17 +206,20 @@ The *approximate* (the distance is calculated without considering elevation delt
 
 When active, the measure tool has a orange colored icon, when inactive the icon is green instead.
 
-.An example of qualitative measurement on the map.
+.An example of interactive measurement on the map.
 image::03_mapview/12_measure_tool.png[scaledwidth=30%, width=30%]
 
 
+=== Battery Status Indicator
+
+The Batter Status Indicator shows the percentage charge of your device's battery.
 
 
+=== GPS Position Button
 
+If you tap the GSP Position button, the Map View will center the map on the current GPS position.
 
+A long press on the button will display the GPS options.
 
-
-
-
-
+image::03_mapview/32_gps_options.png[scaledwidth=30%, width=30%]
 

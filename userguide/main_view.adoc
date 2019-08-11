@@ -1,9 +1,9 @@
 == The Main View
 
-Once you launch Geopaparazzi, the dashboard appears.
+Once you launch Geopaparazzi, the dashboard appears in the Main View.
 
 All the features that need to be quickly accessed, such as toggling GPS on and off, 
-creating a note or taking a picture, as well as visualizing the current position 
+creating a note, as well as visualizing the current position 
 on a map, are accessible from the dashboard.
 
 .The dashboard of geopaparazzi.
@@ -14,7 +14,7 @@ From the dashboard the following primary functions can be accessed:
 * the action bar functions
 * take notes
 * view or modify the project metadata
-* take a GPS Track
+* create a GPS Track
 * switch to Map View
 * import Data
 * export Data
@@ -22,27 +22,29 @@ From the dashboard the following primary functions can be accessed:
 === Action Bar
 anchor:action_bar[]
 
-The action bar, from right to left, presents the following functions:
+The action bar at the top of the Main View, from right to left, presents the following functions:
 
 * the main menu
-* the general settings button
-* the GPS and map information button
+* the GPS status (via an external application, https://github.com/barbeau/gpstest[GPSTest]) button
+* the GPS information button
 
-The info button shows information about the current selected map and the status of the GPS. If the GPS has acquired a fix, information about the position is given: 
+The GPS information button shows a summary of current GPS data. If the GPS has acquired a fix, information about the position is given: 
 
 .Information shown when tapping the info button.
 image::02_dashboard/10_info_button.png[scaledwidth=30%, width=30%]
 
 
-NOTE: The GPS status icon can be of the following colors:
-RED if the GPS is not switched on, ORANGE if the GPS is on but no fix was acquired,
-GREEN if the GPS is on and has fix, but no log is being recorded and BLUE
-if the GPS is logging.
+The icon of the GPS status button can be of the following colors:
+
+* RED:  GPS is not switched on
+* ORANGE: GPS is on but no fix was acquired
+* GREEN: GPS is on and has fix, but no log is being recorded
+* BLUE: GPS is logging.
 
 
 === The panic button
 
-At the bottom of the view the orange **Panic Button** is visible. Once pushed it 
+At the bottom of the view the orange **Panic Button** is visible when a GPS location is available. Once pushed it 
 leads to the *panic!* view, which presents two buttons:
 
 * the *PANIC!* button
@@ -66,29 +68,30 @@ The _just send position_ button opens up the SMS dialog directly filling in the 
 
 ==== Notes
 
-Geopaparazzi supports 4 different types of notes:
+Geopaparazzi supports different types of notes:
 
-* text notes
-* picture notes
+* image notes
 * sketch notes
-* form-based notes
+* map notes
+* text notes
+* form-based notes (pick lists, etc.)
 
 To access them you can tap on the first icon of the dashboard,
-the *take notes* icon. Once you tap on it, the *take notes* dialog 
+the *Add Notes* icon. Once you tap on it, the *Add Notes* dialog 
 appears:
 
-.The view from which notes are taken.
+.Adding notes to the project.
 image::02_dashboard/03_notes.png[scaledwidth=30%, width=30%]
 
 The switch button at the top of the view gives the possibility to
 choose whether the note will be recorded with the **current GPS position** 
-(in case GPS is on) or at the **current center of the Map View** (the crosshair).
+(in case GPS is on) or at the **current center of the Map View** (the crosshair).  If the current GPS position is not available, it will not be possible to move the slider to the gps position setting.
 
+The *Return to view* checkbox returns you to the *Add Notes* screen after you finish your note.  If the box is not checked, you will be returned to the dashboard in the Main View.
 
-At the right end of the actionbar the quick note buttons are placed. From left to right:
+At the right end of the actionbar are the quick note buttons. From left to right:
 
-* The **Quick text note** button, which opens a simple dialog, 
-  inside which the text note can be written. Want to save the note? 
+* The **Quick text note** button opens a simple dialog where a text note can be written. Want to save the note? 
   Tap on the *ok* button. Want to trash it? Tap on the *cancel* button.
 
 NOTE: The position of the note is taken when the note view is opened, not closed, in order to have all the time needed to insert the text while moving. 
@@ -96,7 +99,7 @@ NOTE: The position of the note is taken when the note view is opened, not closed
 .The simple text note dialog.
 image::02_dashboard/04_textnotes.png[scaledwidth=30%, width=30%]
 
-* The **Quick picture note** button, which will launch the camera application 
+* The **Quick picture note** button will launch the camera application 
   that comes with your android system which gives lots of
   possibilities of customization of the images size, focus and so on. 
   This has one drawback, which is the fact that we are not able to pick 
@@ -106,19 +109,21 @@ image::02_dashboard/04_textnotes.png[scaledwidth=30%, width=30%]
   and stay with the device in the same position of the snapshot until 
   you have closed the camera app.
 
-* The **Menu** button, which allows you to select **Simple Sketch** to draw on a small panel or select **Layout Settings** to change the Notes button layout and text size.
+* The **Menu** button, which allows you to select **Simple Sketch** to draw on a small panel or select **Layout Settings** to change the layout Notes buttons and their text size.
 
-.The simple text note dialog.
+.The notes menu.
 image::02_dashboard/05_note_menu.png[scaledwidth=30%, width=30%]
 
 Selecting **Simple Sketch**, you can change stroke style, color, and width. The  sketch panel comes from the open source app https://github.com/valerio-bozzolan/AcrylicPaint[Acrylic Paint].
+
+NOTE: If your device has room in the Action Bar, for example holding your phone in landscape instead of portrait, the Simple Sketch icon will appear in the Action Bar and the Simple Sketch item will be removed from the menu.
   
 .An example of taking sketch note.
 image::02_dashboard/05_sketchnotes.png[scaledwidth=30%, width=30%]
 
 WARNING: Once a simple note has been saved, it can't be modified.
 
-Selecting **Layout Settings** allows you to change the text size on the Note buttons and the number of columns.  This can be useful to make the dialog easy to read while in the field.
+Selecting **Layout Settings** allows you to change the text size on the Note buttons and the number of columns.  This can be useful to make the *Add Notes* screen easy to read while in the field.
 
 .The Notes List with one column and large text.
 image::02_dashboard/05_note_large.png[scaledwidth=30%, width=30%]
@@ -126,21 +131,21 @@ image::02_dashboard/05_note_large.png[scaledwidth=30%, width=30%]
 
 ===== Form based notes
 
-Form based notes are complex notes that allow for better surveys.
-Some example forms are included in the base installation of geopaparazzi.
+Form based notes allow you to take complex notes containing detailed information.
+Some example forms are included in the installation of geopaparazzi.
 
 The **example** button in particular shows all the possible form widgets available:
 
 .An example of form based notes.
-image::02_dashboard/06_form_based_notes.png[scaledwidth=40%, width=40%]
+image::02_dashboard/06_form_based_notes.png[scaledwidth=60%, width=60%]
 
 The notes can be saved and modified at any time.
 
 To understand how to create forms, have a look at the section dedicated to <<forms>>.
 
-==== Project Information
+==== Project Info
 
-The project view shows information about the project database.
+The Project Info screen shows information about your current Geopaparazzi project database.
 
 It shows:
 
@@ -148,14 +153,14 @@ It shows:
 * the project name
 * the project description
 * project notes
-* creation and last closing date
+* creation and last closing dates
 * the user that created the project
 * the user that last modified the project
 
 Apart from the dates, that are set by the system, all data can be changed and 
 saved through the save button.
 
-.The project metadata view.
+.The Project Info screen.
 image::02_dashboard/07_project_info.png[scaledwidth=30%, width=30%]
 
 It is also possible to add additional metadata to the project information. The plus button at the right side of the actionbar opens an input dialog that allows the user to define a key, a label and a value for the new metadata entry:
@@ -176,29 +181,28 @@ It is also possible to attach the new log to the last created log by
 checking the box: *Continue last log*. In that case the proposed name 
 of the log (or any user inserted) is ignored, since no new log is created. 
 
-.The new log dialog. From here it is possible to continue the last log.
+.The new GPS log dialog. From here you can continue the last log.
 image::02_dashboard/08_start_logging.png[scaledwidth=30%, width=30%]
 
-Once logging has started, the logging button will turn orange and the GPS status icon blue.
+Once logging has started, the GPS logging button will turn orange and the GPS status icon blue.
  
-.The stop logging button with its orange color.
+.The GPS logging button with its orange (currently logging) color.
 image::02_dashboard/09_logging_on.png[scaledwidth=30%, width=30%]
 
-To stop logging, the same button is used. Once tapped, the user is prompted 
+To stop logging, the same button is used. Once tapped, you are prompted 
 to verify the action. 
 
 
 ==== Map View
-
-The map view presents a map and a set of tools that can be used to navigate 
-the map, make measurements or edit datasets. The various tools are presented 
-in the section dedicated to the <<Map View>>.
  
 .The map view.
 image::02_dashboard/12_map_view.png[scaledwidth=30%, width=30%]
 
-==== Import
+The Map View presents a map and a set of tools that can be used to navigate 
+the map, make measurements, or edit datasets. The various tools are described 
+in the section dedicated to the <<Map View>>.
 
+==== Import
 
 .The import view.
 image::02_dashboard/13_import.png[scaledwidth=30%, width=30%]
@@ -207,27 +211,26 @@ Geopaparazzi supports the import of:
 
 * GPX datasets
 * bookmarks
-* WMS
-* default Spatialite databases
+* default Spatialite database
 * geopaparazzi cloud projects
 * geopaparazzi Cloud Profiles
 
 
 ===== GPX
 
-By tapping on the *GPX* icon, the user is taken to a simple file browser. 
+By tapping on the *GPX* icon, a simple file browser is shown to import your GPX file.
 
 .The simple geopaparazzi file browser.
 image::02_dashboard/16_import_gpx.png[scaledwidth=30%, width=30%]
 
 The browser only shows folders and files with gpx extensions. On selection, the 
-file is imported.
+file is imported into the current project.
 
 ===== Bookmarks
 
 Bookmarks can be imported from csv files that *must be placed in the root of the sdcard* and the name of which has to start with the part **bookmarks** and to end with the extension **.csv**.
 
-Geopaparazzi will let the user select the files to import if more than one are available and load the bookmarks from there and import only those that do not exist already.
+Geopaparazzi will let you select the files to import if more than one are available import only those that do not exist already.
 
 The format of the csv is: **NAME, LATITUDE, LONGITUDE** as for example:
 
@@ -239,25 +242,15 @@ Hotel Trieste, 45.642043,13.780791
 Grassday Trieste,45.65844,13.79320
 ----------------------------------------------
 
-===== WMS
-
-It is possible to import basemap configurations from https://en.wikipedia.org/wiki/Web_Map_Service[WMS getCapabilities] URLs.
-
-.The WMS dialog.
-image::02_dashboard/16_import_wms.png[scaledwidth=30%, width=30%]
-
-Once the _getCapabilities_ URL is inserted and the refresh button is tapped, the list of available layers is presented. The selected layer is then imported in the list of available tile sources.
-
-
 ===== Default databases
 
-When tapping the default database import button, the user is asked to name the new Spatialite 
-database to create. Let's use the default name proposed based on the current date and time:
+When tapping the default database import button, you are asked to name the new Spatialite 
+database to create, with the default name based on the current date and time:
 
 .Creating A Default Spatialite Database
 image::02_dashboard/19_mapsforge.png[scaledwidth=30%, width=30%]
 
-The newly created database is **editing ready** and contains a layer of each type geomotry type (points, lines, polygon). Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field20**. It is very generic and simple, but still of use when you have to quickly collect some data with attributes and have no database prepared..
+The newly created database is **editing ready** and contains a layer of each type geometry type (points, lines, polygon). Since it is a template db, the attributes table have been created as generic fields with names from **field1 to field20**. It is very generic and simple, but still of use when you have to quickly draw some spatial data with attributes and have no database prepared.
 
 
 ===== Cloud Projects
@@ -265,7 +258,7 @@ Geopaparazzi Project files can be downloaded from a Geopaparazzi Project server.
 
 
 ===== Cloud Profiles
-Profiles are a convenient way to group basemaps, overlays, note forms, and a project file.  Geopaparazzi Cloud Profiles must be downloaded from a Geopaparazzi Profile server (standard <<Profiles, Profiles>> can be created on your device).  To enable the import of Profiles from the Cloud, make sure you enter the settings in the <<Cloud server Settings, Cloud server Settings>>.  
+Profiles are a convenient way to group map layers, note forms, a project file, and other files.  Geopaparazzi Cloud Profiles must be downloaded from a Geopaparazzi Profile server (standard local <<Profiles, Profiles>> can be created on your device using the Profiles screen rom the main menu).  To enable the import of Profiles from the Cloud, make sure you enter the settings in the <<Cloud server Settings, Cloud server Settings>>.  
 
 Once your Cloud server Settings are set, and you press the Cloud Profiles button on the Import view, the server will send a list of Profiles available for download.
 
@@ -273,7 +266,7 @@ Once your Cloud server Settings are set, and you press the Cloud Profiles button
 image::02_dashboard/22_import_profiles1.png[scaledwidth=30%, width=30%]
 
 image::02_dashboard/package_download.png[float="left"]
-Select a Profile for download by pressing on the icon of the Profile.  This will start the download of the Profile and the files associated with the Profile.  The download may take some time depening on the size of the files.
+Select a Profile for download by pressing on the icon of the Profile.  This will start the download of the Profile and the files associated with the Profile.  The download may take some time depending on the size of the files.
 
 When the download is completed, you can activate the Profile by using the Profile view from the Main View menu, selecting the <<Adding data to a Profile, Profile Info>> tab, and sliding the Activate profile switch.
 
@@ -292,6 +285,7 @@ Geopaparazzi supports the export to the following formats:
 * images
 * Project Forms to PDF
 * geopaparazzi cloud projects
+* geopaparazzi cloud profiles
 
 
 ===== KMZ
@@ -332,5 +326,6 @@ You can export your notes to a simple PDF document.  After pressing the "Project
 Geopaparazzi Project files can be uploaded to a Geopaparazzi Project server.  To enable the upload of projects to the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
 
 
-
+===== Cloud Profiles
+Geopaparazzi Profile files (project and spatialite files) can be uploaded to a Geopaparazzi Profile server.  To enable the upload of profiles to the Cloud, make sure you enter the settings in the <<Cloud Projects Sync Settings, Cloud Projects Sync Settings>>.
 

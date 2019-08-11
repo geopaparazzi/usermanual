@@ -14,11 +14,11 @@ Several applications can be used to prepare and evaluate datasets for Geopaparaz
 STAGE (Spatial Toolbox And Geoscripting Environment) is a standalone application 
 dedicated to spatial analyses.
 
-Related to Geopaparazzi, it contains functionalities to:
+Related to Geopaparazzi, it contains functions to:
 
 * Create **mbtiles** files from raster and vector sources.  
-* Export geopaparazzi projects (version 3 or 4) to **shapefiles**, notes, profiles, and other details. 
-* Convert geopaparazzi projects from version 3 to version 4.
+* Export Geopaparazzi projects (version 3 or 4) to **shapefiles**, notes, profiles, and other details. 
+* Convert Geopaparazzi projects from version 3 to version 4.
 
 ==== Installation
 
@@ -125,6 +125,7 @@ QGIS users can also install GV-SIG and use the Horton Machine spatial toolbox to
 The **QTiles** plugin in QGIS 2 can be used to create base maps in mbtiles format. Base maps with as many as 30 000 tiles (~3 GB file size) work well in Geopaparazzi. 
 
 === Spatialite GUI
+anchor:Spatialite_GUI[]
 
 The Spatialite GUI can be used to create spatialite databases from shapefiles.
 
@@ -161,7 +162,7 @@ image::07_maps_handling/06_spl.png[]
 
 The really important things to take care of, are underlined in red:
 
-* the SRID, i.e. the EPSG code of the data projection. If that one is not right, then you will not be able to see the data in geopaparazzi. Don't even hope in miracles!
+* the SRID, i.e. the EPSG code of the data projection. If that one is not right, then you will not be able to see the data in Geopaparazzi. Don't even hope in miracles!
 * the Charset Encoding. Make sure to choose the right one. For example Japanese people might want to choose SHIFT_JIS if they want to see the labels rendered properly
 * force the creation of the spatial index
 
@@ -175,14 +176,14 @@ Right-click on the database name and select the **Update Layer Statistics** comm
 
 image::07_maps_handling/08_spl.png[]
 
-Depending on the amount of data it should keep your harddisk working for a bit. 
+Depending on the amount of data it should keep your hard disk working for a bit. 
 Don't think it finished unless you see a result like the following:
 
 image::07_maps_handling/09_spl.png[]
 
 Once this result appears to you, you are good to go.
 
-Move the spatialite database to your device, fire up geopaparazzi and 
+Move the spatialite database to your device, fire up Geopaparazzi and 
 go directly to the <<spatialitedatalist,spatialite data view>> and load the database.
 
 

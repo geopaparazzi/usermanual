@@ -1,8 +1,8 @@
 = Geopaparazzi Reference Manual
 HydroloGIS S.r.l. <feedback@geopaparazzi.eu>
-Geopaparazzi version 5.3.0, 2017-05-28
+Geopaparazzi version 6.0.0, 2019-08
 :doctype: book
-:description: The Geopaparazzi manual, updated for version 5.3.0, 2017-02-26
+:description: The Geopaparazzi manual, updated for version 6.0.0, 2019-08
 :encoding: utf-8
 :lang: en
 :toc: left
@@ -53,7 +53,9 @@ The main features available in Geopaparazzi are:
 * gps track logging
 * form-based data surveys
 * easy export of collected data 
-* a map view for navigation with support for raster tiles and spatialite vector data 
+* a map view for navigation with support for 
+ - local (on-device) and remote (Internet-based) raster and vector tiles
+ - spatialite vector data 
 
 NOTE: Geopaparazzi is available only for the Android Operating System.
 
@@ -83,7 +85,7 @@ and send us your contributions.
 
 === Need help?
 
-Subscribe to the http://groups.google.com/group/geopaparazzi-usersusers[mailinglist],
+Subscribe to the http://groups.google.com/group/geopaparazzi-users[mailinglist],
 we are here to help you!
 
 We also have a http://groups.google.com/group/geopaparazzi-devel[mailinglist for developers].
@@ -114,10 +116,11 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=84U4N2DVQ74S6&lc=I
 include::installation.adoc[]
 include::main_view.adoc[]
 include::main_view_menu.adoc[]
+include::settings.adoc[]
 include::mapview.adoc[]
 include::mapview_menu.adoc[]
+include::mapview_layers.adoc[]
 include::vector_editing.adoc[]
-include::settings.adoc[]
 include::maps.adoc[]
 include::maps_handling.adoc[]
 include::cloud_server.adoc[]

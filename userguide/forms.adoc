@@ -1,14 +1,14 @@
 == Using form based notes
 
-Geopaparazzi supports complex notes called *form based notes*. To use them, a **tags.json** file needs to be created and placed inside the geopaparazzi folder inside the sdcard. In that file a http://en.wikipedia.org/wiki/JSON[json format] description of the wanted tags and forms needs to be placed. 
+Geopaparazzi supports collecting complex notes called *form based notes*. To use them, you need to create a **tags.json** file and place it inside the geopaparazzi folder. That file contains a http://en.wikipedia.org/wiki/JSON[json format] of your forms.  Geopaparazzi will use that form definition to render a form in Geopaparazzi allowing the user to take specific Notes.  Those Notes are saved in the Geopaparazzi project file in the notes table.
 
 By default, to help the user to start, a sample tags.json is created in the Geopaparazzi installation. It contains form samples and examples to show all supported form widgets.
 
 image::08_forms/01_tags.png[scaledwidth=30%, width=30%]
 
-Currently no tool is available to create forms in an interactive way, they have to be created manually. 
+Currently no tool is available to create forms in an interactive way, they have to be created manually in a text editor. 
 
-A good online tool to at least validate your json form is the http://www.jsonlint.com/[Json Lint Validator]. Make sure it passes that test before putting it on the device and test it in geopaparazzi.
+A good online tool to at least validate your json tags file is the http://www.jsonlint.com/[Json Lint Validator]. Make sure it passes that test before putting it on the device and test it in Geopaparazzi.
 
 === Supported tags (via the example form)
 
@@ -32,7 +32,6 @@ image::08_forms/02_text.png[scaledwidth=70%, width=70%]
 
 ==== Multiple Text
 
-
 [source,json]
 ----
       "formname": "multiple text",
@@ -50,7 +49,7 @@ image::08_forms/03_text_multi.png[scaledwidth=70%, width=70%]
 
 ==== Text with key and label
 
-In simple forms the key element is also used as label for the widget (ex. *some text* in the text note). Some character sets are not suitable to be used as keys for a database, so in that cases the user should consider to define both the key (ex. in English) and the label (in the own language). Here an example:
+In simple forms the key element is also used as form label text for the widget (ex. *some text* in the text note). Some character sets are not suitable to be used as keys for a database, so in that cases the user should consider to define both the key (ex. in English) and the label (in the own language). Here an example:
 
 [source,json]
 ----
@@ -88,7 +87,7 @@ image::08_forms/03_text_key.png[scaledwidth=70%, width=70%]
 
 image::08_forms/04_numeric.png[scaledwidth=70%, width=70%]
 
-To use one of the values as label in the map view add the *islabel* tag:
+To use one of the values as a map label in the map view add the *islabel* tag:
 [source,java]
 ----
 "formname": "numeric text used as label in map",
@@ -140,6 +139,7 @@ image::08_forms/05_date.png[scaledwidth=70%, width=70%]
 image::08_forms/06_time.png[scaledwidth=70%, width=70%]
 
 ==== Labels
+A formitem with a of type = label is useful for showing some extra text on your form.  It has no input field.
 
 [source,json]
 ----
@@ -181,6 +181,10 @@ image::08_forms/07_labels.png[scaledwidth=70%, width=70%]
 image::08_forms/08_boolean.png[scaledwidth=70%, width=70%]
 
 ==== Combos
+Combos are useful for having the user select from a fixed set of preset values.  There are different types of combos:
+* stringcombo - select a single value
+* multistringcombo - select one or more values
+
 
 [source,json]
 ----
