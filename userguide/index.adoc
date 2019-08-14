@@ -20,11 +20,12 @@ ifdef::backend-pdf[]
 endif::[]
   
 <<<
-
+// Variable for development.adoc, location of source code:
+:GEOPAPARAZZI_CODE_FOLDER: C:\Android\geopaparazzi
 
 == Because not all paparazzis are evil!
 
-NOTE: If you are looking for the source code of this project, https://github.com/geopaparazzi/geopaparazzi[jump right to this link].
+NOTE: If you are looking for the source code for the software of this project, https://github.com/geopaparazzi/geopaparazzi[jump right to this link].
 
 Geopaparazzi is a tool developed to do **very fast qualitative** engineering/geologic surveys and GIS data collection. 
 
