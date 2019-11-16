@@ -6,6 +6,12 @@ gvSIG Mobile is completely based on geopaparazzi and extends its capabilities wi
 
 image::projects_using_it/gvsig_mobile.png[scaledwidth=30%, width=30%]
 
+=== Geomobi
+
+Geomobi is a mobile GIS developed by team developer of Embasa (Empresa Baiana de Águas e Saneamento of State Bahia Brazil). The mobile app has maps with streets, water consumers, water supply network, and sewer network layers. These maps can be used in field services for various queries.
+
+image::projects_using_it/rede_agua.jpg[scaledwidth=30%, width=30%]
+
 
 === Gasdroide - Natural Gas Emission Flux Measurements on Android platform
 

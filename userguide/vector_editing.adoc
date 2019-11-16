@@ -36,6 +36,9 @@ image::09_vector_editing/03_04_features.png[scaledwidth=30%, width=30%]
 
 If there are any resource files (for example, images, PDFs ) associated with the feature, a camera icon will appear in the left of the Features Action Bar.  Pressing on the camera icon will show a list of resources.  
 
+[[Feature_Resources]]
+
+
 .Feature Resources
 image::09_vector_editing/03_05_resources.png[scaledwidth=30%, width=30%]
 

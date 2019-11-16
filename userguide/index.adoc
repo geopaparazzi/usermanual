@@ -57,6 +57,60 @@ The main features available in Geopaparazzi are:
 
 NOTE: Geopaparazzi is available only for the Android Operating System.
 
+=== License
+
+Geopaparazzi source code is licensed under the https://raw.githubusercontent.com/geopaparazzi/geopaparazzi/master/LICENSE[GNU General Public License, Version 3]
+
+=== Community
+
+Find out the http://jgrasstechtips.blogspot.com/search/label/geopaparazzi[latest Geopaparazzi news.]
+
+Join the https://groups.google.com/forum/#!forum/geopaparazzi-users[Geopaparazzi user's discussion!]
+
+And there's a group for https://groups.google.com/forum/#!forum/geopaparazzi-devel[Geopaparazzi developers too.]
+
+You can even contribute to this https://github.com/geopaparazzi/usermanual[Geopaparazzi manual!]
+
+=== Translations
+
+Geopaparazzi has already been translated in several languages.
+
+Do you want to see Geopaparazzi in your language? With transifex it is 
+a simple task. 
+
+Check out the  https://www.transifex.com/projects/p/geopaparazzi/[translation page]
+and send us your contributions.
+
+=== Need help?
+
+Subscribe to the http://groups.google.com/group/geopaparazzi-usersusers[mailinglist],
+we are here to help you!
+
+We also have a http://groups.google.com/group/geopaparazzi-devel[mailinglist for developers].
+
+=== Found bugs?
+
+If you found a bug, please report it in our https://github.com/geopaparazzi/geopaparazzi/issues[issue tracker]. We will check it 
+and work on it as soon as we can.
+
+=== Need features?
+
+If you would like to see new features in geopaparazzi, you have a few ways to get there:
+
+* develop them yourself and https://help.github.com/articles/using-pull-requests[contribute them to the project via pull requests]
+* hire someone to do that for you
+* create a new feature request in our issue tracker and wait for someone interested to do it
+
+=== Donations
+
+If you find this application useful for your job, please consider to donate to support the development. Donations to this project support the development of the http://www.hortonmachine.org/[Hortonmachine] and http://www.geopaparazzi.eu/[Geopaparazzi] projects.
+
+Thanks for helping to keep this development free and open source.
+
+https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=84U4N2DVQ74S6&lc=IT&item_name=JGrass%20BeeGIS%20Geopaparazzi%20Donations&item_number=jgrassdonations&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted[TO DONATE CLICK HERE].
+
+
+
 include::installation.adoc[]
 include::main_view.adoc[]
 include::main_view_menu.adoc[]

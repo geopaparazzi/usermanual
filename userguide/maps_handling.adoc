@@ -73,7 +73,7 @@ For windows 32bit machines it is not possible to use more than 1000 MB due
 to technical limitations of Java itself.
 
 
-==== Converstion of Geopaparazzi data to GIS data
+==== Conversion of Geopaparazzi data to GIS data
 
 Through the module **Geopaparazzi4Converter** it is possible to export 
 data from a Geopaparazzi project database.
@@ -107,7 +107,7 @@ Install the ExportGeopaparazzi plugin from the QGIS repository. As this plugin i
 ===== GPAP to Vector Files Process
 Algorithms for importing or export to Geopaparazzi can be added to the processing toolbox. The **GPAP to Vector Files** algorithm creates separate layers for each type of note, and creates layers for bookmarks, image positions and tracklogs. The algorith also saves images embedded in the gpap file to disk. Attribute tables for each type of note have columns for each data field collected by the note. If these layers are persisted, by saving them or dragging into a database (or saving as a shapefile), they can be used for GIS mapping and analysis. **Geopackages** are the current standard data format for QGIS and have the advantage of not truncating the names of forms or form fields, so save in this format if possible. The algorithms are installed with the **ExportGeopaparazzi plugin**, however the algorithms are not made visible by default. To make the tools visible, open the **Procession\Options** menu, click **providers** option and then open the **Import/Export to/from Geopaparazzi** option and activate the algorithms.
 
-image::07_maps_handling/01_QGIS.png[]
+image::07_maps_handling/01_qgis.png[]
 
 ==== Viewing Data in QGIS 3
 QGIS 3 does not at the time of writing (July 2018) have any gpap file importers. A workaround is to change the extension of the gpap file to **sqlite3**. The sqlite file can then be dragged and dropped onto the map window. The ‘Select Vector Layers to Add’ dialog will appear and all of the data tables will be displayed, including tables that are irrelevant from a GIS perspective such as the raw photo data table. Only the bookmarks, gpslogsdata, images and notes table contain data with coordinates. Select these tables and **OK** the dialog to add them to the Layers pane as non-spatial tables. Non-spatial tables can only be viewed as attribute tables and cannot be used as map layers. 
