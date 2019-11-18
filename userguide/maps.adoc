@@ -1,24 +1,17 @@
 == Supported datasets
 anchor:supported_datasets[]
 
-Geopaparazzi's Map View supports several map types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for off-line operation. You can switch between these modes in settings.
+Geopaparazzi's Map View supports several map types: vector or raster, editable or static. Also, maps can be pulled live from an Internet server, or be generated locally from a map data file for off-line operation.
 
-There are two types of maps in Geopaparazzi: 
+The following sections will detail various map data source types. In case you want to prepare tailored map datasets as map sources in one of below map formats, please refer to the <<datapreparation,data preparation section>>.
 
- * **basemaps**: the background map in the map view
- * **overlay maps**: vector maps that can be shown on top of the basemaps
-
-
-The following sections will detail various map source types. In case you want to prepare tailored map datasets as map sources in one of below map formats, please refer to the <<datapreparation,data preparation section>>.
-
-=== A word about "external" storages
 anchor:external_writable_storages[]
 
-From Android version 4.4 (codename KitKat) it is no longer allowed for applications to write to userinstalled MicroSD cards. Instead applications can still write to internal memory (often seen as sdcard also).
+From Android version 4.4 (codename KitKat) it is no longer allowed for applications to write to user installed MicroSD cards. Instead applications can still write to internal storage (often seen as sdcard also).
 
-An external user-installed sdcard appears to geopaparazzi as readonly. Datasets copied on the sdcard on a pc can therefore only be accessed in readonly mode and will create crashes if the user tries for example to modify a feature attribute.
+An external user-installed sdcard appears to Geopaparazzi as readonly. Datasets copied on the sdcard on a pc can therefore only be accessed in readonly mode and will create crashes if the user tries for example to modify a feature attribute.
 
-One less known thing is that if the data are kept inside the application's data folder, they can be accessed in read/write mode.
+One lesser known thing is that if the data are kept inside the application's data folder, they can be accessed in read/write mode.
 
 So for example, if one puts the dataset in the folder:
 
@@ -29,23 +22,25 @@ So for example, if one puts the dataset in the folder:
 it will be handled as if it was in the internal memory.
 
 
-=== Basemaps
+Map data sources used as layers in the Map View can be different types:
 
-Basemaps can be of 4 different types:
-
-* mapurls
-* mbtiles
+* Geopaparazzi defined Cloud Tile servers
+* Geopaparazzi mapurls
+* Mapbox mbtiles
 * Mapsforge maps
-* rasterlite2
+* Spatialite databases
 
+=== Cloud Tile Servers
 
-==== Mapurls: Custom tiles based maps
+For ease of use, Geopaparazzi has stored the location of several map tile servers available remotely on the Internet.  While you can choose these when added layers to the Map View, you cannot add, delete, or modify this internal list.
+
+=== Mapurls: Map tiles
 
 Mapurl files are simple text files containing definitions of tile sources, either local or remote. A mapurl file must have the file extension/suffix *.mapurl* to be recognized by Geopaparazzi.
 
-===== Remote Tile sources
+==== Remote Tile sources
 
-By default, Geopaparazzi is configured to load map Mapnik rendered tiles live from the Internet, from OpenStreetMap's tile server. Compare the contents of the included mapnik.mapurl file for how this is done. You can exchange the OSM tile server with any other tile server as long as it adheres to the Mapurl URL conventions. The basics are:
+By default, Geopaparazzi is configured to load map Mapnik rendered tiles from OpenStreetMap's tile server on the Internet. Have a look at the contents of the mapnik.mapurl file below for how this is done. You can exchange the OSM tile server with any other tile server as long as it adheres to the Mapurl URL conventions. The basics are:
 
 ----
 url=http://tile.openstreetmap.org/ZZZ/XXX/YYY.png
@@ -69,9 +64,9 @@ The mandatory information is:
   
 TIP: This information can be tested also in a browser http://tile.openstreetmap.org/9/271/182.png has ZZZ=9, XXX=271 and YYY=182
 
-* the minimum zoom level that is supported
-* the maximum zoom level that is supported
-* the center of the tile source
+* the minimum zoom level that is supported (typically 0)
+* the maximum zoom level that is supported (likely not more than 19 or 21 depending on the server)
+* the center of the tile source 
 * the type of tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and Google Maps based numbering of the tiles is supported by the line:
   - type=tms
   - type=google
@@ -81,24 +76,12 @@ TIP: This information can be tested also in a browser http://tile.openstreetmap.
 
 WARNING: The user needs to make sure that the backup mbtiles path is in a writable folder (see <<external_writable_storages, a word about "external" storages>>) or else crashes might occur.
 
-Also WMS works as remote source, as long as it can be accessed through an **EPSG:4326** projection. 
-
-An example for the URL part is::
-
-----
-url=http://sdi.provincia.bz.it/geoserver/wms?LAYERS=inspire:OI.ORTHOIMAGECOVERAGE.2011&TRANSPARENT=true&FORMAT=image/png&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&EXCEPTIONS=application/vnd.ogc.se_inimage&SRS=EPSG:4326&BBOX=XXX,YYY,XXX,YYY&WIDTH=256&HEIGHT=256
-----
-
-Important here are:
-
-* SRS=EPSG:4326
-* BBOX=XXX,YYY,XXX,YYY
-
 Geopaparazzi will cache/store downloaded Mapurl tiles in a local MBTiles SQLite file, so pre-fetched tiles will remain viewable when Geopaparazzi is operated disconnected from a remote Mapurl source (in off-line operation).
 
-===== Local Tile sources
+==== Local Tile sources
 
-Just like your mapurl configuration may reference an on-line/remote tile sources, your mapurl setting may reference a local tile source for off-line use. This way it's possible to load on any smart phone complex maps as for example the following map that has a technical basemap with shapefiles overlaid in transparency
+Just like your mapurl configuration may reference an on-line/remote tile sources, 
+your mapurl setting may reference a local tile source folder for off-line use. This way it's possible to load on any smart phone complex map tiles.
 
 To be able to load such maps, one needs to prepare the tiles properly. This can be done via in several ways as explained in the <<datapreparation,data preparation section>>.
 
@@ -116,38 +99,37 @@ Nothing changes against the description for the remote source apart of the URL. 
 
 WARNING: Filesystems are known to have problems in handling large amounts of very small files. This the exact case of local tile sources. If the dataset is large, it gets very hard to move the data from and to the device. Therefore this method, even if still supported, is flagged as deprecated. The *MBTiles* datasource, explained in the next section, should be used instead.
  
-==== MBTiles
+=== MBTiles
 
 MBTiles is a file format for storing map tiles in a single file. It is, technically, a SQLite database. See the http://wiki.openstreetmap.org/wiki/MBTiles[openstreetmap wiki] for more information.
 
-==== Mapsforge maps
+=== Mapsforge Format Data
 
-The mapsforge project provides free and open software for the rendering of maps based on OpenStreetMap. It developed an efficient binary format for storage of OSM map data (usually with file extension **.map**), and is offering country specific .map files for download. Geopaparazzi is able to render map tiles locally from .map files and will cache rendered tiles in a local MBTiles store.
+The mapsforge project provides free and open software for the rendering of vector data based on OpenStreetMap. It developed an efficient binary format for storage of OSM map data (usually with file extension **.map**), and is offering country specific .map files for download. Geopaparazzi is able to render map tiles locally from .map files and will cache rendered tiles in a local MBTiles store.
 
-Apart from Mapsforge itself, openandromaps is also offering .map files but with a different data bias and different render theme.
+Apart from Mapsforge itself, OpenAndroMaps is also offering .map files but with a different data bias and different render theme.
 
-===== mapsforge
+==== Mapsforge Supplied .map Files
 
-These are the standard maps generated, maintained and distributed by the https://github.com/mapsforge/mapsforge[mapsforge] team and can be downloaded from http://download.mapsforge.org/[their server].
+These are the standard map data files generated, maintained and distributed by the https://github.com/mapsforge/mapsforge[mapsforge] team and can be downloaded from http://download.mapsforge.org/[their download server].
 
 In their default style they kind of look like:
 
 .The standard mapsforge map.
 image::06_maps/01_mapsforge_maps.png[scaledwidth=30%, width=30%]
 
-===== openandromaps
+==== OpenAndroMaps Supplied .map Files
 
-http://www.openandromaps.org[Openandromaps] generates maps following the opencycle 
-theme, with isolines and more hiking related stuff. The map files are larger but worth every byte. Their http://www.openandromaps.org/en/download.html[download area is here].
+http://www.openandromaps.org[Openandromaps] generates Mapsforge format map files following the opencycle theme, with isolines and more hiking related stuff. The map files are larger but worth every byte. Their http://www.openandromaps.org/en/download.html[download area is here].
 
 With the Oruxmaps theme that is available from the download area, the maps look like:
 
-.The openandro styled mapsforge map.
+.The OpenAndroMaps styled Mapsforge map file.
 image::06_maps/02_cycle_maps.png[scaledwidth=30%, width=30%]
 
-===== Apply a render theme
+==== Apply a render theme
 
-When rendering mapsforge tiles locally, Geopaparazzi applies render themes if they are found on the disk. In order to be found, the render theme XML file needs to have the same name as the map file. 
+When rendering Mapsforge tiles locally, Geopaparazzi applies render themes if they are found on the disk. In order to be found, the render theme XML file needs to have the same name as the map file. 
 Ex, the above cycle map example has a:
     
     italy_cycle.map
@@ -157,20 +139,16 @@ and a:
     italy_cycle.xml
 
 render theme file in the same folder as the map file itself.
-
-==== RasterLite2
+////
+=== RasterLite2
 
 https://www.gaia-gis.it/fossil/librasterlite2/wiki?name=librasterlite2[RasterLite2] is a raster format implemented in the https://www.gaia-gis.it/fossil/libspatialite/index[spatialite database].
 
 At the time of writing it is released as development version and supported in Geopaparazzi for testing.
+////
 
+=== Spatialite Data Sources
 
-=== Overlay maps
-
-The only datasets that can be overlaid on top of basemaps are vector maps
-coming from a https://www.gaia-gis.it/fossil/libspatialite/index[spatialite database].
-
-
-
-
+Spatialite spatial tables and views can be added as layers to the Map View as vector layers (and can be edited on the Map View).  For more information on this format, 
+see https://www.gaia-gis.it/fossil/libspatialite/index[spatialite database format site].  If  you want to create Spatialite databases, have a look at the <<Spatialite_GUI,Spatialite GUI section>>.  For details on Geoparazzi specific tables in Spatialite databases, see the <<Spatialite_Databases, Spatialite Databases section>>.
 

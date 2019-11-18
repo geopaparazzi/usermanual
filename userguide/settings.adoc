@@ -1,7 +1,7 @@
-== Settings & Preferences
-anchor:settings[]
-
-The preferences page is divided into main categories: 
+== Settings
+anchor:settings[] 
+ 
+The Settings page is divided into main categories: 
 
 .The settings view.
 image::05_settings/01_settings.png[scaledwidth=30%, width=30%]
@@ -13,28 +13,32 @@ image::05_settings/02_gps.png[scaledwidth=30%, width=30%]
 
 In the GPS preferences it is possible to 
 
-* define the time interval for taking a point when in logging mode
-* define the minimum distance in meters, within the taken GPS point is not added to the GPS log. This is useful for example in the case in which the user stops during logging and the GPS continues to supply points (due to the inaccuracy), while instead the user stands still in a point.
+* define the time interval for taking a point when in logging mode.  This is the primary filter for location.
+* define the minimum distance in meters, the current GPS location must be from the previous GPS saved point before it is added to the GPS log. This is useful for example in the case in which the user stops moving during logging and the GPS continues to supply points.  This is a secondary filter to prevent the addition of points with the same location to the GPS log.
 * have the Map View re-centered on the GPS position when the position 
   reaches the screen border (useful while driving)
 * use network based position instead of GPS position. This can be useful 
   for testing purposes. The network based position is by no means precise!
+
 
 === SMS Settings
 
 .The SMS settings view.
 image::05_settings/03_sms.png[scaledwidth=30%, width=30%]
 
-It is possible to activate an SMS catcher. If activated, the phone listens
-to incoming short messages containing the word:
+// ToDo: confirm removal of SMS Catcher
+////
+Geopaparzzi listens to incoming short messages containing the word:
 
     GEOPAP
 
-If such a message comes in, the phone answers with an SMS to the incoming
+If such a message comes in, Geopaparazzi instructs the phone to answer with an SMS to the incoming
 number by sending the last known position.
+////
 
-From here it is also possible to insert the panic numbers(s), i.e. the
-numbers to which a status update is sent when the panic button is pushed.
+Insert the panic numbers(s), i.e. the numbers to which a status update is sent when 
+the panic button on the Main View is pressed.
+
 
 === Screen Settings
 
@@ -44,26 +48,11 @@ image::05_settings/04_screen.png[scaledwidth=30%, width=30%]
 In the screen preferences it is possible to 
 
 * change the map center cross properties (size, color, stroke width)
-* change the Mapsforge map text size factor (normal is 1. To make text bigger, increase the value)
+* change the Mapsforge map text size factor (default is 2.5x. To make text bigger, increase the value)
 * enable the always screen on mode
 * toggle the use of metric/imperial units
 * enable settings to optimize rendering for high density displays
 
-=== Spatialite Settings
-
-.The Spatialite settings view.
-image::05_settings/05_spl_recovery.png[scaledwidth=30%, width=30%]
-
-In the Spatialite preferences it is possible to enable the **Spatialite Recovery Mode**            
-
-When should **Spatialite Recovery Mode** be used?
-
-When a **new** Database has been added **and** the geometry does **not** show up,
-the preference needs to be activated and Geopaparazzi restarted.
-
-On restart faulty entries in the databases will be **PERMANENTLY** corrected where possible.
-Since the process might be time consuming, after a recovery, the settings is
-switched off again.
 
 === Force Locale
 
@@ -77,9 +66,18 @@ image::05_settings/06_locale.png[scaledwidth=30%, width=30%]
 
 After that, each newly loaded view will be in the new locale.
 
+
 === Cloud server Settings
 
-These settings allows you to set a Geopaparazzi Cloud Project server URL, Cloud Profile server URL, and optionally add a username and password.  A Geopaparazzi Cloud Project server allows you to download and upload Geopaparazzi projects.  A Geopaparazzi Cloud *Profile* server allows you to download Profiles along with the file they reference such as basemaps, Spatialite overlays, and project files.
+These settings allows you to set a :
+
+* Geopaparazzi Cloud Project server URL
+* Cloud Profile server URL
+* optionally add a username and password for the servers.
+
+A Geopaparazzi Cloud Project server allows you to download and upload Geopaparazzi projects.  A Geopaparazzi Cloud *Profile* server allows you to download Profiles along with the files they reference such as basemaps, Spatialite overlays, project, forms , and other files.
+
+image::05_settings/08_cloud.png[scaledwidth=30%, width=30%]
 
 Known Geopaparazzi Cloud Project servers are:
 

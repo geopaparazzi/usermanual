@@ -1,0 +1,70 @@
+== Layers List Dialog
+anchor:mapview_layers[] 
+
+The Layers List Dialog allows you to manipulate the layers on the Map View.
+
+image::03_mapview/40_layers_menu.png[scaledwidth=30%, width=30%]
+
+The layers are rendered on the map starting with the top layer on the list, so basemap layers should be placed at the top of the list.
+
+You can manipulate the layers by:
+
+* Swiping to move between viewing the Map Layers list and the Project Layers list.
+* Using the checkbox in the layer item to turn the layer off and on in the Map View.
+* Doing a long press and drag a layer to move it in the ordered list.
+
+image::03_mapview/40_layers_moving.png[scaledwidth=30%, width=30%]
+
+=== Map Layers
+anchor:mapview_map_layers[]
+
+Map layer items will have a menu button on their right side, allow you to change the properties of the layer.  The menu options will vary depending on the type of data source for that layer.
+
+.Options for Mapsforge layer
+image::03_mapview/41_layer_options1.png[scaledwidth=30%, width=30%]
+
+// ToDo: add info on 3D
+
+.Options for Spatialite layer
+image::03_mapview/41_layer_options2.png[scaledwidth=30%, width=30%]
+
+
+==== Adding Map Layers
+You can add Map Layers be using Add Map Layer ("+") button in the lower right of the Layer List Dialog.  This will show three blue icons allowing you add different types of map layers.  
+
+image::03_mapview/41_layer_add.png[scaledwidth=30%, width=30%]
+
+===== Cloud Layers
+Cloud layers are hard-coded layers referencing Cloud servers of mapping tiles.  To add a Cloud layer, select a layer from the menu, press OK.  If the Cloud server is available, the layer will be added.  After adding a Cloud layer, you can move it to be rendered first by long pressing the layer item and dragging it to the top of the list.
+  
+image::03_mapview/42_layer_cloud.png[scaledwidth=30%, width=30%]
+
+===== Local/Offline Layers
+You can add Map Layers from a local data file.  This can be 
+
+* Mapsforge files (.map)
+* Spatialite files (.sqlite)
+* mapurl files (.mapurl), with type=google and type=tms only; type=wms is not supported
+* mbtiles (.mbtiles), raster only; vector is not currently supported
+
+Selecting a Spatialite file will display a list of spatial tables in the Spatialite database; each one you select will be a separate layer.
+
+image::03_mapview/43_layer_spatialite.png[scaledwidth=30%, width=30%]
+
+=== Project Layers
+anchor:mapview_project_layers[]
+
+Project layers use your current project's spatial data to show 
+
+* GPS Log tracks
+* bookmarks
+* notes
+* image notes
+
+as well as
+
+* current GPS position
+* current GPS log
+* GPS Info
+
+image::03_mapview/44_layers_project.png[scaledwidth=30%, width=30%]

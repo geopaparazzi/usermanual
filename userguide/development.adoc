@@ -47,11 +47,11 @@ key.alias.password=youraliaspassword
 
 === Description of the Geopaparazzi Architecture
 
-The Geopaparazzi application has been split in different modules, that contain functionalities that have been isolated.
+The Geopaparazzi application has been split in different modules, that contain functions that have been isolated.
 
 The root source folder contains the main modules:
 
-tree::{user-home}/development/geopaparazzi-git/[maxdepth=1]
+tree::{GEOPAPARAZZI_CODE_FOLDER}/[maxdepth=1]
 .Contents of Geopaparazzi git root folder
 
 While the folders _extra_, _build_ and _gradle_ are accessory folders, the other folders are all part of the application.
@@ -65,26 +65,26 @@ The diagram shows the dependencies of the various modules:
 [plantuml, development/modules_diagram, png]     
 ....
 
-class geopaparazzi_app << (A,#FF0000) Application >>
+class geopaparazzi_app           << (A,#FF0000) Application >>
 class geopaparazzi_acrylicpaint  << (M,#5d9d76) Module >>
-class geopaparazzi_core  << (M,#5d9d76) Module >>
-class geopaparazzilibrary  << (M,#5d9d76) Module >>
-class geopaparazzimapsforge  << (M,#5d9d76) Module >>
-class geopaparazzispatialitelibrary  << (M,#5d9d76) Module >>
-class plugins  << (P,#FF7700) Plugins >>
-class wms_nww  << (M,#5d9d76) Module >>
+class geopaparazzi_core          << (M,#5d9d76) Module >>
+class geopaparazzilibrary        << (M,#5d9d76) Module >>
+class geopaparazzimapsforge      << (M,#5d9d76) Module >>
+class geopaparazzimap            << (M,#5d9d76) Module >>
+class plugins                    << (P,#FF7700) Plugins >>
+class wms_nww                    << (M,#5d9d76) Module >>
 
 hide members
 
-geopaparazzi_app <-- geopaparazzi_core
-geopaparazzi_app <-- plugins
+geopaparazzi_app  <-- geopaparazzi_core
+geopaparazzi_app  <-- plugins
 geopaparazzi_core <-- geopaparazzilibrary
-geopaparazzi_core <-- geopaparazzispatialitelibrary
+geopaparazzi_core <-- geopaparazzimap
 geopaparazzi_core <-- geopaparazzimapsforge
 geopaparazzi_core <-- wms_nww
 geopaparazzi_core <-- geopaparazzi_acrylicpaint
 geopaparazzimapsforge <-- geopaparazzilibrary
-geopaparazzispatialitelibrary <-- geopaparazzilibrary
+geopaparazzimap <-- geopaparazzilibrary
 geopaparazzi_acrylicpaint <-- geopaparazzilibrary
 ....
 
@@ -92,10 +92,13 @@ geopaparazzi_acrylicpaint <-- geopaparazzilibrary
 [plantuml, development/plugins_diagram, png]     
 ....
 class plugins << (P,#FF7700) Plugins >>
-class geopaparazzi_default_export_plugins << (M,#5d9d76) Module >>
-class geopaparazzi_default_import_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_default_export_plugins  << (M,#5d9d76) Module >>
+class geopaparazzi_default_import_plugins  << (M,#5d9d76) Module >>
 class geopaparazzi_projects_export_plugins << (M,#5d9d76) Module >>
 class geopaparazzi_projects_import_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_profiles_export_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_profiles_import_plugins << (M,#5d9d76) Module >>
+class geopaparazzi_pdf_export_plugins << (M,#5d9d76) Module >>
 
 hide members
 
@@ -103,6 +106,9 @@ plugins <-- geopaparazzi_default_export_plugins
 plugins <-- geopaparazzi_default_import_plugins
 plugins <-- geopaparazzi_projects_export_plugins
 plugins <-- geopaparazzi_projects_import_plugins
+plugins <-- geopaparazzi_profiles_export_plugins
+plugins <-- geopaparazzi_profiles_import_plugins
+plugins <-- geopaparazzi_pdf_export_plugins
 ....
 
 ==== geopaparazzilibrary
@@ -225,7 +231,7 @@ The official codebase of Geopaparazzi currently uses the plugins for all its imp
 
 Inside the plugins folder, at the time of writing 4 plugins are available:
 
-tree::{user-home}/development/geopaparazzi-git/plugins/[maxdepth=1]
+tree::{GEOPAPARAZZI_CODE_FOLDER}/plugins/[maxdepth=1]
 .Contents of plugins folder
 
 * *geopaparazzi_default_export_plugins*: Contains the export actions (and menu entries of the export view) that take care of bookmarks, gps, images and kmz

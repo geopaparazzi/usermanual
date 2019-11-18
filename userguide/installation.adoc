@@ -4,17 +4,17 @@
 
 
 * connect your Android device to Internet
-* open the https://play.google.com/store[Play Store]
+* open the https://play.google.com/store/search?q=geopaparazzi[Play Store]
 * type *geopaparazzi* within the Search textbox
 
 [[img-googleplay]]
 .Google Play Store presents 2 versions of Geopaparazzi.
 image::01_introduction/02_google_play.png[scaledwidth=30%, width=30%]
 
-* select the first app (*not* Geopaparazzi 3)
+* select the first app (Geopaparazzi)
 
 [[img-googleplaygp4]]
-.The right choice: Geopaparazzi (not Geopaparazzi3)
+.The right choice: Geopaparazzi 
 image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%, width=30%]
 
 * follow installation procedures
@@ -25,7 +25,7 @@ image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%, width=30%]
 
 The following example explains how to install version 4.4.0. We suggest to *always use the latest* version available.
 
-* from your devices visit the https://github.com/geopaparazzi/geopaparazzi[geopaparazzi releases page] making sure to load the desktop site (**not** the mobile site).
+* from your devices visit the https://github.com/geopaparazzi/geopaparazzi/releases[geopaparazzi releases page] making sure to load the desktop site (**not** the mobile site).
 * select the releases tab and pick the last available release:
 
 .Geopaparazzi github page.

@@ -3,7 +3,7 @@
 .Vector Editing with Geopaparazzi
 image::09_vector_editing/03_03_box.png[scaledwidth=30%, width=30%]
 
-In the Map View you can create, view, and edit the geometry and attributes of point, line and polygon features held in a Spatialite database.  You cannot edit geographic features in a Basemap.  Editing a Project's Notes, Bookmarks, and GPS logs are covered elsewhere in this manual.
+In the Map View you can create, view, and edit the attributes of point, line and polygon features held in a Spatialite database.  You cannot edit the geometry of existing features.  You cannot edit geographic features in a Basemap.  Editing a Project's Notes, Bookmarks, and GPS logs are covered elsewhere in this manual.
 
 If you need to create a Spatialite database, press the Import button on the Main View dashboard, and press <<Default databases, Default Database>> (take note of the file name of your new database).
 
@@ -12,7 +12,7 @@ You can use your existing Spatialite databases by attaching them to the Map View
 
 === Viewing Feature Attributes
 
-After attaching a Spatialite database in the Map View, turn on the viewing of layers by checking the box next to the layer name.
+After adding a Spatialite database in the Map View Layers dialog, turn on the viewing of layers by checking the box next to the layer name.
 
 .Displaying a layer
 image::09_vector_editing/02_spatialite.png[scaledwidth=30%, width=30%]
@@ -42,20 +42,37 @@ If there are any resource files (for example, images, PDFs ) associated with the
 .Feature Resources
 image::09_vector_editing/03_05_resources.png[scaledwidth=30%, width=30%]
 
-Pressing on the resource thumbnail image will show the full resolution of the resource.
+Pressing on the resource thumbnail image will open a viewer of the resource.
 
 .File Viewing
-image::09_vector_editing/03_06_photo.png[scaledwidth=30%, width=30%]
+image::09_vector_editing/03_06_resource1.png[scaledwidth=30%, width=30%]
 
 
 === Editing Features
 
-In addition to just viewing the features, you can edit the geometry and attribute values of features stored in a Spatialite database.
+In addition to just viewing the features, you can edit the attribute values of features stored in a Spatialite database or add geometry and attributes of new features.
 
 ==== Select a Layer for Editing
 
-To edit, attach a Spatialite database in the Map View and turn on the layer for viewing.  Back at the Map View screen, do a long tap on edit button to show the list of layers available.  Note if the layer is not turned on for viewing, the [pencil] edit button on the layer list will be black and unavailable to select for editing.  Select the green edit button to indicate which layer you want to edit.  The pencil icon will turn red showing the layer is ready for editing.  Return to the Map View to start editing features.
+To edit, add a Spatialite database in the Map View and turn on the layer for viewing and enable the layer for editing. Return to the Map View to start editing features.
+
+.Enable editing on layer
+image::09_vector_editing/04_01_edit_select.png[scaledwidth=30%, width=30%]
+
+.Layer selected for edit
+image::09_vector_editing/04_02_edit_select.png[scaledwidth=30%, width=30%]
 
 Back on the Map View press the edit tool button.  Depending on the geometry type of the editing layer various editing buttons will appear.
 
+.Point layer edit tools
+image::09_vector_editing/05_01_point_edit_tools.png[scaledwidth=30%, width=30%]
 
+.Selection a point for edit
+image::09_vector_editing/05_02_point_edit_tools.png[scaledwidth=30%, width=30%]
+
+You can add a point using GPS location (if available), map center, or by tapping on the map.
+
+.Adding a point
+image::09_vector_editing/05_04_point_edit_tools.png[scaledwidth=30%, width=30%]
+
+Similar functions are available for editing line and polygon layers.
