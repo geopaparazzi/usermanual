@@ -46,6 +46,9 @@ The main aim of Geopaparazzi is to have a tool that:
 * is able to easily exploit an Internet connection, if available 
 * is extremely easy to use and intuitive, providing just few important functions
 
+[[img-berlinarea]]
+.3D view on Berlin area.
+image::01_introduction/berlin_gp6.png[scaledwidth=100%, width=100%]
 
 The main features available in Geopaparazzi are:
 
