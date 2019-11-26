@@ -1,0 +1,409 @@
+== The Hortonmachine
+
+The Hortonmachine is:
+
+* an Open Source geospatial library focused on hydro-geomorphological analysis and environmental modeling
+* development started in 2002 at the University of Trento, Department of Civil and Environmental Engineering
+* completely maintained by HydroloGIS
+* from 2015 integrated as Spatial Toolbox in gvSIG
+* from 2018 available as a set of stand alone modules
+
+=== HM modules useful to Geopaparazzi
+
+The used modules and a small description:
+
+----
+hortonmachine
+|-- dbviewer.exe               -> spatialite viewer
+|-- geopaparazzi_viewer.exe    -> project viewer
+|-- gforms.exe                 -> form builder
+|-- jre/
+|-- libs/
+|-- natives/
+|-- quiet-logging.properties
+|-- sld.exe                    -> style generator
+|-- spatialtoolbox.exe         -> data preparation
+`-- OTHER FILES
+
+----
+
+=== HM installation
+
+You can download the latest Hortonmachine standalone version from https://github.com/TheHortonMachine/hortonmachine/releases[the releases site].
+
+To install just:
+
+* unzip the **hortonmachine.zip** archive
+* launch the executables of the module of choice
+
+TIP: Depending on the PC's power, the application can take a little moment to startup. 
+If it doesn't, for windows OS, run the **hm-**MODULENAME**.bat**. It will give information
+about the problems occurring helping to solve them. One common issue might for example 
+be that the RAM memory given to the module is larger than the one available on the pc.
+
+=== The data used
+
+The data used in the following chapters http://github.com/[can be found here]. // TODO
+
+You should find in there:
+
+* **roi.shp**: to define the region of interest
+* **buildings_roi.shp**: polygons of buildings 
+* **roads_roi.shp**: lines of the road network
+* **pois_roi.shp**: points of interest
+* **ortophoto_bucharest_georef.tif**: aerial image of the region
+
+=== Create an MBTiles database
+
+We wan to create an MBTile database with multiple styled layere:
+
+image::11_hortonmachine/vienna_mbtiles.png[]
+
+==== Styling
+
+An MBTiles database can be created with various applications (gdal, QGis, Tilemill...). In the Hortonmachine we have
+a dedicated module that generates mbtiles datasets from layers of raster and vector data.
+
+To prepare the mbtiles dataset it is first necessary to style the shapefiles in order to get 
+the right colors and labelings. Styling can be done following the OGC SLD 1.0 specification.
+It is an open standard for styling data, so any compatible tool can be used. 
+
+In the Hortonmachine we havethe following module to style data: **sld.exe** (hm-sld.sh for unix based systems).
+
+Once launched, the following appears: 
+
+image::11_hortonmachine/sld/01_main.png[]
+
+===== Styling the buildings
+
+Pushing the button with the 3 dots allows to select the shapefile that we want to style. 
+Once loaded it will show the default style (or load it from an *.sld file, if available):
+
+image::11_hortonmachine/sld/02_buildings_open.png[width=70%]
+
+Play with the colors to get a white transparent background and a gray border.
+
+Remeber to push **Apply** to view the changes.
+
+image::11_hortonmachine/sld/03_buildings_style.png[width=80%]
+
+Once the preview looks as desired, push the save button to write the style to the sld 
+file near the shapefile.
+
+image::11_hortonmachine/sld/04_sld_xml.png[]
+
+===== Styling the roads
+
+Styling roads is not much different from styling polygons. But in this case we also want 
+a label applied to the road to see the name. To do so add a textsymbolizer by right clicking 
+on the rule:
+
+image::11_hortonmachine/sld/05_roads_textadd.png[width=70%]
+
+Then, to begin, choose:
+
+* the shapefile field to use for the label (name)
+* a font (size more or less 36)
+* a white halo (size 2)
+
+Apply and see if you like it. 
+
+Most probably you also want the labels to follow the line (set to true) and
+give a bit of perpendicular offset so that the label is not on the road.
+
+The result might look like:
+
+image::11_hortonmachine/sld/06_roads_text.png[width=70%]
+
+Again push the save button to persist the style.
+
+
+===== Styling the pois
+
+Points can be styled the same way as the polygons and lines. The only difference is in the 
+possibility to select a mark to represent the points:
+
+image::11_hortonmachine/sld/07_pois.png[width=70%]
+
+
+==== A quick note on filters
+
+We can slightly change the style of the buildings shapefile in order to better 
+see the university buildings. To do so we can right click on any attribute (type
+seems to be reasonable) and visualise the stats of that field. The result is a
+table containing all values and their count:
+
+image::11_hortonmachine/spatialtoolbox/07_building_sld.png[width=60%]
+
+This gives us all the information to set the filter on a second rule that can be added by right
+clicking on the parent node of the rules (in this case _name_):
+
+image::11_hortonmachine/spatialtoolbox/08_uni.png[width=70%]
+
+
+==== The MBTiles Creator
+
+To create an mbtiles database from a set of data we can use the modules of the 
+spatial toolbox. Launch **spatialtoolbox.exe** to open it:
+
+image::11_hortonmachine/spatialtoolbox/01_st.png[width=60%]
+
+The spatial toolbox contains many modules to do hydro-geomophological analyses, process 
+LiDAR data and work with raster and vector data. In this course we will only use the 
+part related to the **Mobile** category.
+
+Before we run any module, make sure some settings are properly configured:
+
+1. enable the checkbox that allows loading of experimental modules
+2. set the Heap memory properly depending on your PC's RAM 
+
+The **GeopaparazziMapsCreator** module is the actual module that creates the mbtiles database.
+
+image::11_hortonmachine/spatialtoolbox/02_creator.png[width=70%]
+
+The first set of parameters are:
+
+* the shapefile of the area of interest we want to cover (roi.shp)
+* the background raster file (aerial image tiff)
+* the overlay shapefiles (buildings, roads, pois)
+
+Once inserted, it should look like:
+
+image::11_hortonmachine/spatialtoolbox/03_creator1_filled.png[width=90%]
+
+The second set of parameters are:
+
+* a name for the dataset (the db will be named like that also)
+* the min and max zoomlevel. The max zoomlevel is important, since it defines 
+  how large the dataset will get. On the given area a max zoomlevel of 19 
+  is a good compromise. The zoomlevel is the one seen in geopaparazzi.
+* the used image format. In case of aerial imagery, jpg is preferred.
+* the output folder
+
+Once inserted, it should look like:
+
+image::11_hortonmachine/spatialtoolbox/03_creator2_filled.png[width=90%]
+
+To finally generate the mbtiles database, push the run button on the upper right corner.
+A console will appear showing the current status:
+
+image::11_hortonmachine/spatialtoolbox/04_execute.png[width=70%]
+
+
+=== Create a spatialite database
+
+The **GeopaparazziSpatialiteCreator** allows to convert a folder of shapefiles into
+a spatialite database that contains the layers styled following the 
+supplied SLD.
+
+image::11_hortonmachine/spatialtoolbox/05_spatialite_creator.png[width=70%]
+
+The only input parameters to set are the:
+
+* new spatialite database we want to create: **.../dataset/bucharest.sqlite**
+* the folder of shapefiles to convert: **.../dataset/shps/**
+
+image::11_hortonmachine/spatialtoolbox/06_spatialite_creator_filled.png[width=60%]
+
+Then just run the module:
+
+image::11_hortonmachine/spatialtoolbox/09_execute.png[width=70%]
+
+
+
+
+=== Create a form
+
+Geopaparazzi supports **complex notes** called form based notes.
+To use them, a **tags.json** file needs to be created and **placed inside
+the geopaparazzi folder** inside the sdcard. In that file a json
+format description of the wanted tags and forms needs to be
+placed.
+
+By default, to help the user to start, a sample tags.json is created
+in the Geopaparazzi installation. It contains form samples and
+examples to show all supported form widgets.
+
+==== The example form
+
+Let's create a form to survey university buildings. It will be made up of 3 tabs. 
+
+The general tab:
+
+image::11_hortonmachine/forms/00_form_general.png[]
+
+The structural tab:
+
+image::11_hortonmachine/forms/00_form_structural.png[]
+ 
+And the images tab:
+
+image::11_hortonmachine/forms/00_form_images.png[]
+
+
+==== The gform module
+
+The Hortonmachine has a module called **gforms.exe** that allows users to create
+forms easily. 
+
+Once opened it appears like this:
+
+image::11_hortonmachine/forms/01_open.png[width=60%]
+
+===== Create a new form
+
+To create a new form push the **new** button and name a new file. If the name
+doesn't finish by **_tags.json**, the application will take care of adding it.
+
+So inserting just **buldings**, will produce a file **buildings_tags.json**.
+
+image::11_hortonmachine/forms/02_new.png[width=80%]
+
+===== Create a section
+
+Before doing anything, a **section** needs to be created. The section 
+is what in geopaparazzi will be seen as a **button**.
+
+Push the **add** button to the left of the combobox to add a new section:
+
+image::11_hortonmachine/forms/03_section.png[width=40%]
+
+Enter a name and push **ok**. **buildings** might be a good name.
+
+The combobox that had been empty up to now should now contain the buildings
+section.
+
+image::11_hortonmachine/forms/04_buildings_combo.png[width=80%]
+
+With the **del** button it  is possible to delete an existing section. For safety
+the user will be prompted to make sure the section should be removed.
+
+===== Create a tab
+
+To create a tab the **add** button at the bottom right has to be used.
+The same as for the section, a name for the tab is prompted. 
+
+We are first creating the **General** tab, so:
+
+image::11_hortonmachine/forms/05_new_tab.png[width=40%]
+
+Let's add also the **Structural** and **Images** tabs. The result should 
+look like:
+
+image::11_hortonmachine/forms/06_tabs.png[width=80%]
+
+While the currently selected tab can be removed (**del** button below the **add** button) 
+and new ones can be added, mind that at the time they can't be reordered: 
+_new tabs are attached to the end_.
+
+===== Create widgets
+
+Once a tab has been created, widgets can be added to it. Widgets can be of various
+types. The combobox at the bottom of the window contains all supported:
+
+image::11_hortonmachine/forms/07_widget_list.png[width=80%]
+
+===== Add a textfield (to function as a label)
+
+First we want to add a textfield that should also **act as label**, i.e. if populated
+it should be visible near the point in the map view. It would be a good idea also 
+to make it **mandatory**, i.e. the user won't be able to save the note without 
+filling it out.
+
+Select **string** from the widgets combobox and fill in the necessary parameters.
+
+* **key**: the unique key of the field. It has to be unique in the whole section. 
+  This is then used as column name for the shapefiles.
+* **label**: the label presented to the user in the form.
+* **default**: an optional default value to insert.
+
+image::11_hortonmachine/forms/08_string.png[width=40%]
+
+Once pushed **ok**, the form should look like:
+
+image::11_hortonmachine/forms/09_string_added.png[width=80%]
+
+Note that in the label part, after an arrow, information 
+about it being in label mode and/or mandatory, is given.
+
+===== Delete a widget
+
+If something went wrong and we need to remove a widget from the
+current tab, use the second combobox at the bottom left of the **del** button.
+
+That combobox is constantly updated with the keys of the widgets currently 
+present in the tab. Selecting the righ key and pushing **del** 
+allows us to remove a widget. Again, as for tabs, remember that
+you can remove widgets in the middle, but *new widgets are added to the bottom*.
+
+
+**Please now add a textfield for the faculty field.** 
+
+In this case a default value might be a good idea.
+
+===== Add a checkbox
+
+To add a checkbox, select the **boolean** widget. 
+
+image::11_hortonmachine/forms/10_checkbox.png[width=40%]
+
+After which we should see something like:
+
+image::11_hortonmachine/forms/11_general_tab.png[width=80%]
+
+===== Add a combobox
+
+The last widget of the **General** tab is the number of enrolled students.
+
+**stringcombo** is the choice for this:
+
+image::11_hortonmachine/forms/12_combo.png[width=40%]
+
+While we have already seen key, label and defaultvalue, the items 
+textarea is new. In there we can place the values we want to see in the
+combobox, one per line:
+
+image::11_hortonmachine/forms/13_combo_filled.png[width=35%]
+
+TIP: The default value has to be exactly the same as one of the items.
+
+After adding the combobox, our form should now look like this:
+
+image::11_hortonmachine/forms/14_general_tab_done.png[width=80%]
+
+Once the structural tab is done it should look like:
+
+image::11_hortonmachine/forms/15_structural_done.png[width=80%]
+
+and the images tab:
+
+image::11_hortonmachine/forms/16_images_done.png[width=80%]
+
+TIP: the form is auto saving: all changes are automatically registered on the output file.
+
+===== See the form in Geopaparazzi
+
+To test the form inside Geopaparazzi, it is necessary to upload the form file
+to the device and place it inside the folder **geopaparazzi** at the root of the 
+sdcard.
+
+Any file ending with *_tags.json will be loaded in the geopaparazzi notes view.
+
+So if we added our new form file, we should get the following:
+
+image::11_hortonmachine/forms/17_buildings_gpap.png[width=40%]
+
+Note that only the **Buildings** button comes from the form file we added,
+the others are from the default **tags.json** that is available from the
+beginning in geopaparazzi.
+
+==== Notes about forms
+
+* a form is persisted in geopaparazzi with its whole definition. So a note 
+  can be edited also when the original form is no longer available
+* a few widgets, namely connectedcombo and onetomulticombo are not yet supported
+  in the gforms application, but can be created manually
+* a multistringcombo allows for multiple selection
+* forms are editable, simple notes not
+
+
