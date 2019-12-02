@@ -43,7 +43,7 @@ be that the RAM memory given to the module is larger than the one available on t
 
 === The data used
 
-The data used in the following chapters http://github.com/[can be found here]. // TODO
+The data used in the following chapters https://github.com/geopaparazzi/usermanual/blob/master/userguide/11_hortonmachine/workshop_dataset.tar.gz[can be found here].
 
 You should find in there:
 
