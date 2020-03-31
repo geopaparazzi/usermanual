@@ -1,0 +1,27 @@
+== Installation
+
+
+To be done...
+
+// === From Google Play
+
+
+// * connect your Android device to Internet
+// * open the https://play.google.com/store/search?q=geopaparazzi[Play Store]
+// * type *geopaparazzi* within the Search textbox
+
+// [[img-googleplay]]
+// .Google Play Store presents 2 versions of Geopaparazzi.
+// image::01_introduction/02_google_play.png[scaledwidth=30%, width=30%]
+
+// * select the first app (Geopaparazzi)
+
+// [[img-googleplaygp4]]
+// .The right choice: Geopaparazzi 
+// image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%, width=30%]
+
+// * follow installation procedures
+
+
+
+
