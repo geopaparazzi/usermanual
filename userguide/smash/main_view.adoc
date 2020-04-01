@@ -1,0 +1,604 @@
+== The Main View
+
+Once you launch SMASH, the main view appears. 
+
+All the features that need to be quickly accessed, such as toggling GPS on and off, 
+creating a note, as well as visualizing the current position 
+on a map, are accessible from that view.
+
+[.text-center]
+====
+image::images/ipad/main_view.PNG[scaledwidth=50%, width=50%, align="center"]
+The main view of SMASH.
+====
+
+From the main view the following primary functions can be accessed:
+
+* open the GPS info tools
+* take notes and open notes list (for simple notes and form notes)
+* create a GPS log and open the logs list
+* open the layer view
+* open the project information and share dialog
+* open the left side drawer with the main menu
+* open the left side drawer with the tools section
+
+
+=== GPS info button and tools
+anchor:gps_info_tools[]
+
+The central bottom button is the GPS info button. 
+
+The icon of the GPS status button can be of the following colors:
+
+* RED:  GPS is not switched on
+* ORANGE: GPS is on but no fix was acquired
+* GREEN: GPS is on and has fix, but no log is being recorded
+* BLUE: GPS is logging.
+
+By tapping on the button, if the GPS has a fix, the map is centered on the GPS position.
+
+By long tapping on the button, the GPS info and tools are opened:
+
+[.text-center]
+====
+image::images/ipad/gps_tools_center_on.PNG[scaledwidth=50%, width=50%, align="center"]
+The GPS info and tools.
+====
+
+From here the user can access the current GPS information and copy the coorinates into the device's clipboard. It is also possible to enable centering the map on the GPS position.
+
+=== Notes
+
+SMASH supports different types of notes:
+
+* simple notes
+  - simple text notes
+  - simple picture notes
+* form-based notes
+
+==== Simple Notes
+
+To create simple notes tap on the first icon of the lower toolbar. The *Simple Notes* dialog appears, allowing to choose between text or image notes:
+
+[.text-center]
+====
+image::images/ipad/notes_add.jpeg[scaledwidth=50%, width=50%]
+Adding simple notes to the project. The note will be placed in the map center.
+====
+
+The icon at the right of the dialog title tells the user whether the note will be inserted in the current GPS position or in the current map center.
+
+[.text-center]
+====
+image::images/ipad/notes_add_in_gps.jpeg[scaledwidth=30%, width=30%, align="center"]
+Adding simple notes to the project. The note will be placed in the current GPS position.
+====
+
+The decision between GPS position and map center can be toggled from the right side drawer.
+
+
+When the **text note** entry is selected, the note properties view opens:
+
+[.text-center]
+====
+image::images/ipad/notes_properties.PNG[scaledwidth=50%, width=50%]
+The notes properties view.
+====
+
+By double tapping on the first table entry, it is possible to enter the text of the note.
+
+Moreover it is possible to select color, size and icon for the note.
+
+When the **image note** is used instead, the camera opens and allows the user to save a picture to the project.
+
+
+If a note is tapped on from the map view, a snackbar opens, allowing to share, delete or edit the selected note:
+
+[.text-center]
+====
+image::images/ipad/notes_snackbar.jpeg[scaledwidth=50%, width=50%]
+The quick note info snackbar.
+====
+
+If the note is an image note, a thumbnail of the note is shown.
+
+==== Simple Notes List
+
+By long tapping on the _add note_ button, the notes list opens:
+
+[.text-center]
+====
+image::images/ipad/notes_list.PNG[scaledwidth=50%, width=50%]
+The notes list view.
+====
+
+From here notes can be modified or deleted (swipe note to the left).
+
+==== Form based notes
+anchor:form_notes[]
+
+The second icon from left on the lower toolbar is for form based notes.
+
+[.text-center]
+====
+image::images/ipad/notes_add_form.PNG[scaledwidth=50%, width=50%]
+The add form note dialog. Icons are supported.
+====
+
+Form based notes allow you to take complex notes containing detailed information.
+Some example forms are included in the installation of SMASH.
+
+The **examples** entry in particular shows all the possible form widgets available:
+
+[.text-center]
+====
+image::images/ipad/form_text.PNG[scaledwidth=50%, width=50%]
+An example of form based notes.
+====
+
+The notes can be saved and modified at any time.
+
+To understand how to create forms, have a look at the https://www.geopaparazzi.org/v600/index.html#_using_form_based_notes[dedicated section in the geopaparazzi project]. The two projects share the exact same project and form format.
+
+There ios only one thing in which SMASH And geopaparazzi forms differ and that is icons. SMASH supports icons in the single note definition but also in the definition of each widget.
+
+To add an icon to the form definition, a tag **sectionicon** needs to be added to the section. This can be seen in the example forms, ex:
+
+[source,json]
+----
+...
+  {
+    "sectionname": "text note",
+    "sectiondescription": "a simple text note",
+    "sectionicon": "fileAlt",
+    "forms": [
+      {
+        "formname": "text note",
+        "formitems": [
+          {
+            "key": "title",
+            "value": "",
+            "icon": "font",
+            "islabel": "true",
+            "type": "string",
+            "mandatory": "no"
+          },
+          {
+            "key": "description",
+            "value": "",
+            "icon": "infoCircle",
+            "type": "string",
+            "mandatory": "no"
+          }
+        ]
+      }
+    ]
+  },
+...
+----
+
+The same goes for **formitems**, that can feature an **icon** tag.
+
+The icon name itself can be looked up in the <<icon section>> of SMASH.
+
+
+==== Form based notes
+
+Same as for simple notes, when long tapping on the button, the user is led to the list of form notes. 
+
+=== GPS Logging
+
+To start logging, the user simply has to push the **GPS log** button.
+
+Once it is tapped, the user is prompted to insert a name for the 
+log or to accept the one generated based on the current date and time
+( log_YYYYMMDD_HHMMSS ).
+
+[.text-center]
+====
+image::images/ipad/log_start.jpeg[scaledwidth=50%, width=50%]
+The new GPS log dialog.
+====
+
+Once logging has started, the GPS logging button will turn orange and the GPS status icon blue.
+ 
+[.text-center]
+====
+image::images/ipad/log_button_on.jpeg[scaledwidth=60%, width=60%]
+The GPS logging button with its blue (currently logging) color.
+====
+
+To stop logging, the same button is used. Once tapped, you are prompted 
+to verify the action. 
+
+
+=== The layers list view
+
+The layers list view features the currently visible layers. At the moment it i snot possible to change the layer order and layers on top cover layers below them in the map.
+
+Vector layers are drawn on top of raster layers, no matter the order.
+
+[.text-center]
+====
+image::images/ipad/layers_list.PNG[scaledwidth=70%, width=70%]
+The layers list view.
+====
+
+
+From this view it is possible to add new layers using the <<maptypes, supported map types>>.
+
+If a layer features a bonding area (as vector maps or mbtiles layers), long tapping on them will zoom the map on the bounding area.
+
+Sliding the layer to the left, allows to remove the layer.
+
+=== Zoom buttons
+
+The zoom buttons don't need lot of information. They can be used to zoom in and out the map. The same can be done using the pinch destures.
+
+
+=== Project Info
+
+The Project Info button is place on the right top action bar.
+
+It shows the path to the current database and allows the user to share teh file with others.
+
+== The main drawer
+
+The left drawer contains some of the main operations that a user usually performs while not actively taking notes.
+
+[.text-center]
+====
+image::images/ipad/menu_left_side.PNG[scaledwidth=70%, width=70%]
+The main, or left, drawer.
+====
+
+=== New project
+
+When tapping on the **New Project** action, the user is prompted to insert a new name for the project or accept the default one based on the timestamp.
+
+[.text-center]
+====
+image::images/ipad/project_new.jpeg[scaledwidth=70%, width=70%]
+The main, or left, drawer.
+====
+
+Once **Ok** has been pushed, a new project will be created inside the <<folderstructure,application's folder structure>>.
+
+=== Open project
+
+When tapping the **Open Project** action, the file browser of SMASH is opened, allowing the user to browse the device's filesystem it is allowed to see.
+
+[.text-center]
+====
+image::images/ipad/file_browser_projects.PNG[scaledwidth=70%, width=70%]
+The file browser view, showing the content of the SMASH projects folder.
+====
+
+SMASH projects are of the exact same type as those of the https://www.geopaparazzi.org/geopaparazzi/index.html[geopaparazzi] project. That is the reason the extension of the file is **gpap**.
+
+Once selected, the project is loaded.
+
+=== Import
+
+SMASH allows to import data from the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server].
+
+[.text-center]
+====
+image::images/ipad/import.PNG[scaledwidth=70%, width=70%]
+The import view.
+====
+
+In fact SMASH is currently the suggested tool to sync geopaparazzi and SMASH surveys with the GSS.
+
+When entering the GSS import view, a list of datasets, projects and forms available from the server is presented to the user:
+
+[.text-center]
+====
+image::images/ipad/gss_import.PNG[scaledwidth=70%, width=70%]
+The gss import view.
+====
+
+Using the left icon data can be downloaded to the device. Once downloaded teh cion will show what datasets are already available.
+
+=== Export
+
+SMASH is currently able to export to PDF and to synchronize with the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server].
+
+[.text-center]
+====
+image::images/ipad/export.PNG[scaledwidth=70%, width=70%]
+The export view.
+====
+
+==== PDF
+
+When pushing the pdf export button, a pdf is generated and saved to the export folder.
+
+==== GSS
+
+When pushing the GSS export button, the stats page is presented. It shows what will be uploaded to the server if pushing the **upload** button.
+
+[.text-center]
+====
+image::images/ipad/gss_stats.jpeg[scaledwidth=70%, width=70%]
+The gss export stats view.
+====
+
+Once the **upload** button is tapped, the upload begins. A list with the progress for each resource is presented:
+
+[.text-center]
+====
+image::images/ipad/gss_upload.jpeg[scaledwidth=70%, width=70%]
+The upload progress list.
+====
+
+It the device is not registered with the server, the following message will appear, stopping the upload:
+
+[.text-center]
+====
+image::images/ipad/gss_upload_error.jpeg[scaledwidth=70%, width=70%]
+The upload error in case of no permission to upload.
+====
+
+=== Settings
+
+[.text-center]
+====
+image::images/ipad/settings.PNG[scaledwidth=70%, width=70%]
+The settings view.
+====
+
+==== GPS Settings
+
+[.text-center]
+====
+image::images/ipad/settings_gps.PNG[scaledwidth=70%, width=70%]
+The gps settings view.
+====
+
+In the gps settings the user can define filters based on distance and time interval.
+
+There is also the possibility to filter out points that "jump" too far away form the previous point.
+
+Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application's logging functionality when sitting indoor, but still having a fix.
+
+==== Screen Settings
+
+[.text-center]
+====
+image::images/ipad/settings_screen.PNG[scaledwidth=70%, width=70%]
+The screen settings view.
+====
+
+In the screen settings view it is possible to:
+
+* toggle the screen-always-on functionality
+* toggle the scalebar visibility
+* style the map center cross
+* change the size of the icons of the toolbar in the main view
+
+==== Camera Settings
+
+The camera settings allow to choose the pictures resolution between high, medium and low.
+
+==== Vector Layers Settings
+
+[.text-center]
+====
+image::images/ipad/settings_features.PNG[scaledwidth=70%, width=70%]
+The vector layers settings view.
+====
+
+This settings part allows the user to:
+
+* define the amount of data to be loaded. This can be important for large vector datasets that would make the map navigation less smooth.
+* define the radius of the tap of the info query tool.
+
+==== Device Settings
+
+[.text-center]
+====
+image::images/ipad/settings_deviceid.PNG[scaledwidth=70%, width=70%]
+The device id view.
+====
+
+The device id can be necessary in various situations. This is the case of the synchronization with the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server]. In that case the device id is the unique identifier of a surveyor.
+
+It is possible to override that device id for those cases in which a standardized id generation is used inside and organisation.
+
+==== GSS Settings
+
+[.text-center]
+====
+image::images/ipad/settings_gss2.jpeg[scaledwidth=70%, width=70%]
+The gss setting view.
+====
+
+In this setting view the user can set the server url on which the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server] to synchronize to resides.
+
+==== Diagnostics Settings
+
+In the diagnostics settings view it is possible to toggle the presence diagnostics entry in the tools drawer. 
+
+== The tools drawer
+
+The right drawer can be accessed by swiping the right border of the map to teh left side, as if there was an invisible handle. The drawer contains some tools that can come in handy to the user.
+
+[.text-center]
+====
+image::images/ipad/menu_right_side2.PNG[scaledwidth=70%, width=70%]
+The device id view.
+====
+
+=== Position of notes
+
+The **Notes in GPS position** checkbox can be used to toggle the functionality to:
+
+* insert notes in the current GPS position (checkbox checked)
+* insert notes in the current map center, as shown by the center cross.
+
+=== Vector layer queries
+
+The **Query vector layers** checkbox can be used to enable the vector layer info tool. Once enabled, tapping on the map will query the available layers for information in the tap position.
+
+[.text-center]
+====
+image::images/ipad/feature_selection.PNG[scaledwidth=70%, width=70%]
+The moment of tapping and loading query data with enabled vector queries.
+
+The big transparent dot shows the tap area queried.
+====
+
+The info tool queries all visible vector layers and opens the feature info view, which presents each selected feature highlighted in the map context and its attributes:
+
+[.text-center]
+====
+image::images/ipad/feature_detail_point.PNG[scaledwidth=70%, width=70%]
+The feature info view showing a point feature.
+====
+
+[.text-center]
+====
+image::images/android/Screenshot_20200331-120719.png[scaledwidth=40%, width=40%]
+The feature info view showing a line feature in portrait mode.
+====
+
+
+=== Go to
+
+The go-to function allows to exploit the devices OS geocoding function to find locations based on an address. It is then possible to move the map to the selected result.
+
+[.text-center]
+====
+image::images/ipad/geocoding.PNG[scaledwidth=70%, width=70%]
+The geocoding view.
+====
+
+=== Share position
+
+This action allows the user to share the current gps position with the most common social media methods available on the device.
+
+=== Available icons
+
+This action opens the icons view:
+
+[.text-center]
+====
+image::images/ipad/icons.PNG[scaledwidth=70%, width=70%]
+The icons view.
+====
+
+In this view the user can select from all the icons of the https://materialdesignicons.com/[material design icons] project, which ones should appear in the notes properties view and therefore used as markers in the map.
+
+The names that appear in the list can also be used to enable icons for form notes, as explained in the <<form_notes, forms section>>.
+
+=== Offline maps
+
+SMASH has a builtin function to download mapsforge (see <<maptypes, supported map types>>) map files for the whole world.
+
+[.text-center]
+====
+image::images/ipad/offline_maps.PNG[scaledwidth=70%, width=70%]
+The icons view.
+====
+
+Once a map is tapped, the download starts. This can take a while when downloading large countries. 
+
+WARNING: At the current time, due to a tecnical issue in the flutter framework, the visualization of mapsforge maps at low zoomlevel leads to freezing of the user interface, sicne the tiles are generated in the main thread. Therefore, after the download, SMASH performs a one-time tile generation for low zoomlevels, freeaing the user interface. It is suggested to let this process finish, in order to later experience a smooth map navigation using mapsforge maps.
+
+
+== Supported map types
+anchor:maptypes[]
+
+=== Geopackage
+
+SMASH supports the Geopackage format based on sqlite database both raster tiles and vector formats.
+
+At the moment no reprojection is supported and therefore the limitations are:
+
+* raster tiles need to be in epsg 3857 and follow a GoogleMapsCompatible tiling scheme
+* vector data need to be in epsg 4326
+
+=== GPX
+
+GPX files can be loaded as layers. SMASH will create different layers for the waypoint and track information contained.
+
+It is also possible to style the gpx layers. But since the styling information is not saved anywhere (the file format doesn't support style), it will persist only for the current session.
+
+=== MBTiles
+
+MBTiles is a file format for storing map tiles in a single file. It is, technically, a SQLite database. See the http://wiki.openstreetmap.org/wiki/MBTiles[openstreetmap wiki] for more information.
+
+=== Mapsforge Format Data
+
+The mapsforge project provides free and open software for the rendering of vector data based on OpenStreetMap. It developed an efficient binary format for storage of OSM map data (usually with file extension **.map**), and is offering country specific .map files for download. Geopaparazzi is able to render map tiles locally from .map files and will cache rendered tiles in a local MBTiles store.
+
+
+Maps are maintained and distributed by the https://github.com/mapsforge/mapsforge[mapsforge] team and can be downloaded from http://download.mapsforge.org/[their download server].
+
+In their default style they kind of look like:
+
+[.text-center]
+====
+image::images/ipad/main_view.PNG[scaledwidth=70%, width=70%]
+The standard mapsforge map.
+====
+
+
+
+=== Mapurls: Map tiles
+
+By default, SMASH is configured to load map Mapnik rendered tiles from OpenStreetMap's tile server on the Internet. 
+
+It is possible to load other online tile source if they are served in the TMS format using mapurl files. A mapurl file looks like the following:
+
+----
+url=http://tile.openstreetmap.org/ZZZ/XXX/YYY.png
+minzoom=0
+maxzoom=19
+center=11.42 46.8
+type=google
+format=png
+defaultzoom=13
+description=Mapnik - OpenStreetMap and contributors, ODbL.
+----
+
+The mandatory information is:
+
+* the url of the tile server, having:
+
+  - *ZZZ* instead of the zoom level
+  - *XXX* instead of the tile column number
+  - *YYY* instead of the tile row number
+  
+TIP: This information can be tested also in a browser http://tile.openstreetmap.org/9/271/182.png has ZZZ=9, XXX=271 and YYY=182
+
+* the minimum zoom level that is supported (typically 0)
+* the maximum zoom level that is supported (likely not more than 19 or 21 depending on the server)
+* the center of the tile source 
+* the type of tile server. Currently both http://en.wikipedia.org/wiki/Tile_Map_Service[standard TMS] and Google Maps based numbering of the tiles is supported by the line:
+  - type=tms
+  - type=google
+
+
+
+
+
+== Application folder structure
+anchor:folderstructure[]
+
+By default SMASH interacts with the filesystem using a folder named **smash** that resides in the main storage. On IOS devices that would be the Documents area of my application, while on android that usually is the internal sdcard.
+
+Inside the **smash** folder, the following subfolders hold the information by category:
+
+[.text-center]
+====
+image::images/ipad/folder_structure.jpeg[scaledwidth=70%, width=70%]
+The folder structure of the application.
+====
+
+* config: the folder that contains internal app configurations. For example the debug database is kept here. This can be sent to the developers in case of bugs to help solving them.
+* export: folder into which documents produced from exports are saved.
+* forms: folder for forms. Any form file in there is loaded as form note in SMASH.
+* maps: the folders in which to keep maps. Downloaded and synchronized maps are saved into this folder.
+* projects: folder inside which new projects are created.

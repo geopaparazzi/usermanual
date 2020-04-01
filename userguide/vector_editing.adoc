@@ -76,3 +76,6 @@ You can add a point using GPS location (if available), map center, or by tapping
 image::09_vector_editing/05_04_point_edit_tools.png[scaledwidth=30%, width=30%]
 
 Similar functions are available for editing line and polygon layers.
+
+
+
