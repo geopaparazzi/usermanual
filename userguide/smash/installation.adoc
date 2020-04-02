@@ -1,10 +1,32 @@
 == Installation
 
+=== IOS
 
-To be done...
+SMASH can be found on the Apple store. Since the word SMASH is used a lot in gaming apps,  in order to avoid to have to scroll down many results, it is useful to insert in the search bar the complete name: **SMASH Digital field mapping**
 
-// === From Google Play
+In that case the right app is teh first result in the list, apart of an Ad that in my case shows a gaming app:
 
+[.text-center]
+====
+image::images/applestore1.jpeg[scaledwidth=70%, width=70%]
+The SMASH entry in the Apple store.
+====
+
+By tapping on it it is possible to find a description and some feature screenshots.
+
+[.text-center]
+====
+image::images/applestore2.jpeg[scaledwidth=70%, width=70%]
+Details of the SMASH app in the Apple store.
+====
+
+To install the app just push the **GET** button and follow the usual IOS installation instructions.
+
+=== Android
+
+==== From Google Play
+
+NOTE: The app is currently under review in the Play Store.
 
 // * connect your Android device to Internet
 // * open the https://play.google.com/store/search?q=geopaparazzi[Play Store]
@@ -22,6 +44,14 @@ To be done...
 
 // * follow installation procedures
 
+==== From the main repository
 
+For people that have no access to Google Play, an apk has been paced under the https://github.com/moovida/smash/releases[releases page of SMASH]. Under the assets section of each release there is also an **apk** file. That one can be manualli installed oin Android. Actually, if the link is accessed from within Android, the installation is proposed on clicking the link.
+
+[.text-center]
+====
+image::images/github_release.png[scaledwidth=70%, width=70%]
+Details of the github release page with the apk to download at the bottom.
+====
 
 
