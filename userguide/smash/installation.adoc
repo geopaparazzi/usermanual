@@ -4,7 +4,7 @@
 
 SMASH can be found on the Apple store. Since the word SMASH is used a lot in gaming apps,  in order to avoid to have to scroll down many results, it is useful to insert in the search bar the complete name: **SMASH Digital field mapping**
 
-In that case the right app is teh first result in the list, apart of an Ad that in my case shows a gaming app:
+In that case the right app is the first result in the list, apart of an Ad that in the below case shows a gaming app:
 
 [.text-center]
 ====
@@ -26,23 +26,21 @@ To install the app just push the **GET** button and follow the usual IOS install
 
 ==== From Google Play
 
-NOTE: The app is currently under review in the Play Store.
+SMASH can be found on the Google Play store. Since the word SMASH is used a lot in gaming apps,  in order to avoid to have to scroll down many results, it is useful to insert in the search bar the complete name: **SMASH field mapping**
 
-// * connect your Android device to Internet
-// * open the https://play.google.com/store/search?q=geopaparazzi[Play Store]
-// * type *geopaparazzi* within the Search textbox
+[.text-center]
+====
+image::images/playstore1.png[scaledwidth=70%, width=70%]
+The SMASH entry in the Google Play store.
+====
 
-// [[img-googleplay]]
-// .Google Play Store presents 2 versions of Geopaparazzi.
-// image::01_introduction/02_google_play.png[scaledwidth=30%, width=30%]
+By tapping on it it is possible to find a description and some feature screenshots.
 
-// * select the first app (Geopaparazzi)
-
-// [[img-googleplaygp4]]
-// .The right choice: Geopaparazzi 
-// image::01_introduction/03_geopaparazzi4.png[scaledwidth=30%, width=30%]
-
-// * follow installation procedures
+[.text-center]
+====
+image::images/playstore2.png[scaledwidth=70%, width=70%]
+Details of the SMASH app in the Google Play store.
+====
 
 ==== From the main repository
 
