@@ -1,10 +1,11 @@
 = The Geopaparazzi Survey Server
 HydroloGIS S.r.l.
-2020-04-01
-:gss_version: 2.2
-:tomcat_version: 9.0.13
+2020-07-16
+:gss_version: 3.0beta
+:smash: https://www.geopaparazzi.org/smash/[SMASH]
+:gpap: https://www.geopaparazzi.org/geopaparazzi/[geopaparazzi]
 :doctype: article
-:description: A description
+:description: GSS manual
 :encoding: utf-8
 :lang: en
 :toc: left
@@ -28,162 +29,122 @@ endif::[]
 
 <<<
 
-== The Geopaparazzi Survey Server & Friends
+== The Geopaparazzi Survey Server
 
-image::logo.png[scaledwidth=30%, width=30%, align="center"]
+The Geopaparazzi Survey Server (GSS) is a web application that allows {smash}
+users to synchronize their survey data with a central server.
 
-The Geopaparazzi Survey Server (GSS) is a web application that allows http://www.geopaparazzi.eu[geopaparazzi]
-users to synchronize their project data with a central server.
+Also {gpap} users can make use of the GSS, since the project databases for {gpap} and {smash} are completely compatible. The additional step for {gpap} users is that they have to use {smash} to upload their data, even if surveyed with {gpap}. 
 
-Its companion is an Android app named **Geopaparazzi Survey Server Sync** (GSSS) 
-https://play.google.com/store/apps/details?id=com.hydrologis.gssmobile[available on google play].
-The app can connect to geopaparazzi projects and synchronize the data contained using the unique device ID to
+Please refer to the {smash} manual to see how data are uploaded from {smash} to GSS. This manual only describes the GSS application side.
+
+It is important to have clear in mind that:
+
+* {smash} can synchronize {smash} / {gpap} databasese using its unique device ID to
 upload the data to the server.
+* any device, to be able to connect to the server, needs to be registered in the surveyor settings section of the server by an administrator user. If you try to uplopad without being registered, you will get a permission denied error.
 
-A device, to be able to connect to the server, needs to be registered in the surveyor settings section of the server by an administrator user.
+The applications are available as Free and Open Source software. The server is available under GPL 3.0 license. The source code of the server, which is written part in java and part in flutter, is available at https://github.com/moovida/GSS[this repository].
 
-The applications are available as Free and Open Source software. The server is available under EPL v2.0, while the 
-mobile app is available under GPL v3.0.
 
-== The server
+
+== Installation and run
 
 === Preparing the data folder
 
 To run GSS you can prepare the data folder for the server, which will contain 
-the database (if it doesn't exist, it is created from scratch), some styling 
-components and optional mapsforge *.map files for local tiles generation.
+the database (if it doesn't exist, it is created from scratch) and optional mapsforge *.map files for local tiles generation.
 
-NOTE: You can just start with an empty folder, which will be filled with the bare minimum necessary 
-to run GSS.
+NOTE: You can just start with an empty folder, which will be filled with the bare minimum necessary to run GSS.
 
-Let's assume you are a heavy lifter and want to do things on your own, and that the data folder 
-is named TESTGSS, then the folder structure needs contain at least the following:
+Let's assume you are a heavy lifter and want to do things on your own, and that the data folder is named TESTGSS, then the folder structure needs contain at least the following:
 
 ----
 TESTGSS/
-|-- DATA    <-- folder
-|   |-- images.png
-|   `-- notes.png
-`-- WORKSPACE    <-- folder
+|-- DATA
+|   |-- database.mv.db --> if you are using H2GIS
+|   `-- italy.map --> local mapsforge tiles datasource
+`-- WORKSPACE
 ----
 
-Where **images.png** and **notes.png** are the images that will be used in the map view to style
-geopaparazzi notes and media notes.
+=== Installation and run through docker
 
+Since version 3.0 the default installation supplied is based on https://www.docker.com/[docker] and uses https://postgis.net/[PostGIS] as its default database, also bundled in the docker image.
 
-=== Installation
+The installation is a two step process:
 
-==== Installation with docker (linux)
+* run postgis 
+* run the GSS application
 
-The GSS server available as docker image from the https://hub.docker.com/r/moovida/gss/[docker hub]. As such
-it works best on linux systems that have docker installed. 
-
-Installing docker is resumed in the following steps on ubuntu and similar systems:
-
+First you need to define the variable for the local workspace you want to use:
 
 [source,bash]
 ----
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt install docker.io
-sudo systemctl start docker
-sudo systemctl enable docker
-docker --version
-sudo usermod -a -G docker $USER
+WORKSPACE=/path/to/GSSSERVER
 ----
 
-You can test the installation running the hello world application:
+then run the db through docker:
 
 [source,bash]
 ----
-docker run hello-world
+docker run  --rm --name=gss-postgis \
+  -d -v $WORKSPACE:/home/gssworkspace \
+  -e POSTGRES_USER=test -e POSTGRES_PASS=test -e POSTGRES_DBNAME=test \
+  -e ALLOW_IP_RANGE=0.0.0.0/0 \
+  -p 8080:8080 -p 5432:5432 \
+  -v $WORKSPACE:/var/lib/postgresql \
+  moovida/gss:v3.0beta 
 ----
 
-If it works you are ready to get the GSS from the docker hub.
+Note that here you are defining some configuration parameters:
 
-.GSS on hub.docker.com.
-image::images/01_hub.png[scaledwidth=70%, width=70%, align="center"]
+* the postgis database name, user and password (yo need them later when you start the application)
+* the port mapping for db and application
+* the mapping of the local folder to use (the workspace set before)
+* note that in the above v3.0beta is the used GSS version, as seen on docker hub (discussed later).
 
-To install the docker image just open a terminal and type in from shell:
+Running the command returns the ID of the just launched docker container. Place that id in a new variable:
 
-[source,bash,subs="attributes+"]
+[source,bash]
 ----
-docker pull moovida/gss:v{gss_version}
+GSS_CONTAINER_ID=yourid
 ----
 
-This will download the server image and install it on your machine.
+and then run the application:
 
-The installation process should reveal something similar to the following (the version number will most probably be different):
+[source,bash]
+----
+docker exec -ti $GSS_CONTAINER_ID \
+  java -Xmx1g -jar gss-backbone-0.1.0.jar /home/gssworkspace \
+  testPwd \
+  jdbc:postgresql://localhost:5432/test
+----
 
-.GSS installation process.
-image::images/02_install.png[scaledwidth=70%, width=70%, align="center"]
+where:
 
+* **-Xmx1g** is the memory that the webapplication can make use of.
+* **testPwd** is the password that the server expects from the connecting devices. You need to set it inside the GSS connection settings of {smash}.
+* **jdbc:postgresql...** is the parameter that tells the webapp which database to use. The user and password of the database are asked on execution of the command (if the database has a name different from test).
 
 [NOTE]
 ====
-And once finished, the image should be visible with the command:
-[source,bash]
-----
-docker images
-----
+To check on the latest version of the GSS, just head to the https://hub.docker.com/r/moovida/gss[GSS docker hub page], where all the versions are listed as tags:
+
+image::images/01_hub.png[scaledwidth=70%, width=70%, align="center"]
 ====
 
-==== Installation with Tomcat (windows)
+Once run you should now be able to access the web app in the browser at port 8080 ( http://localhost:8080 if run locally).
 
-The docker installation takes a lot of space (around 1Gb at the time of writing). Moreover
-docker might be a bit tricky to get running properly on windows. Therefore we provide 
-an alternative installation the good old java way: through tomcat.
-
-The installation process in this case will be done on windows.
-
-To install tomcat on windows and tweak it to be used with GSS:
-
-* Download tomcat 9. At the time of writing the latest version is https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13-windows-x64.zip[{tomcat_version}]. Unzio the archive to your disk.
-* enter the folder **apache-tomcat-{tomcat_version}/conf/** and add to the file **server.xml** the attribute ```URIEncoding="UTF-8”``` to the line that contains ```<Connector port="8080" protocol=…```
-* to have access to the admin gui, in the same conf folder add a user to `tomcat-users.xml`. For example: 
-
-    <role rolename="manager-gui"/>
-    <user username="tomcat" password="qweasdzxcpoilkjmnb123098" roles="manager-gui"/>
-
-* set the neccessary environmental variables in file `apache-tomcat-{tomcat_version}/bin/setenv.bat`.
-    
-    set JAVA_OPTS=-Xms1256m -Xmx4g -Dstage.globalfolder=/path_to/TESTGSS/
-
-* copy the file of the Geopaparazzi Survey Server (currently gss-{gss_version}.war) into the folder webapps and rename it as ROOT.war
-
-
-=== Run the server
-
-==== Run the server with docker
-
-To run the GSS server, it is necessary to define a few things:
-
-* the path to the data folder
-* the port that needs to be used
-* the docker image to use
-
-Assuming we want to run the application on the data folder defined before and on port 8080,
-the command to run the application is:
-
-[source,bash,subs="attributes+"]
-----
-docker run -v /media/hydrologis/Samsung_T3/TESTGSS:/home/basefolder -e JAVA_OPTS="-Xms1256m -Xmx4g -Dstage.globalfolder=/home/basefolder/" -p 8080:8080 moovida/gss:v{gss_version}
-----
-
-Open your favorite browser and enter the url:
-
-----
-http://localhost:8080
-----
 
 You should get the following login screen:
 
+[.text-center]
+====
+image::images/03_login.png[scaledwidth=100%, width=100%]
+The GSS login screen.
+====
 
-.The GSS login screen.
-image::images/03_login.png[scaledwidth=100%, width=100%, align="center"]
-
-This already means that you are ready to rumble!
+This means that you are ready to rumble!
 
 You can login with:
 
@@ -192,208 +153,239 @@ You can login with:
 
 Which already tells us that the user has quite some admin rights.
 
+For normal user access use:
+
+* user: user
+* password: user
+
 Once logged in, the dashboard view is shown.
 
-=== GSS Views
+=== Installation without docker
 
-The GSS views are organized as follows:
+It is possible to install the GSS also without docker. It is way more customizable, but in that case the user will have to build the application https://github.com/moovida/GSS[from the source code].
 
-The upper toolbar features the menu button on the left, through which the side toolbar can be hidden. At the very right
-of the toolbar the currently logged user is shown.
-
-The left toolbar contains buttons to access the available views:
-
-* Dashboard
-* Map View
-* Settings
-  - Surveyors (admin mode)
-  - Web Users (admin mode)
-  - Map Chooser
-* Export
-  - PDF
-  - KMZ
-  - Database (admin mode)
-* Project Data (admin mode)
-* Form Builder
-* Log View (admin mode)
-* About
-* Logout
+//The server uses an embedded version of https://www.eclipse.org/jetty/[Jetty].
 
 
-==== The dashboard
+== Anatomy of the GSS
 
-The dashboard view shows a simple chart listing the amount of information for each device.
+The GSS views are organized as follows. The main view is the map view. From there different toolsets and sections can be accessed:
 
-If no data are available, as in our inizial case, the folloing will be shown:
+* left upper menu icon. This gives access to:
+  - the drawer header which also **shows the current logged user**
+  - the **Surveyors** view
+  - the **Web Users** view
+  - the **Project Data** view
+  - the **About** view
+  - the logout button
+* the upper central navigation buttons
+* various tools at the upper right part of the map
+* the bottom attributes table, if enabled
 
-.The empty dashboard.
-image::images/04_dashboard.png[scaledwidth=100%, width=100%, align="center"]
+=== The mapview
 
-If instead data are available, the dashboard will give some information about the work in progress:
+The main map view features a background map and the survey data on top of it. The survey data are clickable and the proper widgets will open to show the data content, being it images, simple notes or form based notes. 
 
-.The dashboard.
-image::images/04_dashboard2.png[scaledwidth=100%, width=100%, align="center"]
-
-
-==== The mapview
-
-The mapview features the Surveyor list and a map panel.
-
-The surveyor can be actived by selecting the checkbox in the table. Once the data of the 
-surveyor are loaded, through the zoom button on top of the table it is possible to zoom to 
-the surveyor's data extent.
-
-.The mapview with the surveyors list.
+[.text-center]
+====
 image::images/05_mapview.png[scaledwidth=100%, width=100%, align="center"]
+The mapview with opened attributes table.
+====
 
-If data are uploaded while on the map view, one can either reload the view by refreshing the page
-or:
+=== The navigation buttons
 
-* using the first button to reload the data of the currently loaded surveyor
-* using the last button to reload all the available surveyors
+The navigation tools are basically 4 buttons. The first and last buttons are the well known zoom in and zoom out buttons and do not need explanation. Zooming can be achieved also by scrolling with the mouse wheel. To pan the map, the mouse can be used pushing the left button and dragging the map.
+
+The second navigation button from the left is the _zoom to data_ button and sets the boundaries of the map to the bounds of all the currently loaded data.
+
+The third navigation button is the bookmarks button. Pushing it opens the bookmarks view.
+
+[.text-center]
+====
+image::images/06_bookmarks.png[scaledwidth=50%, width=50%, align="center"]
+The bookmarks view.
+====
+
+The view contains a set of bookmarks, that can be selected by pushing the magnification icon on the left. To add a bookmark just push _ADD CURRENT_, which will create a new bookmark using the last visible map area. To remove a bookmark, the rightside trash icon can be used.
+
+=== Map selector, filters and attribute table
+
+At the upper right side of the map, we find 3 icons.
+
+**The map selector**: the map selector button opens a view that allows the user to select from a set of maps the one to use in the map view. 
+
+[.text-center]
+====
+image::images/07_mapselector.png[scaledwidth=50%, width=50%, align="center"]
+The map selector view.
+====
+
+It is important to note that the first map is a map that is generated from the server itself, if https://download.mapsforge.org/[mapsforge *.map] files are present in the DATA folder of the installation of the GSS.
+
+**The filter dialog**: the filter button opens the filter dialog, which allows for some very simple filtering of the data, based on the surveyors:
+
+[.text-center]
+====
+image::images/08_filter_surveyor.png[scaledwidth=50%, width=50%, align="center"]
+The filter dialog for surveyors.
+====
+
+or on projects:
+
+[.text-center]
+====
+image::images/08_filter_projects.png[scaledwidth=50%, width=50%]
+The filter dialog for projects.
+====
+
+From the dialog it is simple to enable or disable surveyors or projects.
+
+Once _OK_ is pushed, the data on the map view are reloaded to reflect the filter applied.
+
+**The attributes table**: the attributes table button toggles the visibility of the attributes table. 
+
+[.text-center]
+====
+image::images/19_attributes.png[scaledwidth=100%, width=100%]
+====
+
+The attributes table lists only the data currently visible on the map view. It features information about the survey notes, showing the proper icon, note title, the timestamp as well as the surveyor and project the note is part of.
+
+It also allows the user to zoom to the selected note or open the note through the buttons in the **Actions** column.
 
 
-The data can be queried by clicking on them. Simple information is shown as described below.
+=== Visualizing data
 
-In the case of notes, the main note text, the elevation and the timestamp are shown. Note that 
-for notes that have forms, the complex form is not visualized in the information box.
+To view a note, image or form the user can just click on it in the map view or, to have better control, use the open action in the attributes table.
 
-.Notes.
-image::images/08_notes.png[scaledwidth=25%, width=25%, align="center"]
+**Image notes**: Image notes are visible on the map as little thumbnail images. 
 
-For GPS logs the name of the log and the start and end timestamp are shown.
+[.text-center]
+====
+image::images/09_image_map.png[scaledwidth=100%, width=100%]
+The image note thumbnails on the map.
+====
 
-.Gps Logs.
-image::images/09_logs.png[scaledwidth=30%, width=30%, align="center"]
+Clicking on them opens the image in larger mode:
 
-For media notes it is possible to visualize the images, by clicking on the image icon.
+[.text-center]
+====
+image::images/09_image.png[scaledwidth=50%, width=50%]
+The image note.
+====
 
-.Media notes.
-image::images/10_media.png[scaledwidth=70%, width=70%, align="center"]
+**Simple notes**: Simple notes are visible on the map using the icon that has been chosen during the survey with {smash}. If the survey was done with {gpap}, which doesn't support note icons, then a default marker icon is used.
 
-==== The Settings Views
+[.text-center]
+====
+image::images/10_simplenotes_map.png[scaledwidth=100%, width=100%]
+A simple note on the map.
+====
 
-Selecting the proper action from the settings menu it is possible to:
+Clicking on it will open a simple dialog with the note information:
 
-* Configure surveyors. Surveyors can be added or removed. Note that only 
-  surveyors registered are able to connect with the mobile app.
-  Editable attributes can be changed by double-clicking on the surveyor. 
-  **Warning: removing a surveyor will also delete all its data.**
+[.text-center]
+====
+image::images/10_simplenotes.png[scaledwidth=50%, width=50%]
+The simple note dialog.
+====
 
-.Surveyor configuration.
-image::images/12_surveyors.png[scaledwidth=100%, width=100%, align="center"]
+**Form notes**: Form notes are visible on the map using the icon that has been chosen during the survey with {smash}. If the survey was done with {gpap}, which doesn't support note icons, then a default marker icon is used.
 
-* Create web users and groups. There are two levels of users: admins and normal users.
-  
-.Web users configuration.
-image::images/11_users.png[scaledwidth=100%, width=100%, align="center"]
+[.text-center]
+====
+image::images/11_formnotes_map.png[scaledwidth=100%, width=100%]
+A form note on the map.
+====
 
-* Configure background maps. Several map services can be added to the background 
-  maps that can then be selected in the mapview. 
+Clicking on it will open the form notes dialog we are used to see in {smash}:
 
-.The background maps configuration.
-image::images/13_maps.png[scaledwidth=100%, width=100%, align="center"]
+[.text-center]
+====
+image::images/11_formnotes.png[scaledwidth=70%, width=70%]
+The form note dialog.
+====
 
-WARNING: Many of the available map services need a license key to be accessed 
-and/or have particular requirements to be used. Make sure that you have the 
-rights to use the maps you select.
+NOTE: In form notes, if images are present, a double click on the thumbnail will open the image.
 
-==== The Export Views
+**Gps Logs**: GPS logs are transfered to the server with the properties set by the user in {smash} or {gpap}. 
 
-Selecting the proper action from the export menu it is possible to:
+[.text-center]
+====
+image::images/12_logs.png[scaledwidth=100%, width=100%]
+A set of logs on the map.
+====
 
-* Export the data of one or more surveyors as PDF:
+=== The left drawer menu
 
-.The PDF export view
-image::images/14_export_pdf.png[scaledwidth=100%, width=100%, align="center"]
+The upper left menu button opens the drawer:
 
-* Export the data of one or more surveyors as KMZ:
-  
-.The KMZ export view
-image::images/15_export_kmz.png[scaledwidth=100%, width=100%, align="center"]
+[.text-center]
+====
+image::images/18_drawer.png[scaledwidth=60%, width=60%]
+====
 
-* Export the current database. While it is best to connect to the online database through the port 9092, which is exposed, 
-  in some environments it might not be possible (ex. Heroku allows only one port). In this
-  case it is possible to export the database by downloading it.
+==== The Surveyors View
 
-.The database export view
-image::images/15_1_export_db.png[scaledwidth=100%, width=100%, align="center"]
+The surveyors view allows to define the devices that are allowed to sync data with the server. Devices are identified by their unique device id. It is possible to set a human readable name to the device/surveyor and a contact.
+
+[.text-center]
+====
+image::images/13_surveyors.png[scaledwidth=100%, width=100%]
+The surveyors view.
+====
+
+Following the idea that it is never good to loose surveyed data, a surveyor can't be deleted from the server. It is possible to disable him/her. Once disabled the surveyer will end in the disabled list and its data will not be shown in the map and in the filters. It will indeed look like the surveyor has been removed.
+
+To add a new surveyor at the moment we use the 30 seconds magic button approach. Once the button is pushed, for 30 seconds any connecting device will be registered as new surveyor and allowed to sync.
+
+==== The Webusers View
+
+The webusers view allows us to create, remove and modify web users, i.e. users that can access to the web application (speak: the initial login screen).
+
+[.text-center]
+====
+image::images/14_webusers.png[scaledwidth=100%, width=100%]
+The webusers view.
+====
+
+There are two levels of users: administrators and normal users. They all have access to all the parts of the web application, but normal users are not able to add surveyors, add/remove web users and upload forms for distribution.
+
+To remove a user, the red trash icon can be used, right of the change password button.
+
+To add a new user, the bottom right action button can be used. It opens up a simple dialog that takes the right data for the user creation:
+
+[.text-center]
+====
+image::images/15_adduser.png[scaledwidth=70%, width=70%]
+The dialog to add new web users.
+====
 
 ==== The Project Data View
 
-In the project data view it is possible to upload datasets that can be downloaded by the mobiles app to 
-allow geopaparazzi to access them.
+The project data view allows the user to make data available to its surveyors.
 
-The view is split into 3 columns, one for each supported datatype: 
+Basemaps, projects and custom forms can be loaded into the view. These data will then be available in the GSS import menu of {smash}:
 
-* basemaps (mbtiles, mapsforge maps)
-* overlays (spatialite databases)
-* projects (geopaparazzi projects)
+[.text-center]
+====
+image::images/16_projectdata.png[scaledwidth=100%, width=100%]
+The project data view.
+====
 
-The user can simply drag the files in the lower area to upload the files.
+At the current time only forms can be added and removed. The other data types are supposed to be large datasets that are better uploaded by means ot ftp or similar tools. 
 
-.The project data view
-image::images/23_dataview_drag.png[scaledwidth=100%, width=100%, align="center"]
+==== The About View
 
-File types are placed in the right tables if recongized:
+Not much to say here:
 
-.The different datatype tables
-image::images/24_dataview.png[scaledwidth=100%, width=100%, align="center"]
+[.text-center]
+====
+image::images/17_about.png[scaledwidth=70%, width=70%]
+The project data view.
+====
 
+Important information is the License and the link to the source code repository.
 
-==== The Form Builder View
-
-The form view is an interactive gui builder for geopaparazzi forms.
-
-To better understand the description of its usage, some naming needs to be fixed:
-
-* **tags**: a tag is what we see as a complete file on geopaparazzi (speak tags.json). From 
-  version 5.6.2 on Geopaparazzi loads any file that ends with **tags.json** from the geopaparazzi folder,
-  allowing tags to be kept separate.
-* **section**: a section is what in geopaparazzi is seen as a button in the *add notes* view.
-* **form**: a form is a tab of the geopaparazzi view
-* **widget**: it is the widget the user interacts with, ex. combobox or textfield
-
-The naming is a bit confusing, but comes form the early days and is in the source code of geopaparazzi. So, in order 
-to be able to always document things the same way, we have to follow these naming.
-
-.The From Builder
-image::images/25_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-After creating a tag with the **add** button, one can add a new section to the tag:
-
-.The add section dialog.
-image::images/26_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-Once the section is created the user can add **forms** to the section, which will load
-tabs for each one in the tab view.
-
-To each of it widgets can be added:
-
-.The add widget menu while adding a widget to a form tab.
-image::images/27_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-The add widget dialogs prompt the user for a key and a label and other parameters depending on the type:
-
-.The add text field widget
-image::images/28_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-.The add combo widget, which can load from a textfile the combobox entries.
-image::images/29_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-.The work in progress form view.
-image::images/30_forms.png[scaledwidth=100%, width=100%, align="center"]
-
-Once the user has finalized his tag entry, it is necessary to mark it visible in order for the mobile app to see it:
-
-.The checkbox to mark the tag visible.
-image::images/31_forms.png[scaledwidth=70%, width=70%, align="center"]
-
-
-== The mobile app
-
-http://www.geopaparazzi.org/smash/index.html[SMASH] is the suggested app to synchronize data with the 
-survey server. It allows both download of datasets as well as incremental uploading of 
-surveyed data. Have a look at the http://www.geopaparazzi.org/smash/index.html#_gss[SMASH manual to see hot to import or export data].
 
 
