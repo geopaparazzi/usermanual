@@ -528,7 +528,7 @@ When pushing the GSS export button, the stats page is presented. It shows what w
 
 [.text-center]
 ====
-image::images/version_1_3_0/26_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/ipad/gss_stats.jpeg[scaledwidth=70%, width=70%]
 The GSS export stats view.
 ====
 
