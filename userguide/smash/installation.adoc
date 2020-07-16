@@ -2,7 +2,7 @@
 
 === IOS
 
-SMASH can be found on the Apple store. Since the word SMASH is used a lot in gaming apps,  in order to avoid to have to scroll down many results, it is useful to insert in the search bar the complete name: **SMASH Digital field mapping**
+SMASH can be found on the Apple store. Since the word SMASH is used a lot in gaming apps, in order to avoid to have to scroll down many results, it is useful to insert in the search bar the complete name: **SMASH Digital field mapping**
 
 In that case the right app is the first result in the list, apart of an Ad that in the below case shows a gaming app:
 
