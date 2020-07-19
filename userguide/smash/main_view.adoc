@@ -571,6 +571,14 @@ There is also the possibility to visualize the GPS point count separated for the
 
 Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application's logging functionality when sitting indoor, but still having a fix.
 
+The second tab of the GPS setting view is dedicated to the _Live Preview_ of the GPS. It shows in details the different points fixed by the GPS with their main attributes and the influence of the different filters applied.
+
+[.text-center]
+====
+image::images/version_1_3_0/32_live_preview.jpeg[scaledwidth=70%, width=70%]
+The gps settings view.
+====
+
 ==== Screen Settings
 
 [.text-center]
