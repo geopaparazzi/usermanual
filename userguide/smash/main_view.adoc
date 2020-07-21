@@ -60,6 +60,8 @@ image::images/version_1_3_0/02_gps_info_tools.jpeg[scaledwidth=50%, width=50%, a
 The GPS info and tools.
 ====
 
+By double tapping
+
 From here the user can access the current GPS information and copy the coorinates into the device's clipboard. To do that long tap on the coordinate you want to copy.
 
 [.text-center]
@@ -69,6 +71,8 @@ The GPS info and tools copy coordinates.
 ====
 
 To close the GPS info and tools panel just swipe it down. 
+
+By double tapping the GPS button the automatic map centering on GPS is toggled.
 
 
 === Notes
@@ -150,7 +154,7 @@ By tapping twice on the _add note_ button, the settings for the notes view mode 
 
 [.text-center]
 ====
-image::images/version_1_3_0/10_notes_mode.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/10_notes_mode.jpeg[scaledwidth=30%, width=30%]
 The notes list view.
 ====
 
@@ -164,7 +168,7 @@ The second icon from left on the lower toolbar is for form based notes.
 
 [.text-center]
 ====
-image::images/version_1_3_0/09_form_notes.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/09_form_notes.jpeg[scaledwidth=30%, width=30%]
 The add form note dialog. Icons are supported.
 ====
 
@@ -246,7 +250,7 @@ log or to accept the one generated based on the current date and time
 
 [.text-center]
 ====
-image::images/version_1_3_0/log_start.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/log_start.jpeg[scaledwidth=30%, width=30%]
 The new GPS log dialog.
 ====
 
@@ -254,7 +258,7 @@ Once logging has started, the GPS logging button will turn orange and the GPS st
  
 [.text-center]
 ====
-image::images/ipad/log_button_on.jpeg[scaledwidth=60%, width=60%]
+image::images/ipad/log_button_on.jpeg[scaledwidth=30%, width=30%]
 The GPS logging button with its blue (currently logging) color.
 ====
 
@@ -267,7 +271,7 @@ Same as for the notes, when long tapping on the _GPS log_ button, the user is le
 
 [.text-center]
 ====
-image::images/version_1_3_0/11_GPS_list.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/11_GPS_list.jpeg[scaledwidth=30%, width=30%]
 The GPS logging list view.
 ====
 
@@ -301,7 +305,7 @@ The layers list view features the currently visible layers. Since layers on bott
 
 [.text-center]
 ====
-image::images/version_1_3_0/15_layers_list.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/15_layers_list.jpeg[scaledwidth=30%, width=30%]
 The layers list view.
 ====
 
@@ -312,17 +316,17 @@ If a layer features a bounding area (as vector maps or mbtiles layers), sliding 
 
 Sliding the layer to the left, allows to remove the layer.
 
-NOTE: Local data must have its own projection information file (_.prj_) both for rasters and for vectors. SMASH supports all the projections, some are loaded in the application by default. For those projection not yet supported just tap on the layer and follow the instructions. 
+NOTE: Local data must have its own projection information file (_.prj_) both for rasters and for vectors. SMASH supports reprojecting and some CRS are loaded in the application by default. For those projection not yet supported just tap on the layer and follow the instructions. 
 
 [.text-center]
 ====
-image::images/version_1_3_0/16_layers_list.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/16_layers_list.jpeg[scaledwidth=30%, width=30%]
 The layers list shows a layer with a projection not supported.
 ====
 
 [.text-center]
 ====
-image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
 The list of supported projection after adding the new one.
 ====
 
@@ -330,7 +334,7 @@ NOTE: At the moment this operation shows some issues in rendering the layers lis
 
 [.text-center]
 ====
-image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
 The list of supported projection after adding the new one.
 ====
 
@@ -347,7 +351,7 @@ This menu groups some maps and features tools together with some extra actions.
 
 [.text-center]
 ====
-image::images/version_1_3_0/18_tools_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/18_tools_drawer.jpeg[scaledwidth=30%, width=30%]
 The complete tools drawer.
 ====
 
@@ -358,7 +362,7 @@ It shows the path to the current database and allows the user to share the file 
 
 [.text-center]
 ====
-image::images/version_1_3_0/19_tools_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/19_tools_drawer.jpeg[scaledwidth=30%, width=30%]
 The project info panel with sharing button.
 ====
 
@@ -392,7 +396,7 @@ The **Query layers** checkbox can be used to enable the vector layer info and ed
 
 [.text-center]
 ====
-image::images/version_1_3_0/20_query_layers.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/20_query_layers.jpeg[scaledwidth=30%, width=30%]
 The moment of tapping and loading query data with enabled vector queries.
 ====
 
@@ -403,13 +407,13 @@ The info tool queries all visible vector layers and opens the feature info view,
 
 [.text-center]
 ====
-image::images/version_1_3_0/21_query_layers.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/21_query_layers.jpeg[scaledwidth=30%, width=30%]
 The feature info view showing a line feature.
 ====
 
 [.text-center]
 ====
-image::images/version_1_3_0/22_query_layers.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/22_query_layers.jpeg[scaledwidth=30%, width=30%]
 The feature info view showing a point feature.
 ====
 
@@ -455,7 +459,7 @@ The left drawer contains some of the main operations that a user usually perform
 
 [.text-center]
 ====
-image::images/version_1_3_0/23_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/23_main_drawer.jpeg[scaledwidth=30%, width=30%]
 The main, or left, drawer.
 ====
 
@@ -470,7 +474,7 @@ When tapping on the **Project** action, the user is prompted to the starting pan
 [.text-center]
 ====
 image::images/ipad/project_new.jpeg[scaledwidth=70%, width=70%]
-The main, or left, drawer.
+The main left drawer.
 ====
 
 New projects will be created inside the <<folderstructure,application's folder structure>>. To open old projects browse the project folder inside the local application's folder.
@@ -478,7 +482,7 @@ New projects will be created inside the <<folderstructure,application's folder s
 
 [.text-center]
 ====
-image::images/version_1_3_0/24_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/24_main_drawer.jpeg[scaledwidth=30%, width=30%]
 The file browser view, showing the content of the _SMASH projects_ folder.
 ====
 
@@ -561,7 +565,7 @@ The settings view.
 
 [.text-center]
 ====
-image::images/version_1_3_0/27_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/27_main_drawer.jpeg[scaledwidth=30%, width=30%]
 The gps settings view.
 ====
 
@@ -575,7 +579,7 @@ The second tab of the GPS setting view is dedicated to the _Live Preview_ of the
 
 [.text-center]
 ====
-image::images/version_1_3_0/32_live_preview.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/32_live_preview.jpeg[scaledwidth=30%, width=30%]
 The gps settings view.
 ====
 
@@ -583,14 +587,14 @@ The gps settings view.
 
 [.text-center]
 ====
-image::images/version_1_3_0/28_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/28_main_drawer.jpeg[scaledwidth=30%, width=30%]
 The screen settings view.
 ====
 
 In the screen settings view it is possible to:
 
 * toggle the screen-always-on functionality
-* use Retina the sceen mode
+* use the Retina screen mode
 * style the map center cross
 * change the size of the icons of the toolbar in the main view
 
@@ -642,7 +646,7 @@ In the diagnostics settings view it is possible to show the full debug informati
 
 Since the behaviour of the background applications is different between Android and iOS devices, this option covers the possibility to definitely disable the application to collect data:
 
-* iOS: force quit the application or _Turn GPS off_
+* iOS: _Turn GPS off_ (the app in background will in that case use no resources)
 * Android: use the _Exit_ button to quit the application instead of the standard _return_ mode.
 
 
@@ -678,7 +682,7 @@ In their default style they kind of look like:
 
 [.text-center]
 ====
-image::images/version_1_3_0/main_view_osm.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/main_view_mapsforge.png[scaledwidth=70%, width=70%]
 The standard mapsforge map.
 ====
 
