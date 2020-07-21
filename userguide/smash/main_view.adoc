@@ -1,24 +1,24 @@
-== The startup
+== Launching the app
 
-Once you launch SMASH, the application asks for the possibility to create a new project or open an already existing one. Select the project from your device or define the name of a new one (default name is an option).
+Once you launch SMASH, the application asks for the possibility to create a new project or open an already existing one. Select the project from your device or define the name of a new one.
+
+If projects have been already opened, a list of recent project will be available for selection.
 
 [.text-center]
 ====
 image::images/version_1_3_0/01_project.png[scaledwidth=60%, width=60% align="center"]
-The selection of the working project at startup.
+The selection/creation of the working project at startup.
 ====
 
-NOTE:: SMASH is based on the concept of projects: all the data
-collected for a project are saved in the same project
-database file (GPS log, simple notes, images, form notes).
+NOTE: SMASH is based on the concept of projects: all the data collected for a project are saved in the same project database file (GPS log, simple notes, images, form notes).
 
 
 == The Main View
 
-After selecting the project, the main view appears. 
+After selecting the project, the main map view appears. 
 
-All the features that need to be quickly accessed, such as logging GPS, 
-creating a note, as well as visualizing the current position on a map, are accessible from that view.
+All the features that need to be quickly accessed, such as GPS logging, 
+notes creation, as well as the visualization of the current position on a map are accessible from that view.
 
 [.text-center]
 ====
