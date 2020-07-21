@@ -22,7 +22,7 @@ creating a note, as well as visualizing the current position on a map, are acces
 
 [.text-center]
 ====
-image::images/ipad/main_view.PNG[scaledwidth=50%, width=50%, align="center"]
+image::images/version_1_3_0/main_view.jpeg[scaledwidth=50%, width=50%, align="center"]
 The main view of SMASH.
 ====
 
@@ -120,7 +120,7 @@ If a note is tapped on from the map view, a snackbar opens, allowing to share, d
 
 [.text-center]
 ====
-image::images/ipad/notes_snackbar.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/notes_snackbar.jpeg[scaledwidth=50%, width=50%]
 The quick note info snackbar.
 ====
 
@@ -175,7 +175,7 @@ The **examples** entry in particular shows all the possible form widgets availab
 
 [.text-center]
 ====
-image::images/ipad/form_text.PNG[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/form_text.jpeg[scaledwidth=50%, width=50%]
 An example of form based notes.
 ====
 
@@ -246,7 +246,7 @@ log or to accept the one generated based on the current date and time
 
 [.text-center]
 ====
-image::images/ipad/log_start.jpeg[scaledwidth=50%, width=50%]
+image::images/version_1_3_0/log_start.jpeg[scaledwidth=50%, width=50%]
 The new GPS log dialog.
 ====
 
@@ -514,7 +514,7 @@ SMASH is currently able to export to PDF and to synchronize with the https://www
 
 [.text-center]
 ====
-image::images/version_1_3_0/26_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/gss_export.jpeg[scaledwidth=70%, width=70%]
 The export view.
 ====
 
@@ -528,7 +528,7 @@ When pushing the GSS export button, the stats page is presented. It shows what w
 
 [.text-center]
 ====
-image::images/ipad/gss_stats.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/26_main_drawer.jpeg[scaledwidth=70%, width=70%]
 The GSS export stats view.
 ====
 
@@ -678,7 +678,7 @@ In their default style they kind of look like:
 
 [.text-center]
 ====
-image::images/ipad/main_view.PNG[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/main_view_osm.jpeg[scaledwidth=70%, width=70%]
 The standard mapsforge map.
 ====
 
