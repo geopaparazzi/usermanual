@@ -60,8 +60,6 @@ image::images/version_1_3_0/02_gps_info_tools.jpeg[scaledwidth=50%, width=50%, a
 The GPS info and tools.
 ====
 
-By double tapping
-
 From here the user can access the current GPS information and copy the coorinates into the device's clipboard. To do that long tap on the coordinate you want to copy.
 
 [.text-center]
@@ -337,6 +335,22 @@ NOTE: At the moment this operation shows some issues in rendering the layers lis
 image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
 The list of supported projection after adding the new one.
 ====
+
+Double tapping on the layers button opens the Layers Plugins dialog. 
+
+[.text-center]
+====
+image::images/version_1_3_0/18_layers_list.jpeg[scaledwidth=30%, width=30%]
+The layers plugins dialog.
+====
+
+From here it is possible to select which decoration to visualize on the map from:
+
+* scalebar
+* projection grid
+* center cross
+* GPS position.
+
 
 === Zoom buttons
 
