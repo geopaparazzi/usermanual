@@ -1,5 +1,13 @@
 == Launching the app
 
+The first time SMASH is executed a very short overview of the coach markers is run. They can be accessed at any time from the upper right question mark icon:
+
+[.text-center]
+====
+image::images/version_1_3_0/08_coach.png[scaledwidth=50%, width=50% align="center"]
+The selection/creation of the working project at startup.
+====
+
 Once you launch SMASH, the application asks for the possibility to create a new project or open an already existing one. Select the project from your device or define the name of a new one.
 
 If projects have been already opened, a list of recent project will be available for selection.
@@ -256,7 +264,7 @@ Once logging has started, the GPS logging button will turn orange and the GPS st
  
 [.text-center]
 ====
-image::images/ipad/log_button_on.jpeg[scaledwidth=30%, width=30%]
+image::images/ipad/log_button_on.jpeg[scaledwidth=50%, width=50%]
 The GPS logging button with its blue (currently logging) color.
 ====
 
@@ -273,13 +281,31 @@ image::images/version_1_3_0/11_GPS_list.jpeg[scaledwidth=30%, width=30%]
 The GPS logging list view.
 ====
 
-From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log (swipe log to the right) or deleted (swipe log to the left).
+From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log and visualize the profile (swipe log to the right) or deleted it (swipe log to the left).
 
 [.text-center]
 ====
 image::images/version_1_3_0/12_GPS_list.jpeg[scaledwidth=50%, width=50%]
 The options available for a single GPS log in the GPS logs list.
 ====
+
+The visualization of the profile opens the _GPS Log Profile View_ where it is possible to analyze the profile and navigate it.
+
+[.text-center]
+====
+image::images/version_1_3_0/14_GPS_list.jpeg[scaledwidth=50%, width=50%]
+The start of the GPS Profile View.
+====
+
+To query each single moment of the profile just tap and move on the profile chart. All the GPS information and the exact position will be highlited on the map.
+
+[.text-center]
+====
+image::images/version_1_3_0/15_GPS_list.jpeg[scaledwidth=50%, width=50%]
+The navigation of the profile of a GPS log.
+====
+
+It is now possible to decide to use the filtered logs in certain in the logs list. Just enter the GPS settings and enable the option.
 
 
 ==== GPS Logging visualization
@@ -293,8 +319,33 @@ The options available to set the GPS logs view mode.
 ====
 
 
-NOTE: SMASH uses a mathematical filter on GPS data to correct and homogenize the logs. In any case the application saves also the original data. The user can decide how to visualize the filtered and the original data (hide, solid, transparent).
+SMASH uses a mathematical filter on GPS data to correct and homogenize the logs (actually the Kalman filter). In any case the application saves also the original data. 
 
+The user can decide how to visualize the filtered and the original data (hide, solid, transparent):
+
+* visualize the filtered data while hiding the original GPS data
+
+[.text-center]
+====
+image::images/version_1_3_0/02_only_filtered.png[scaledwidth=30%, width=30%]
+The options available to set the GPS logs view mode.
+====
+
+* visualize the original and hide the filtered
+
+[.text-center]
+====
+image::images/version_1_3_0/03_only_orig.png[scaledwidth=30%, width=30%]
+The options available to set the GPS logs view mode.
+====
+
+* have the original in transparency and see the filtered
+
+[.text-center]
+====
+image::images/version_1_3_0/04_both.png[scaledwidth=30%, width=30%]
+The options available to set the GPS logs view mode.
+====
 
 
 === The layers list view
@@ -585,7 +636,7 @@ The gps settings view.
 
 In the gps settings the user can define filters based on distance and time interval for the logging activity.
 
-There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points.
+There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points. And to decide to use the GPS filtered points in certain section of the application (instead of the original data). In particular that will affect the log statistics and charting.
 
 Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application's logging functionality when sitting indoor, but still having a fix.
 
