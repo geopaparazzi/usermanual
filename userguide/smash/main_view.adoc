@@ -801,7 +801,7 @@ SMASH automatically visualizes vector layers as defined in theyr own SLD file (p
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_02_layers.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_02_layers.png[scaledwidth=30%, width=30%]
 A visualization of the Layer List containing some Geopackage layers.
 ====
 
@@ -809,7 +809,7 @@ For a polygon layer for example it is possible to edit _fill_ and _stroke_ prope
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_03_polygons.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_03_polygons.png[scaledwidth=30%, width=30%]
 The possibilities for styling a polygon layer in SMASH.
 ====
 
@@ -817,7 +817,7 @@ For a line layer it is possible to edit only the _stroke_.
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_05_lines.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_05_lines.png[scaledwidth=30%, width=30%]
 The possibilities for styling a line layer in SMASH.
 ====
 
@@ -825,7 +825,7 @@ And for a point layer it is possible to edit the _shape_, _fill_ and to label th
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_07_points.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_07_points.png[scaledwidth=30%, width=30%]
 The possibilities for styling a point layer in SMASH.
 ====
 
@@ -833,7 +833,7 @@ NOTE: Please remember to *save* using the floating action bottom at the bottom. 
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_08_points_map.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_08_points_map.png[scaledwidth=30%, width=30%]
 An example of styling a point layer in SMASH.
 ====
 
@@ -845,7 +845,7 @@ The following is an example that features 2 FeatureTypeStyles, one with just a R
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_09_theme.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_09_theme.png[scaledwidth=30%, width=30%]
 An example of theming style with one rule containing a label.
 ====
 
@@ -853,7 +853,7 @@ and a second one with all the Rules with filter:
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_10_theme.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_10_theme.png[scaledwidth=30%, width=30%]
 An example of theming style with all rules.
 ====
 
@@ -861,7 +861,7 @@ If only one FeatureTypeStyle or Rule are present, the header titles can vary:
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_11_theme_single_fts.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_11_theme_single_fts.png[scaledwidth=30%, width=30%]
 An example of theming style if only one FeatureTypeStyle or Rule are present.
 ====
 
@@ -869,7 +869,7 @@ The result of the previous styling settings is the following:
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_12_theme_map.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_12_theme_map.png[scaledwidth=30%, width=30%]
 An example of a simple thematic style created in SMASH.
 ====
 
@@ -880,7 +880,7 @@ The style properties of a GPX layer will be also saved to an SLD sidecar file to
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_14_gpx.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_14_gpx.png[scaledwidth=30%, width=30%]
 An example of the styling options of a GPX layer in SMASH.
 ====
 
@@ -888,7 +888,7 @@ In particular style can be defined for lines and points. If waypoints have the *
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_15_gpx_map.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/sld_15_gpx_map.png[scaledwidth=30%, width=30%]
 An example of the styling options of a GPX layer in SMASH.
 ====
 

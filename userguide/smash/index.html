@@ -472,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_the_startup">3. The startup</a></li>
+<li><a href="#_launching_the_app">3. Launching the app</a></li>
 <li><a href="#_the_main_view">4. The Main View</a>
 <ul class="sectlevel2">
 <li><a href="#_gps_info_button_and_tools">4.1. GPS info button and tools</a></li>
@@ -547,7 +547,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_mapurls_map_tiles">7.5. Mapurls: Map tiles</a></li>
 </ul>
 </li>
-<li><a href="#_application_folder_structure">8. Application folder structure</a></li>
+<li><a href="#_layers_style">8. Layers style</a>
+<ul class="sectlevel2">
+<li><a href="#_style_a_geopackage_layer">8.1. Style a Geopackage layer</a></li>
+<li><a href="#_style_a_gpx_layer">8.2. Style a GPX layer</a></li>
+</ul>
+</li>
+<li><a href="#_application_folder_structure">9. Application folder structure</a></li>
 </ul>
 </div>
 </div>
@@ -601,7 +607,7 @@ If you are looking for the source code for the software of this project, <a href
 <div class="content">
 <div id="img-ipad" class="imageblock">
 <div class="content">
-<img src="images/ipad/main_view.PNG" alt="main view" width="70%">
+<img src="images/ipad.jpeg" alt="ipad" width="70%">
 </div>
 </div>
 <div class="paragraph">
@@ -638,7 +644,7 @@ If you are looking for the source code for the software of this project, <a href
 <div class="content">
 <div id="img-iphone" class="imageblock">
 <div class="content">
-<img src="images/iphone_xs/2020-03-31%2008.19.45.png" alt="2020 03 31 08.19.45" width="40%">
+<img src="images/iphone.jpeg" alt="iphone" width="40%">
 </div>
 </div>
 <div class="paragraph">
@@ -650,7 +656,7 @@ If you are looking for the source code for the software of this project, <a href
 <div class="content">
 <div id="img-android" class="imageblock">
 <div class="content">
-<img src="images/android/Screenshot_20200331-120554.png" alt="Screenshot 20200331 120554" width="40%">
+<img src="images/android.jpeg" alt="android" width="40%">
 </div>
 </div>
 <div class="paragraph">
@@ -830,10 +836,28 @@ we are here to help you!</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_startup">3. The startup</h2>
+<h2 id="_launching_the_app">3. Launching the app</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Once you launch SMASH, the application asks for the possibility to create a new project or open an already existing one. Select the project from your device or define the name of a new one (default name is an option).</p>
+<p>The first time SMASH is executed a very short overview of the coach markers is run. They can be accessed at any time from the upper right question mark icon:</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/08_coach.png" alt="08 coach" width="50% align="center"">
+</div>
+</div>
+<div class="paragraph">
+<p>The selection/creation of the working project at startup.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you launch SMASH, the application asks for the possibility to create a new project or open an already existing one. Select the project from your device or define the name of a new one.</p>
+</div>
+<div class="paragraph">
+<p>If projects have been already opened, a list of recent project will be available for selection.</p>
 </div>
 <div class="exampleblock text-center">
 <div class="content">
@@ -843,19 +867,21 @@ we are here to help you!</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The selection of the working project at startup.</p>
+<p>The selection/creation of the working project at startup.</p>
 </div>
 </div>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">NOTE</dt>
-<dd>
-<p>SMASH is based on the concept of projects: all the data
-collected for a project are saved in the same project
-database file (GPS log, simple notes, images, form notes).</p>
-</dd>
-</dl>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+SMASH is based on the concept of projects: all the data collected for a project are saved in the same project database file (GPS log, simple notes, images, form notes).
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -863,17 +889,17 @@ database file (GPS log, simple notes, images, form notes).</p>
 <h2 id="_the_main_view">4. The Main View</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After selecting the project, the main view appears.</p>
+<p>After selecting the project, the main map view appears.</p>
 </div>
 <div class="paragraph">
-<p>All the features that need to be quickly accessed, such as logging GPS,
-creating a note, as well as visualizing the current position on a map, are accessible from that view.</p>
+<p>All the features that need to be quickly accessed, such as GPS logging,
+notes creation, as well as the visualization of the current position on a map are accessible from that view.</p>
 </div>
 <div class="exampleblock text-center">
 <div class="content">
 <div class="imageblock text-center">
 <div class="content">
-<img src="images/ipad/main_view.PNG" alt="main view" width="50%">
+<img src="images/version_1_3_0/main_view.jpeg" alt="main view" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -975,6 +1001,9 @@ creating a note, as well as visualizing the current position on a map, are acces
 <div class="paragraph">
 <p>To close the GPS info and tools panel just swipe it down.</p>
 </div>
+<div class="paragraph">
+<p>By double tapping the GPS button the automatic map centering on GPS is toggled.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_notes">4.2. Notes</h3>
@@ -1074,7 +1103,7 @@ creating a note, as well as visualizing the current position on a map, are acces
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/ipad/notes_snackbar.jpeg" alt="notes snackbar" width="50%">
+<img src="images/version_1_3_0/notes_snackbar.jpeg" alt="notes snackbar" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -1128,7 +1157,7 @@ creating a note, as well as visualizing the current position on a map, are acces
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/10_notes_mode.jpeg" alt="10 notes mode" width="50%">
+<img src="images/version_1_3_0/10_notes_mode.jpeg" alt="10 notes mode" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1152,7 +1181,7 @@ creating a note, as well as visualizing the current position on a map, are acces
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/09_form_notes.jpeg" alt="09 form notes" width="50%">
+<img src="images/version_1_3_0/09_form_notes.jpeg" alt="09 form notes" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1171,7 +1200,7 @@ Some example forms are included in the installation of SMASH.</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/ipad/form_text.PNG" alt="form text" width="50%">
+<img src="images/version_1_3_0/form_text.jpeg" alt="form text" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -1258,7 +1287,7 @@ log or to accept the one generated based on the current date and time
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/ipad/log_start.jpeg" alt="log start" width="50%">
+<img src="images/version_1_3_0/log_start.jpeg" alt="log start" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1273,7 +1302,7 @@ log or to accept the one generated based on the current date and time
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/ipad/log_button_on.jpeg" alt="log button on" width="60%">
+<img src="images/ipad/log_button_on.jpeg" alt="log button on" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -1294,7 +1323,7 @@ to verify the action.</p>
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/11_GPS_list.jpeg" alt="11 GPS list" width="50%">
+<img src="images/version_1_3_0/11_GPS_list.jpeg" alt="11 GPS list" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1303,7 +1332,7 @@ to verify the action.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log (swipe log to the right) or deleted (swipe log to the left).</p>
+<p>From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log and visualize the profile (swipe log to the right) or deleted it (swipe log to the left).</p>
 </div>
 <div class="exampleblock text-center">
 <div class="content">
@@ -1316,6 +1345,39 @@ to verify the action.</p>
 <p>The options available for a single GPS log in the GPS logs list.</p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>The visualization of the profile opens the <em>GPS Log Profile View</em> where it is possible to analyze the profile and navigate it.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/14_GPS_list.jpeg" alt="14 GPS list" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>The start of the GPS Profile View.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To query each single moment of the profile just tap and move on the profile chart. All the GPS information and the exact position will be highlited on the map.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/15_GPS_list.jpeg" alt="15 GPS list" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>The navigation of the profile of a GPS log.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>It is now possible to decide to use the filtered logs in certain in the logs list. Just enter the GPS settings and enable the option.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1335,17 +1397,68 @@ to verify the action.</p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-SMASH uses a mathematical filter on GPS data to correct and homogenize the logs. In any case the application saves also the original data. The user can decide how to visualize the filtered and the original data (hide, solid, transparent).
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>SMASH uses a mathematical filter on GPS data to correct and homogenize the logs (actually the Kalman filter). In any case the application saves also the original data.</p>
+</div>
+<div class="paragraph">
+<p>The user can decide how to visualize the filtered and the original data (hide, solid, transparent):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>visualize the filtered data while hiding the original GPS data</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/02_only_filtered.png" alt="02 only filtered" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The options available to set the GPS logs view mode.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>visualize the original and hide the filtered</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/03_only_orig.png" alt="03 only orig" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The options available to set the GPS logs view mode.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>have the original in transparency and see the filtered</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/04_both.png" alt="04 both" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The options available to set the GPS logs view mode.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1358,7 +1471,7 @@ SMASH uses a mathematical filter on GPS data to correct and homogenize the logs.
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/15_layers_list.jpeg" alt="15 layers list" width="70%">
+<img src="images/version_1_3_0/15_layers_list.jpeg" alt="15 layers list" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1382,7 +1495,7 @@ SMASH uses a mathematical filter on GPS data to correct and homogenize the logs.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Local data must have its own projection information file (<em>.prj</em>) both for rasters and for vectors. SMASH supports all the projections, some are loaded in the application by default. For those projection not yet supported just tap on the layer and follow the instructions.
+Local data must have its own projection information file (<em>.prj</em>) both for rasters and for vectors. SMASH supports reprojecting and some CRS are loaded in the application by default. For those projection not yet supported just tap on the layer and follow the instructions.
 </td>
 </tr>
 </table>
@@ -1391,7 +1504,7 @@ Local data must have its own projection information file (<em>.prj</em>) both fo
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/16_layers_list.jpeg" alt="16 layers list" width="70%">
+<img src="images/version_1_3_0/16_layers_list.jpeg" alt="16 layers list" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1403,7 +1516,7 @@ Local data must have its own projection information file (<em>.prj</em>) both fo
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/17_layers_list.jpeg" alt="17 layers list" width="70%">
+<img src="images/version_1_3_0/17_layers_list.jpeg" alt="17 layers list" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1427,13 +1540,47 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/17_layers_list.jpeg" alt="17 layers list" width="70%">
+<img src="images/version_1_3_0/17_layers_list.jpeg" alt="17 layers list" width="30%">
 </div>
 </div>
 <div class="paragraph">
 <p>The list of supported projection after adding the new one.</p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Double tapping on the layers button opens the Layers Plugins dialog.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/18_layers_list.jpeg" alt="18 layers list" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The layers plugins dialog.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>From here it is possible to select which decoration to visualize on the map from:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>scalebar</p>
+</li>
+<li>
+<p>projection grid</p>
+</li>
+<li>
+<p>center cross</p>
+</li>
+<li>
+<p>GPS position.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1457,7 +1604,7 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/18_tools_drawer.jpeg" alt="18 tools drawer" width="70%">
+<img src="images/version_1_3_0/18_tools_drawer.jpeg" alt="18 tools drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1474,7 +1621,7 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/19_tools_drawer.jpeg" alt="19 tools drawer" width="70%">
+<img src="images/version_1_3_0/19_tools_drawer.jpeg" alt="19 tools drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1535,7 +1682,7 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/20_query_layers.jpeg" alt="20 query layers" width="70%">
+<img src="images/version_1_3_0/20_query_layers.jpeg" alt="20 query layers" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1560,7 +1707,7 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/21_query_layers.jpeg" alt="21 query layers" width="70%">
+<img src="images/version_1_3_0/21_query_layers.jpeg" alt="21 query layers" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1572,7 +1719,7 @@ At the moment this operation shows some issues in rendering the layers list when
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/22_query_layers.jpeg" alt="22 query layers" width="50%">
+<img src="images/version_1_3_0/22_query_layers.jpeg" alt="22 query layers" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1656,7 +1803,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/23_main_drawer.jpeg" alt="23 main drawer" width="70%">
+<img src="images/version_1_3_0/23_main_drawer.jpeg" alt="23 main drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1690,7 +1837,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 </div>
 </div>
 <div class="paragraph">
-<p>The main, or left, drawer.</p>
+<p>The main left drawer.</p>
 </div>
 </div>
 </div>
@@ -1701,7 +1848,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/24_main_drawer.jpeg" alt="24 main drawer" width="70%">
+<img src="images/version_1_3_0/24_main_drawer.jpeg" alt="24 main drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1764,7 +1911,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/26_main_drawer.jpeg" alt="26 main drawer" width="70%">
+<img src="images/version_1_3_0/gss_export.jpeg" alt="gss export" width="70%">
 </div>
 </div>
 <div class="paragraph">
@@ -1847,7 +1994,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/27_main_drawer.jpeg" alt="27 main drawer" width="70%">
+<img src="images/version_1_3_0/27_main_drawer.jpeg" alt="27 main drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1859,7 +2006,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <p>In the gps settings the user can define filters based on distance and time interval for the logging activity.</p>
 </div>
 <div class="paragraph">
-<p>There is also the possibility to visualize the GPS point count separated for the <em>valid</em> and for <em>all</em> points.</p>
+<p>There is also the possibility to visualize the GPS point count separated for the <em>valid</em> and for <em>all</em> points. And to decide to use the GPS filtered points in certain section of the application (instead of the original data). In particular that will affect the log statistics and charting.</p>
 </div>
 <div class="paragraph">
 <p>Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application&#8217;s logging functionality when sitting indoor, but still having a fix.</p>
@@ -1871,7 +2018,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/32_live_preview.jpeg" alt="32 live preview" width="70%">
+<img src="images/version_1_3_0/32_live_preview.jpeg" alt="32 live preview" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1886,7 +2033,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/version_1_3_0/28_main_drawer.jpeg" alt="28 main drawer" width="70%">
+<img src="images/version_1_3_0/28_main_drawer.jpeg" alt="28 main drawer" width="30%">
 </div>
 </div>
 <div class="paragraph">
@@ -1903,7 +2050,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <p>toggle the screen-always-on functionality</p>
 </li>
 <li>
-<p>use Retina the sceen mode</p>
+<p>use the Retina screen mode</p>
 </li>
 <li>
 <p>style the map center cross</p>
@@ -2004,7 +2151,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="ulist">
 <ul>
 <li>
-<p>iOS: force quit the application or <em>Turn GPS off</em></p>
+<p>iOS: <em>Turn GPS off</em> (the app in background will in that case use no resources)</p>
 </li>
 <li>
 <p>Android: use the <em>Exit</em> button to quit the application instead of the standard <em>return</em> mode.</p>
@@ -2063,7 +2210,7 @@ At the current time, due to a tecnical issue in the flutter framework, the visua
 <div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="images/ipad/main_view.PNG" alt="main view" width="70%">
+<img src="images/version_1_3_0/main_view_mapsforge.png" alt="main view mapsforge" width="70%">
 </div>
 </div>
 <div class="paragraph">
@@ -2157,7 +2304,205 @@ This information can be tested also in a browser <a href="http://tile.openstreet
 </div>
 </div>
 <div class="sect1">
-<h2 id="_application_folder_structure">8. Application folder structure</h2>
+<h2 id="_layers_style">8. Layers style</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="layerstyle"></a></p>
+</div>
+<div class="paragraph">
+<p>SMASH supports layers styling through the <a href="https://opengeospatial.github.io/e-learning/sld/text/main.html">OGC standard SLD</a>.
+There are also several editors and GIS that support SLD, so it is possible to create the styles for the survey on a GIS and transfer it together with the data on the device. SMASH supports the visualization of the the vectors in Geopackage and GPX format using the style defined as SLD. For Geopackage and GPX layers only it is also possible to create a simple personal style inside the application.</p>
+</div>
+<div class="paragraph">
+<p>SMASH automatically visualizes vector layers as defined in theyr own SLD file (previously created in a GIS). It is also possible to create a new style for the Geopackage and GPX layers by accessing the Layer List and sliding the layer to style to the right to enter the style properties.</p>
+</div>
+<div class="sect2">
+<h3 id="_style_a_geopackage_layer">8.1. Style a Geopackage layer</h3>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_02_layers.png" alt="sld 02 layers" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>A visualization of the Layer List containing some Geopackage layers.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For a polygon layer for example it is possible to edit <em>fill</em> and <em>stroke</em> properties.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_03_polygons.png" alt="sld 03 polygons" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The possibilities for styling a polygon layer in SMASH.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For a line layer it is possible to edit only the <em>stroke</em>.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_05_lines.png" alt="sld 05 lines" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The possibilities for styling a line layer in SMASH.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>And for a point layer it is possible to edit the <em>shape</em>, <em>fill</em> and to label the features.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_07_points.png" alt="sld 07 points" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The possibilities for styling a point layer in SMASH.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Please remember to <strong>save</strong> using the floating action bottom at the bottom. This will write the style to the database table.
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_08_points_map.png" alt="sld 08 points map" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of styling a point layer in SMASH.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>SMASH also supports the visualization and editing of one type of theming: by <strong>unique values</strong>. In this case a FeatureTypeStyle is populated with several rules that obey to a filter that supports matching of unique values from the attributes table.</p>
+</div>
+<div class="paragraph">
+<p>If a thematic style is already defined for a layer, the properties page has buttons to change rules and modify them.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example that features 2 FeatureTypeStyles, one with just a Rule containing a textsymbolizer:</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_09_theme.png" alt="sld 09 theme" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of theming style with one rule containing a label.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>and a second one with all the Rules with filter:</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_10_theme.png" alt="sld 10 theme" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of theming style with all rules.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If only one FeatureTypeStyle or Rule are present, the header titles can vary:</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_11_theme_single_fts.png" alt="sld 11 theme single fts" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of theming style if only one FeatureTypeStyle or Rule are present.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The result of the previous styling settings is the following:</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_12_theme_map.png" alt="sld 12 theme map" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of a simple thematic style created in SMASH.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_style_a_gpx_layer">8.2. Style a GPX layer</h3>
+<div class="paragraph">
+<p>The style properties of a GPX layer will be also saved to an SLD sidecar file to ensure style persistence.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_14_gpx.png" alt="sld 14 gpx" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of the styling options of a GPX layer in SMASH.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In particular style can be defined for lines and points. If waypoints have the <strong>name</strong> tag, they can be used for labeling.</p>
+</div>
+<div class="exampleblock text-center">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/version_1_3_0/sld_15_gpx_map.png" alt="sld 15 gpx map" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>An example of the styling options of a GPX layer in SMASH.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_folder_structure">9. Application folder structure</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a id="folderstructure"></a></p>
