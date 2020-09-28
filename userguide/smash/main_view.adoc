@@ -4,7 +4,7 @@ The first time SMASH is executed a very short overview of the coach markers is r
 
 [.text-center]
 ====
-image::images/version_1_3_0/08_coach.png[scaledwidth=50%, width=50% align="center"]
+image::images/version_1_3_0/08_coach.png[scaledwidth=65%, width=60% align="center"]
 The selection/creation of the working project at startup.
 ====
 
@@ -40,6 +40,7 @@ In particular, from the main view the following primary functions can be accesse
 * take notes, open notes list and select the view mode (for simple notes and form notes)
 * create a GPS log and open the logs list
 * open the layer view and open the map plugins dialog
+* activate the bottom toolbar
 * open the project information and share dialog
 * open the left side drawer with the main menu
 * open the right side drawer with the tools section
@@ -260,13 +261,22 @@ image::images/version_1_3_0/log_start.jpeg[scaledwidth=30%, width=30%]
 The new GPS log dialog.
 ====
 
-Once logging has started, the GPS logging button will turn orange and the GPS status icon blue.
+Once logging has started, both the GPS logging button and the GPS status icon will turn blue.
  
 [.text-center]
 ====
 image::images/ipad/log_button_on.jpeg[scaledwidth=50%, width=50%]
 The GPS logging button with its blue (currently logging) color.
 ====
+
+While logging some log information are displayed in a box on the top right of the application window. This information are about the cumulated time and distance of the log. The distance has two values, one calculated with raw data and the other by applying the Kalman filter (see <<GPS Settings>>). The first value is the one defined in the settings and the other one is indicated in brackets.
+
+[.text-center]
+====
+image::images/ipad/log_infoscreen.jpeg[scaledwidth=50%, width=50%]
+The GPS logging info box.
+====
+
 
 To stop logging, the same button is used. Once tapped, you are prompted 
 to verify the action. 
@@ -281,7 +291,7 @@ image::images/version_1_3_0/11_GPS_list.jpeg[scaledwidth=30%, width=30%]
 The GPS logging list view.
 ====
 
-From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log and visualize the profile (swipe log to the right) or deleted it (swipe log to the left).
+From here GPS logs can be zoom to or it is possible to modify the style of the selected GPS log and visualize the profile (swipe log to the right), and export to GPX or delete it (swipe log to the left).
 
 [.text-center]
 ====
@@ -305,7 +315,7 @@ image::images/version_1_3_0/15_GPS_list.jpeg[scaledwidth=50%, width=50%]
 The navigation of the profile of a GPS log.
 ====
 
-It is now possible to decide to use the filtered logs in certain in the logs list. Just enter the GPS settings and enable the option.
+It is now possible to decide if to use the filtered or the raw data logs in the logs list. Just enter the <<GPS settings>> and enable the option.
 
 
 ==== GPS Logging visualization
@@ -327,7 +337,7 @@ The user can decide how to visualize the filtered and the original data (hide, s
 
 [.text-center]
 ====
-image::images/version_1_3_0/02_only_filtered.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/02_only_filtered.jpeg[scaledwidth=50%, width=50%]
 The options available to set the GPS logs view mode.
 ====
 
@@ -335,7 +345,7 @@ The options available to set the GPS logs view mode.
 
 [.text-center]
 ====
-image::images/version_1_3_0/03_only_orig.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/03_only_orig.jpeg[scaledwidth=50%, width=50%]
 The options available to set the GPS logs view mode.
 ====
 
@@ -343,7 +353,7 @@ The options available to set the GPS logs view mode.
 
 [.text-center]
 ====
-image::images/version_1_3_0/04_both.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/04_both.jpeg[scaledwidth=50%, width=50%]
 The options available to set the GPS logs view mode.
 ====
 
@@ -379,8 +389,6 @@ image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
 The list of supported projection after adding the new one.
 ====
 
-NOTE: At the moment this operation shows some issues in rendering the layers list when the new definition of the projection has been added. To solve it try two times to add the projection and then activate and deactivate the layer in the layers list. This should update the visualization of the layer with the correct EPSG code.
-
 [.text-center]
 ====
 image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
@@ -405,7 +413,67 @@ From here it is possible to select which decoration to visualize on the map from
 
 === Zoom buttons
 
-The zoom buttons don't need lot of information. They can be used to zoom in and out the map. The same can be done using the pinch gestures.
+The zoom buttons don't need lot of information. They can be used to zoom in and out the map. The same can be done using the pinch gestures. The value visualized represents the zoom level following the OSM convention.
+
+
+== The bottom toolbar
+
+From version 1.5.0 Smash shows a small handler in the lower right corner which allows to activate the bottom toolbar.
+
+[.text-center]
+====
+image::images/version_1_3_0/18_toolbar.png[scaledwidth=60%, width=60%]
+The bottom toolbar handler in the map view.
+====
+
+[.text-center]
+====
+image::images/version_1_3_0/19_toolbar.png[scaledwidth=60%, width=60%]
+The visualization of the bottom toolbar.
+====
+
+The bottom toolbar will host all the interactive operations on layers and on the map view.
+
+If selected one tool, its icon becames red, this means that the tool is active. To deactivete it just tap the same icon in the bottom toolbar. The tools are automatically deactivated when the user decides to exit the bottom toolbar by tapping the handler on the right corner of the map view.
+
+
+=== Features tools
+
+The **Query layers** checkbox can be used to enable the vector layer info and editing tool. Once enabled, tapping on the map will query the available vector layers for information in the tap position and editing of the selected features.
+
+[.text-center]
+====
+image::images/version_1_3_0/20_query_layers.jpeg[scaledwidth=30%, width=30%]
+The moment of tapping and loading query data with enabled vector queries.
+====
+
+The info tool queries all visible vector layers and opens the feature info view, which presents each selected feature highlighted in the map context and its attributes:
+
+* to browse between the selecte features (if more than one) use the arrows on the top right of the window
+* it is possible to edit the attributes of the feature of Geopackage layers by selecting the pencil near the value of the attribute in the table
+
+[.text-center]
+====
+image::images/version_1_3_0/21_query_layers.jpeg[scaledwidth=30%, width=30%]
+The feature info view showing a polygon feature.
+====
+
+[.text-center]
+====
+image::images/version_1_3_0/22_query_layers.jpeg[scaledwidth=30%, width=30%]
+The feature info view showing a point feature.
+====
+
+
+=== The measurement tool
+
+The second icon of the bottom toolbar represents the measurement tool, with this tool the user can drag over the map and have a qualitative measurement of the distance.
+
+[.text-center]
+====
+image::images/version_1_3_0/20_measure.png[scaledwidth=30%, width=30%]
+The complete tools drawer.
+====
 
 
 == The tools drawer
@@ -437,8 +505,7 @@ The project info panel with sharing button.
 This section of the tools drawer contais the possibility to:
 
 * _Go to_ a specified location entered by an address
-* _Share position_ using other applications installed on the device
-* enable the _Center on GPS_ functionality for the map visualization.
+* _Share position_ using other applications installed on the device.
 
 ==== Go to
 
@@ -453,34 +520,6 @@ The geocoding view.
 ==== Share position
 
 This action allows the user to share the current gps position with the most common social media methods available on the device.
-
-
-=== Features tools
-
-The **Query layers** checkbox can be used to enable the vector layer info and editing tool. Once enabled, tapping on the map will query the available vector layers for information in the tap position and editing of the selected features.
-
-[.text-center]
-====
-image::images/version_1_3_0/20_query_layers.jpeg[scaledwidth=30%, width=30%]
-The moment of tapping and loading query data with enabled vector queries.
-====
-
-The info tool queries all visible vector layers and opens the feature info view, which presents each selected feature highlighted in the map context and its attributes:
-
-* to browse between the selecte features (if more than one) use the arrows on the top right of the window
-* it is possible to edit the attributes of the feature of Geopackage layers by selecting the pencil near the value of the attribute in the table
-
-[.text-center]
-====
-image::images/version_1_3_0/21_query_layers.jpeg[scaledwidth=30%, width=30%]
-The feature info view showing a line feature.
-====
-
-[.text-center]
-====
-image::images/version_1_3_0/22_query_layers.jpeg[scaledwidth=30%, width=30%]
-The feature info view showing a point feature.
-====
 
 
 === Extras

@@ -33,14 +33,14 @@ The main aim of SMASH is to have a tool that:
 
 * is open source and **works both on IOS and Android**
 * fits in any pocket and can be always at hand, when needed
-* gives the possibility to take geo-referenced and possibly orientated pictures during a survey, with further possibility to import them into GIS applications like gvSIG
+* gives the possibility to take geo-referenced and possibly orientated pictures during a survey, with further possibility to import them into GIS applications
 * is able to easily exploit an Internet connection, if available
 * is extremely easy to use and intuitive, providing just few important functions
 
 [.text-center]
 ======
 [[img-ipad]]
-image::images/ipad.jpeg[scaledwidth=70%, width=70%]
+image::images/ipad.png[scaledwidth=70%, width=70%]
 SMASH on the ipad
 ======
 
@@ -63,7 +63,7 @@ SMASH on the IPhone.
 [.text-center]
 ====
 [[img-android]]
-image::images/android.jpeg[scaledwidth=40%, width=40%]
+image::images/android.jpg[scaledwidth=40%, width=40%]
 SMASH on the Android, Pixel 2 XL.
 ====
 
