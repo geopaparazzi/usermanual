@@ -569,28 +569,31 @@ The main, or left, drawer.
 
 === Project
 
-When tapping on the **Project** action, the user is prompted to the starting panel (Project view) where it is possible to _Open and existing project_, _Create a new project_ or select one of the _Recent projects_:
+When tapping on the **Project** action, the user is prompted to the starting panel (Project view) where it is possible to _Open and existing project_, _Create a new project_ :
 
 * browse the local folders to select an existing project
 * insert a new name for the project or accept the default one based on the timestamp
-* select one of the most recent projects from the list
 
-[.text-center]
-====
-image::images/ipad/project_new.jpeg[scaledwidth=70%, width=70%]
-The main left drawer.
-====
-
-New projects will be created inside the <<folderstructure,application's folder structure>>. To open old projects browse the project folder inside the local application's folder.
+or select one of the most _Recent projects_ from the list.
 
 
 [.text-center]
 ====
 image::images/version_1_3_0/24_main_drawer.jpeg[scaledwidth=30%, width=30%]
-The file browser view, showing the content of the _SMASH projects_ folder.
+The _Project View_.
 ====
 
-SMASH projects are of the exact same type as those of the https://www.geopaparazzi.org/geopaparazzi/index.html[geopaparazzi] project. That is the reason the extension of the file is **gpap**.
+
+[.text-center]
+====
+image::images/ipad/project_new.jpeg[scaledwidth=70%, width=70%]
+The new project dialog.
+====
+
+
+New projects will be created inside the <<folderstructure,application's folder structure>>. To open old projects browse the project folder inside the local application's folder.
+
+SMASH projects are of the exact same type as those of the https://www.geopaparazzi.org/geopaparazzi/index.html[Geopaparazzi] project. That is the reason the extension of the file is **gpap**.
 
 Once selected, the project is loaded.
 
@@ -604,7 +607,7 @@ image::images/ipad/import.PNG[scaledwidth=70%, width=70%]
 The import view.
 ====
 
-In fact SMASH is currently the suggested tool to sync geopaparazzi and SMASH surveys with the GSS.
+In fact SMASH is currently the suggested tool to synchronize Geopaparazzi and SMASH surveys with the GSS.
 
 When entering the GSS import view, a list of datasets, projects and forms available from the server is presented to the user:
 
@@ -614,11 +617,11 @@ image::images/ipad/gss_import.PNG[scaledwidth=70%, width=70%]
 The gss import view.
 ====
 
-Using the left icon data can be downloaded to the device. Once downloaded teh cion will show what datasets are already available.
+Using the left icon, data can be downloaded to the device. Once downloaded the application will show what datasets are still available.
 
 === Export
 
-SMASH is currently able to export to PDF and to synchronize with the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server].
+SMASH is currently able to export to files and to synchronize the project with the https://www.geopaparazzi.org/gss/index.html[Geopaparazzi Survey Server].
 
 [.text-center]
 ====
@@ -628,7 +631,21 @@ The export view.
 
 ==== PDF
 
-When pushing the pdf export button, a pdf is generated and saved to the export folder.
+When pushing the pdf export button, a pdf containing all the notes in the project (simple and form based), is generated and saved to the export folder in the application directory.
+
+[.text-center]
+====
+image::images/version_1_3_0/pdf_export.jpeg[scaledwidth=70%, width=70%]
+The export view.
+====
+
+==== GPX
+
+When pushing the gpx export button, the application exports the whole survey project to a single GPX and saves the file in the export folder in the application directory.
+
+==== KML
+
+When pushing the kml export button, the application exports the whole survey project to a single KML and saves the file in the export folder in the application directory.
 
 ==== GSS
 
@@ -652,7 +669,7 @@ If the device is not registered with the server, the following message will appe
 
 [.text-center]
 ====
-image::images/ipad/gss_upload_error.jpeg[scaledwidth=70%, width=70%]
+image::images/ipad/gss_upload_error.jpeg[scaledwidth=60%, width=60%]
 The upload error in case of no permission to upload.
 ====
 
@@ -661,7 +678,7 @@ The upload error in case of no permission to upload.
 
 [.text-center]
 ====
-image::images/ipad/settings.PNG[scaledwidth=70%, width=70%]
+image::images/ipad/settings.jpeg[scaledwidth=40%, width=40%]
 The settings view.
 ====
 
@@ -669,13 +686,15 @@ The settings view.
 
 [.text-center]
 ====
-image::images/version_1_3_0/27_main_drawer.jpeg[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/27_main_drawer.jpeg[scaledwidth=40%, width=40%]
 The gps settings view.
 ====
 
-In the gps settings the user can define filters based on distance and time interval for the logging activity.
+In the GPS settings the user can define filters based on distance and time interval for the logging activity.
 
-There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points. And to decide to use the GPS filtered points in certain section of the application (instead of the original data). In particular that will affect the log statistics and charting.
+There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points. And to decide to use the GPS filtered points (calculated applying the Kalman filter) to all GPS dependent features of the application (instead of the original raw data).
+
+NOTE: in case of GPS logs original and filtered GPS signal are **BOTH** always saved into the database and the user can choose to look at the original and/or filtered log in the <<GPS Logging visualization>>.
 
 Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application's logging functionality when sitting indoor, but still having a fix.
 
@@ -683,7 +702,7 @@ The second tab of the GPS setting view is dedicated to the _Live Preview_ of the
 
 [.text-center]
 ====
-image::images/version_1_3_0/32_live_preview.jpeg[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/32_live_preview.jpeg[scaledwidth=40%, width=40%]
 The gps settings view.
 ====
 
@@ -691,7 +710,7 @@ The gps settings view.
 
 [.text-center]
 ====
-image::images/version_1_3_0/28_main_drawer.jpeg[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/28_main_drawer.jpeg[scaledwidth=40%, width=40%]
 The screen settings view.
 ====
 
@@ -699,6 +718,7 @@ In the screen settings view it is possible to:
 
 * toggle the screen-always-on functionality
 * use the Retina screen mode
+* define the color picker to use in the application when setting a color
 * style the map center cross
 * change the size of the icons of the toolbar in the main view
 
@@ -719,6 +739,23 @@ This settings part allows the user to:
 * define the amount of data to be loaded. This can be important for large vector datasets that would make the map navigation less smooth; options are _all_ or a defined number of features from _50_ to _10000_
 * select if to load the data only on the last visible map area
 * define the radius of the tap of the info query tool.
+
+==== CRS
+
+The CRS view contains the list of supporte CRS for the application with the possibility to new projections by epsg code. Available projections are used to reproject vector datasets (geopackage layers and shapefiles) onto the map.
+
+[.text-center]
+====
+image::images/version_1_3_0/33_main_drawer.png[scaledwidth=60%, width=60%]
+The CRS view.
+====
+
+[.text-center]
+====
+image::images/version_1_3_0/34_main_drawer.png[scaledwidth=60%, width=60%]
+The add CRS panel.
+====
+
 
 ==== Device Settings
 
@@ -763,7 +800,7 @@ SMASH supports the Geopackage format based on sqlite database both raster tiles 
 
 Geopackage vector layers are supported also for the editing of the attribute table.
 
-The layers can be also in different projections.
+The vector layers can be in different projections, they will be reprojected on the fly.
 
 === GPX
 
@@ -932,8 +969,6 @@ An example of the styling options of a GPX layer in SMASH.
 ====
 
 
-
-
 == Application folder structure
 anchor:folderstructure[]
 
@@ -952,4 +987,62 @@ The folder structure of the application.
 * forms: folder for forms. Any form file in there is loaded as form note in SMASH.
 * maps: the folders in which to keep maps. Downloaded and synchronized maps are saved into this folder.
 * projects: folder inside which new projects are created.
+
+
+== Appendix 1: Raster reprojection
+
+The support for the visualization of the Geopackage raster layers allows to set different parameters like the tiling system and the projection. 
+As for the tiling system we reccommand to use Gdal to create Geopackage rasters. In fact, Gdal by default generates only one zoomlevel at the optimal image resolution and using the best tile schema. This allows to create geopackages of big imagery maintaining more or less the same size o the original data.
+
+Smash supports different projections and does the reprojection on the flight if it is different from the usual EPSG 3857 used as base for the application. 
+
+Geopackage tile datasets can be loaded in two different ways. The settings are available in the properties view of geopackage layers.
+
+[.text-center]
+====
+image::images/ipad/01_gpkg_props.png[scaledwidth=60%, width=60%]
+The Layers view: a detail of possibilities for a Geopackage layer.
+====
+
+
+[.text-center]
+====
+image::images/ipad/02_gpkg_props.png[scaledwidth=60%, width=60%]
+The properties view of a geopackage layer.
+====
+
+The available options are:
+
+* the opacity value of the entire map
+* the possibility to load a wider range of tiles schemas: to use for an ortophoto reprojected with gdal and packaged as geopackage
+
+[.text-center]
+====
+image::images/ipad/03_gladschema.png[scaledwidth=70%, width=70%]
+The visualization of a geopackage layer with an ortophoto reprojected with gdal.
+====
+
+NOTE: This feature has a larger memory footprint as it loads the tiles in memory as an image. So if the dataset is too large for your device it will not work and it has to be disabled.
+
+
+* the color to make transparent: this is useful when there is the need to overlay technical maps over an elevation model or ortophoto. But it also solves a situation like this:
+
+[.text-center]
+====
+image::images/ipad/04_collar.png[scaledwidth=70%, width=70%]
+The visualization of two geopackage layers with an ortophoto reprojected with gdal, note the black collar.
+====
+
+where there are two geopackage layers of a reprojected ortophoto. When both loaded the black collar of one covers the other. It is possible to set the black collar to transparent by selecting the black color in the picker.
+
+[.text-center]
+====
+image::images/ipad/06_collar_fixtile.png[scaledwidth=70%, width=70%]
+The visualization of two geopackage layers with an ortophoto reprojected with gdal, with the black color set to transparent.
+====
+
+
+NOTE: when the jpeg geopackage tiles are generated, there is some interpolation and antialiasing going on, which makes part of the color not completely black, hence some pixel will remaining.
+
+
 
