@@ -79,7 +79,7 @@ The GPS info and tools copy coordinates.
 
 To close the GPS info and tools panel just swipe it down. 
 
-By double tapping the GPS button the automatic map centering on GPS is toggled.
+_By double tapping the GPS button the automatic map centering on GPS is toggled._
 
 
 === Notes
@@ -109,7 +109,7 @@ The highlighted icon at the top of the dialog tells the user whether the note wi
 [.text-center]
 ====
 image::images/version_1_3_0/05_simple_notes.jpeg[scaledwidth=50%, width=50%, align="center"]
-Adding simple notes to the project. The note will be placed in the current GPS position.
+Adding simple notes to the project. The note will be placed in the current center of the map.
 ====
 
 When the **text note** entry is selected, the note properties view opens:
@@ -389,12 +389,6 @@ image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
 The list of supported projection after adding the new one.
 ====
 
-[.text-center]
-====
-image::images/version_1_3_0/17_layers_list.jpeg[scaledwidth=30%, width=30%]
-The list of supported projection after adding the new one.
-====
-
 Double tapping on the layers button opens the Layers Plugins dialog. 
 
 [.text-center]
@@ -471,7 +465,7 @@ The second icon of the bottom toolbar represents the measurement tool, with this
 
 [.text-center]
 ====
-image::images/version_1_3_0/20_measure.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/20_measure.png[scaledwidth=50%, width=50%]
 The complete tools drawer.
 ====
 
@@ -692,9 +686,9 @@ The gps settings view.
 
 In the GPS settings the user can define filters based on distance and time interval for the logging activity.
 
-There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points. And to decide to use the GPS filtered points (calculated applying the Kalman filter) to all GPS dependent features of the application (instead of the original raw data).
+There is also the possibility to visualize the GPS point count separated for the _valid_ and for _all_ points. And to decide to use the GPS filtered points (currently calculated applying the Kalman filter) to all GPS dependent features of the application (instead of the original raw data).
 
-NOTE: in case of GPS logs original and filtered GPS signal are **BOTH** always saved into the database and the user can choose to look at the original and/or filtered log in the <<GPS Logging visualization>>.
+NOTE: In case of GPS logs original and filtered GPS signal are **BOTH** always saved into the database and the user can choose to look at the original and/or filtered log in the <<GPS Logging visualization>>.
 
 Last but not least it is possible to simulate a gps log. The device needs to have a gps fix for this to work. This can be handy when in need to demo the application's logging functionality when sitting indoor, but still having a fix.
 
@@ -742,7 +736,7 @@ This settings part allows the user to:
 
 ==== CRS
 
-The CRS view contains the list of supporte CRS for the application with the possibility to new projections by epsg code. Available projections are used to reproject vector datasets (geopackage layers and shapefiles) onto the map.
+The CRS view contains the list of supported CRS for the application with the possibility to add new projections by epsg code. Available projections are used to reproject vector datasets (geopackage layers and shapefiles) onto the map.
 
 [.text-center]
 ====
@@ -823,7 +817,7 @@ In their default style they kind of look like:
 
 [.text-center]
 ====
-image::images/version_1_3_0/main_view_mapsforge.png[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/main_view_mapsforge.jpeg[scaledwidth=70%, width=70%]
 The standard mapsforge map.
 ====
 
@@ -909,7 +903,7 @@ NOTE: Please remember to *save* using the floating action bottom at the bottom. 
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_08_points_map.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/sld_08_points_map.jpeg[scaledwidth=30%, width=30%]
 An example of styling a point layer in SMASH.
 ====
 
@@ -945,7 +939,7 @@ The result of the previous styling settings is the following:
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_12_theme_map.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/sld_12_theme_map.jpeg[scaledwidth=30%, width=30%]
 An example of a simple thematic style created in SMASH.
 ====
 
@@ -964,7 +958,7 @@ In particular style can be defined for lines and points. If waypoints have the *
 
 [.text-center]
 ====
-image::images/version_1_3_0/sld_15_gpx_map.png[scaledwidth=30%, width=30%]
+image::images/version_1_3_0/sld_15_gpx_map.jpeg[scaledwidth=30%, width=30%]
 An example of the styling options of a GPX layer in SMASH.
 ====
 
