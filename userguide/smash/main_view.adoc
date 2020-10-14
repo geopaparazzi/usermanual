@@ -994,14 +994,14 @@ Geopackage tile datasets can be loaded in two different ways. The settings are a
 
 [.text-center]
 ====
-image::images/ipad/01_gpkg_props.png[scaledwidth=60%, width=60%]
+image::images/version_1_5_0/01_gpkg_props.png[scaledwidth=60%, width=60%]
 The Layers view: a detail of possibilities for a Geopackage layer.
 ====
 
 
 [.text-center]
 ====
-image::images/ipad/02_gpkg_props.png[scaledwidth=60%, width=60%]
+image::images/version_1_5_0/02_gpkg_props.png[scaledwidth=60%, width=60%]
 The properties view of a geopackage layer.
 ====
 
@@ -1012,7 +1012,7 @@ The available options are:
 
 [.text-center]
 ====
-image::images/ipad/03_gladschema.png[scaledwidth=70%, width=70%]
+image::images/version_1_5_0/03_gladschema.png[scaledwidth=70%, width=70%]
 The visualization of a geopackage layer with an ortophoto reprojected with gdal.
 ====
 
@@ -1023,7 +1023,7 @@ NOTE: This feature has a larger memory footprint as it loads the tiles in memory
 
 [.text-center]
 ====
-image::images/ipad/04_collar.png[scaledwidth=70%, width=70%]
+image::images/version_1_5_0/04_collar.png[scaledwidth=70%, width=70%]
 The visualization of two geopackage layers with an ortophoto reprojected with gdal, note the black collar.
 ====
 
@@ -1031,7 +1031,7 @@ where there are two geopackage layers of a reprojected ortophoto. When both load
 
 [.text-center]
 ====
-image::images/ipad/06_collar_fixtile.png[scaledwidth=70%, width=70%]
+image::images/version_1_5_0/06_collar_fixtile.png[scaledwidth=70%, width=70%]
 The visualization of two geopackage layers with an ortophoto reprojected with gdal, with the black color set to transparent.
 ====
 
