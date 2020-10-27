@@ -44,7 +44,7 @@ Details of the SMASH app in the Google Play store.
 
 ==== From the main repository
 
-For people that have no access to Google Play, an apk has been paced under the https://github.com/moovida/smash/releases[releases page of SMASH]. Under the assets section of each release there is also an **apk** file. That one can be manualli installed oin Android. Actually, if the link is accessed from within Android, the installation is proposed on clicking the link.
+For people that have no access to Google Play, an apk has been paced under the https://github.com/moovida/smash/releases[releases page of SMASH]. Under the assets section of each release there is also an **apk** file. That one can be manually installed on Android. Actually, if the link is accessed from within Android, the installation is proposed on clicking the link.
 
 [.text-center]
 ====

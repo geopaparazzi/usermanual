@@ -416,24 +416,76 @@ From version 1.5.0 Smash shows a small handler in the lower right corner which a
 
 [.text-center]
 ====
-image::images/version_1_3_0/18_toolbar.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/18_toolbar.jpeg[scaledwidth=60%, width=60%]
 The bottom toolbar handler in the map view.
 ====
 
 [.text-center]
 ====
-image::images/version_1_3_0/19_toolbar.png[scaledwidth=60%, width=60%]
+image::images/version_1_3_0/19_toolbar.jpeg[scaledwidth=60%, width=60%]
 The visualization of the bottom toolbar.
 ====
 
 The bottom toolbar will host all the interactive operations on layers and on the map view.
 
-If selected one tool, its icon becames red, this means that the tool is active. To deactivete it just tap the same icon in the bottom toolbar. The tools are automatically deactivated when the user decides to exit the bottom toolbar by tapping the handler on the right corner of the map view.
+If selected one tool, its icon becames red, this means that the tool is active. To deactivete it just tap the same icon in the bottom toolbar. The tools are automatically deactivated when the user decides to exit the bottom toolbar by tapping the handler on the right corner of the map view. In addition the feature editing tool will show its specific options in the bottom toolbar while activated.
 
 
-=== Features tools
+=== Feature editing tool
 
-The **Query layers** checkbox can be used to enable the vector layer info and editing tool. Once enabled, tapping on the map will query the available vector layers for information in the tap position and editing of the selected features.
+The first icon of the bottom toolbar represents the feature editing tool for vector layers in the Geopackage format:
+
+* of all kind of features: point, lines, polygons and multipoint, multiline, multipolygon
+* in their own coordinate reference system.
+
+The features editing it works for all visible layers in a Geopackage format and allows to:
+
+* modify existing geometries
+* add a new geometry 
+* delete an existing geometry.
+
+
+[.text-center]
+====
+image::images/version_1_3_0/36_editing.jpeg[scaledwidth=30%, width=30%]
+The moment of tapping and loading query data with enabled the features editing tool.
+====
+
+Once activated **long tap** on a feature in the map to select the feature below, for polygons, or in the very near, for lines and points. The diameter of influence of the tapped position can be set in the general _Settings -> Vector layers -> Info Tool_. 
+
+The selected feature will be highlighted in yellow in the map and some specific editing tools will be displayed in the bottom toolbar to:
+
+1. delete
+2. edit the attributes table
+3. save the modified geometry
+4. cancel the geometry changes until last saved action.
+
+[.text-center]
+====
+image::images/version_1_3_0/37_editing.jpeg[scaledwidth=30%, width=30%]
+The long tapped polygon feature selected.
+====
+
+Editing of an existing feature consists of:
+
+a) drag edges/angles in the new position
+b) move the middle points of segments: this will become an edge and automatically two additional middle points will be added from the selected vertex to the two adjacient vertexes in both directions
+c) long tap on a node to remove it.
+
+[.text-center]
+====
+image::images/version_1_3_0/38_editing.jpeg[scaledwidth=30%, width=30%]
+An example of an edited polygon feature.
+====
+
+Now it is possible to either save the geometry changes image:images/version_1_3_0/39_editing.png[scaledwidth=5%, width=5%] or cancel image:images/version_1_3_0/40_editing.png[scaledwidth=5%, width=5%] to restore the initial geometry for that feature.
+
+
+
+
+=== Query layers
+
+The second icon of the bottom toolbar activates the **Query layers** tool, that can be used to enable the vector layer info and attributes editing. Once enabled, tapping on the map will query all the visible vector layers for information in the tapped position. The attributes will be also editable if the selected feature is contained in a geopackage layer.
 
 [.text-center]
 ====
@@ -444,29 +496,30 @@ The moment of tapping and loading query data with enabled vector queries.
 The info tool queries all visible vector layers and opens the feature info view, which presents each selected feature highlighted in the map context and its attributes:
 
 * to browse between the selecte features (if more than one) use the arrows on the top right of the window
-* it is possible to edit the attributes of the feature of Geopackage layers by selecting the pencil near the value of the attribute in the table
+* it is possible to edit the attributes of the feature only of Geopackage layers by selecting the pencil near the value of the attribute in the table
 
 [.text-center]
 ====
 image::images/version_1_3_0/21_query_layers.jpeg[scaledwidth=30%, width=30%]
-The feature info view showing a polygon feature.
+The feature info view showing a polygon feature in a non Geopackage layer.
 ====
 
 [.text-center]
 ====
 image::images/version_1_3_0/22_query_layers.jpeg[scaledwidth=30%, width=30%]
-The feature info view showing a point feature.
+The feature info view showing a point feature in a Geopackage layer with the possibility for attribute's editing.
 ====
 
 
 === The measurement tool
 
-The second icon of the bottom toolbar represents the measurement tool, with this tool the user can drag over the map and have a qualitative measurement of the distance.
+The third icon of the bottom toolbar represents the measurement tool, with this tool the user can drag over the map and have a qualitative measurement of the distance. The path is highlighted in red on the map view and the total distance is shown on top of the measurement icon in the bottom toolbar.
+
 
 [.text-center]
 ====
-image::images/version_1_3_0/20_measure.png[scaledwidth=50%, width=50%]
-The complete tools drawer.
+image::images/version_1_3_0/20_measure.jpeg[scaledwidth=50%, width=50%]
+The measurement tool.
 ====
 
 
