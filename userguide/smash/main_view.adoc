@@ -81,6 +81,14 @@ To close the GPS info and tools panel just swipe it down.
 
 _By double tapping the GPS button the automatic map centering on GPS is toggled._
 
+On **Android** devices the GPS position notification message is dynamic. In the notification of the device there are all the information about the GPS status (position and logging).
+
+[.text-center]
+====
+image::images/version_1_3_0/gps_notification_01.jpg[scaledwidth=50%, width=50%]
+The visualization of the GPS notification on an _Android_ device.
+====
+
 
 === Notes
 
@@ -277,6 +285,15 @@ image::images/ipad/log_infoscreen.jpeg[scaledwidth=50%, width=50%]
 The GPS logging info box.
 ====
 
+On **Android** devices where the GPS position notification message is dynamic, in the notifications of the device there are all the information about the GPS status and logging information. The title of the notification shows the logging operation and in the second line time and distance from starting point of the current log is displayed.
+
+[.text-center]
+====
+image::images/version_1_3_0/gps_notification_02.jpg[scaledwidth=50%, width=50%]
+The visualization of the GPS notification on an _Android_ device.
+====
+
+
 
 To stop logging, the same button is used. Once tapped, you are prompted 
 to verify the action. 
@@ -428,17 +445,17 @@ The visualization of the bottom toolbar.
 
 The bottom toolbar will host all the interactive operations on layers and on the map view.
 
-If selected one tool, its icon becames red, this means that the tool is active. To deactivete it just tap the same icon in the bottom toolbar. The tools are automatically deactivated when the user decides to exit the bottom toolbar by tapping the handler on the right corner of the map view. In addition the feature editing tool will show its specific options in the bottom toolbar while activated.
+If selected one tool, its icon becames red, this means that the tool is active. To deactivate it just tap the same icon in the bottom toolbar. The tools are automatically deactivated when the user decides to exit the bottom toolbar by tapping the handler on the right corner of the map view. In addition, when activated, the feature editing tool will show its specific options in the bottom toolbar.
 
 
-=== Feature editing tool
+=== Feature editing
 
 The first icon of the bottom toolbar represents the feature editing tool for vector layers in the Geopackage format:
 
-* of all kind of features: point, lines, polygons and multipoint, multiline, multipolygon
+* of all feature's type: point, lines, polygons and multipoint, multiline, multipolygon
 * in their own coordinate reference system.
 
-The features editing it works for all visible layers in a Geopackage format and allows to:
+The features editing works for all visible vector layers of a Geopackage  and allows to:
 
 * modify existing geometries
 * add a new geometry 
@@ -466,10 +483,14 @@ image::images/version_1_3_0/37_editing.jpeg[scaledwidth=30%, width=30%]
 The long tapped polygon feature selected.
 ====
 
-Editing of an existing feature consists of:
+==== Editing of existing features 
+
+Editing of an existing geometry consists of:
 
 a) drag edges/angles in the new position
+
 b) move the middle points of segments: this will become an edge and automatically two additional middle points will be added from the selected vertex to the two adjacient vertexes in both directions
+
 c) long tap on a node to remove it.
 
 [.text-center]
@@ -478,14 +499,68 @@ image::images/version_1_3_0/38_editing.jpeg[scaledwidth=30%, width=30%]
 An example of an edited polygon feature.
 ====
 
-Now it is possible to either save the geometry changes image:images/version_1_3_0/39_editing.png[scaledwidth=5%, width=5%] or cancel image:images/version_1_3_0/40_editing.png[scaledwidth=5%, width=5%] to restore the initial geometry for that feature.
+As soon as the modified geometry is ready, it is possible to either save the changes, by tapping on the save icon  image:images/version_1_3_0/39_editing.png[scaledwidth=5%, width=5%] or long tap on the cancel icon image:images/version_1_3_0/40_editing.png[scaledwidth=5%, width=5%] to restore the initial geometry for that feature. Both the commands will close the editing tool for the current geometry.
 
 
+Editing of the attributes of and existing feature is accessible both from the editing menu and from the query features tool. In this case just select the second icon of the editing toolbar to visualize the attributes table of the current feature. Once edited, the changes are automatically saved in the attributes table. 
+
+To exit the tool tap the left arrow on the top left of the window.
+
+[.text-center]
+====
+image::images/version_1_3_0/44_editing.jpeg[scaledwidth=30%, width=30%]
+Editing attributes of a polygon layer.
+====
 
 
-=== Query layers
+==== Add new features 
 
-The second icon of the bottom toolbar activates the **Query layers** tool, that can be used to enable the vector layer info and attributes editing. Once enabled, tapping on the map will query all the visible vector layers for information in the tapped position. The attributes will be also editable if the selected feature is contained in a geopackage layer.
+To add a new feature in one of the visible Geopackage layers long tap on the desidered position regardless of the type of the new feature you want to add:
+
+a) the application will ask in which layer to save the new feature 
+
+[.text-center]
+====
+image::images/version_1_3_0/41_editing.jpeg[scaledwidth=30%, width=30%]
+The list of the available layers where to create the new feature.
+==== 
+
+b) select the layers from the list of the available 
+
+c) new feature of the type of the selected layer will be added automatically in the tapped position:
+
+    * point layers: a new point is added in the tapped position
+    * line layers: a small line with two vertexes will be added in the tapped position, the user can then modify this geometry following the _Editing of existing features_ instructions
+    
+[.text-center]
+====
+image::images/version_1_3_0/42_editing.jpeg[scaledwidth=30%, width=30%]
+An example of the new line feature created automatically by the application.
+====    
+    
+    * polygon layers: a small polygon with 3 vertexes will be added in the tapped position, the user can then modify this geometry following the _Editing of existing features_ instructions
+
+[.text-center]
+====
+image::images/version_1_3_0/43_editing.jpeg[scaledwidth=30%, width=30%]
+An example of the new polygon feature created automatically by the application.
+====
+
+
+==== Delete existing features 
+
+To delete an existing feature:
+
+* long tap on the feature to delete to select it
+
+* tap the trash icon in the bottom toolbar.
+
+NOTE:: please consider that the delete tool has no possibility to reverse the action, there are no _undo_ or _cancel_ tools working after it.
+
+
+=== Query features
+
+The second icon of the bottom toolbar activates the query features tool, that can be used to enable the vector layer info and attributes editing. Once enabled, tapping on the map will query all the visible vector layers for information in the tapped position. The attributes will be also editable if the selected feature is contained in a Geopackage layer.
 
 [.text-center]
 ====
@@ -493,7 +568,7 @@ image::images/version_1_3_0/20_query_layers.jpeg[scaledwidth=30%, width=30%]
 The moment of tapping and loading query data with enabled vector queries.
 ====
 
-The info tool queries all visible vector layers and opens the feature info view, which presents each selected feature highlighted in the map context and its attributes:
+The info tool queries all visible vector layers and opens the feature info view, which showsdddddd each selected feature highlighted in the map context and its attributes:
 
 * to browse between the selecte features (if more than one) use the arrows on the top right of the window
 * it is possible to edit the attributes of the feature only of Geopackage layers by selecting the pencil near the value of the attribute in the table
@@ -673,7 +748,7 @@ SMASH is currently able to export to files and to synchronize the project with t
 [.text-center]
 ====
 image::images/version_1_3_0/gss_export.jpeg[scaledwidth=70%, width=70%]
-The export view.
+The PDF export view.
 ====
 
 ==== PDF
@@ -693,6 +768,16 @@ When pushing the gpx export button, the application exports the whole survey pro
 ==== KML
 
 When pushing the kml export button, the application exports the whole survey project to a single KML and saves the file in the export folder in the application directory.
+
+==== GEOPACKAGE
+
+When pushing the Geopackage export button, the application exports the whole survey project to a single Geopackage and saves the file in the export folder in the application directory.
+
+[.text-center]
+====
+image::images/version_1_3_0/geopkg_export.jpeg[scaledwidth=70%, width=70%]
+The export view.
+====
 
 ==== GSS
 
@@ -777,7 +862,7 @@ The camera settings allow to choose the pictures resolution between high, medium
 
 [.text-center]
 ====
-image::images/version_1_3_0/29_main_drawer.jpeg[scaledwidth=70%, width=70%]
+image::images/version_1_3_0/29_main_drawer.jpeg[scaledwidth=60%, width=60%]
 The vector layers settings view.
 ====
 
@@ -785,7 +870,9 @@ This settings part allows the user to:
 
 * define the amount of data to be loaded. This can be important for large vector datasets that would make the map navigation less smooth; options are _all_ or a defined number of features from _50_ to _10000_
 * select if to load the data only on the last visible map area
-* define the radius of the tap of the info query tool.
+* define the radius of the tap of the info feature and editing tool 
+* set the dimension of the editing drag handler size
+* set the dimension of the editing intermediate drag handler size.
 
 ==== CRS
 
