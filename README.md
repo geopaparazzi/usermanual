@@ -1,4 +1,15 @@
-# usermanual
+
+
+# ⚠️ ARCHIVED — DO NOT USE ⚠️
+
+> [!CAUTION]
+> **This user manual is no longer used and has been placed into archived mode.**
+> The new manual for SMASH can be found at [www.geopaparazzi.org](https://www.geopaparazzi.org), and is hosted on [Read the Docs](https://smash-smart-mobile-app-for-surveyors-happyness.readthedocs.io).
+
+
+
+
+
 
 Usermanual Space.
 
